@@ -1,0 +1,19 @@
+.navbar {
+    .innerWrapper {
+        align-items: center;
+        display: flex;
+        justify-content: end;
+    }
+}
+
+.navLinks {
+    color: var(--accent-faded);
+    display: flex;
+    font-size: 1.125rem;
+    gap: 1.5rem;
+}
+
+.reportButton {
+    margin-inline-end: 1.5rem;
+    margin-inline-start: 3rem;
+}
