@@ -1,0 +1,10 @@
+.footer {
+    border-block-start: 1px solid var(--accent-muted);
+    padding-block: 1.5rem;
+
+    .innerWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

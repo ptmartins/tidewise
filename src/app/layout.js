@@ -13,7 +13,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <Header />
-        {children}
+        <main className="main">
+          <div className="innerWrapper">
+            {children}
+          </div>
+        </main>
         <Footer />
       </body>
     </html>

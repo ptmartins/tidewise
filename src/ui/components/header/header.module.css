@@ -1,5 +1,4 @@
 .header {
     border-block-end: 1px solid var(--accent-muted);
-    padding-block-end: 1.5rem;
-    padding-block-start: .75rem;
+    padding-block: 1.5rem;
 }
