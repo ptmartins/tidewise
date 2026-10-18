@@ -9,6 +9,8 @@
     &::after {
         background: linear-gradient(90deg, #0a2b2be0 0%, #0a2b2b8f 38%, #0a2b2b0a 75%);
         block-size: 640px;
+        border-start-start-radius: var(--border-radius-m);
+        border-end-start-radius: var(--border-radius-m);
         content: '';
         inline-size: 100%;
         inset-block-start: 0;

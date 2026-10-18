@@ -3,6 +3,15 @@
         align-items: center;
         display: flex;
         justify-content: end;
+        
+        span {
+            background-color: var(--accent-muted);
+            border-radius: 50%;
+            color: var(--accent-dark);
+            font-size: .9rem;
+            font-weight: 700;
+            padding: .5rem;
+        }
     }
 }
 
@@ -12,6 +21,10 @@
     font-size: 1.125rem;
     font-weight: 400;
     gap: 1.5rem;
+}
+
+.navLink--active {
+    color: red;
 }
 
 .reportButton {

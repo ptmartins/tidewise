@@ -20,7 +20,7 @@ export default function Home() {
                             <span className={styles.tag}>Explore the ocean</span>
                             <h1 className={styles.hero__title}>Meet the life <br /> <span>of our Atlantic coast</span> </h1>
                             <p className={styles.hero__subtitle}>Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.</p>
-                            <button className={`btn ${styles.btn__hero}`}>Get started</button>
+                            <button className={`btn ${styles.btn__hero}`}>Explore species <Icon icon="lucide:arrow-right" /> </button>
                         </div>
                     </div>
                 </div>

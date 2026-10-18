@@ -5,7 +5,7 @@ function Footer() {
     return(
         <footer className={styles.footer}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
-                <div className={styles.footerLinks}>
+                <div className={styles.footer__links}>
                     <Image />
                     <p>A field guide for a living ocean</p>
                 </div>
