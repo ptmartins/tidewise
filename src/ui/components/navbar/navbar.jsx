@@ -14,14 +14,14 @@ function NavBar() {
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <Image />
                 <ul className={styles.navLinks}>
-                    <li className={ path === '/' ? styles['navLink--active'] : styles.navLink}>
+                    <li className={`${styles.navLink} ${path === '/' ? styles['navLink--active'] : ''}`}>
                         <Link href="/">Explore</Link>
                     </li>
-                    <li className={ path === '/learn' ? styles['navLink--active'] : styles.navLink}>
+                    <li className={`${styles.navLink} ${path === '/learn' ? styles['navLink--active'] : ''}`}>
                         <Link href="/learn">Learn</Link>
                     </li>
-                    <li className={ path === '/sightings' ? styles['navLink--active'] : styles.navLink}>
-                        <Link href="/sightings">Field Reports</Link>
+                    <li className={`${styles.navLink} ${path === '/sightings' ? styles['navLink--active'] : ''}`}>
+                        <Link href="/sightings">Field reports</Link>
                     </li>
                 </ul>
                 <button className={`btn ${styles.reportButton}`}>Report a sighting</button>
