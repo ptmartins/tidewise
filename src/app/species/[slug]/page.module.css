@@ -391,6 +391,7 @@
 }
 
 .spotting {
+    background-color: var(--off-white);
     border: 1px solid var(--accent-muted);
     border-radius: var(--border-radius-l);
     padding: 1.5rem;
