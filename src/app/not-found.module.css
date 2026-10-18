@@ -1,0 +1,15 @@
+.notFound__content {
+    inline-size: 50%;
+}
+
+.notFound__error {
+    color: var(--secondary-accent);
+    display: inline-block;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-block-end: .75rem;
+}
+
+.notFound__subtitle {
+    color: var(--accent-faded);
+}
