@@ -19,6 +19,11 @@ const TREND_ICONS = {
 
 const formatRange = ({ min, max }, unit) => `${min}–${max} ${unit}`;
 
+const formatWeight = ({ min, max }) =>
+    max >= 1000 ? formatRange({ min: min / 1000, max: max / 1000 }, 't') : formatRange({ min, max }, 'kg');
+
+const withArticle = (noun) => `${/^[aeiou]/i.test(noun) ? 'an' : 'a'} ${noun}`;
+
 const firstSentence = (paragraphs) => paragraphs[0].split(/(?<=\.)\s/)[0];
 
 export function generateStaticParams() {
@@ -44,9 +49,9 @@ export default async function SpeciesPage({ params }) {
     if (!species) notFound();
 
     const quickFacts = [
-        { icon: 'lucide:weight', label: 'Weight', value: formatRange(species.weight, 'kg') },
+        { icon: 'lucide:weight', label: 'Weight', value: formatWeight(species.weight) },
         { icon: 'lucide:ruler', label: 'Length', value: formatRange(species.length, 'm') },
-        { icon: 'lucide:hourglass', label: 'Lifespan', value: `Up to ${species.lifespan.max} years` },
+        { icon: 'lucide:hourglass', label: 'Lifespan', value: species.lifespan ? `Up to ${species.lifespan.max} years` : 'Unknown' },
         { icon: 'lucide:globe', label: 'Distribution', value: species.distributionShort },
     ];
 
@@ -88,16 +93,25 @@ export default async function SpeciesPage({ params }) {
                     </div>
 
                     <figure className={styles.hero__media}>
-                        <Image
-                            src={species.mainImage.src}
-                            alt={species.mainImage.alt}
-                            width={species.mainImage.width}
-                            height={species.mainImage.height}
-                            sizes="(max-width: 900px) 100vw, 55vw"
-                            className={styles.hero__image}
-                            priority
-                        />
-                        <figcaption>{species.mainImage.credit}</figcaption>
+                        {species.mainImage ? (
+                            <>
+                                <Image
+                                    src={species.mainImage.src}
+                                    alt={species.mainImage.alt}
+                                    width={species.mainImage.width}
+                                    height={species.mainImage.height}
+                                    sizes="(max-width: 900px) 100vw, 55vw"
+                                    className={styles.hero__image}
+                                    priority
+                                />
+                                <figcaption>{species.mainImage.credit}</figcaption>
+                            </>
+                        ) : (
+                            <div className={styles.hero__placeholder}>
+                                <Icon icon="lucide:image-off" width="32" height="32" />
+                                <span>Illustration coming soon</span>
+                            </div>
+                        )}
                     </figure>
                 </div>
             </section>
@@ -130,14 +144,16 @@ export default async function SpeciesPage({ params }) {
                         </ol>
 
                         <dl className={styles.status__meta}>
-                            <div>
-                                <dt>In Portugal</dt>
-                                <dd>
-                                    <span className={styles.status__dot} data-status={species.nationalStatus} />
-                                    {IUCN_LABELS[species.nationalStatus]}
-                                    <small>{species.nationalStatusNote}</small>
-                                </dd>
-                            </div>
+                            {species.nationalStatus && (
+                                <div>
+                                    <dt>In Portugal</dt>
+                                    <dd>
+                                        <span className={styles.status__dot} data-status={species.nationalStatus} />
+                                        {IUCN_LABELS[species.nationalStatus]}
+                                        {species.nationalStatusNote && <small>{species.nationalStatusNote}</small>}
+                                    </dd>
+                                </div>
+                            )}
                             <div>
                                 <dt>Population trend</dt>
                                 <dd>
@@ -217,6 +233,9 @@ export default async function SpeciesPage({ params }) {
                             </dl>
 
                             <span className={styles.label}>Best months</span>
+                            {species.bestMonths.length === 0 && (
+                                <p className={styles.months__note}>Records are too rare to show a seasonal pattern.</p>
+                            )}
                             <ol className={styles.months}>
                                 {MONTHS.map((month) => (
                                     <li
@@ -278,7 +297,7 @@ export default async function SpeciesPage({ params }) {
                 <div className={`innerWrapper ${styles.cta__inner}`}>
                     <div>
                         <span className={styles.tag}>You can help</span>
-                        <h2>Spotted a {species.commonName.toLowerCase()}?</h2>
+                        <h2>Spotted {withArticle(species.commonName.toLowerCase())}?</h2>
                         <p>Every record helps researchers track populations along our coast.</p>
                     </div>
                     <div className={styles.cta__buttons}>
