@@ -15,7 +15,7 @@ function NavBar() {
                         <Link href="/species">Learn</Link>
                     </li>
                     <li>
-                        <Link href="/sightings">FieldReports</Link>
+                        <Link href="/sightings">Field Reports</Link>
                     </li>
                 </ul>
                 <button className={`btn ${styles.reportButton}`}>Report a sighting</button>

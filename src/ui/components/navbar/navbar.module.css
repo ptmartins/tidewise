@@ -10,6 +10,7 @@
     color: var(--accent-faded);
     display: flex;
     font-size: 1.125rem;
+    font-weight: 400;
     gap: 1.5rem;
 }
 

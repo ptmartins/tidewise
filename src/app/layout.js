@@ -13,10 +13,8 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
         <Header />
-        <main className="main">
-          <div className="innerWrapper">
-            {children}
-          </div>
+        <main className="main" style={{ marginBlockStart: "var(--header-height)" }}>
+          {children}
         </main>
         <Footer />
       </body>

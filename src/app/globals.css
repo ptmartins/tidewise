@@ -2,20 +2,25 @@
   --white: #fff;
 
   --background: #f6f8f6;
+  --background-translucent: rgba(246, 248, 246, 0.95);
   --txt: #171717;
 
   --accent: #246663;
   --accent-dark: #195451;
   --accent-light: #25635f;
+  --accent-lighter: #8dd7cc;
   --accent-faded: #78908b;
   --accent-muted: #bed2cd;
 
   --secondary-accent: #e47757;
+  --secondary-accent-dark: #c55f3f;
 
   --border-radius-m: 8px;
 
   --default-transition: all .2s ease-in;
-  --max-width: 1440px;
+  --max-width: 1200px;
+
+  --header-height: 90px
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,7 +53,10 @@ body {
   color: var(--txt);
   display: flex;
   flex-direction: column;
+  font-size: 1.125rem;
   font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
   min-block-size: 100dvh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -60,7 +68,50 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--accent-dark);
   font-family: var(--font-playfair), Georgia, serif;
+}
+
+h1 {
+  font-size: 2.7rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: 1.1rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: 1rem;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: .75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: .5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: .5rem;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-block-end: .5rem;
 }
 
 a {
@@ -89,15 +140,34 @@ ul {
   }
 }
 
+.section {
+  padding-block: 4.5rem;
+}
+
 .btn {
-  background-color: transparent;
+  align-items: center;
+  display: inline-flex;
+  background-color: var(--white);
   border: 1px solid var(--accent-muted);
   border-radius: var(--border-radius-m);
   color: var(--accent);
   cursor: pointer;
-  font-size: 1.125rem;
+  font-size: 1rem;
+  gap: .75rem;
   padding: .75rem 1rem;
   transition: var(--default-transition);
+}
+
+.btn--primary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+}
+
+.btn--secondary {
+  background-color: var(--secondary-accent);
+  border-color: var(--secondary-accent);
+  color: var(--white);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -111,5 +181,15 @@ ul {
     background-color: var(--accent);
     border-color: var(--accent);
     color: var(--white);
+  }
+
+  .btn--primary:hover {
+    background-color: var(--accent-dark);
+    border-color: var(--accent-dark);
+  }
+
+  .btn--secondary:hover {
+    background-color: var(--secondary-accent-dark);
+    border-color: var(--secondary-accent-dark);
   }
 }
