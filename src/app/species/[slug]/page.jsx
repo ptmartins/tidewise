@@ -101,7 +101,7 @@ export default async function SpeciesPage({ params }) {
                                     width={species.mainImage.width}
                                     height={species.mainImage.height}
                                     sizes="(max-width: 900px) 100vw, 55vw"
-                                    className={styles.hero__image}
+                                    className={`${styles.hero__image} ${species.category === 'Seal' ? styles['hero__image--static'] : ''}`}
                                     priority
                                 />
                                 <figcaption>{species.mainImage.credit}</figcaption>
