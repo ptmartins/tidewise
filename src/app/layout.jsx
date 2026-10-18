@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { playfair, inter } from "@/ui/fonts/fonts";
 import "./globals.css";
 import Header from "@/ui/components/header/header";
@@ -12,7 +13,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body>
-        <Header />
+        <Suspense>
+          <Header />
+        </Suspense>
         <main className="main" style={{ marginBlockStart: "var(--header-height)" }}>
           {children}
         </main>
