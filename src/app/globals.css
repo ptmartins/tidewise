@@ -1,5 +1,6 @@
 :root {
   --white: #fff;
+  --off-white: #fafbfe;
 
   --background: #f6f8f6;
   --background-translucent: rgba(246, 248, 246, 0.95);
@@ -15,7 +16,11 @@
   --secondary-accent: #e47757;
   --secondary-accent-dark: #c55f3f;
 
+  --border-radius-xs: 4px;
+  --border-radius-s: 6px;
   --border-radius-m: 8px;
+  --border-radius-l: 12px;
+  --border-radius-xl: 16px;
 
   --default-transition: all .2s ease-in;
   --max-width: 1200px;
@@ -178,9 +183,8 @@ ul {
 
 @media (hover: hover) {
   .btn:hover {
-    background-color: var(--accent);
-    border-color: var(--accent);
-    color: var(--white);
+    background-color: var(--off-white);
+    color: var(--accent);
   }
 
   .btn--primary:hover {

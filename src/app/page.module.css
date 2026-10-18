@@ -9,8 +9,8 @@
     &::after {
         background: linear-gradient(90deg, #0a2b2be0 0%, #0a2b2b8f 38%, #0a2b2b0a 75%);
         block-size: 640px;
-        border-start-start-radius: var(--border-radius-m);
-        border-end-start-radius: var(--border-radius-m);
+        border-start-start-radius: var(--border-radius-xl);
+        border-end-start-radius: var(--border-radius-xl);
         content: '';
         inline-size: 100%;
         inset-block-start: 0;
@@ -29,7 +29,7 @@
     background-position: center;
     background-size: cover;
     block-size: 640px;
-    border-radius: var(--border-radius-m);
+    border-radius: var(--border-radius-xl);
     inline-size: 100%;
     object-fit: cover;
     object-position: center;
