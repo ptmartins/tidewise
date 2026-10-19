@@ -5,7 +5,7 @@ import Header from "@/ui/components/header/header";
 import Footer from "@/ui/components/footer/footer";
 
 export const metadata = {
-  title: "Tidewise",
+  title: "WhaleTale",
   description: "A simple app to grow your knowledge of marine mammal species in Portuguse waters, report sightings and strandings.",
 };
 

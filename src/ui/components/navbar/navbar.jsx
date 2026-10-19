@@ -13,7 +13,7 @@ function NavBar() {
         <nav className={styles.navbar}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <Link href="/" className={styles.logo}>
-                    <Image src="/logo.png" alt="Tidewise" width={1408} height={768} priority />
+                    <Image src="/logo.png" alt="WhaleTale" width={1408} height={768} priority />
                 </Link>
                 <ul className={styles.navLinks}>
                     <li className={`${styles.navLink} ${path === '/' ? styles['navLink--active'] : ''}`}>

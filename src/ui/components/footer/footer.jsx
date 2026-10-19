@@ -13,7 +13,7 @@ function Footer() {
                     Developed with &hearts; by{" "}
                     <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>
 
-                    <span> &copy; 2023 Tidewise. </span>
+                    <span> &copy; 2023 Whaletale. </span>
                 </p>
             </div>
         </footer>

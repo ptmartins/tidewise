@@ -39,7 +39,7 @@ export default function Home() {
             </section>
 
             {/* Stats section */}
-            <section className={styles.stats} aria-label="Tidewise in numbers">
+            <section className={styles.stats} aria-label="WhaleTale in numbers">
                 <div className="innerWrapper">
                     <ul className={styles.stats__list}>
                         {stats.map(({ value, label }) => (

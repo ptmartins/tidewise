@@ -37,7 +37,7 @@ export async function generateMetadata({ params }) {
     if (!species) return {};
 
     return {
-        title: `${species.commonName} (${species.scientificName}) · Tidewise`,
+        title: `${species.commonName} (${species.scientificName}) · WhaleTale`,
         description: species.summary,
     };
 }
