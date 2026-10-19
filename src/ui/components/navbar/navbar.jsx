@@ -20,10 +20,10 @@ function NavBar() {
                         <Link href="/">Explore</Link>
                     </li>
                     <li className={`${styles.navLink} ${path === '/learn' ? styles['navLink--active'] : ''}`}>
-                        <Link href="/learn">Learn</Link>
+                        <Link href="/learned">Learn</Link>
                     </li>
                     <li className={`${styles.navLink} ${path === '/sightings' ? styles['navLink--active'] : ''}`}>
-                        <Link href="/sightings">Field reports</Link>
+                        <Link href="/sightingsed">Field reports</Link>
                     </li>
                 </ul>
                 <button className={`btn ${styles.reportButton}`}>Report a sighting</button>
