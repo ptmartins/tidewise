@@ -1,8 +1,20 @@
 import styles  from "./page.module.css";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
+import Link from "next/link";
+import SpeciesExplorer from "@/ui/components/species-explorer/speciesExplorer";
+import { THREATENED, toCard } from "@/ui/components/species-explorer/options";
+import { getAllSpecies } from "@/lib/mock/species";
 
 export default function Home() {
+    const species = getAllSpecies();
+
+    const stats = [
+        { value: species.length, label: 'Marine mammal species recorded in Portugal' },
+        { value: species.filter(({ iucnStatus }) => THREATENED.includes(iucnStatus)).length, label: 'Globally threatened on the IUCN Red List' },
+        { value: species.filter(({ residency }) => residency === 'Resident (year-round)').length, label: 'Live in our waters year-round' },
+    ];
+
     return (
 
         <>  
@@ -20,9 +32,39 @@ export default function Home() {
                             <span className={styles.tag}>Explore the ocean</span>
                             <h1 className={styles.hero__title}>Meet the life <br /> <span>of our Atlantic coast</span> </h1>
                             <p className={styles.hero__subtitle}>Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.</p>
-                            <button className={`btn ${styles.btn__hero}`}>Explore species <Icon icon="lucide:arrow-right" /> </button>
+                            <Link href="#explorer" className={`btn ${styles.btn__hero}`}>Explore species <Icon icon="lucide:arrow-right" /> </Link>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            {/* Stats section */}
+            <section className={styles.stats} aria-label="Tidewise in numbers">
+                <div className="innerWrapper">
+                    <ul className={styles.stats__list}>
+                        {stats.map(({ value, label }) => (
+                            <li key={label} className={styles.stat}>
+                                <span className={styles.stat__value}>{value}</span>
+                                <span className={styles.stat__label}>{label}</span>
+                            </li>
+                        ))}
+                        <li className={styles.stats__remark}>
+                            <Icon icon="lucide:microscope" width="22" height="22" />
+                            <p>Built from peer-reviewed research and field observations</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            {/* Species explorer section */}
+            <section id="explorer" className={`section ${styles.explorer}`}>
+                <div className="innerWrapper">
+                    <header className={styles.explorer__header}>
+                        <span className={styles.tag}>Species explorer</span>
+                        <h2>Find a <span>species</span></h2>
+                        <p>Search the whales, dolphins, porpoises and seals recorded along our coast and around the islands.</p>
+                    </header>
+                    <SpeciesExplorer species={species.map(toCard)} />
                 </div>
             </section>
 

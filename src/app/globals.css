@@ -149,6 +149,15 @@ ul {
   padding-block: 4.5rem;
 }
 
+.visually-hidden {
+  block-size: 1px;
+  clip-path: inset(50%);
+  inline-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+
 .btn {
   align-items: center;
   display: inline-flex;

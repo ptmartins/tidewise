@@ -423,6 +423,14 @@ export const species = defineType({
       ],
     }),
     defineField({
+      name: 'thumbnail',
+      title: 'Card thumbnail',
+      type: 'image',
+      group: 'media',
+      description: 'Generic image used on species cards (e.g. a photo at sea). Falls back to the group illustration if empty.',
+      options: { hotspot: true },
+    }),
+    defineField({
       name: 'gallery',
       title: 'Gallery',
       type: 'array',
