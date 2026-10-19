@@ -67,8 +67,6 @@
 }
 
 .stats__list {
-    align-items: center;
-    border-block: 1px solid var(--accent-muted);
     display: flex;
     flex-wrap: wrap;
     padding-block: 2rem;
