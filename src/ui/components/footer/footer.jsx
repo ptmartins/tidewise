@@ -9,7 +9,12 @@ function Footer() {
                     <Image />
                     <p>A field guide for a living ocean</p>
                 </div>
-                <p className={styles.copyright}>&copy; 2023 Tidewise. All rights reserved.</p>
+                <p className={styles.footer__copyright}>
+                    Developed with &hearts; by{" "}
+                    <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>
+
+                    <span> &copy; 2023 Tidewise. </span>
+                </p>
             </div>
         </footer>
     )

@@ -14,3 +14,19 @@
     align-items: center;
     display: flex;
 }
+
+.footer__copyright {
+
+    span {
+        display: inline-block;
+        margin-inline-start: 1.5rem;
+        position: relative;
+
+        &::before {
+            content: '|';
+            display: inline-block;
+            inset-inline-start: -0.75rem;
+            position: absolute;
+        }
+    }
+}

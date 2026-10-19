@@ -19,7 +19,7 @@
     margin-inline-end: auto;
 
     img {
-        block-size: var(--header-height);
+        block-size: 80px;
         display: block;
         inline-size: auto;
     }
