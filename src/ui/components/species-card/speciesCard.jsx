@@ -44,27 +44,9 @@ function SpeciesCard({ species }) {
             <div className={styles.card__body}>
                 <h3 className={styles.card__title}>{species.commonName}</h3>
                 <p className={styles.card__scientific}><em>{species.scientificName}</em></p>
-
-                <dl className={styles.card__meta}>
-                    <div>
-                        <dt>Size</dt>
-                        <dd>Up to {species.length} m</dd>
-                    </div>
-                    <div>
-                        <dt>Presence</dt>
-                        <dd>{presence}</dd>
-                    </div>
-                </dl>
-
-                <div className={styles.card__footer}>
-                    <span className={styles.card__status}>
-                        <span className={styles.card__dot} />
-                        {IUCN_LABELS[species.iucnStatus]}
-                    </span>
-                    <Link href={`/species/${species.slug}`} className={`btn ${styles.card__link}`}>
-                        View species <Icon icon="lucide:arrow-right" width="18" height="18" />
-                    </Link>
-                </div>
+                                <Link href={`/species/${species.slug}`} className={`btn ${styles.card__link}`}>
+                    <Icon icon="lucide:arrow-right" width="22" height="22" />
+                </Link>
             </div>
         </article>
     )
