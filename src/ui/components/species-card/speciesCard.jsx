@@ -8,19 +8,30 @@ import { groupFor, PRESENCE } from '../species-explorer/options';
 function SpeciesCard({ species }) {
     const group = groupFor(species.category);
     const presence = PRESENCE.find(({ value }) => value === species.residency)?.label;
+    const { thumbnail } = species;
+    const credit = thumbnail && [thumbnail.credit, thumbnail.license].filter(Boolean).join(' · ');
 
     return(
         <article className={styles.card} data-status={species.iucnStatus}>
-            {/* Generic, group-level thumbnail — the detailed illustration lives on the species page */}
+            {/* Photo thumbnail (falls back to a group silhouette) — the detailed illustration lives on the species page */}
             <div className={styles.card__thumb} data-group={species.category}>
-                {species.thumbnail ? (
-                    <Image
-                        src={species.thumbnail.src}
-                        alt=""
-                        fill
-                        sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 400px"
-                        className={styles.card__image}
-                    />
+                {thumbnail ? (
+                    <>
+                        <Image
+                            src={thumbnail.src}
+                            alt={thumbnail.alt}
+                            fill
+                            sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 400px"
+                            className={styles.card__image}
+                        />
+                        {thumbnail.sourceUrl ? (
+                            <a href={thumbnail.sourceUrl} className={styles.card__credit} target="_blank" rel="noopener noreferrer">
+                                {credit}
+                            </a>
+                        ) : (
+                            <span className={styles.card__credit}>{credit}</span>
+                        )}
+                    </>
                 ) : (
                     <Icon icon={group.icon} className={styles.card__silhouette} aria-hidden="true" />
                 )}

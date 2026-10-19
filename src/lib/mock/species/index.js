@@ -10,10 +10,14 @@ import { baleenWhales } from './baleen-whales'
 import { toothedWhales } from './toothed-whales'
 import { dolphins } from './dolphins'
 import { porpoises, seals } from './porpoises-and-seals'
+import { thumbnails } from './thumbnails'
 
 export { IUCN_LABELS } from './_shared'
 
-const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, ...seals]
+const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, ...seals].map((item) => ({
+  ...item,
+  thumbnail: thumbnails[item.slug] ?? null,
+}))
 
 export function getAllSpecies() {
   return species

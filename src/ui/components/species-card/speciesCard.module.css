@@ -41,6 +41,10 @@
         z-index: -1;
     }
 
+    &:has(.card__image)::after {
+        display: none;
+    }
+
     &[data-group='Baleen whale'] { --thumb-from: #2f6f8f; --thumb-to: #173f55; }
     &[data-group='Toothed whale'] { --thumb-from: #2b4f6b; --thumb-to: #0f2a3d; }
     &[data-group='Dolphin'] { --thumb-from: #2f8079; --thumb-to: var(--accent-dark); }
@@ -58,7 +62,27 @@
 
 .card__image {
     object-fit: cover;
+    transition: var(--default-transition);
     z-index: -1;
+}
+
+.card__credit {
+    background: linear-gradient(0deg, rgba(10, 43, 43, .65), transparent);
+    color: var(--white);
+    font-size: .65rem;
+    inset: auto 0 0 0;
+    opacity: .85;
+    overflow: hidden;
+    padding: 1.25rem .9rem .4rem;
+    position: absolute;
+    text-align: end;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Sits above the card's stretched link so the source stays clickable */
+a.card__credit {
+    z-index: 1;
 }
 
 .card__group {
@@ -178,6 +202,10 @@
 
         .card__silhouette {
             transform: translateX(6px);
+        }
+
+        .card__image {
+            transform: scale(1.04);
         }
 
         .card__link {

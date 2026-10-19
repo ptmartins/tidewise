@@ -429,6 +429,17 @@ export const species = defineType({
       group: 'media',
       description: 'Generic image used on species cards (e.g. a photo at sea). Falls back to the group illustration if empty.',
       options: { hotspot: true },
+      fields: [
+        defineField({ name: 'alt', title: 'Alternative text', type: 'string' }),
+        defineField({ name: 'credit', title: 'Photo credit', type: 'string' }),
+        defineField({
+          name: 'license',
+          title: 'Licence',
+          type: 'string',
+          description: 'Required for Creative Commons images, e.g. "CC BY 4.0".',
+        }),
+        defineField({ name: 'sourceUrl', title: 'Source URL', type: 'url' }),
+      ],
     }),
     defineField({
       name: 'gallery',
