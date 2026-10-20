@@ -38,10 +38,10 @@ function NavBar() {
                             <Link href={home} onClick={closeMenu}>{nav.explore}</Link>
                         </li>
                         <li className={`${styles.navLink} ${path === `${home}/learn` ? styles['navLink--active'] : ''}`}>
-                            <Link href={`${home}/learned`} onClick={closeMenu}>{nav.learn}</Link>
+                            <Link href={`${home}/learn`} onClick={closeMenu}>{nav.learn}</Link>
                         </li>
                         <li className={`${styles.navLink} ${path === `${home}/sightings` ? styles['navLink--active'] : ''}`}>
-                            <Link href={`${home}/sightingsed`} onClick={closeMenu}>{nav.fieldReports}</Link>
+                            <Link href={`${home}/sightings`} onClick={closeMenu}>{nav.fieldReports}</Link>
                         </li>
                         <li className={`${styles.navLink} ${path === `${home}/links` ? styles['navLink--active'] : ''}`}>
                             <Link href={`${home}/links`} onClick={closeMenu}>{nav.links}</Link>
