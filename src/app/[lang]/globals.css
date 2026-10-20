@@ -45,6 +45,8 @@ html,
 body {
   max-inline-size: 100vw;
   overflow-x: hidden;
+  /* `clip` (unlike `hidden`) doesn't make body a scroll container, which would break position: sticky */
+  overflow-x: clip;
 }
 
 body {
