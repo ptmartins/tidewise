@@ -32,6 +32,7 @@ export default async function Home() {
                             sizes="(max-width: 1200px) calc(100vw - 2rem), 1168px"
                             className={styles.hero__image}
                             preload
+                            fetchPriority="high"
                         />
                         <div className={styles.hero__text}>
                             <span className={styles.tag}>{home.hero.tag}</span>
