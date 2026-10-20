@@ -419,11 +419,52 @@
         flex: 1 1 100%;
     }
 
+    /* Let the native select fill the full-width control so the whole row is tappable */
+    .select select {
+        flex: 1;
+        min-inline-size: 0;
+    }
+
     .more {
         justify-content: center;
     }
 
+    .summary {
+        margin-block: 1.5rem 1.25rem;
+    }
+
+    .sort {
+        flex: 1 1 100%;
+
+        .select {
+            flex: 1;
+        }
+    }
+
     .grid {
         grid-template-columns: minmax(0, 1fr);
+    }
+
+    .empty {
+        padding: 3rem 1.25rem;
+    }
+
+    .dialog {
+        inline-size: calc(100% - 1rem);
+        max-block-size: calc(100dvh - 1rem);
+    }
+
+    .dialog__inner {
+        max-block-size: calc(100dvh - 1rem);
+    }
+
+    .dialog__header,
+    .dialog__footer,
+    .dialog__body {
+        padding: 1rem 1.25rem;
+    }
+
+    .dialog__footer {
+        gap: 1rem;
     }
 }

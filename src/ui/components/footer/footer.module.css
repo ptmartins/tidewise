@@ -4,8 +4,9 @@
     padding-block: 1.5rem;
 
     .innerWrapper {
-                align-items: center;
+        align-items: center;
         display: flex;
+        gap: .75rem 2rem;
         justify-content: space-between;
     }
 }
@@ -27,6 +28,27 @@
             display: inline-block;
             inset-inline-start: -0.75rem;
             position: absolute;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .footer .innerWrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer__links {
+        justify-content: center;
+    }
+
+    /* Copyright drops to its own line, so the separator is no longer needed */
+    .footer__copyright span {
+        display: block;
+        margin-inline-start: 0;
+
+        &::before {
+            display: none;
         }
     }
 }
