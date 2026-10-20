@@ -1,4 +1,7 @@
+'use client';
+
 import styles from './reportCard.module.css';
+import { useEffect, useId, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,6 +26,46 @@ const formatDate = (locale, date) =>
         timeZone: 'UTC',
     }).format(new Date(`${date}Z`));
 
+// Notes are clamped to three lines; the toggle only appears when the text actually overflows
+function ReportNotes({ notes, lang, labels }) {
+    const ref = useRef(null);
+    const id = useId();
+    const [expanded, setExpanded] = useState(false);
+    const [overflows, setOverflows] = useState(false);
+
+    useEffect(() => {
+        const node = ref.current;
+        if (!node || expanded) return;
+
+        const measure = () => setOverflows(node.scrollHeight > node.clientHeight + 1);
+        measure();
+
+        const observer = new ResizeObserver(measure);
+        observer.observe(node);
+        return () => observer.disconnect();
+    }, [notes, expanded]);
+
+    return (
+        <div className={styles.card__notes}>
+            <blockquote lang={lang}>
+                <p ref={ref} id={id} className={styles.card__notesText} data-expanded={expanded}>{notes}</p>
+            </blockquote>
+            {(overflows || expanded) && (
+                <button
+                    type="button"
+                    className={styles.card__notesToggle}
+                    aria-expanded={expanded}
+                    aria-controls={id}
+                    onClick={() => setExpanded((value) => !value)}
+                >
+                    {expanded ? labels.showLess : labels.readMore}
+                    <Icon icon={expanded ? 'lucide:chevron-up' : 'lucide:chevron-down'} width="16" height="16" />
+                </button>
+            )}
+        </div>
+    );
+}
+
 function ReportCard({ report }) {
     const locale = useLocale();
     const { reports: t, explorer, data } = useDictionary();
@@ -37,7 +80,7 @@ function ReportCard({ report }) {
                         src={species.thumbnail.src}
                         alt={species.thumbnail.alt}
                         fill
-                        sizes="(max-width: 600px) calc(100vw - 2rem), 220px"
+                        sizes="(max-width: 600px) calc(100vw - 2rem), 180px"
                         className={styles.card__image}
                     />
                 ) : (
@@ -49,14 +92,14 @@ function ReportCard({ report }) {
                 </span>
             </div>
 
-            <div className={styles.card__body}>
-                <header className={styles.card__header}>
+            <header className={styles.card__header}>
+                <div className={styles.card__meta}>
                     <time dateTime={report.date} className={styles.card__date}>{formatDate(locale, report.date)}</time>
                     <span className={styles.card__status} data-status={report.status}>
                         <Icon icon={report.status === 'verified' ? 'lucide:badge-check' : 'lucide:clock'} width="14" height="14" />
                         {t.statuses[report.status]}
                     </span>
-                </header>
+                </div>
 
                 <h3 className={styles.card__title}>
                     <Link href={`/${locale}/species/${species.slug}`}>{species.commonName}</Link>
@@ -92,16 +135,16 @@ function ReportCard({ report }) {
                         {report.behaviour.map((value) => <li key={value}>{t.behaviours[value]}</li>)}
                     </ul>
                 )}
+            </header>
 
-                <blockquote className={styles.card__notes} lang={locale !== 'en' ? 'en' : undefined}>
-                    <p>{report.notes}</p>
-                </blockquote>
+            {report.notes && (
+                <ReportNotes notes={report.notes} lang={locale !== 'en' ? 'en' : undefined} labels={t} />
+            )}
 
-                <footer className={styles.card__footer}>
-                    <span className={styles.card__avatar} aria-hidden="true">{initials(report.observer)}</span>
-                    {format(t.reportedBy, { name: report.observer })}
-                </footer>
-            </div>
+            <footer className={styles.card__footer}>
+                <span className={styles.card__avatar} aria-hidden="true">{initials(report.observer)}</span>
+                {format(t.reportedBy, { name: report.observer })}
+            </footer>
         </article>
     );
 }

@@ -7,12 +7,19 @@
     }
 }
 
+/* Thumbnail sits beside the header; notes and footer run the full width below */
 .card {
     background-color: var(--white);
     border-radius: var(--border-radius-l);
     display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
-    overflow: hidden;
+    gap: 1.25rem 1.5rem;
+    grid-template-areas:
+        'thumb header'
+        'notes notes'
+        'footer footer';
+    grid-template-columns: 180px minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    padding: 1.5rem;
     transition: var(--default-transition);
 }
 
@@ -21,10 +28,13 @@
     --thumb-from: var(--accent-light);
     --thumb-to: var(--accent-dark);
 
+    align-self: start;
+    aspect-ratio: 1;
     background: linear-gradient(160deg, var(--thumb-from), var(--thumb-to));
+    border-radius: var(--border-radius-m);
     display: grid;
+    grid-area: thumb;
     isolation: isolate;
-    min-block-size: 100%;
     overflow: hidden;
     place-items: center;
     position: relative;
@@ -58,20 +68,23 @@
     font-size: .7rem;
     font-weight: 700;
     gap: .35rem;
-    inset: .9rem auto auto .9rem;
+    inset: .6rem auto auto .6rem;
     letter-spacing: .04em;
     padding: .375rem .5rem;
     position: absolute;
     text-transform: uppercase;
 }
 
-.card__body {
-    display: flex;
-    flex-direction: column;
-    padding: 1.25rem 1.5rem 1.5rem;
+.card__header {
+    grid-area: header;
+    min-inline-size: 0;
+
+    > :last-child {
+        margin-block-end: 0;
+    }
 }
 
-.card__header {
+.card__meta {
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -156,7 +169,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: .4rem;
-    margin-block-end: 1rem;
 
     li {
         background-color: var(--background);
@@ -170,23 +182,57 @@
 
 .card__notes {
     border-inline-start: 2px solid var(--type-color);
+    grid-area: notes;
+    padding-inline-start: 1rem;
+}
+
+.card__notesText {
     color: var(--accent-dark);
     font-family: var(--font-playfair), Georgia, serif;
     font-size: 1rem;
     font-style: italic;
     line-height: 1.55;
-    margin-block-end: 1.25rem;
-    padding-inline-start: 1rem;
+
+    &[data-expanded='false'] {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        overflow: hidden;
+    }
+}
+
+.card__notesToggle {
+    align-items: center;
+    background: none;
+    border: 0;
+    border-radius: var(--border-radius-xs);
+    color: var(--accent);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: .85rem;
+    font-weight: 500;
+    gap: .25rem;
+    margin-block-start: .4rem;
+    padding: 0;
+    transition: var(--default-transition);
+
+    &:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
 }
 
 .card__footer {
     align-items: center;
+    align-self: end;
     border-block-start: 1px solid var(--accent-muted);
     color: var(--accent-faded);
     display: flex;
     font-size: .85rem;
     gap: .6rem;
-    margin-block-start: auto;
+    grid-area: footer;
     padding-block-start: 1rem;
 }
 
@@ -214,19 +260,26 @@
     .card__title a:hover {
         color: var(--accent);
     }
+
+    .card__notesToggle:hover {
+        color: var(--accent-dark);
+    }
 }
 
 @media (max-width: 600px) {
     .card {
+        grid-template-areas:
+            'thumb'
+            'header'
+            'notes'
+            'footer';
         grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto auto auto 1fr;
+        padding: 1.25rem;
     }
 
     .card__thumb {
         aspect-ratio: 16 / 9;
-    }
-
-    .card__body {
-        padding: 1.25rem;
     }
 }
 

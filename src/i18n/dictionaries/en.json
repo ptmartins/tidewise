@@ -172,6 +172,8 @@
       "bowriding": "Bow-riding"
     },
     "reportedBy": "Reported by {name}",
+    "readMore": "Read more",
+    "showLess": "Show less",
     "topSpecies": "Most reported species",
     "byRegion": "Reports by region",
     "strandingTitle": "Found a stranded animal?",
