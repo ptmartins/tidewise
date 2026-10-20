@@ -1,16 +1,20 @@
 import styles from './not-found.module.css';
 import { Icon } from '@iconify/react';
 import Link from 'next/link';
+import { getDictionary, getLocale } from '@/i18n/getDictionary';
 
-function NotFound() {
+async function NotFound() {
+    const locale = await getLocale();
+    const { notFound } = await getDictionary();
+
     return(
         <section className={`section section--notFound notFound ${styles.notFound}`}>
             <div className={`innerWrapper ${styles.notFound__wrapper}`}>
                 <div className={styles.notFound__content}>
-                    <span className={styles.notFound__error}>Error: 404</span>
-                    <h1 className={styles.notFound__title}>This page drifted <br /> <span>off course</span> </h1>
-                    <p className={styles.notFound__subtitle}>The tide has carried this page somewhere beyond the fold. Let's get you back to the waters we know.</p>
-                    <Link href="/" className="btn"> <Icon icon="lucide:home" /> Return home </Link>
+                    <span className={styles.notFound__error}>{notFound.error}</span>
+                    <h1 className={styles.notFound__title}>{notFound.title} <br /> <span>{notFound.titleHighlight}</span> </h1>
+                    <p className={styles.notFound__subtitle}>{notFound.subtitle}</p>
+                    <Link href={`/${locale}`} className="btn"> <Icon icon="lucide:home" /> {notFound.cta} </Link>
                 </div>
 
                 <svg className={styles.notFound__illustration} viewBox="0 0 400 320" aria-hidden="true" focusable="false">

@@ -1,0 +1,42 @@
+import { Suspense } from "react";
+import { playfair, inter } from "@/ui/fonts/fonts";
+import "./globals.css";
+import Header from "@/ui/components/header/header";
+import Footer from "@/ui/components/footer/footer";
+import { LOCALES, LOCALE_DETAILS } from "@/i18n/config";
+import { getDictionary, getLocale } from "@/i18n/getDictionary";
+import { I18nProvider } from "@/i18n/I18nProvider";
+
+export function generateStaticParams() {
+  return LOCALES.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata() {
+  const { meta } = await getDictionary();
+
+  return {
+    title: meta.title,
+    description: meta.description,
+  };
+}
+
+export default async function RootLayout({ children }) {
+  const locale = await getLocale();
+  const dict = await getDictionary();
+
+  return (
+    <html lang={LOCALE_DETAILS[locale].htmlLang} className={`${inter.variable} ${playfair.variable}`}>
+      <body>
+        <I18nProvider locale={locale} dict={dict}>
+          <Suspense>
+            <Header />
+          </Suspense>
+          <main className="main" style={{ marginBlockStart: "var(--header-height)" }}>
+            {children}
+          </main>
+          <Footer />
+        </I18nProvider>
+      </body>
+    </html>
+  );
+}

@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Accordion from "@/ui/components/accordion/accordion";
-import { getAllSpeciesSlugs, getSpeciesBySlug, IUCN_LABELS } from "@/lib/mock/species";
+import { getAllSpeciesSlugs, getSpeciesBySlug } from "@/lib/mock/species";
+import { LOCALE_DETAILS } from "@/i18n/config";
+import { getDictionary, getLocale } from "@/i18n/getDictionary";
+import { format, formatNumber, label } from "@/i18n/format";
 
 const IUCN_SCALE = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
 
@@ -17,10 +20,17 @@ const TREND_ICONS = {
     unknown: 'lucide:circle-help',
 };
 
-const formatRange = ({ min, max }, unit) => `${min}–${max} ${unit}`;
+// Localized month names, e.g. { name: 'janeiro', initial: 'J' }
+const monthNames = (locale) => MONTHS.map((month, index) => {
+    const date = new Date(Date.UTC(2000, index, 1));
+    const name = (style) => new Intl.DateTimeFormat(LOCALE_DETAILS[locale].htmlLang, { month: style, timeZone: 'UTC' }).format(date);
+    return { month, name: name('long'), initial: name('narrow') };
+});
 
-const formatWeight = ({ min, max }) =>
-    max >= 1000 ? formatRange({ min: min / 1000, max: max / 1000 }, 't') : formatRange({ min, max }, 'kg');
+const formatRange = (locale, { min, max }, unit) => `${formatNumber(locale, min)}–${formatNumber(locale, max)} ${unit}`;
+
+const formatWeight = (locale, { min, max }) =>
+    max >= 1000 ? formatRange(locale, { min: min / 1000, max: max / 1000 }, 't') : formatRange(locale, { min, max }, 'kg');
 
 const withArticle = (noun) => `${/^[aeiou]/i.test(noun) ? 'an' : 'a'} ${noun}`;
 
@@ -32,36 +42,41 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
-    const species = getSpeciesBySlug(slug);
+    const species = getSpeciesBySlug(slug, await getLocale());
 
     if (!species) return {};
 
+    const dict = await getDictionary();
+
     return {
-        title: `${species.commonName} (${species.scientificName}) · WhaleTale`,
+        title: format(dict.species.metaTitle, { name: species.commonName, scientificName: species.scientificName }),
         description: species.summary,
     };
 }
 
 export default async function SpeciesPage({ params }) {
     const { slug } = await params;
-    const species = getSpeciesBySlug(slug);
+    const locale = await getLocale();
+    const species = getSpeciesBySlug(slug, locale);
 
     if (!species) notFound();
 
+    const { species: t, common, data, nav } = await getDictionary();
+
     const quickFacts = [
-        { icon: 'lucide:weight', label: 'Weight', value: formatWeight(species.weight) },
-        { icon: 'lucide:ruler', label: 'Length', value: formatRange(species.length, 'm') },
-        { icon: 'lucide:hourglass', label: 'Lifespan', value: species.lifespan ? `Up to ${species.lifespan.max} years` : 'Unknown' },
-        { icon: 'lucide:globe', label: 'Distribution', value: species.distributionShort },
+        { icon: 'lucide:weight', label: t.weight, value: formatWeight(locale, species.weight) },
+        { icon: 'lucide:ruler', label: t.length, value: formatRange(locale, species.length, 'm') },
+        { icon: 'lucide:hourglass', label: t.lifespan, value: species.lifespan ? format(t.lifespanValue, { max: species.lifespan.max }) : t.unknown },
+        { icon: 'lucide:globe', label: t.distribution, value: label(data.distribution, species.distributionShort) },
     ];
 
     const sections = [
-        { id: 'about', icon: 'lucide:book-open', title: 'About the species', body: species.about },
-        { id: 'population', icon: 'lucide:chart-line', title: 'Population status', body: species.populationStatus },
-        { id: 'appearance', icon: 'lucide:scan-eye', title: 'Appearance', body: species.appearance },
-        { id: 'behaviour', icon: 'lucide:fish', title: 'Behaviour & diet', body: species.behaviourAndDiet },
-        { id: 'reproduction', icon: 'lucide:heart-handshake', title: 'Lifespan & reproduction', body: species.lifespanAndReproduction },
-        { id: 'threats', icon: 'lucide:triangle-alert', title: 'Threats', body: species.threatsDetail },
+        { id: 'about', icon: 'lucide:book-open', body: species.about },
+        { id: 'population', icon: 'lucide:chart-line', body: species.populationStatus },
+        { id: 'appearance', icon: 'lucide:scan-eye', body: species.appearance },
+        { id: 'behaviour', icon: 'lucide:fish', body: species.behaviourAndDiet },
+        { id: 'reproduction', icon: 'lucide:heart-handshake', body: species.lifespanAndReproduction },
+        { id: 'threats', icon: 'lucide:triangle-alert', body: species.threatsDetail },
     ];
 
     return (
@@ -70,13 +85,13 @@ export default async function SpeciesPage({ params }) {
             <section className={styles.hero}>
                 <div className={`innerWrapper ${styles.innerWrapper}`}>
                     <div className={styles.hero__text}>
-                        <nav className={styles.breadcrumb} aria-label="Breadcrumb">
-                            <Link href="/">Explore</Link>
+                        <nav className={styles.breadcrumb} aria-label={t.breadcrumb}>
+                            <Link href={`/${locale}`}>{nav.explore}</Link>
                             <Icon icon="lucide:chevron-right" width="14" height="14" />
-                            <span>{species.category}s</span>
+                            <span>{label(data.groupsPlural, species.category)}</span>
                         </nav>
 
-                        <span className={styles.tag}>{species.category} · {species.family}</span>
+                        <span className={styles.tag}>{label(data.groups, species.category)} · {species.family}</span>
                         <h1 className={styles.hero__title}>{species.commonName}</h1>
                         <p className={styles.hero__scientific}>
                             <em>{species.scientificName}</em>
@@ -85,7 +100,7 @@ export default async function SpeciesPage({ params }) {
 
                         <p className={styles.hero__summary}>{species.summary}</p>
 
-                        <ul className={styles.altNames} aria-label="Other common names">
+                        <ul className={styles.altNames} aria-label={t.otherNames}>
                             {species.alternativeNames.map((name) => (
                                 <li key={name}>{name}</li>
                             ))}
@@ -109,7 +124,7 @@ export default async function SpeciesPage({ params }) {
                         ) : (
                             <div className={styles.hero__placeholder}>
                                 <Icon icon="lucide:image-off" width="32" height="32" />
-                                <span>Illustration coming soon</span>
+                                <span>{t.imageComingSoon}</span>
                             </div>
                         )}
                     </figure>
@@ -121,21 +136,21 @@ export default async function SpeciesPage({ params }) {
                 <div className={`innerWrapper ${styles.overview__grid}`}>
                     <div className={styles.status}>
                         <div className={styles.status__header}>
-                            <span className={styles.label}>Conservation status</span>
+                            <span className={styles.label}>{t.conservationStatus}</span>
                             <span className={styles.status__badge} data-status={species.iucnStatus}>
                                 {species.iucnStatus}
                             </span>
                         </div>
-                        <p className={styles.status__name}>{IUCN_LABELS[species.iucnStatus]}</p>
-                        <span className={styles.status__source}>IUCN Red List · global</span>
+                        <p className={styles.status__name}>{data.iucn[species.iucnStatus]}</p>
+                        <span className={styles.status__source}>{t.iucnSource}</span>
 
-                        <ol className={styles.iucnScale} aria-label="IUCN Red List scale">
+                        <ol className={styles.iucnScale} aria-label={t.iucnScale}>
                             {IUCN_SCALE.map((code) => (
                                 <li
                                     key={code}
                                     data-status={code}
                                     className={code === species.iucnStatus ? styles['iucnScale--active'] : ''}
-                                    title={IUCN_LABELS[code]}
+                                    title={data.iucn[code]}
                                     aria-current={code === species.iucnStatus ? 'true' : undefined}
                                 >
                                     {code}
@@ -146,30 +161,30 @@ export default async function SpeciesPage({ params }) {
                         <dl className={styles.status__meta}>
                             {species.nationalStatus && (
                                 <div>
-                                    <dt>In Portugal</dt>
+                                    <dt>{t.inPortugal}</dt>
                                     <dd>
                                         <span className={styles.status__dot} data-status={species.nationalStatus} />
-                                        {IUCN_LABELS[species.nationalStatus]}
-                                        {species.nationalStatusNote && <small>{species.nationalStatusNote}</small>}
+                                        {data.iucn[species.nationalStatus]}
+                                        {species.nationalStatusNote && <small>{label(data.nationalNotes, species.nationalStatusNote)}</small>}
                                     </dd>
                                 </div>
                             )}
                             <div>
-                                <dt>Population trend</dt>
+                                <dt>{t.populationTrend}</dt>
                                 <dd>
                                     <Icon icon={TREND_ICONS[species.populationTrend]} width="18" height="18" />
-                                    <span className={styles.capitalize}>{species.populationTrend}</span>
+                                    <span>{label(data.trends, species.populationTrend)}</span>
                                 </dd>
                             </div>
                         </dl>
 
                         <div className={styles.status__protection}>
-                            <span className={styles.label}>Legally protected under</span>
+                            <span className={styles.label}>{t.protectedUnder}</span>
                             <ul className={styles.chips}>
                                 {species.protectedUnder.map((item) => (
                                     <li key={item}>
                                         <Icon icon="lucide:shield-check" width="14" height="14" />
-                                        {item}
+                                        {label(data.protection, item)}
                                     </li>
                                 ))}
                             </ul>
@@ -177,12 +192,12 @@ export default async function SpeciesPage({ params }) {
                     </div>
 
                     <div className={styles.facts}>
-                        {quickFacts.map(({ icon, label, value }) => (
-                            <div key={label} className={styles.fact}>
+                        {quickFacts.map(({ icon, label: name, value }) => (
+                            <div key={name} className={styles.fact}>
                                 <span className={styles.fact__icon}>
                                     <Icon icon={icon} width="22" height="22" />
                                 </span>
-                                <span className={styles.label}>{label}</span>
+                                <span className={styles.label}>{name}</span>
                                 <span className={styles.fact__value}>{value}</span>
                             </div>
                         ))}
@@ -191,10 +206,10 @@ export default async function SpeciesPage({ params }) {
                             <span className={styles.fact__icon}>
                                 <Icon icon="lucide:shield-alert" width="22" height="22" />
                             </span>
-                            <span className={styles.label}>Main threats</span>
+                            <span className={styles.label}>{t.mainThreats}</span>
                             <ul className={styles.chips}>
                                 {species.threats.map((threat) => (
-                                    <li key={threat}>{threat}</li>
+                                    <li key={threat}>{label(data.threats, threat)}</li>
                                 ))}
                             </ul>
                         </div>
@@ -206,44 +221,44 @@ export default async function SpeciesPage({ params }) {
             <section className={`section ${styles.guide}`}>
                 <div className={`innerWrapper ${styles.guide__grid}`}>
                     <aside className={styles.guide__aside}>
-                        <span className={styles.tag}>Field guide</span>
-                        <h2>Get to know <span>the {species.commonName.split(' ').at(-1)}</span></h2>
-                        <p className={styles.guide__intro}>Everything you need to recognise, understand and help protect this species.</p>
+                        <span className={styles.tag}>{t.fieldGuide}</span>
+                        <h2>{t.guideTitle} <span>{format(t.guideHighlight, { shortName: species.commonName.split(' ').at(-1) })}</span></h2>
+                        <p className={styles.guide__intro}>{t.guideIntro}</p>
 
                         <div className={styles.spotting}>
                             <h3 className={styles.spotting__title}>
-                                <Icon icon="lucide:binoculars" width="20" height="20" /> Where to spot it
+                                <Icon icon="lucide:binoculars" width="20" height="20" /> {t.whereToSpot}
                             </h3>
 
                             <ul className={styles.chips}>
                                 {species.regionsInPortugal.map((region) => (
-                                    <li key={region}>{region}</li>
+                                    <li key={region}>{label(data.regions, region)}</li>
                                 ))}
                             </ul>
 
                             <dl className={styles.spotting__meta}>
                                 <div>
-                                    <dt>Presence</dt>
-                                    <dd>{species.residency}</dd>
+                                    <dt>{t.presence}</dt>
+                                    <dd>{label(data.residency, species.residency)}</dd>
                                 </div>
                                 <div>
-                                    <dt>Sightings</dt>
-                                    <dd>{species.sightingFrequency}</dd>
+                                    <dt>{t.sightings}</dt>
+                                    <dd>{label(data.sightings, species.sightingFrequency)}</dd>
                                 </div>
                             </dl>
 
-                            <span className={styles.label}>Best months</span>
+                            <span className={styles.label}>{t.bestMonths}</span>
                             {species.bestMonths.length === 0 && (
-                                <p className={styles.months__note}>Records are too rare to show a seasonal pattern.</p>
+                                <p className={styles.months__note}>{t.noSeasonalPattern}</p>
                             )}
                             <ol className={styles.months}>
-                                {MONTHS.map((month) => (
+                                {monthNames(locale).map(({ month, name, initial }) => (
                                     <li
                                         key={month}
                                         className={species.bestMonths.includes(month) ? styles['months--active'] : ''}
-                                        title={month}
+                                        title={name}
                                     >
-                                        {month[0]}
+                                        {initial}
                                     </li>
                                 ))}
                             </ol>
@@ -251,12 +266,12 @@ export default async function SpeciesPage({ params }) {
                     </aside>
 
                     <div className={styles.accordions}>
-                        {sections.map(({ id, icon, title, body }, index) => (
+                        {sections.map(({ id, icon, body }, index) => (
                             <Accordion
                                 key={id}
                                 number={String(index + 1).padStart(2, '0')}
                                 icon={icon}
-                                title={title}
+                                title={t.sections[id]}
                                 teaser={firstSentence(body)}
                                 defaultOpen={index === 0}
                             >
@@ -264,9 +279,9 @@ export default async function SpeciesPage({ params }) {
 
                                 {id === 'threats' && (
                                     <div className={styles.protection}>
-                                        <span className={styles.label}>Legal protection</span>
+                                        <span className={styles.label}>{t.legalProtection}</span>
                                         <ul>
-                                            {species.legalProtection.map((item) => <li key={item}>{item}</li>)}
+                                            {species.legalProtection.map((item) => <li key={item}>{label(data.protection, item)}</li>)}
                                         </ul>
                                     </div>
                                 )}
@@ -276,13 +291,13 @@ export default async function SpeciesPage({ params }) {
                         <Accordion
                             number={String(sections.length + 1).padStart(2, '0')}
                             icon="lucide:network"
-                            title="Scientific classification"
+                            title={t.classification}
                             teaser={species.classification.map(({ name }) => name).slice(-3).join(' › ')}
                         >
                             <ol className={styles.taxonomy}>
                                 {species.classification.map(({ rank, name, italic }) => (
                                     <li key={rank}>
-                                        <span>{rank}</span>
+                                        <span>{label(data.ranks, rank)}</span>
                                         {italic ? <em>{name}</em> : <strong>{name}</strong>}
                                     </li>
                                 ))}
@@ -296,19 +311,19 @@ export default async function SpeciesPage({ params }) {
             <section className={`section ${styles.cta}`}>
                 <div className={`innerWrapper ${styles.cta__inner}`}>
                     <div>
-                        <span className={styles.tag}>You can help</span>
-                        <h2>Spotted {withArticle(species.commonName.toLowerCase())}?</h2>
-                        <p>Every record helps researchers track populations along our coast.</p>
+                        <span className={styles.tag}>{common.youCanHelp}</span>
+                        <h2>{format(t.ctaTitle, { nameWithArticle: withArticle(species.commonName.toLowerCase()) })}</h2>
+                        <p>{t.ctaText}</p>
                     </div>
                     <div className={styles.cta__buttons}>
                         <button className="btn btn--secondary">
                             <Icon icon="lucide:binoculars" width="24" height="24" />
-                            Report a sighting
+                            {common.reportSighting}
                             <Icon icon="lucide:chevron-right" width="24" height="24" />
                         </button>
                         <button className="btn">
                             <Icon icon="lucide:shield-alert" width="24" height="24" />
-                            Report a stranding
+                            {common.reportStranding}
                             <Icon icon="lucide:chevron-right" width="24" height="24" />
                         </button>
                     </div>

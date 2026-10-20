@@ -11,22 +11,36 @@ import { toothedWhales } from './toothed-whales'
 import { dolphins } from './dolphins'
 import { porpoises, seals } from './porpoises-and-seals'
 import { thumbnails } from './thumbnails'
+import { pt } from './i18n/pt'
+import { fr } from './i18n/fr'
 
 export { IUCN_LABELS } from './_shared'
+
+// Per-locale overrides (common name, summary). Long-form sections are
+// English-only for now and fall back to the source text.
+const TRANSLATIONS = { pt, fr }
 
 const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, ...seals].map((item) => ({
   ...item,
   thumbnail: thumbnails[item.slug] ?? null,
 }))
 
-export function getAllSpecies() {
-  return species
+// `englishName` is kept so search still matches the English name in other locales
+const localize = (item, locale) => ({
+  ...item,
+  englishName: item.commonName,
+  ...TRANSLATIONS[locale]?.[item.slug],
+})
+
+export function getAllSpecies(locale) {
+  return species.map((item) => localize(item, locale))
 }
 
 export function getAllSpeciesSlugs() {
   return species.map(({ slug }) => ({ slug }))
 }
 
-export function getSpeciesBySlug(slug) {
-  return species.find((item) => item.slug === slug) ?? null
+export function getSpeciesBySlug(slug, locale) {
+  const item = species.find((entry) => entry.slug === slug)
+  return item ? localize(item, locale) : null
 }

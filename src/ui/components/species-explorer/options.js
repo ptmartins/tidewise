@@ -1,55 +1,35 @@
 // Filter / sort options for the species explorer, plus helpers that shape
 // full species records into the lightweight data the cards need.
+// Labels live in the dictionaries (src/i18n/dictionaries), keyed by `value`.
 
 export const GROUPS = [
-    { value: 'Baleen whale', label: 'Baleen whales', icon: 'fluent-emoji-high-contrast:spouting-whale' },
-    { value: 'Toothed whale', label: 'Toothed whales', icon: 'fluent-emoji-high-contrast:whale' },
-    { value: 'Dolphin', label: 'Dolphins', icon: 'fluent-emoji-high-contrast:dolphin' },
-    { value: 'Porpoise', label: 'Porpoises', icon: 'fluent-emoji-high-contrast:dolphin' },
-    { value: 'Seal', label: 'Seals', icon: 'fluent-emoji-high-contrast:seal' },
+    { value: 'Baleen whale', icon: 'fluent-emoji-high-contrast:spouting-whale' },
+    { value: 'Toothed whale', icon: 'fluent-emoji-high-contrast:whale' },
+    { value: 'Dolphin', icon: 'fluent-emoji-high-contrast:dolphin' },
+    { value: 'Porpoise', icon: 'fluent-emoji-high-contrast:dolphin' },
+    { value: 'Seal', icon: 'fluent-emoji-high-contrast:seal' },
 ];
 
-export const REGIONS = [
-    { value: 'mainland', label: 'Mainland coast' },
-    { value: 'azores', label: 'Azores' },
-    { value: 'madeira', label: 'Madeira' },
-];
+export const REGIONS = ['mainland', 'azores', 'madeira'];
 
 // Threat order, most threatened first
 export const IUCN_ORDER = ['CR', 'EN', 'VU', 'NT', 'DD', 'LC'];
 
 export const THREATENED = ['VU', 'EN', 'CR'];
 
-export const PRESENCE = [
-    { value: 'Resident (year-round)', label: 'Resident' },
-    { value: 'Seasonal / migratory', label: 'Seasonal' },
-    { value: 'Occasional visitor', label: 'Occasional' },
-    { value: 'Rare / vagrant', label: 'Vagrant' },
-];
+export const PRESENCE = ['Resident (year-round)', 'Seasonal / migratory', 'Occasional visitor', 'Rare / vagrant'];
 
 export const SIGHTINGS = ['Very common', 'Common', 'Uncommon', 'Rare'];
 
 export const SIZES = [
-    { value: 'small', label: 'Under 4 m', test: (length) => length < 4 },
-    { value: 'medium', label: '4–10 m', test: (length) => length >= 4 && length <= 10 },
-    { value: 'large', label: 'Over 10 m', test: (length) => length > 10 },
+    { value: 'small', test: (length) => length < 4 },
+    { value: 'medium', test: (length) => length >= 4 && length <= 10 },
+    { value: 'large', test: (length) => length > 10 },
 ];
 
-export const TRENDS = [
-    { value: 'increasing', label: 'Increasing' },
-    { value: 'stable', label: 'Stable' },
-    { value: 'decreasing', label: 'Decreasing' },
-    { value: 'unknown', label: 'Unknown' },
-];
+export const TRENDS = ['increasing', 'stable', 'decreasing', 'unknown'];
 
-export const SORTS = [
-    { value: 'relevant', label: 'Most relevant' },
-    { value: 'name-asc', label: 'Name, A–Z' },
-    { value: 'name-desc', label: 'Name, Z–A' },
-    { value: 'size-desc', label: 'Size, largest first' },
-    { value: 'size-asc', label: 'Size, smallest first' },
-    { value: 'threat', label: 'Most threatened' },
-];
+export const SORTS = ['relevant', 'name-asc', 'name-desc', 'size-desc', 'size-asc', 'threat'];
 
 export const groupFor = (category) => GROUPS.find(({ value }) => value === category) ?? GROUPS[0];
 
@@ -65,7 +45,11 @@ export const toCard = (species) => ({
     slug: species.slug,
     commonName: species.commonName,
     scientificName: species.scientificName,
-    alternativeNames: species.alternativeNames ?? [],
+    // Keep the English name searchable when the card shows a translated one
+    alternativeNames: [
+        ...(species.englishName && species.englishName !== species.commonName ? [species.englishName] : []),
+        ...(species.alternativeNames ?? []),
+    ],
     category: species.category,
     iucnStatus: species.iucnStatus,
     length: species.length?.max ?? 0,

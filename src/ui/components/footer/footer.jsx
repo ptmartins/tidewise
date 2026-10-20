@@ -1,16 +1,19 @@
 import styles from "./footer.module.css";
 import Image from "next/image";
+import { getDictionary } from "@/i18n/getDictionary";
 
-function Footer() {
+async function Footer() {
+    const { footer } = await getDictionary();
+
     return(
         <footer className={styles.footer}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <div className={styles.footer__links}>
                     <Image />
-                    <p>A field guide for a living ocean</p>
+                    <p>{footer.tagline}</p>
                 </div>
                 <p className={styles.footer__copyright}>
-                    Developed with &hearts; by{" "}
+                    {footer.developedBy}{" "}
                     <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>
 
                     <span> &copy; 2023 Whaletale. </span>

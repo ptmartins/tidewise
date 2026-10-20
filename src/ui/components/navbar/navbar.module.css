@@ -68,6 +68,27 @@
     margin-inline-start: 3rem;
 }
 
+.languages {
+    border: 1px solid var(--accent-muted);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    font-size: .8rem;
+    font-weight: 600;
+    margin-inline-end: 1.5rem;
+    overflow: hidden;
+
+    a {
+        color: var(--accent-faded);
+        display: block;
+        padding: .4rem .6rem;
+    }
+
+    .language--active {
+        background-color: var(--accent-muted);
+        color: var(--accent-dark);
+    }
+}
+
 .menuToggle {
     align-items: center;
     background: none;
@@ -138,6 +159,10 @@
     .reportButton {
         align-self: stretch;
         justify-content: center;
+        margin: 1.25rem 0 0;
+    }
+
+    .languages {
         margin: 1.25rem 0 0;
     }
 }

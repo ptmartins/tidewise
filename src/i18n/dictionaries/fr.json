@@ -1,0 +1,309 @@
+{
+  "meta": {
+    "title": "WhaleTale",
+    "description": "Une application simple pour mieux connaître les mammifères marins des eaux portugaises et signaler observations et échouages."
+  },
+  "nav": {
+    "explore": "Explorer",
+    "learn": "Apprendre",
+    "fieldReports": "Relevés de terrain",
+    "reportSighting": "Signaler une observation",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
+    "language": "Langue"
+  },
+  "footer": {
+    "tagline": "Un guide de terrain pour un océan vivant",
+    "developedBy": "Développé avec ♥ par"
+  },
+  "common": {
+    "reportSighting": "Signaler une observation",
+    "reportStranding": "Signaler un échouage",
+    "youCanHelp": "Vous pouvez aider"
+  },
+  "home": {
+    "hero": {
+      "imageAlt": "Une baleine sautant hors de l’eau",
+      "tag": "Explorez l’océan",
+      "title": "Découvrez la vie",
+      "titleHighlight": "de notre côte atlantique",
+      "subtitle": "Découvrez les espèces qui peuplent nos eaux, signalez observations et échouages, et contribuez à leur conservation.",
+      "cta": "Explorer les espèces"
+    },
+    "stats": {
+      "label": "WhaleTale en chiffres",
+      "species": "Espèces de mammifères marins recensées au Portugal",
+      "threatened": "Menacées à l’échelle mondiale sur la Liste rouge de l’UICN",
+      "resident": "Vivent dans nos eaux toute l’année",
+      "remark": "Fondé sur des recherches évaluées par des pairs et des observations de terrain"
+    },
+    "explorer": {
+      "tag": "Explorateur d’espèces",
+      "title": "Trouvez une",
+      "titleHighlight": "espèce",
+      "intro": "Recherchez les baleines, dauphins, marsouins et phoques observés le long de notre côte et autour des îles."
+    },
+    "knowledge": {
+      "tag": "Aller plus loin",
+      "title": "Connaître, c’est",
+      "titleHighlight": "protéger",
+      "intro": "Comprenez les adaptations extraordinaires, les lignées anciennes et les écosystèmes fragiles qui façonnent la vie des mammifères marins.",
+      "cta": "Parcourir les notes de terrain",
+      "returnTitle": "Retour à la mer",
+      "returnDescription": "Comment des mammifères terrestres sont retournés à la mer pour en faire leur foyer.",
+      "connectionsTitle": "Liens océaniques",
+      "connectionsDescription": "Les liens invisibles qui maintiennent les écosystèmes marins en bonne santé."
+    },
+    "help": {
+      "title": "Soyez les yeux de l’océan",
+      "intro": "Chaque observation enrichit nos connaissances communes. Signalez ce que vous voyez, d’une baleine qui saute à un phoque sur le rivage."
+    }
+  },
+  "learn": {
+    "title": "Apprendre de l’océan",
+    "introLine1": "Découvrez comment les mammifères marins ont évolué, prospèrent dans des écosystèmes",
+    "introLine2": "interconnectés et s’adaptent à un océan en mutation.",
+    "returnTitle": "Retour à la mer",
+    "returnDescription": "De la loutre à la baleine, découvrez la remarquable histoire évolutive des mammifères marins"
+  },
+  "notFound": {
+    "error": "Erreur : 404",
+    "title": "Cette page a",
+    "titleHighlight": "dérivé au large",
+    "subtitle": "La marée a emporté cette page bien loin. Revenons vers des eaux connues.",
+    "cta": "Retour à l’accueil"
+  },
+  "explorer": {
+    "searchLabel": "Rechercher une espèce",
+    "searchPlaceholder": "Rechercher par nom commun ou scientifique…",
+    "clearSearch": "Effacer la recherche",
+    "groupLabel": "Groupe",
+    "allGroups": "Tous les groupes",
+    "regionLabel": "Région",
+    "allRegions": "Toutes les régions",
+    "moreFilters": "Plus de filtres",
+    "showing": "{count} espèces affichées sur {total}",
+    "removeFilter": "Retirer le filtre : {label}",
+    "clearAll": "Tout effacer",
+    "sortBy": "Trier par",
+    "showMore": "Afficher plus d’espèces",
+    "moreCount": "{count} de plus",
+    "emptyTitle": "Aucune espèce ne correspond à votre recherche",
+    "emptyText": "Essayez un autre nom ou retirez quelques filtres.",
+    "clearAllFilters": "Effacer tous les filtres",
+    "close": "Fermer",
+    "resetFilters": "Réinitialiser les filtres",
+    "showResults": "Afficher {count} espèces",
+    "filters": {
+      "status": "Statut de conservation",
+      "statusHint": "Liste rouge de l’UICN, mondiale",
+      "presence": "Présence dans les eaux portugaises",
+      "sightings": "Fréquence d’observation",
+      "size": "Taille adulte",
+      "trend": "Tendance de la population"
+    },
+    "regions": {
+      "mainland": "Côte continentale",
+      "azores": "Açores",
+      "madeira": "Madère"
+    },
+    "presence": {
+      "Resident (year-round)": "Résidente",
+      "Seasonal / migratory": "Saisonnière",
+      "Occasional visitor": "Occasionnelle",
+      "Rare / vagrant": "Erratique"
+    },
+    "sizes": {
+      "small": "Moins de 4 m",
+      "medium": "4–10 m",
+      "large": "Plus de 10 m"
+    },
+    "sorts": {
+      "relevant": "Les plus pertinentes",
+      "name-asc": "Nom, A–Z",
+      "name-desc": "Nom, Z–A",
+      "size-desc": "Taille, décroissante",
+      "size-asc": "Taille, croissante",
+      "threat": "Les plus menacées"
+    }
+  },
+  "species": {
+    "metaTitle": "{name} ({scientificName}) · WhaleTale",
+    "breadcrumb": "Fil d’Ariane",
+    "otherNames": "Autres noms communs",
+    "imageComingSoon": "Illustration à venir",
+    "conservationStatus": "Statut de conservation",
+    "iucnSource": "Liste rouge de l’UICN · mondiale",
+    "iucnScale": "Échelle de la Liste rouge de l’UICN",
+    "inPortugal": "Au Portugal",
+    "populationTrend": "Tendance de la population",
+    "protectedUnder": "Protégée légalement par",
+    "weight": "Poids",
+    "length": "Longueur",
+    "lifespan": "Longévité",
+    "lifespanValue": "Jusqu’à {max} ans",
+    "unknown": "Inconnue",
+    "distribution": "Répartition",
+    "mainThreats": "Principales menaces",
+    "fieldGuide": "Guide de terrain",
+    "guideTitle": "Découvrez",
+    "guideHighlight": "cette espèce",
+    "guideIntro": "Tout ce qu’il faut pour reconnaître, comprendre et aider à protéger cette espèce.",
+    "whereToSpot": "Où l’observer",
+    "presence": "Présence",
+    "sightings": "Observations",
+    "bestMonths": "Meilleurs mois",
+    "noSeasonalPattern": "Les observations sont trop rares pour dégager une tendance saisonnière.",
+    "sections": {
+      "about": "À propos de l’espèce",
+      "population": "État de la population",
+      "appearance": "Apparence",
+      "behaviour": "Comportement et alimentation",
+      "reproduction": "Longévité et reproduction",
+      "threats": "Menaces"
+    },
+    "legalProtection": "Protection légale",
+    "classification": "Classification scientifique",
+    "ctaTitle": "Vous avez aperçu cette espèce ?",
+    "ctaText": "Chaque signalement aide les chercheurs à suivre les populations le long de notre côte."
+  },
+  "data": {
+    "iucn": {
+      "NE": "Non évaluée",
+      "DD": "Données insuffisantes",
+      "LC": "Préoccupation mineure",
+      "NT": "Quasi menacée",
+      "VU": "Vulnérable",
+      "EN": "En danger",
+      "CR": "En danger critique",
+      "EW": "Éteinte à l’état sauvage",
+      "EX": "Éteinte"
+    },
+    "groups": {
+      "Baleen whale": "Baleine à fanons",
+      "Toothed whale": "Baleine à dents",
+      "Dolphin": "Dauphin",
+      "Porpoise": "Marsouin",
+      "Seal": "Phoque"
+    },
+    "groupsPlural": {
+      "Baleen whale": "Baleines à fanons",
+      "Toothed whale": "Baleines à dents",
+      "Dolphin": "Dauphins",
+      "Porpoise": "Marsouins",
+      "Seal": "Phoques"
+    },
+    "trends": {
+      "increasing": "En hausse",
+      "stable": "Stable",
+      "decreasing": "En baisse",
+      "unknown": "Inconnue"
+    },
+    "residency": {
+      "Resident (year-round)": "Résidente (toute l’année)",
+      "Seasonal / migratory": "Saisonnière / migratrice",
+      "Occasional visitor": "Visiteuse occasionnelle",
+      "Rare / vagrant": "Rare / erratique"
+    },
+    "sightings": {
+      "Very common": "Très fréquente",
+      "Common": "Fréquente",
+      "Uncommon": "Peu fréquente",
+      "Rare": "Rare"
+    },
+    "threats": {
+      "Ship strikes": "Collisions avec les navires",
+      "Entanglement": "Enchevêtrement",
+      "Underwater noise": "Bruit sous-marin",
+      "Climate change": "Changement climatique",
+      "Bycatch": "Captures accidentelles",
+      "Whaling": "Chasse à la baleine",
+      "Plastic ingestion": "Ingestion de plastique",
+      "Military sonar": "Sonar militaire",
+      "Boat disturbance": "Dérangement par les bateaux",
+      "Pollution": "Pollution",
+      "Prey depletion": "Raréfaction des proies",
+      "Disease": "Maladies",
+      "Mass strandings": "Échouages massifs",
+      "Habitat loss": "Perte d’habitat",
+      "Human disturbance": "Dérangement humain",
+      "Small population": "Population réduite",
+      "Hunting": "Chasse"
+    },
+    "regions": {
+      "Azores": "Açores",
+      "Mainland coast": "Côte continentale",
+      "Madeira": "Madère",
+      "Sado estuary": "Estuaire du Sado",
+      "Lisbon coast": "Côte de Lisbonne",
+      "Algarve": "Algarve",
+      "Mainland — North": "Continent — Nord",
+      "Mainland — Centre": "Continent — Centre",
+      "Desertas Islands": "Îles Desertas"
+    },
+    "protection": {
+      "EU Habitats Directive": "Directive Habitats de l’UE",
+      "CITES I": "CITES I",
+      "CITES II": "CITES II",
+      "Bonn Convention": "Convention de Bonn",
+      "Bern Convention": "Convention de Berne",
+      "EU Habitats Directive — Annex IV": "Directive Habitats de l’UE — Annexe IV",
+      "EU Habitats Directive — Annex II & IV": "Directive Habitats de l’UE — Annexes II et IV",
+      "EU Habitats Directive — Annex II & V": "Directive Habitats de l’UE — Annexes II et V",
+      "EU Habitats Directive — Annex II (priority) & IV": "Directive Habitats de l’UE — Annexes II (prioritaire) et IV",
+      "CITES — Appendix I": "CITES — Annexe I",
+      "CITES — Appendix II": "CITES — Annexe II",
+      "Bonn Convention (CMS) — Appendix I": "Convention de Bonn (CMS) — Annexe I",
+      "Bonn Convention (CMS) — Appendix II": "Convention de Bonn (CMS) — Annexe II",
+      "Bonn Convention (CMS) — Appendix I & II": "Convention de Bonn (CMS) — Annexes I et II",
+      "Bern Convention — Appendix II": "Convention de Berne — Annexe II",
+      "Bern Convention — Appendix III": "Convention de Berne — Annexe III",
+      "IWC commercial whaling moratorium": "Moratoire de la CBI sur la chasse commerciale",
+      "ASCOBANS": "ASCOBANS",
+      "Desertas Islands Nature Reserve": "Réserve naturelle des îles Desertas"
+    },
+    "distribution": {
+      "Western North Atlantic": "Atlantique Nord occidental",
+      "All oceans, mostly offshore": "Tous les océans, surtout au large",
+      "All oceans, temperate to polar": "Tous les océans, des eaux tempérées aux pôles",
+      "Tropical & warm temperate seas": "Mers tropicales et tempérées chaudes",
+      "Northern Hemisphere, all latitudes": "Hémisphère Nord, toutes latitudes",
+      "All oceans, migratory": "Tous les océans, migratrice",
+      "Deep waters of all oceans": "Eaux profondes de tous les océans",
+      "Deep temperate & tropical seas": "Mers profondes tempérées et tropicales",
+      "Warm temperate & tropical seas": "Mers tempérées chaudes et tropicales",
+      "Deep waters worldwide": "Eaux profondes du monde entier",
+      "Deep, cold North Atlantic": "Atlantique Nord profond et froid",
+      "Deep, cool North Atlantic": "Atlantique Nord profond et frais",
+      "Deep tropical & warm temperate seas": "Mers profondes tropicales et tempérées chaudes",
+      "Warm Atlantic waters": "Eaux chaudes de l’Atlantique",
+      "Temperate North Atlantic & Southern Hemisphere": "Atlantique Nord tempéré et hémisphère Sud",
+      "Temperate & tropical seas worldwide": "Mers tempérées et tropicales du monde entier",
+      "Temperate & warm seas worldwide": "Mers tempérées et chaudes du monde entier",
+      "Deep tropical seas": "Mers tropicales profondes",
+      "All oceans, polar to tropical": "Tous les océans, des pôles aux tropiques",
+      "Cold temperate North Atlantic & Southern Ocean": "Atlantique Nord tempéré froid et océan Austral",
+      "Coastal North Atlantic & North Pacific": "Côtes de l’Atlantique Nord et du Pacifique Nord",
+      "Madeira, NW Africa & E Mediterranean": "Madère, nord-ouest de l’Afrique et Méditerranée orientale",
+      "Temperate North Atlantic coasts": "Côtes tempérées de l’Atlantique Nord",
+      "Arctic & sub-Arctic North Atlantic": "Atlantique Nord arctique et subarctique"
+    },
+    "nationalNotes": {
+      "Sado estuary resident population": "Population résidente de l’estuaire du Sado",
+      "Iberian subpopulation (IUCN)": "Sous-population ibérique (UICN)",
+      "Madeira population": "Population de Madère"
+    },
+    "ranks": {
+      "Kingdom": "Règne",
+      "Phylum": "Embranchement",
+      "Class": "Classe",
+      "Order": "Ordre",
+      "Infraorder": "Infra-ordre",
+      "Parvorder": "Parvordre",
+      "Clade": "Clade",
+      "Family": "Famille",
+      "Genus": "Genre",
+      "Species": "Espèce"
+    }
+  }
+}

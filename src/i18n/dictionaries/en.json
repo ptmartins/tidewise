@@ -1,0 +1,203 @@
+{
+  "meta": {
+    "title": "WhaleTale",
+    "description": "A simple app to grow your knowledge of marine mammal species in Portuguese waters, report sightings and strandings."
+  },
+  "nav": {
+    "explore": "Explore",
+    "learn": "Learn",
+    "fieldReports": "Field reports",
+    "reportSighting": "Report a sighting",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "language": "Language"
+  },
+  "footer": {
+    "tagline": "A field guide for a living ocean",
+    "developedBy": "Developed with ♥ by"
+  },
+  "common": {
+    "reportSighting": "Report a sighting",
+    "reportStranding": "Report a stranding",
+    "youCanHelp": "You can help"
+  },
+  "home": {
+    "hero": {
+      "imageAlt": "A whale breaching the ocean surface",
+      "tag": "Explore the ocean",
+      "title": "Meet the life",
+      "titleHighlight": "of our Atlantic coast",
+      "subtitle": "Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.",
+      "cta": "Explore species"
+    },
+    "stats": {
+      "label": "WhaleTale in numbers",
+      "species": "Marine mammal species recorded in Portugal",
+      "threatened": "Globally threatened on the IUCN Red List",
+      "resident": "Live in our waters year-round",
+      "remark": "Built from peer-reviewed research and field observations"
+    },
+    "explorer": {
+      "tag": "Species explorer",
+      "title": "Find a",
+      "titleHighlight": "species",
+      "intro": "Search the whales, dolphins, porpoises and seals recorded along our coast and around the islands."
+    },
+    "knowledge": {
+      "tag": "Go deeper",
+      "title": "Knowledge is",
+      "titleHighlight": "conservation",
+      "intro": "Understand the extraordinary adaptations, ancient lineages and fragile ecosystems that shape marine mammal life.",
+      "cta": "Browse field notes",
+      "returnTitle": "Return to the sea",
+      "returnDescription": "How land mammals returned to the sea and made it their home.",
+      "connectionsTitle": "Ocean connections",
+      "connectionsDescription": "The invisible connections that keep marine ecosystems thriving."
+    },
+    "help": {
+      "title": "Be eyes for the ocean",
+      "intro": "Every observation adds to our shared understanding. Report what you see, from a breaching whale to a seal on the shore."
+    }
+  },
+  "learn": {
+    "title": "Learn from the ocean",
+    "introLine1": "Explore how marine mammals evolved, thrive in connected",
+    "introLine2": "ecosystems, and navigate a changing ocean.",
+    "returnTitle": "Return to the sea",
+    "returnDescription": "From otter to whale, discover the remarkable evolutionary story of marine mammals"
+  },
+  "notFound": {
+    "error": "Error: 404",
+    "title": "This page drifted",
+    "titleHighlight": "off course",
+    "subtitle": "The tide has carried this page somewhere beyond the fold. Let's get you back to the waters we know.",
+    "cta": "Return home"
+  },
+  "explorer": {
+    "searchLabel": "Search species",
+    "searchPlaceholder": "Search by common or scientific name…",
+    "clearSearch": "Clear search",
+    "groupLabel": "Group",
+    "allGroups": "All groups",
+    "regionLabel": "Region",
+    "allRegions": "All regions",
+    "moreFilters": "More filters",
+    "showing": "Showing {count} of {total} species",
+    "removeFilter": "Remove filter: {label}",
+    "clearAll": "Clear all",
+    "sortBy": "Sort by",
+    "showMore": "Show more species",
+    "moreCount": "{count} more",
+    "emptyTitle": "No species match your search",
+    "emptyText": "Try a different name or remove some filters.",
+    "clearAllFilters": "Clear all filters",
+    "close": "Close",
+    "resetFilters": "Reset filters",
+    "showResults": "Show {count} species",
+    "filters": {
+      "status": "Conservation status",
+      "statusHint": "IUCN Red List, global",
+      "presence": "Presence in Portuguese waters",
+      "sightings": "How often it’s seen",
+      "size": "Adult size",
+      "trend": "Population trend"
+    },
+    "regions": {
+      "mainland": "Mainland coast",
+      "azores": "Azores",
+      "madeira": "Madeira"
+    },
+    "presence": {
+      "Resident (year-round)": "Resident",
+      "Seasonal / migratory": "Seasonal",
+      "Occasional visitor": "Occasional",
+      "Rare / vagrant": "Vagrant"
+    },
+    "sizes": {
+      "small": "Under 4 m",
+      "medium": "4–10 m",
+      "large": "Over 10 m"
+    },
+    "sorts": {
+      "relevant": "Most relevant",
+      "name-asc": "Name, A–Z",
+      "name-desc": "Name, Z–A",
+      "size-desc": "Size, largest first",
+      "size-asc": "Size, smallest first",
+      "threat": "Most threatened"
+    }
+  },
+  "species": {
+    "metaTitle": "{name} ({scientificName}) · WhaleTale",
+    "breadcrumb": "Breadcrumb",
+    "otherNames": "Other common names",
+    "imageComingSoon": "Illustration coming soon",
+    "conservationStatus": "Conservation status",
+    "iucnSource": "IUCN Red List · global",
+    "iucnScale": "IUCN Red List scale",
+    "inPortugal": "In Portugal",
+    "populationTrend": "Population trend",
+    "protectedUnder": "Legally protected under",
+    "weight": "Weight",
+    "length": "Length",
+    "lifespan": "Lifespan",
+    "lifespanValue": "Up to {max} years",
+    "unknown": "Unknown",
+    "distribution": "Distribution",
+    "mainThreats": "Main threats",
+    "fieldGuide": "Field guide",
+    "guideTitle": "Get to know",
+    "guideHighlight": "the {shortName}",
+    "guideIntro": "Everything you need to recognise, understand and help protect this species.",
+    "whereToSpot": "Where to spot it",
+    "presence": "Presence",
+    "sightings": "Sightings",
+    "bestMonths": "Best months",
+    "noSeasonalPattern": "Records are too rare to show a seasonal pattern.",
+    "sections": {
+      "about": "About the species",
+      "population": "Population status",
+      "appearance": "Appearance",
+      "behaviour": "Behaviour & diet",
+      "reproduction": "Lifespan & reproduction",
+      "threats": "Threats"
+    },
+    "legalProtection": "Legal protection",
+    "classification": "Scientific classification",
+    "ctaTitle": "Spotted {nameWithArticle}?",
+    "ctaText": "Every record helps researchers track populations along our coast."
+  },
+  "data": {
+    "iucn": {
+      "NE": "Not Evaluated",
+      "DD": "Data Deficient",
+      "LC": "Least Concern",
+      "NT": "Near Threatened",
+      "VU": "Vulnerable",
+      "EN": "Endangered",
+      "CR": "Critically Endangered",
+      "EW": "Extinct in the Wild",
+      "EX": "Extinct"
+    },
+    "groups": {
+      "Baleen whale": "Baleen whale",
+      "Toothed whale": "Toothed whale",
+      "Dolphin": "Dolphin",
+      "Porpoise": "Porpoise",
+      "Seal": "Seal"
+    },
+    "groupsPlural": {
+      "Baleen whale": "Baleen whales",
+      "Toothed whale": "Toothed whales",
+      "Dolphin": "Dolphins",
+      "Porpoise": "Porpoises",
+      "Seal": "Seals"
+    },
+    "trends": {
+      "increasing": "Increasing",
+      "stable": "Stable",
+      "decreasing": "Decreasing",
+      "unknown": "Unknown"
+    }
+  }
+}

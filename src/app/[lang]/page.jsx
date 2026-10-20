@@ -5,41 +5,44 @@ import Link from "next/link";
 import SpeciesExplorer from "@/ui/components/species-explorer/speciesExplorer";
 import { THREATENED, toCard } from "@/ui/components/species-explorer/options";
 import { getAllSpecies } from "@/lib/mock/species";
+import { getDictionary, getLocale } from "@/i18n/getDictionary";
 
-export default function Home() {
-    const species = getAllSpecies();
+export default async function Home() {
+    const locale = await getLocale();
+    const { home, common } = await getDictionary();
+    const species = getAllSpecies(locale);
 
     const stats = [
-        { value: species.length, label: 'Marine mammal species recorded in Portugal' },
-        { value: species.filter(({ iucnStatus }) => THREATENED.includes(iucnStatus)).length, label: 'Globally threatened on the IUCN Red List' },
-        { value: species.filter(({ residency }) => residency === 'Resident (year-round)').length, label: 'Live in our waters year-round' },
+        { value: species.length, label: home.stats.species },
+        { value: species.filter(({ iucnStatus }) => THREATENED.includes(iucnStatus)).length, label: home.stats.threatened },
+        { value: species.filter(({ residency }) => residency === 'Resident (year-round)').length, label: home.stats.resident },
     ];
 
     return (
 
-        <>  
+        <>
             {/* Hero section */}
             <section className={styles.hero}>
                 <div className="innerWrapper">
                     <div className={styles.hero__content}>
                         <Image src="/hero.png"
-                            alt="A whale breaching the ocean surface"
+                            alt={home.hero.imageAlt}
                             width={1408}
                             height={768}
                             className={styles.hero__image}
-                        /> 
+                        />
                         <div className={styles.hero__text}>
-                            <span className={styles.tag}>Explore the ocean</span>
-                            <h1 className={styles.hero__title}>Meet the life <br /> <span>of our Atlantic coast</span> </h1>
-                            <p className={styles.hero__subtitle}>Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.</p>
-                            <Link href="#explorer" className={`btn ${styles.btn__hero}`}>Explore species <Icon icon="lucide:arrow-right" /> </Link>
+                            <span className={styles.tag}>{home.hero.tag}</span>
+                            <h1 className={styles.hero__title}>{home.hero.title} <br /> <span>{home.hero.titleHighlight}</span> </h1>
+                            <p className={styles.hero__subtitle}>{home.hero.subtitle}</p>
+                            <Link href="#explorer" className={`btn ${styles.btn__hero}`}>{home.hero.cta} <Icon icon="lucide:arrow-right" /> </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Stats section */}
-            <section className={styles.stats} aria-label="WhaleTale in numbers">
+            <section className={styles.stats} aria-label={home.stats.label}>
                 <div className="innerWrapper">
                     <ul className={styles.stats__list}>
                         {stats.map(({ value, label }) => (
@@ -50,7 +53,7 @@ export default function Home() {
                         ))}
                         <li className={styles.stats__remark}>
                             <Icon icon="lucide:microscope" width="22" height="22" />
-                            <p>Built from peer-reviewed research and field observations</p>
+                            <p>{home.stats.remark}</p>
                         </li>
                     </ul>
                 </div>
@@ -60,9 +63,9 @@ export default function Home() {
             <section id="explorer" className={`section ${styles.explorer}`}>
                 <div className="innerWrapper">
                     <header className={styles.explorer__header}>
-                        <span className={styles.tag}>Species explorer</span>
-                        <h2>Find a <span>species</span></h2>
-                        <p>Search the whales, dolphins, porpoises and seals recorded along our coast and around the islands.</p>
+                        <span className={styles.tag}>{home.explorer.tag}</span>
+                        <h2>{home.explorer.title} <span>{home.explorer.titleHighlight}</span></h2>
+                        <p>{home.explorer.intro}</p>
                     </header>
                     <SpeciesExplorer species={species.map(toCard)} />
                 </div>
@@ -72,27 +75,27 @@ export default function Home() {
             <section className={`section ${styles.knowledge}`}>
                 <div className={`innerWrapper ${styles.innerWrapper}`}>
                     <div className={styles.knowledge__content}>
-                        <span className={styles.tag}>Go deeper</span>
-                        <h1> Knowledge is <span>conservation</span> </h1>
-                        <p>Understand the extraordinary adaptations, ancient lineages and fragile ecosystems that shape marine mammal life.</p>
-                        <button className="btn">Browse field notes</button>
+                        <span className={styles.tag}>{home.knowledge.tag}</span>
+                        <h1> {home.knowledge.title} <span>{home.knowledge.titleHighlight}</span> </h1>
+                        <p>{home.knowledge.intro}</p>
+                        <button className="btn">{home.knowledge.cta}</button>
                     </div>
                     <div className={styles.knowledge__cta}>
                         <div className={styles.knowledge__card}>
                             <div className={styles.card__number}>01</div>
-                            <div className={styles.card__icon}> 
+                            <div className={styles.card__icon}>
                                 <Icon icon="lucide:waves" width="32" height="32" />
                             </div>
-                            <h3 className={styles.card__title}>Return to the sea</h3>
-                            <p className={styles.card__description}>How land mammals returned to the sea and made it their home.</p>
+                            <h3 className={styles.card__title}>{home.knowledge.returnTitle}</h3>
+                            <p className={styles.card__description}>{home.knowledge.returnDescription}</p>
                         </div>
                         <div className={styles.knowledge__card}>
                             <div className={styles.card__number}>02</div>
-                            <div className={styles.card__icon}> 
+                            <div className={styles.card__icon}>
                                 <Icon icon="lucide:earth" width="32" height="32" />
                             </div>
-                            <h3 className={styles.card__title}>Ocean connections</h3>
-                            <p className={styles.card__description}>The invisible connections that keep marine ecosystems thriving.</p>
+                            <h3 className={styles.card__title}>{home.knowledge.connectionsTitle}</h3>
+                            <p className={styles.card__description}>{home.knowledge.connectionsDescription}</p>
                         </div>
                     </div>
                 </div>
@@ -102,19 +105,19 @@ export default function Home() {
             <section className={`section ${styles.help}`}>
                 <div className={`innerWrapper ${styles.innerWrapper}`}>
                     <div className={styles.help__content}>
-                        <span className={styles.tag}>you can help</span>
-                        <h1> Be eyes for the ocean </h1>
-                        <p>Every observation adds to our shared understanding. Report what you see, from a breaching whale to a seal on the shore.</p>
+                        <span className={styles.tag}>{common.youCanHelp}</span>
+                        <h1> {home.help.title} </h1>
+                        <p>{home.help.intro}</p>
                     </div>
                     <div className={styles.help__cta}>
                         <button className="btn btn--secondary">
                             <Icon icon="lucide:binoculars" width="24" height="24" />
-                            Report a sighting
+                            {common.reportSighting}
                             <Icon icon="lucide:chevron-right" width="24" height="24" />
                         </button>
                         <button className="btn">
                             <Icon icon="lucide:shield-alert" width="24" height="24" />
-                            Report a stranding
+                            {common.reportStranding}
                             <Icon icon="lucide:chevron-right" width="24" height="24" />
                         </button>
                     </div>

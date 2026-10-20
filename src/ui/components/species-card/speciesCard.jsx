@@ -2,12 +2,13 @@ import styles from './speciesCard.module.css';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IUCN_LABELS } from '@/lib/mock/species/_shared';
-import { groupFor, PRESENCE } from '../species-explorer/options';
+import { groupFor } from '../species-explorer/options';
+import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 
 function SpeciesCard({ species }) {
+    const locale = useLocale();
+    const { data } = useDictionary();
     const group = groupFor(species.category);
-    const presence = PRESENCE.find(({ value }) => value === species.residency)?.label;
     const { thumbnail } = species;
     const credit = thumbnail && [thumbnail.credit, thumbnail.license].filter(Boolean).join(' · ');
 
@@ -35,8 +36,8 @@ function SpeciesCard({ species }) {
                 ) : (
                     <Icon icon={group.icon} className={styles.card__silhouette} aria-hidden="true" />
                 )}
-                <span className={styles.card__group}>{species.category}</span>
-                <span className={styles.card__badge} title={IUCN_LABELS[species.iucnStatus]}>
+                <span className={styles.card__group}>{data.groups[species.category]}</span>
+                <span className={styles.card__badge} title={data.iucn[species.iucnStatus]}>
                     {species.iucnStatus}
                 </span>
             </div>
@@ -44,7 +45,7 @@ function SpeciesCard({ species }) {
             <div className={styles.card__body}>
                 <h3 className={styles.card__title}>{species.commonName}</h3>
                 <p className={styles.card__scientific}><em>{species.scientificName}</em></p>
-                                <Link href={`/species/${species.slug}`} className={`btn ${styles.card__link}`}>
+                                <Link href={`/${locale}/species/${species.slug}`} className={`btn ${styles.card__link}`}>
                     <Icon icon="lucide:arrow-right" width="22" height="22" />
                 </Link>
             </div>
