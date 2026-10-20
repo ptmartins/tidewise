@@ -111,6 +111,80 @@
     "ctaText": "Aidez-nous à enrichir cette liste avec des sources fiables sur les mammifères marins.",
     "ctaButton": "Suggérer une ressource"
   },
+  "reports": {
+    "metaTitle": "Observations de terrain · {site}",
+    "tag": "Observations de terrain",
+    "title": "Les dernières nouvelles",
+    "titleHighlight": "du large",
+    "intro": "Observations et échouages partagés par celles et ceux qui fréquentent notre côte et les îles. Chaque signalement est vérifié avant d’être ajouté aux données.",
+    "notice": "Signalements d’exemple pour l’aperçu — les vraies contributions arrivent bientôt.",
+    "stats": {
+      "label": "Les observations en chiffres",
+      "reports": "Signalements envoyés",
+      "species": "Espèces observées",
+      "strandings": "Échouages signalés",
+      "observers": "Observateurs contributeurs"
+    },
+    "feedTitle": "Tous les signalements",
+    "typeLabel": "Type de signalement",
+    "allReports": "Tous",
+    "speciesLabel": "Espèce",
+    "allSpecies": "Toutes les espèces",
+    "showing": "{count} signalements sur {total}",
+    "showMore": "Afficher plus de signalements",
+    "emptyTitle": "Aucun signalement ne correspond à ces filtres",
+    "emptyText": "Essayez une autre région ou une autre espèce.",
+    "sorts": {
+      "newest": "Plus récents",
+      "oldest": "Plus anciens"
+    },
+    "types": {
+      "sighting": "Observation",
+      "stranding": "Échouage"
+    },
+    "typesPlural": {
+      "sighting": "Observations",
+      "stranding": "Échouages"
+    },
+    "statuses": {
+      "verified": "Vérifié",
+      "pending": "En cours de vérification"
+    },
+    "count": "{count} individus",
+    "countOne": "1 individu",
+    "withCalves": "avec petits",
+    "platforms": {
+      "boat": "Depuis un bateau",
+      "shore": "Depuis la côte",
+      "aircraft": "Depuis les airs"
+    },
+    "conditions": {
+      "alive": "Trouvé vivant",
+      "dead": "Trouvé mort"
+    },
+    "behaviourLabel": "Comportement",
+    "behaviours": {
+      "feeding": "Alimentation",
+      "travelling": "Déplacement",
+      "socialising": "Socialisation",
+      "resting": "Repos",
+      "breaching": "Sauts",
+      "bowriding": "Nage à l’étrave"
+    },
+    "reportedBy": "Signalé par {name}",
+    "topSpecies": "Espèces les plus signalées",
+    "byRegion": "Signalements par région",
+    "strandingTitle": "Vous avez trouvé un animal échoué ?",
+    "strandingSteps": [
+      "Gardez vos distances et éloignez les personnes et les chiens.",
+      "Ne le remettez pas à l’eau.",
+      "Notez le lieu et prenez des photos si c’est sans danger.",
+      "Appelez immédiatement le réseau d’échouage local."
+    ],
+    "strandingLink": "Trouver votre réseau d’échouage",
+    "ctaTitle": "Partagez votre observation",
+    "ctaText": "Quelques détails et une photo suffisent. Votre signalement aide les chercheurs à suivre ces animaux au fil des saisons."
+  },
   "notFound": {
     "error": "Erreur : 404",
     "title": "Cette page a",

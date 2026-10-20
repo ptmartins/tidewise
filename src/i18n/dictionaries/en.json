@@ -111,6 +111,80 @@
     "ctaText": "Help us grow this list with trusted sources about marine mammals.",
     "ctaButton": "Suggest a resource"
   },
+  "reports": {
+    "metaTitle": "Field reports · {site}",
+    "tag": "Field reports",
+    "title": "Latest from",
+    "titleHighlight": "the water",
+    "intro": "Sightings and strandings shared by people along our coast and around the islands. Every report is checked before it joins the record.",
+    "notice": "Sample reports for preview — live submissions coming soon.",
+    "stats": {
+      "label": "Field reports in numbers",
+      "reports": "Reports submitted",
+      "species": "Species recorded",
+      "strandings": "Strandings reported",
+      "observers": "Contributing observers"
+    },
+    "feedTitle": "All reports",
+    "typeLabel": "Report type",
+    "allReports": "All",
+    "speciesLabel": "Species",
+    "allSpecies": "All species",
+    "showing": "Showing {count} of {total} reports",
+    "showMore": "Show more reports",
+    "emptyTitle": "No reports match these filters",
+    "emptyText": "Try another region or species.",
+    "sorts": {
+      "newest": "Newest first",
+      "oldest": "Oldest first"
+    },
+    "types": {
+      "sighting": "Sighting",
+      "stranding": "Stranding"
+    },
+    "typesPlural": {
+      "sighting": "Sightings",
+      "stranding": "Strandings"
+    },
+    "statuses": {
+      "verified": "Verified",
+      "pending": "Under review"
+    },
+    "count": "{count} animals",
+    "countOne": "1 animal",
+    "withCalves": "with calves",
+    "platforms": {
+      "boat": "From a boat",
+      "shore": "From shore",
+      "aircraft": "From the air"
+    },
+    "conditions": {
+      "alive": "Found alive",
+      "dead": "Found dead"
+    },
+    "behaviourLabel": "Behaviour",
+    "behaviours": {
+      "feeding": "Feeding",
+      "travelling": "Travelling",
+      "socialising": "Socialising",
+      "resting": "Resting",
+      "breaching": "Breaching",
+      "bowriding": "Bow-riding"
+    },
+    "reportedBy": "Reported by {name}",
+    "topSpecies": "Most reported species",
+    "byRegion": "Reports by region",
+    "strandingTitle": "Found a stranded animal?",
+    "strandingSteps": [
+      "Keep your distance and keep people and dogs away.",
+      "Don’t push it back into the sea.",
+      "Note the location and take photos if it’s safe.",
+      "Call your local stranding network straight away."
+    ],
+    "strandingLink": "Find your stranding network",
+    "ctaTitle": "Add your observation",
+    "ctaText": "A few details and a photo are all it takes. Your report helps researchers follow these animals through the seasons."
+  },
   "notFound": {
     "error": "Error: 404",
     "title": "This page drifted",

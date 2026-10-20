@@ -1,0 +1,238 @@
+/* Report type colours: sightings in the brand teal, strandings in the warm accent */
+.card {
+    --type-color: var(--accent);
+
+    &[data-type='stranding'] {
+        --type-color: var(--secondary-accent);
+    }
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--border-radius-l);
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    overflow: hidden;
+    transition: var(--default-transition);
+}
+
+/* Thumbnail: same ocean tints as the species cards */
+.card__thumb {
+    --thumb-from: var(--accent-light);
+    --thumb-to: var(--accent-dark);
+
+    background: linear-gradient(160deg, var(--thumb-from), var(--thumb-to));
+    display: grid;
+    isolation: isolate;
+    min-block-size: 100%;
+    overflow: hidden;
+    place-items: center;
+    position: relative;
+
+    &[data-group='Baleen whale'] { --thumb-from: #2f6f8f; --thumb-to: #173f55; }
+    &[data-group='Toothed whale'] { --thumb-from: #2b4f6b; --thumb-to: #0f2a3d; }
+    &[data-group='Dolphin'] { --thumb-from: #2f8079; --thumb-to: var(--accent-dark); }
+    &[data-group='Porpoise'] { --thumb-from: #4f8a83; --thumb-to: #2a5b57; }
+    &[data-group='Seal'] { --thumb-from: #7d968f; --thumb-to: #4b6560; }
+}
+
+.card__image {
+    object-fit: cover;
+    transition: var(--default-transition);
+    z-index: -1;
+}
+
+.card__silhouette {
+    block-size: 40%;
+    color: var(--white);
+    inline-size: auto;
+    opacity: .85;
+}
+
+.card__type {
+    align-items: center;
+    background-color: var(--type-color);
+    border-radius: var(--border-radius-s);
+    color: var(--white);
+    display: inline-flex;
+    font-size: .7rem;
+    font-weight: 700;
+    gap: .35rem;
+    inset: .9rem auto auto .9rem;
+    letter-spacing: .04em;
+    padding: .375rem .5rem;
+    position: absolute;
+    text-transform: uppercase;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.card__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    justify-content: space-between;
+    margin-block-end: .5rem;
+}
+
+.card__date {
+    color: var(--accent-faded);
+    font-size: .85rem;
+}
+
+.card__status {
+    align-items: center;
+    border: 1px solid var(--accent-muted);
+    border-radius: 999px;
+    color: var(--accent-faded);
+    display: inline-flex;
+    font-size: .75rem;
+    font-weight: 500;
+    gap: .3rem;
+    padding: .2rem .6rem;
+
+    &[data-status='verified'] {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+}
+
+.card__title {
+    font-size: 1.35rem;
+    margin-block-end: .25rem;
+
+    a {
+        transition: var(--default-transition);
+
+        &:focus-visible {
+            border-radius: var(--border-radius-xs);
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    }
+}
+
+.card__scientific {
+    color: var(--accent);
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 1rem;
+    margin-block-end: 1rem;
+}
+
+.card__facts {
+    color: var(--accent-dark);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .9rem;
+    gap: .4rem 1.25rem;
+    margin-block-end: .9rem;
+
+    li {
+        align-items: center;
+        display: inline-flex;
+        gap: .4rem;
+    }
+
+    svg {
+        color: var(--accent-faded);
+        flex-shrink: 0;
+    }
+}
+
+.card__condition {
+    font-weight: 500;
+
+    &[data-condition='alive'] svg {
+        color: var(--secondary-accent);
+    }
+}
+
+.card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    margin-block-end: 1rem;
+
+    li {
+        background-color: var(--background);
+        border-radius: 999px;
+        color: var(--accent-dark);
+        font-size: .8rem;
+        font-weight: 400;
+        padding: .2rem .7rem;
+    }
+}
+
+.card__notes {
+    border-inline-start: 2px solid var(--type-color);
+    color: var(--accent-dark);
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.55;
+    margin-block-end: 1.25rem;
+    padding-inline-start: 1rem;
+}
+
+.card__footer {
+    align-items: center;
+    border-block-start: 1px solid var(--accent-muted);
+    color: var(--accent-faded);
+    display: flex;
+    font-size: .85rem;
+    gap: .6rem;
+    margin-block-start: auto;
+    padding-block-start: 1rem;
+}
+
+.card__avatar {
+    background-color: var(--accent-muted);
+    border-radius: 50%;
+    color: var(--accent-dark);
+    display: grid;
+    font-size: .7rem;
+    font-weight: 700;
+    block-size: 1.9rem;
+    inline-size: 1.9rem;
+    place-items: center;
+}
+
+@media (hover: hover) {
+    .card:hover {
+        box-shadow: 0 10px 30px -15px rgba(10, 43, 43, .25);
+
+        .card__image {
+            transform: scale(1.04);
+        }
+    }
+
+    .card__title a:hover {
+        color: var(--accent);
+    }
+}
+
+@media (max-width: 600px) {
+    .card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .card__thumb {
+        aspect-ratio: 16 / 9;
+    }
+
+    .card__body {
+        padding: 1.25rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card,
+    .card__image {
+        transition: none;
+    }
+}

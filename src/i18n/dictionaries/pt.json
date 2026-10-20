@@ -111,6 +111,80 @@
     "ctaText": "Ajude-nos a alargar esta lista com fontes fiáveis sobre mamíferos marinhos.",
     "ctaButton": "Sugerir um recurso"
   },
+  "reports": {
+    "metaTitle": "Registos de campo · {site}",
+    "tag": "Registos de campo",
+    "title": "O mais recente",
+    "titleHighlight": "do mar",
+    "intro": "Avistamentos e arrojamentos partilhados por quem está na nossa costa e nas ilhas. Cada registo é verificado antes de entrar na base de dados.",
+    "notice": "Registos de exemplo para pré-visualização — submissões reais em breve.",
+    "stats": {
+      "label": "Registos de campo em números",
+      "reports": "Registos submetidos",
+      "species": "Espécies registadas",
+      "strandings": "Arrojamentos reportados",
+      "observers": "Observadores participantes"
+    },
+    "feedTitle": "Todos os registos",
+    "typeLabel": "Tipo de registo",
+    "allReports": "Todos",
+    "speciesLabel": "Espécie",
+    "allSpecies": "Todas as espécies",
+    "showing": "A mostrar {count} de {total} registos",
+    "showMore": "Mostrar mais registos",
+    "emptyTitle": "Nenhum registo corresponde a estes filtros",
+    "emptyText": "Experimente outra região ou espécie.",
+    "sorts": {
+      "newest": "Mais recentes",
+      "oldest": "Mais antigos"
+    },
+    "types": {
+      "sighting": "Avistamento",
+      "stranding": "Arrojamento"
+    },
+    "typesPlural": {
+      "sighting": "Avistamentos",
+      "stranding": "Arrojamentos"
+    },
+    "statuses": {
+      "verified": "Verificado",
+      "pending": "Em revisão"
+    },
+    "count": "{count} animais",
+    "countOne": "1 animal",
+    "withCalves": "com crias",
+    "platforms": {
+      "boat": "De barco",
+      "shore": "Da costa",
+      "aircraft": "Do ar"
+    },
+    "conditions": {
+      "alive": "Encontrado vivo",
+      "dead": "Encontrado morto"
+    },
+    "behaviourLabel": "Comportamento",
+    "behaviours": {
+      "feeding": "A alimentar-se",
+      "travelling": "Em deslocação",
+      "socialising": "A socializar",
+      "resting": "Em repouso",
+      "breaching": "A saltar",
+      "bowriding": "Na proa"
+    },
+    "reportedBy": "Registado por {name}",
+    "topSpecies": "Espécies mais registadas",
+    "byRegion": "Registos por região",
+    "strandingTitle": "Encontrou um animal arrojado?",
+    "strandingSteps": [
+      "Mantenha a distância e afaste pessoas e cães.",
+      "Não o empurre de volta para o mar.",
+      "Anote o local e tire fotografias, se for seguro.",
+      "Contacte de imediato a rede de arrojamentos local."
+    ],
+    "strandingLink": "Encontre a sua rede de arrojamentos",
+    "ctaTitle": "Partilhe a sua observação",
+    "ctaText": "Bastam alguns detalhes e uma fotografia. O seu registo ajuda os investigadores a acompanhar estes animais ao longo das estações."
+  },
   "notFound": {
     "error": "Erro: 404",
     "title": "Esta página",

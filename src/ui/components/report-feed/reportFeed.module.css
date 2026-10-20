@@ -1,0 +1,231 @@
+/* Toolbar: type tabs + filters (same surface as the species explorer) */
+.toolbar {
+    align-items: center;
+    background-color: var(--white);
+    border-radius: var(--border-radius-l);
+    box-shadow: 0 10px 30px -20px rgba(10, 43, 43, .3);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    justify-content: space-between;
+    padding: .75rem;
+}
+
+.tabs {
+    background-color: var(--background);
+    border-radius: var(--border-radius-m);
+    display: flex;
+    gap: .25rem;
+    padding: .25rem;
+}
+
+.tab {
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: var(--border-radius-s);
+    color: var(--accent);
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-size: .95rem;
+    font-weight: 400;
+    gap: .45rem;
+    padding: .55rem .9rem;
+    transition: var(--default-transition);
+
+    &[aria-pressed='true'] {
+        background-color: var(--white);
+        box-shadow: 0 2px 8px -4px rgba(10, 43, 43, .35);
+        color: var(--accent-dark);
+        font-weight: 500;
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+    }
+}
+
+.tab__count {
+    background-color: var(--accent-muted);
+    border-radius: 999px;
+    color: var(--accent-dark);
+    font-size: .7rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: .25rem .45rem;
+
+    .tab[aria-pressed='true'] & {
+        background-color: var(--accent);
+        color: var(--white);
+    }
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.select {
+    align-items: center;
+    border: 1px solid var(--accent-muted);
+    border-radius: var(--border-radius-m);
+    color: var(--accent);
+    display: inline-flex;
+    gap: .5rem;
+    padding-inline: 1rem;
+    position: relative;
+    transition: var(--default-transition);
+
+    &:focus-within {
+        border-color: var(--accent);
+    }
+
+    select {
+        appearance: none;
+        background: none;
+        border: none;
+        color: var(--accent-dark);
+        cursor: pointer;
+        font: inherit;
+        font-size: 1rem;
+        outline: none;
+        padding-block: .75rem;
+        padding-inline-end: 1.5rem;
+    }
+}
+
+.select__chevron {
+    inset-inline-end: .75rem;
+    pointer-events: none;
+    position: absolute;
+}
+
+/* Results summary + sort */
+.summary {
+    align-items: center;
+    color: var(--accent-faded);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .95rem;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-block: 2rem 1.5rem;
+
+    strong {
+        color: var(--accent-dark);
+        font-weight: 700;
+    }
+}
+
+.sort {
+    align-items: center;
+    display: flex;
+    font-size: .9rem;
+    gap: .75rem;
+
+    .select {
+        background-color: var(--white);
+    }
+
+    select {
+        font-size: .95rem;
+        padding-block: .5rem;
+    }
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    list-style: none;
+}
+
+.loadMore {
+    display: flex;
+    justify-content: center;
+    margin-block-start: 2.5rem;
+}
+
+.loadMore__count {
+    color: var(--accent-faded);
+    font-size: .85rem;
+}
+
+.empty {
+    align-items: center;
+    border: 1px dashed var(--accent-muted);
+    border-radius: var(--border-radius-xl);
+    color: var(--accent-faded);
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: 4rem 2rem;
+    text-align: center;
+
+    svg {
+        color: var(--secondary-accent);
+        margin-block-end: .5rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        margin-block-end: 0;
+    }
+
+    button {
+        margin-block-start: 1rem;
+    }
+}
+
+@media (hover: hover) {
+    .select:hover {
+        border-color: var(--accent);
+    }
+
+    .tab:not([aria-pressed='true']):hover {
+        color: var(--accent-dark);
+    }
+}
+
+@media (max-width: 600px) {
+    .tabs,
+    .filters,
+    .filters > * {
+        flex: 1 1 100%;
+    }
+
+    .tab {
+        flex: 1;
+        justify-content: center;
+        padding-inline: .5rem;
+    }
+
+    /* Tabs get tight on phones: drop the icon, keep the label + count */
+    .tab > svg {
+        display: none;
+    }
+
+    .select select {
+        flex: 1;
+        min-inline-size: 0;
+    }
+
+    .summary {
+        margin-block: 1.5rem 1.25rem;
+    }
+
+    .sort {
+        flex: 1 1 100%;
+
+        .select {
+            flex: 1;
+        }
+    }
+
+    .empty {
+        padding: 3rem 1.25rem;
+    }
+}
