@@ -28,13 +28,6 @@
   --header-height: 90px
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --txt: #ededed;
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -44,6 +37,7 @@
 }
 
 html {
+  color-scheme: light;
   font-size: 16px;
 }
 
@@ -182,12 +176,6 @@ ul {
   background-color: var(--secondary-accent);
   border-color: var(--secondary-accent);
   color: var(--white);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @media (hover: hover) {
