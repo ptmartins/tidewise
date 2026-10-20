@@ -9,7 +9,7 @@ async function Footer() {
         <footer className={styles.footer}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <div className={styles.footer__links}>
-                    <Image src="/logo.png" alt="WhaleTale" width={1408} height={768} className={styles.footer__logo} />
+                    <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="115px" className={styles.footer__logo} />
                     <p>{footer.tagline}</p>
                 </div>
                 <p className={styles.footer__copyright}>

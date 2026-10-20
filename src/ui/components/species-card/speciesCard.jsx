@@ -22,7 +22,7 @@ function SpeciesCard({ species }) {
                             src={thumbnail.src}
                             alt={thumbnail.alt}
                             fill
-                            sizes="(max-width: 600px) 100vw, (max-width: 1000px) 50vw, 400px"
+                            sizes="(max-width: 600px) calc(100vw - 2rem), (max-width: 1000px) calc(50vw - 2rem), 373px"
                             className={styles.card__image}
                         />
                         {thumbnail.sourceUrl ? (

@@ -30,7 +30,7 @@ function NavBar() {
         <nav className={styles.navbar}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <Link href={home} className={styles.logo} onClick={closeMenu}>
-                    <Image src="/logo.png" alt="WhaleTale" width={1408} height={768} priority />
+                    <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="191px" priority />
                 </Link>
                 <div id="primary-menu" className={`${styles.menu} ${menuOpen ? styles['menu--open'] : ''}`}>
                     <ul className={styles.navLinks}>
