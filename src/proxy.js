@@ -11,13 +11,31 @@ const fromAcceptLanguage = (header) =>
             const [tag, q] = part.trim().split(';q=');
             return { language: tag.split('-')[0].toLowerCase(), q: q ? Number(q) : 1 };
         })
+        .filter(({ q }) => q > 0)
         .sort((a, b) => b.q - a.q)
         .find(({ language }) => hasLocale(language))?.language;
 
+// Countries where English, Portuguese or French is an official / main language.
+// Any other country falls back to English (DEFAULT_LOCALE).
+const COUNTRY_LOCALES = {
+    en: ['GB', 'IE', 'US', 'CA', 'AU', 'NZ', 'ZA', 'IN', 'SG', 'MT', 'GI', 'JM', 'NG', 'GH', 'KE'],
+    pt: ['PT', 'BR', 'AO', 'MZ', 'CV', 'GW', 'ST', 'TL', 'MO'],
+    fr: ['FR', 'MC', 'LU', 'BE', 'SN', 'CI', 'ML', 'BF', 'NE', 'TG', 'BJ', 'GN', 'CM', 'GA', 'CG', 'CD', 'CF', 'TD', 'MG', 'DJ', 'KM', 'HT', 'RE', 'GP', 'MQ', 'GF', 'YT', 'PF', 'NC'],
+};
+
+// Visitor country as set by the hosting platform's edge (none in local dev)
+const GEO_HEADERS = ['x-vercel-ip-country', 'cf-ipcountry', 'cloudfront-viewer-country', 'x-country-code'];
+
+const fromCountry = (headers) => {
+    const country = GEO_HEADERS.map((name) => headers.get(name)).find(Boolean)?.toUpperCase();
+    return Object.keys(COUNTRY_LOCALES).find((locale) => COUNTRY_LOCALES[locale].includes(country));
+};
+
+// Explicit choice (cookie) > browser languages > visitor location > English
 const getLocale = (request) => {
     const saved = request.cookies.get(LOCALE_COOKIE)?.value;
     if (hasLocale(saved)) return saved;
-    return fromAcceptLanguage(request.headers.get('accept-language')) ?? DEFAULT_LOCALE;
+    return fromAcceptLanguage(request.headers.get('accept-language')) ?? fromCountry(request.headers) ?? DEFAULT_LOCALE;
 };
 
 export function proxy(request) {
