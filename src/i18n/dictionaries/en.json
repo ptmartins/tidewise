@@ -7,6 +7,7 @@
     "explore": "Explore",
     "learn": "Learn",
     "fieldReports": "Field reports",
+    "links": "Resources",
     "reportSighting": "Report a sighting",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -65,6 +66,40 @@
     "introLine2": "ecosystems, and navigate a changing ocean.",
     "returnTitle": "Return to the sea",
     "returnDescription": "From otter to whale, discover the remarkable evolutionary story of marine mammals"
+  },
+  "links": {
+    "metaTitle": "Resources · {site}",
+    "tag": "Resources",
+    "title": "Useful links for",
+    "titleHighlight": "ocean watchers",
+    "intro": "A curated collection of networks, research, field guides and organisations working for marine mammals along our coast.",
+    "jumpLabel": "Jump to a category",
+    "notice": "{count} placeholder resources — real links coming soon.",
+    "categories": {
+      "rescue": {
+        "title": "Rescue & stranding networks",
+        "description": "Who to contact when you find a stranded or injured marine mammal."
+      },
+      "research": {
+        "title": "Research & data",
+        "description": "Scientific projects, datasets and publications on marine mammals."
+      },
+      "guides": {
+        "title": "Field guides & identification",
+        "description": "Tools to help you recognise species at sea and from the shore."
+      },
+      "conservation": {
+        "title": "Conservation organisations",
+        "description": "Groups and institutions protecting our ocean and its wildlife."
+      },
+      "learning": {
+        "title": "Learning & education",
+        "description": "Courses, talks and media to keep learning about the ocean."
+      }
+    },
+    "ctaTitle": "Know a resource we missed?",
+    "ctaText": "Help us grow this list with trusted sources about marine mammals.",
+    "ctaButton": "Suggest a resource"
   },
   "notFound": {
     "error": "Error: 404",

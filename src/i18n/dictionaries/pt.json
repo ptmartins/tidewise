@@ -7,6 +7,7 @@
     "explore": "Explorar",
     "learn": "Aprender",
     "fieldReports": "Registos de campo",
+    "links": "Recursos",
     "reportSighting": "Registar avistamento",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
@@ -65,6 +66,40 @@
     "introLine2": "interligados e enfrentam um oceano em mudança.",
     "returnTitle": "Regresso ao mar",
     "returnDescription": "Da lontra à baleia, descubra a notável história evolutiva dos mamíferos marinhos"
+  },
+  "links": {
+    "metaTitle": "Recursos · {site}",
+    "tag": "Recursos",
+    "title": "Links úteis para",
+    "titleHighlight": "observadores do oceano",
+    "intro": "Uma seleção de redes, investigação, guias de campo e organizações que trabalham pelos mamíferos marinhos da nossa costa.",
+    "jumpLabel": "Ir para uma categoria",
+    "notice": "{count} recursos provisórios — links reais em breve.",
+    "categories": {
+      "rescue": {
+        "title": "Redes de resgate e arrojamentos",
+        "description": "Quem contactar quando encontrar um mamífero marinho arrojado ou ferido."
+      },
+      "research": {
+        "title": "Investigação e dados",
+        "description": "Projetos científicos, conjuntos de dados e publicações sobre mamíferos marinhos."
+      },
+      "guides": {
+        "title": "Guias de campo e identificação",
+        "description": "Ferramentas para reconhecer espécies no mar e a partir da costa."
+      },
+      "conservation": {
+        "title": "Organizações de conservação",
+        "description": "Grupos e instituições que protegem o oceano e a sua vida selvagem."
+      },
+      "learning": {
+        "title": "Aprendizagem e educação",
+        "description": "Cursos, palestras e conteúdos para continuar a aprender sobre o oceano."
+      }
+    },
+    "ctaTitle": "Conhece um recurso que nos escapou?",
+    "ctaText": "Ajude-nos a alargar esta lista com fontes fiáveis sobre mamíferos marinhos.",
+    "ctaButton": "Sugerir um recurso"
   },
   "notFound": {
     "error": "Erro: 404",

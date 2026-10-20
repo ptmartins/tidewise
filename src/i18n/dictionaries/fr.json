@@ -7,6 +7,7 @@
     "explore": "Explorer",
     "learn": "Apprendre",
     "fieldReports": "Relevés de terrain",
+    "links": "Ressources",
     "reportSighting": "Signaler une observation",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
@@ -65,6 +66,40 @@
     "introLine2": "interconnectés et s’adaptent à un océan en mutation.",
     "returnTitle": "Retour à la mer",
     "returnDescription": "De la loutre à la baleine, découvrez la remarquable histoire évolutive des mammifères marins"
+  },
+  "links": {
+    "metaTitle": "Ressources · {site}",
+    "tag": "Ressources",
+    "title": "Liens utiles pour",
+    "titleHighlight": "les observateurs de l’océan",
+    "intro": "Une sélection de réseaux, de recherches, de guides de terrain et d’organisations œuvrant pour les mammifères marins de nos côtes.",
+    "jumpLabel": "Aller à une catégorie",
+    "notice": "{count} ressources provisoires — liens réels à venir.",
+    "categories": {
+      "rescue": {
+        "title": "Réseaux de secours et d’échouages",
+        "description": "Qui contacter lorsque vous trouvez un mammifère marin échoué ou blessé."
+      },
+      "research": {
+        "title": "Recherche et données",
+        "description": "Projets scientifiques, jeux de données et publications sur les mammifères marins."
+      },
+      "guides": {
+        "title": "Guides de terrain et identification",
+        "description": "Des outils pour reconnaître les espèces en mer et depuis le rivage."
+      },
+      "conservation": {
+        "title": "Organisations de conservation",
+        "description": "Groupes et institutions qui protègent l’océan et sa faune."
+      },
+      "learning": {
+        "title": "Apprentissage et éducation",
+        "description": "Cours, conférences et médias pour continuer à découvrir l’océan."
+      }
+    },
+    "ctaTitle": "Vous connaissez une ressource absente ?",
+    "ctaText": "Aidez-nous à enrichir cette liste avec des sources fiables sur les mammifères marins.",
+    "ctaButton": "Suggérer une ressource"
   },
   "notFound": {
     "error": "Erreur : 404",

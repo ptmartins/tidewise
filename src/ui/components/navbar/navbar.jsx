@@ -43,6 +43,9 @@ function NavBar() {
                         <li className={`${styles.navLink} ${path === `${home}/sightings` ? styles['navLink--active'] : ''}`}>
                             <Link href={`${home}/sightingsed`} onClick={closeMenu}>{nav.fieldReports}</Link>
                         </li>
+                        <li className={`${styles.navLink} ${path === `${home}/links` ? styles['navLink--active'] : ''}`}>
+                            <Link href={`${home}/links`} onClick={closeMenu}>{nav.links}</Link>
+                        </li>
                     </ul>
                     <button className={`btn ${styles.reportButton}`}>{nav.reportSighting}</button>
                 </div>
