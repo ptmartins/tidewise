@@ -43,11 +43,12 @@ function SpeciesCard({ species }) {
             </div>
 
             <div className={styles.card__body}>
-                <h3 className={styles.card__title}>{species.commonName}</h3>
+                <h3 className={styles.card__title}>
+                    <Link href={`/${locale}/species/${species.slug}`} className={styles.card__link}>
+                        {species.commonName}
+                    </Link>
+                </h3>
                 <p className={styles.card__scientific}><em>{species.scientificName}</em></p>
-                                <Link href={`/${locale}/species/${species.slug}`} className={`btn ${styles.card__link}`}>
-                    <Icon icon="lucide:arrow-right" width="22" height="22" />
-                </Link>
             </div>
         </article>
     )
