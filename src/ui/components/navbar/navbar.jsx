@@ -6,8 +6,8 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import styles from "./navbar.module.css";
 import { usePathname } from 'next/navigation';
-import { LOCALES, LOCALE_DETAILS, localizePath } from "@/i18n/config";
 import { useDictionary, useLocale } from "@/i18n/I18nProvider";
+import LanguageSwitcher from "../language-switcher/languageSwitcher";
 
 function NavBar() {
 
@@ -45,24 +45,8 @@ function NavBar() {
                         </li>
                     </ul>
                     <button className={`btn ${styles.reportButton}`}>{nav.reportSighting}</button>
-                    <ul className={styles.languages} aria-label={nav.language}>
-                        {LOCALES.map((code) => (
-                            <li key={code}>
-                                <Link
-                                    href={localizePath(path, code)}
-                                    hrefLang={LOCALE_DETAILS[code].htmlLang}
-                                    lang={LOCALE_DETAILS[code].htmlLang}
-                                    title={LOCALE_DETAILS[code].name}
-                                    aria-current={code === locale ? 'true' : undefined}
-                                    className={code === locale ? styles['language--active'] : ''}
-                                    onClick={closeMenu}
-                                >
-                                    {code.toUpperCase()}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
+                <LanguageSwitcher onOpen={closeMenu} />
                 <span className={styles.avatar}>PM</span>
                 <button
                     type="button"

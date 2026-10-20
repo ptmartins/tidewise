@@ -7,6 +7,7 @@
 }
 
 .avatar {
+    flex-shrink: 0;
     background-color: var(--accent-muted);
     border-radius: 50%;
     color: var(--accent-dark);
@@ -37,6 +38,7 @@
     font-size: 1.125rem;
     font-weight: 400;
     gap: 1.5rem;
+    white-space: nowrap;
 }
 
 .navLink {
@@ -64,29 +66,10 @@
 }
 
 .reportButton {
+    flex-shrink: 0;
+    white-space: nowrap;
     margin-inline-end: 1.5rem;
     margin-inline-start: 3rem;
-}
-
-.languages {
-    border: 1px solid var(--accent-muted);
-    border-radius: var(--border-radius-m);
-    display: flex;
-    font-size: .8rem;
-    font-weight: 600;
-    margin-inline-end: 1.5rem;
-    overflow: hidden;
-
-    a {
-        color: var(--accent-faded);
-        display: block;
-        padding: .4rem .6rem;
-    }
-
-    .language--active {
-        background-color: var(--accent-muted);
-        color: var(--accent-dark);
-    }
 }
 
 .menuToggle {
@@ -97,18 +80,16 @@
     color: var(--accent-dark);
     cursor: pointer;
     display: none;
+    flex-shrink: 0;
     justify-content: center;
     margin-inline-start: .75rem;
     padding: .5rem;
 }
 
-@media (max-width: 900px) {
+/* Collapse into the dropdown before the longer PT/FR labels run into the logo */
+@media (max-width: 1024px) {
     .navbar .innerWrapper {
         block-size: var(--header-height);
-    }
-
-    .logo img {
-        block-size: 60px;
     }
 
     .menuToggle {
@@ -161,8 +142,31 @@
         justify-content: center;
         margin: 1.25rem 0 0;
     }
+}
 
-    .languages {
-        margin: 1.25rem 0 0;
+@media (max-width: 900px) {
+    .logo img {
+        block-size: 60px;
+    }
+}
+
+/* Small phones: keep logo, language, avatar and toggle on one row */
+@media (max-width: 420px) {
+    .logo {
+        min-inline-size: 0;
+
+        img {
+            block-size: 48px;
+        }
+    }
+
+    .avatar {
+        font-size: .8rem;
+        padding: .4rem;
+    }
+
+    .menuToggle {
+        margin-inline-start: .5rem;
+        padding: .4rem;
     }
 }
