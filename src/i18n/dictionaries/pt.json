@@ -61,11 +61,21 @@
     }
   },
   "learn": {
-    "title": "Aprender com o oceano",
-    "introLine1": "Descubra como os mamíferos marinhos evoluíram, prosperam em ecossistemas",
-    "introLine2": "interligados e enfrentam um oceano em mudança.",
-    "returnTitle": "Regresso ao mar",
-    "returnDescription": "Da lontra à baleia, descubra a notável história evolutiva dos mamíferos marinhos"
+    "metaTitle": "Aprender · {site}",
+    "tag": "Notas de campo",
+    "title": "Aprender com",
+    "titleHighlight": "o oceano",
+    "intro": "Descubra como os mamíferos marinhos evoluíram, como funcionam os seus corpos, como percebem um mundo feito de som, os ecossistemas que moldam e as ameaças que enfrentam — tudo com base em ciência revista por pares.",
+    "chapters": "{count} capítulos",
+    "readingTime": "{minutes} min de leitura",
+    "referencesCount": "{count} referências",
+    "englishOnly": "Este conteúdo está, por enquanto, disponível apenas em inglês.",
+    "navLabel": "Nesta página",
+    "sourcesNav": "Fontes",
+    "sourcesTitle": "Fontes e leituras adicionais",
+    "sourcesIntro": "As principais obras de referência e estudos revistos por pares em que esta página se baseia.",
+    "ctaTitle": "Viu algo no mar?",
+    "ctaText": "Os seus registos de avistamentos e arrojamentos ajudam os investigadores a compreender e proteger os mamíferos marinhos da nossa costa."
   },
   "links": {
     "metaTitle": "Recursos · {site}",

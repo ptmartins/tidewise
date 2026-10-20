@@ -61,11 +61,21 @@
     }
   },
   "learn": {
-    "title": "Learn from the ocean",
-    "introLine1": "Explore how marine mammals evolved, thrive in connected",
-    "introLine2": "ecosystems, and navigate a changing ocean.",
-    "returnTitle": "Return to the sea",
-    "returnDescription": "From otter to whale, discover the remarkable evolutionary story of marine mammals"
+    "metaTitle": "Learn · {site}",
+    "tag": "Field notes",
+    "title": "Learn from",
+    "titleHighlight": "the ocean",
+    "intro": "Explore how marine mammals evolved, how their bodies work, how they sense a world of sound, the ecosystems they shape and the threats they face — all based on peer-reviewed science.",
+    "chapters": "{count} chapters",
+    "readingTime": "{minutes} min read",
+    "referencesCount": "{count} references",
+    "englishOnly": "This content is currently available in English only.",
+    "navLabel": "On this page",
+    "sourcesNav": "Sources",
+    "sourcesTitle": "Sources and further reading",
+    "sourcesIntro": "Key reference works and peer-reviewed studies behind this page.",
+    "ctaTitle": "Seen something at sea?",
+    "ctaText": "Your sightings and stranding reports help researchers understand and protect marine mammals along our coast."
   },
   "links": {
     "metaTitle": "Resources · {site}",

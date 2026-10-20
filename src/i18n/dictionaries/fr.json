@@ -61,11 +61,21 @@
     }
   },
   "learn": {
-    "title": "Apprendre de l’océan",
-    "introLine1": "Découvrez comment les mammifères marins ont évolué, prospèrent dans des écosystèmes",
-    "introLine2": "interconnectés et s’adaptent à un océan en mutation.",
-    "returnTitle": "Retour à la mer",
-    "returnDescription": "De la loutre à la baleine, découvrez la remarquable histoire évolutive des mammifères marins"
+    "metaTitle": "Apprendre · {site}",
+    "tag": "Carnet de terrain",
+    "title": "Apprendre de",
+    "titleHighlight": "l’océan",
+    "intro": "Découvrez comment les mammifères marins ont évolué, comment fonctionne leur corps, comment ils perçoivent un monde de sons, les écosystèmes qu’ils façonnent et les menaces auxquelles ils font face — le tout fondé sur des publications scientifiques évaluées par les pairs.",
+    "chapters": "{count} chapitres",
+    "readingTime": "{minutes} min de lecture",
+    "referencesCount": "{count} références",
+    "englishOnly": "Ce contenu n’est pour l’instant disponible qu’en anglais.",
+    "navLabel": "Sur cette page",
+    "sourcesNav": "Sources",
+    "sourcesTitle": "Sources et lectures complémentaires",
+    "sourcesIntro": "Les principaux ouvrages de référence et études évaluées par les pairs sur lesquels repose cette page.",
+    "ctaTitle": "Vous avez vu quelque chose en mer ?",
+    "ctaText": "Vos signalements d’observations et d’échouages aident les chercheurs à comprendre et à protéger les mammifères marins de nos côtes."
   },
   "links": {
     "metaTitle": "Ressources · {site}",
