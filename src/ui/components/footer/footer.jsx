@@ -6,24 +6,22 @@ import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 import { EMERGENCY_NUMBER } from "@/lib/mock/stranding";
 import { PARTNERS } from "@/lib/mock/partners";
-
-// Cached with the page, so the year updates on the next build or revalidation
-async function getYear() {
-    'use cache';
-    return new Date().getFullYear();
-}
+import { getToday } from "@/lib/time";
+import NewsletterForm from "../newsletter-form/newsletterForm";
 
 async function Footer() {
     const locale = await getLocale();
     const { footer } = await getDictionary();
-    const year = await getYear();
+    const { year } = await getToday();
     const home = `/${locale}`;
 
     const columns = [
         {
             id: 'explore',
             links: [
-                { href: `${home}#explorer`, label: footer.species },
+                { href: `${home}/species`, label: footer.species },
+                { href: `${home}/identify`, label: footer.identify },
+                { href: `${home}/where`, label: footer.where },
                 { href: `${home}/sightings`, label: footer.fieldReports },
                 { href: `${home}/links`, label: footer.resources },
             ],
@@ -32,9 +30,9 @@ async function Footer() {
             id: 'learn',
             links: [
                 { href: `${home}/learn`, label: footer.fieldNotes },
-                { href: `${home}/learn#evolution`, label: footer.evolution },
-                { href: `${home}/learn#conservation`, label: footer.conservation },
-                { href: `${home}/learn#portugal`, label: footer.inPortugal },
+                { href: `${home}/learn/evolution`, label: footer.evolution },
+                { href: `${home}/learn/conservation`, label: footer.conservation },
+                { href: `${home}/learn/portugal`, label: footer.inPortugal },
             ],
         },
         {
@@ -42,7 +40,7 @@ async function Footer() {
             links: [
                 { href: `${home}/report`, label: footer.reportSighting },
                 { href: `${home}/stranding`, label: footer.stranding },
-                { href: `${home}/learn#help`, label: footer.howToHelp },
+                { href: `${home}/learn/help`, label: footer.howToHelp },
             ],
         },
         {
@@ -77,6 +75,7 @@ async function Footer() {
                 <div className={styles.brand}>
                     <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="115px" className={styles.footer__logo} />
                     <p>{footer.tagline}</p>
+                    <NewsletterForm />
                 </div>
 
                 <nav className={styles.columns}>
@@ -110,7 +109,10 @@ async function Footer() {
             )}
 
             <div className={`innerWrapper ${styles.bottom}`}>
-                <p>{format(footer.copyright, { year })}</p>
+                <p>
+                    {format(footer.copyright, { year })}
+                    <Link href={`${home}/privacy`} className={styles.bottom__link}>{footer.privacy}</Link>
+                </p>
                 <p>
                     {footer.developedBy}{" "}
                     <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>

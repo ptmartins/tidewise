@@ -1,97 +1,11 @@
 import styles from "./page.module.css";
-import { Fragment } from "react";
+import Link from "next/link";
 import { Icon } from "@iconify/react";
-import LearnNav from "@/ui/components/learn-nav/learnNav";
+import { rich, readingMinutes } from "./blocks";
 import { getLearnContent } from "@/lib/content/learn";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 import ReportActions from "@/ui/components/report-actions/reportActions";
-
-const WORDS_PER_MINUTE = 220;
-
-// "*Orcinus orca* hunts" -> [<em>Orcinus orca</em>, " hunts"]
-const rich = (text) =>
-    text.split(/(\*[^*]+\*)/g).map((part, index) => (
-        <Fragment key={index}>{/^\*[^*]+\*$/.test(part) ? <em>{part.slice(1, -1)}</em> : part}</Fragment>
-    ));
-
-// Every string in the content, for the reading-time estimate
-const collectText = (value) =>
-    typeof value === 'string' ? [value] : value && typeof value === 'object' ? Object.values(value).flatMap(collectText) : [];
-
-function Block({ block }) {
-    if (typeof block === 'string') return <p>{rich(block)}</p>;
-
-    switch (block.type) {
-        case 'h3':
-            return <h3 className={styles.subheading}>{rich(block.text)}</h3>;
-
-        case 'facts':
-            return (
-                <dl className={styles.facts}>
-                    {block.items.map(({ value, label }) => (
-                        <div key={label} className={styles.fact}>
-                            <dt>{rich(label)}</dt>
-                            <dd>{value}</dd>
-                        </div>
-                    ))}
-                </dl>
-            );
-
-        case 'cards':
-            return (
-                <ul className={styles.cards}>
-                    {block.items.map(({ icon, title, text }) => (
-                        <li key={title} className={styles.card}>
-                            {icon && (
-                                <span className={styles.card__icon}>
-                                    <Icon icon={icon} width="22" height="22" />
-                                </span>
-                            )}
-                            <h4 className={styles.card__title}>{rich(title)}</h4>
-                            <p>{rich(text)}</p>
-                        </li>
-                    ))}
-                </ul>
-            );
-
-        case 'timeline':
-            return (
-                <ol className={styles.timeline}>
-                    {block.items.map(({ when, title, text }) => (
-                        <li key={title} className={styles.timeline__item}>
-                            <span className={styles.timeline__when}>{when}</span>
-                            <h4 className={styles.timeline__title}>{rich(title)}</h4>
-                            <p>{rich(text)}</p>
-                        </li>
-                    ))}
-                </ol>
-            );
-
-        case 'list':
-            return (
-                <ul className={styles.list}>
-                    {block.items.map((item) => <li key={item}>{rich(item)}</li>)}
-                </ul>
-            );
-
-        case 'callout':
-            return (
-                <aside className={styles.callout}>
-                    <span className={styles.callout__icon}>
-                        <Icon icon="lucide:lightbulb" width="22" height="22" />
-                    </span>
-                    <div>
-                        <h4 className={styles.callout__title}>{rich(block.title)}</h4>
-                        <p>{rich(block.text)}</p>
-                    </div>
-                </aside>
-            );
-
-        default:
-            return null;
-    }
-}
 
 export async function generateMetadata() {
     const { learn, meta } = await getDictionary();
@@ -102,18 +16,12 @@ export async function generateMetadata() {
     };
 }
 
+// Hub for the field notes: every chapter lives on its own page (/learn/[chapter])
 export default async function Learn() {
     const locale = await getLocale();
     const { learn, common } = await getDictionary();
     const { sections, references, locale: contentLocale } = getLearnContent(locale);
-
-    const words = collectText(sections).join(' ').split(/\s+/).length;
-    const minutes = Math.round(words / WORDS_PER_MINUTE);
-
-    const menu = [
-        ...sections.map(({ id, nav, icon }) => ({ id, title: nav, icon })),
-        { id: 'sources', title: learn.sourcesNav, icon: 'lucide:library' },
-    ];
+    const contentLang = contentLocale !== locale ? contentLocale : undefined;
 
     return (
         <>
@@ -131,7 +39,7 @@ export default async function Learn() {
                         </li>
                         <li>
                             <Icon icon="lucide:clock" width="16" height="16" />
-                            {format(learn.readingTime, { minutes })}
+                            {format(learn.readingTime, { minutes: readingMinutes(sections) })}
                         </li>
                         <li>
                             <Icon icon="lucide:library" width="16" height="16" />
@@ -139,7 +47,7 @@ export default async function Learn() {
                         </li>
                     </ul>
 
-                    {contentLocale !== locale && (
+                    {contentLang && (
                         <p className={styles.notice}>
                             <Icon icon="lucide:languages" width="18" height="18" />
                             {learn.englishOnly}
@@ -148,45 +56,62 @@ export default async function Learn() {
                 </div>
             </section>
 
-            {/* Article + side menu */}
-            <div className={`innerWrapper ${styles.layout}`}>
-                <article className={styles.article} lang={contentLocale !== locale ? contentLocale : undefined}>
-                    {sections.map(({ id, icon, title, lede, blocks }, index) => (
-                        <section key={id} id={id} className={styles.chapter} aria-labelledby={`${id}-title`} tabIndex={-1}>
-                            <header className={styles.chapter__header}>
-                                <span className={styles.chapter__icon}>
-                                    <Icon icon={icon} width="24" height="24" />
-                                </span>
-                                <span className={styles.chapter__number}>{String(index + 1).padStart(2, '0')}</span>
-                            </header>
-                            <h2 id={`${id}-title`}>{rich(title)}</h2>
-                            <p className={styles.chapter__lede}>{rich(lede)}</p>
+            {/* Chapters */}
+            <section className={`section ${styles.hub}`} aria-label={learn.chaptersLabel}>
+                <div className="innerWrapper">
+                    <ol className={styles.chapters} lang={contentLang}>
+                        {sections.map((section, index) => (
+                            <li key={section.id}>
+                                <Link href={`/${locale}/learn/${section.id}`} className={styles.chapterCard}>
+                                    <span className={styles.chapter__header}>
+                                        <span className={styles.chapter__icon}>
+                                            <Icon icon={section.icon} width="22" height="22" />
+                                        </span>
+                                        <span className={styles.chapter__number}>{String(index + 1).padStart(2, '0')}</span>
+                                    </span>
+                                    <span className={styles.chapterCard__title}>{rich(section.title)}</span>
+                                    <span className={styles.chapterCard__lede}>{rich(section.lede)}</span>
+                                    <span className={styles.chapterCard__meta} lang={contentLang ? locale : undefined}>
+                                        <Icon icon="lucide:clock" width="14" height="14" />
+                                        {format(learn.readingTime, { minutes: readingMinutes(section) })}
+                                    </span>
+                                </Link>
+                            </li>
+                        ))}
+                    </ol>
 
-                            <div className={styles.prose}>
-                                {blocks.map((block, i) => <Block key={i} block={block} />)}
-                            </div>
-                        </section>
-                    ))}
-
-                    <section id="sources" className={`${styles.chapter} ${styles.sources}`} aria-labelledby="sources-title" tabIndex={-1}>
-                        <header className={styles.chapter__header}>
-                            <span className={styles.chapter__icon}>
-                                <Icon icon="lucide:library" width="24" height="24" />
+                    {/* Extras */}
+                    <div className={styles.extras}>
+                        <Link href={`/${locale}/learn/glossary`} className={styles.extra}>
+                            <Icon icon="lucide:book-a" width="24" height="24" />
+                            <span>
+                                <strong>{learn.glossaryTitle}</strong>
+                                {learn.glossaryTeaser}
                             </span>
-                        </header>
-                        <h2 id="sources-title" lang={contentLocale !== locale ? locale : undefined}>{learn.sourcesTitle}</h2>
-                        <p className={styles.chapter__lede} lang={contentLocale !== locale ? locale : undefined}>{learn.sourcesIntro}</p>
+                            <Icon icon="lucide:arrow-right" width="20" height="20" />
+                        </Link>
+                        <Link href={`/${locale}/identify`} className={styles.extra}>
+                            <Icon icon="lucide:scan-search" width="24" height="24" />
+                            <span>
+                                <strong>{learn.identifyTitle}</strong>
+                                {learn.identifyTeaser}
+                            </span>
+                            <Icon icon="lucide:arrow-right" width="20" height="20" />
+                        </Link>
+                    </div>
+                </div>
+            </section>
 
-                        <ol className={styles.references}>
-                            {references.map((reference) => <li key={reference}>{rich(reference)}</li>)}
-                        </ol>
-                    </section>
-                </article>
-
-                <aside className={styles.aside}>
-                    <LearnNav items={menu} label={learn.navLabel} />
-                </aside>
-            </div>
+            {/* Sources */}
+            <section id="sources" className={`section ${styles.sources}`} aria-labelledby="sources-title">
+                <div className="innerWrapper">
+                    <h2 id="sources-title">{learn.sourcesTitle}</h2>
+                    <p className={styles.chapter__lede}>{learn.sourcesIntro}</p>
+                    <ol className={styles.references} lang={contentLang}>
+                        {references.map((reference) => <li key={reference}>{rich(reference)}</li>)}
+                    </ol>
+                </div>
+            </section>
 
             {/* Call to action */}
             <section className={`section ${styles.cta}`}>

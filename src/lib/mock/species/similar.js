@@ -1,0 +1,33 @@
+// Species most often confused with each other at sea, keyed by slug.
+// Future Sanity field: `similarSpecies` (references + "how to tell apart" notes).
+
+export const similarSpecies = {
+  'blue-whale': ['fin-whale', 'sei-whale'],
+  'fin-whale': ['sei-whale', 'blue-whale', 'brydes-whale'],
+  'sei-whale': ['fin-whale', 'brydes-whale', 'common-minke-whale'],
+  'brydes-whale': ['sei-whale', 'fin-whale'],
+  'common-minke-whale': ['sei-whale', 'northern-bottlenose-whale'],
+  'pygmy-sperm-whale': ['dwarf-sperm-whale'],
+  'dwarf-sperm-whale': ['pygmy-sperm-whale'],
+  'cuviers-beaked-whale': ['sowerbys-beaked-whale', 'blainvilles-beaked-whale', 'northern-bottlenose-whale'],
+  'northern-bottlenose-whale': ['cuviers-beaked-whale', 'common-minke-whale'],
+  'sowerbys-beaked-whale': ['trues-beaked-whale', 'gervais-beaked-whale', 'blainvilles-beaked-whale'],
+  'blainvilles-beaked-whale': ['gervais-beaked-whale', 'sowerbys-beaked-whale', 'cuviers-beaked-whale'],
+  'gervais-beaked-whale': ['trues-beaked-whale', 'blainvilles-beaked-whale', 'sowerbys-beaked-whale'],
+  'trues-beaked-whale': ['gervais-beaked-whale', 'sowerbys-beaked-whale'],
+  'bottlenose-dolphin': ['rough-toothed-dolphin', 'atlantic-spotted-dolphin', 'rissos-dolphin'],
+  'common-dolphin': ['striped-dolphin'],
+  'striped-dolphin': ['common-dolphin', 'frasers-dolphin'],
+  'atlantic-spotted-dolphin': ['bottlenose-dolphin'],
+  'rissos-dolphin': ['bottlenose-dolphin'],
+  'rough-toothed-dolphin': ['bottlenose-dolphin'],
+  'frasers-dolphin': ['striped-dolphin'],
+  'killer-whale': ['false-killer-whale'],
+  'false-killer-whale': ['short-finned-pilot-whale', 'long-finned-pilot-whale', 'killer-whale'],
+  'long-finned-pilot-whale': ['short-finned-pilot-whale', 'false-killer-whale'],
+  'short-finned-pilot-whale': ['long-finned-pilot-whale', 'false-killer-whale'],
+  'harbour-porpoise': ['common-dolphin', 'bottlenose-dolphin'],
+  'grey-seal': ['harbour-seal'],
+  'harbour-seal': ['grey-seal'],
+  'hooded-seal': ['grey-seal'],
+}

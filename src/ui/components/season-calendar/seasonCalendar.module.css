@@ -1,0 +1,84 @@
+/* Scrolls sideways on narrow screens; the species column stays pinned */
+.wrapper {
+    background-color: var(--white);
+    border: 1px solid var(--accent-muted);
+    border-radius: var(--border-radius-l);
+    overflow-x: auto;
+}
+
+.calendar {
+    border-collapse: separate;
+    border-spacing: 3px;
+    font-size: .85rem;
+    inline-size: 100%;
+    min-inline-size: 44rem;
+    padding: .75rem;
+
+    thead th {
+        color: var(--accent-faded);
+        font-size: .75rem;
+        font-weight: 500;
+        padding-block-end: .35rem;
+        text-transform: capitalize;
+    }
+
+    thead th.current {
+        color: var(--secondary-accent-dark);
+        font-weight: 700;
+    }
+
+    td {
+        background-color: var(--background);
+        block-size: 1.6rem;
+        border-radius: var(--border-radius-xs);
+        inline-size: calc((100% - 13rem) / 12);
+    }
+
+    td.active {
+        background-color: var(--accent);
+    }
+
+    td.current:not(.active) {
+        background-color: rgba(228, 119, 87, .14);
+    }
+
+    td.active.current {
+        background-color: var(--secondary-accent);
+    }
+}
+
+.group {
+    color: var(--secondary-accent);
+    font-size: .7rem;
+    font-weight: 700;
+    padding-block: .9rem .25rem;
+    text-align: start;
+    text-transform: uppercase;
+}
+
+.species {
+    background-color: var(--white);
+    font-weight: 400;
+    inline-size: 13rem;
+    inset-inline-start: 0;
+    padding-inline-end: .75rem;
+    position: sticky;
+    text-align: start;
+    z-index: 1;
+
+    a {
+        color: var(--accent-dark);
+    }
+}
+
+@media (hover: hover) {
+    .species a:hover {
+        color: var(--accent);
+    }
+}
+
+@media (max-width: 600px) {
+    .species {
+        inline-size: 9rem;
+    }
+}

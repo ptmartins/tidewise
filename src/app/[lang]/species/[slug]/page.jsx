@@ -1,18 +1,24 @@
 import styles from "./page.module.css";
+import extra from "@/ui/styles/contentPage.module.css";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Accordion from "@/ui/components/accordion/accordion";
-import { getAllSpeciesSlugs, getSpeciesBySlug } from "@/lib/mock/species";
-import { LOCALE_DETAILS } from "@/i18n/config";
+import SpeciesCard from "@/ui/components/species-card/speciesCard";
+import ReportCard from "@/ui/components/report-card/reportCard";
+import { toCard } from "@/ui/components/species-explorer/options";
+import { getAllSpeciesSlugs, getSimilarSpecies, getSpeciesBySlug } from "@/lib/mock/species";
+import { getReports } from "@/lib/mock/reports";
+import { HELP_ICONS, helpActionsFor } from "@/lib/help";
+import { monthNames } from "@/lib/time";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format, formatNumber, label } from "@/i18n/format";
 import ReportActions from "@/ui/components/report-actions/reportActions";
 
-const IUCN_SCALE = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
+const RECENT_REPORTS = 3;
 
-const MONTHS = ['january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'];
+const IUCN_SCALE = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
 
 const TREND_ICONS = {
     increasing: 'lucide:trending-up',
@@ -21,14 +27,7 @@ const TREND_ICONS = {
     unknown: 'lucide:circle-help',
 };
 
-// Localized month names, e.g. { name: 'janeiro', initial: 'J' }
-const monthNames = (locale) => MONTHS.map((month, index) => {
-    const date = new Date(Date.UTC(2000, index, 1));
-    const name = (style) => new Intl.DateTimeFormat(LOCALE_DETAILS[locale].htmlLang, { month: style, timeZone: 'UTC' }).format(date);
-    return { month, name: name('long'), initial: name('narrow') };
-});
-
-const formatRange = (locale, { min, max }, unit) => `${formatNumber(locale, min)}–${formatNumber(locale, max)} ${unit}`;
+const formatRange =(locale, { min, max }, unit) => `${formatNumber(locale, min)}–${formatNumber(locale, max)} ${unit}`;
 
 const formatWeight = (locale, { min, max }) =>
     max >= 1000 ? formatRange(locale, { min: min / 1000, max: max / 1000 }, 't') : formatRange(locale, { min, max }, 'kg');
@@ -63,6 +62,9 @@ export default async function SpeciesPage({ params }) {
     if (!species) notFound();
 
     const { species: t, common, data, nav } = await getDictionary();
+    const similar = getSimilarSpecies(species.slug, locale);
+    const recentReports = getReports(locale).filter((report) => report.species.slug === species.slug).slice(0, RECENT_REPORTS);
+    const helpActions = helpActionsFor(species.threats);
 
     const quickFacts = [
         { icon: 'lucide:weight', label: t.weight, value: formatWeight(locale, species.weight) },
@@ -87,7 +89,7 @@ export default async function SpeciesPage({ params }) {
                 <div className={`innerWrapper ${styles.innerWrapper}`}>
                     <div className={styles.hero__text}>
                         <nav className={styles.breadcrumb} aria-label={t.breadcrumb}>
-                            <Link href={`/${locale}`}>{nav.explore}</Link>
+                            <Link href={`/${locale}/species`}>{nav.species}</Link>
                             <Icon icon="lucide:chevron-right" width="14" height="14" />
                             <span>{label(data.groupsPlural, species.category)}</span>
                         </nav>
@@ -305,6 +307,82 @@ export default async function SpeciesPage({ params }) {
                                 ))}
                             </ol>
                         </Accordion>
+                    </div>
+                </div>
+            </section>
+
+            {/* How you can help */}
+            <section className={extra.block} aria-labelledby="help-title">
+                <div className="innerWrapper">
+                    <header className={extra.block__header}>
+                        <span className={extra.tag}>{common.youCanHelp}</span>
+                        <h2 id="help-title">{t.help.title}</h2>
+                        <p>{t.help.intro}</p>
+                    </header>
+                    <ul className={extra.grid}>
+                        {helpActions.map((action) => (
+                            <li key={action} className={extra.card}>
+                                <span className={extra.card__icon}>
+                                    <Icon icon={HELP_ICONS[action]} width="22" height="22" />
+                                </span>
+                                <h3>{t.help.actions[action].title}</h3>
+                                <p>{t.help.actions[action].text}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </section>
+
+            {/* Similar species */}
+            {similar.length > 0 && (
+                <section className={extra.block} aria-labelledby="similar-title">
+                    <div className="innerWrapper">
+                        <header className={extra.block__header}>
+                            <h2 id="similar-title">{t.similarTitle}</h2>
+                            <p>{t.similarIntro}</p>
+                        </header>
+                        <ul className={extra.grid}>
+                            {similar.map((other) => (
+                                <li key={other.slug}><SpeciesCard species={toCard(other)} /></li>
+                            ))}
+                        </ul>
+                    </div>
+                </section>
+            )}
+
+            {/* Recent sightings */}
+            {recentReports.length > 0 && (
+                <section className={extra.block} aria-labelledby="recent-title">
+                    <div className="innerWrapper">
+                        <header className={extra.block__header}>
+                            <h2 id="recent-title">{t.recentTitle}</h2>
+                        </header>
+                        <ol className={extra.reports}>
+                            {recentReports.map((report) => <li key={report.id}><ReportCard report={report} /></li>)}
+                        </ol>
+                        <p className={extra.notice}>
+                            <Link href={`/${locale}/sightings`} className={extra.link}>
+                                {t.allReports}
+                                <Icon icon="lucide:arrow-right" width="18" height="18" />
+                            </Link>
+                        </p>
+                    </div>
+                </section>
+            )}
+
+            {/* Sources & review */}
+            <section className={extra.block} aria-labelledby="sources-title">
+                <div className="innerWrapper">
+                    <div className={extra.review}>
+                        <Icon icon="lucide:library" width="22" height="22" />
+                        <div>
+                            <h2 id="sources-title" className={extra.review__title}>{t.sourcesTitle}</h2>
+                            <p>{t.sourcesText}</p>
+                            <p className={extra.review__links}>
+                                <Link href={`/${locale}/about#methodology`} className={extra.link}>{t.sourcesMethodology}</Link>
+                                <Link href={`/${locale}/about#contact`} className={extra.link}>{t.sourcesError}</Link>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

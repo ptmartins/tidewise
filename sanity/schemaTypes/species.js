@@ -476,6 +476,46 @@ export const species = defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'sound',
+      title: 'Sound recording',
+      type: 'file',
+      group: 'media',
+      options: { accept: 'audio/*' },
+      fields: [
+        defineField({ name: 'description', title: 'What you can hear', type: 'string' }),
+        defineField({ name: 'credit', title: 'Recording credit', type: 'string' }),
+        defineField({ name: 'license', title: 'Licence', type: 'string' }),
+      ],
+    }),
+    defineField({
+      name: 'reviewedBy',
+      title: 'Reviewed by',
+      type: 'string',
+      group: 'media',
+      description: 'Scientist who last checked this profile, shown on the page as a credibility marker.',
+    }),
+    defineField({ name: 'lastReviewed', title: 'Last reviewed', type: 'date', group: 'media' }),
+
+    // ---------- Identification ----------
+    defineField({
+      name: 'similarSpecies',
+      title: 'Similar species',
+      type: 'array',
+      group: 'ecology',
+      description: 'Species most often confused with this one at sea.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'similar',
+          fields: [
+            defineField({ name: 'species', title: 'Species', type: 'reference', to: [{ type: 'species' }], validation: (rule) => rule.required() }),
+            defineField({ name: 'howToTellApart', title: 'How to tell them apart', type: 'text', rows: 3 }),
+          ],
+          preview: { select: { title: 'species.commonName', subtitle: 'howToTellApart' } },
+        }),
+      ],
+    }),
   ],
   orderings: [
     {

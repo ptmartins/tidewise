@@ -18,7 +18,9 @@
     "signOut": "Se déconnecter",
     "stranding": "Échouage ?",
     "strandingLabel": "Vous avez trouvé un animal échoué ? Obtenez de l’aide",
-    "about": "À propos"
+    "about": "À propos",
+    "species": "Espèces",
+    "where": "Où et quand"
   },
   "footer": {
     "tagline": "Un guide de terrain pour un océan vivant",
@@ -47,7 +49,10 @@
     "emergencyText": "Gardez vos distances et appelez le {number}.",
     "emergencyLink": "Que faire",
     "supportedBy": "Avec le soutien de",
-    "copyright": "© {year} WhaleTale"
+    "copyright": "© {year} WhaleTale",
+    "identify": "Qu’ai-je vu ?",
+    "where": "Où et quand",
+    "privacy": "Confidentialité"
   },
   "common": {
     "reportSighting": "Signaler une observation",
@@ -61,7 +66,8 @@
       "title": "Découvrez la vie",
       "titleHighlight": "de notre côte atlantique",
       "subtitle": "Découvrez les espèces qui peuplent nos eaux, signalez observations et échouages, et contribuez à leur conservation.",
-      "cta": "Explorer les espèces"
+      "cta": "Explorer les espèces",
+      "identify": "Qu’ai-je vu ?"
     },
     "stats": {
       "label": "WhaleTale en chiffres",
@@ -90,6 +96,14 @@
     "help": {
       "title": "Soyez les yeux de l’océan",
       "intro": "Chaque observation enrichit nos connaissances communes. Signalez ce que vous voyez, d’une baleine qui saute à un phoque sur le rivage."
+    },
+    "season": {
+      "tag": "En ce moment",
+      "title": "Qui est là",
+      "titleHighlight": "en {month}",
+      "intro": "Les espèces que vous avez le plus de chances de croiser le long de nos côtes et autour des îles ce mois-ci.",
+      "all": "Voir les {count} espèces",
+      "calendar": "Calendrier des saisons"
     }
   },
   "learn": {
@@ -107,7 +121,21 @@
     "sourcesTitle": "Sources et lectures complémentaires",
     "sourcesIntro": "Les principaux ouvrages de référence et études évaluées par les pairs sur lesquels repose cette page.",
     "ctaTitle": "Vous avez vu quelque chose en mer ?",
-    "ctaText": "Vos signalements d’observations et d’échouages aident les chercheurs à comprendre et à protéger les mammifères marins de nos côtes."
+    "ctaText": "Vos signalements d’observations et d’échouages aident les chercheurs à comprendre et à protéger les mammifères marins de nos côtes.",
+    "chaptersLabel": "Chapitres",
+    "chapterMetaTitle": "{chapter} · {site}",
+    "breadcrumb": "Fil d’Ariane",
+    "chapterOf": "Chapitre {number} sur {total}",
+    "sourcesLink": "Sources et lectures complémentaires de tous les chapitres",
+    "pagerLabel": "Autres chapitres",
+    "previous": "Précédent",
+    "next": "Suivant",
+    "navChapters": "Chapitres",
+    "glossaryTitle": "Glossaire",
+    "glossaryTeaser": "Évent, fanons, surf d’étrave : les mots des guides de terrain et des sorties d’observation, expliqués.",
+    "glossaryJump": "Aller à une lettre",
+    "identifyTitle": "Qu’ai-je vu ?",
+    "identifyTeaser": "Répondez à quelques questions pour identifier l’espèce."
   },
   "links": {
     "metaTitle": "Ressources · {site}",
@@ -217,7 +245,9 @@
     ],
     "strandingLink": "Trouver votre réseau d’échouage",
     "ctaTitle": "Partagez votre observation",
-    "ctaText": "Quelques détails et une photo suffisent. Votre signalement aide les chercheurs à suivre ces animaux au fil des saisons."
+    "ctaText": "Quelques détails et une photo suffisent. Votre signalement aide les chercheurs à suivre ces animaux au fil des saisons.",
+    "mapLabel": "Carte des relevés de terrain",
+    "mapNote": "Les positions sont approximatives et n’apparaissent que pour les relevés qui en comportent une."
   },
   "stranding": {
     "metaTitle": "Animal échoué ? · {site}",
@@ -285,7 +315,59 @@
         "title": "La science l’utilise",
         "text": "Les observations vérifiées seront partagées avec les chercheurs et des bases de données ouvertes sur la biodiversité comme le GBIF."
       }
-    ]
+    ],
+    "form": {
+      "whatTitle": "Qu’avez-vous vu ?",
+      "type": "Type de signalement",
+      "strandingFirst": "L’animal est sur le rivage en ce moment ? Appelez d’abord à l’aide.",
+      "strandingLink": "Que faire",
+      "species": "Espèce",
+      "speciesHint": "Pas sûr ? Choisissez « Je ne sais pas » et décrivez-le dans les notes.",
+      "unknownSpecies": "Je ne sais pas",
+      "count": "Nombre d’animaux",
+      "platform": "Observé depuis",
+      "calves": "Des petits dans le groupe",
+      "condition": "État",
+      "whereTitle": "Où et quand",
+      "date": "Date et heure",
+      "choose": "Choisir…",
+      "location": "Lieu",
+      "locationHint": "Un nom de lieu, une plage ou un repère.",
+      "locationPlaceholder": "p. ex. à 3 milles du cap Espichel",
+      "position": "Coordonnées (facultatif)",
+      "lat": "Latitude",
+      "lng": "Longitude",
+      "useLocation": "Utiliser ma position",
+      "locating": "Localisation…",
+      "locationDenied": "Impossible d’obtenir votre position. Vous pouvez saisir les coordonnées.",
+      "positionHint": "Degrés décimaux, p. ex. 38.4123, -9.2201.",
+      "detailsTitle": "Détails",
+      "notes": "Notes",
+      "notesHint": "Comportement, marques distinctives, état de la mer… tout ce qui peut aider.",
+      "photos": "Photos",
+      "photosHint": "Jusqu’à 3 images de 4 Mo chacune. Les nageoires dorsales et les queues sont les plus utiles.",
+      "youTitle": "À propos de vous",
+      "name": "Votre nom (facultatif)",
+      "nameHint": "Affiché avec votre signalement une fois vérifié.",
+      "email": "E-mail (facultatif)",
+      "emailHint": "Utilisé uniquement si nous avons une question sur votre signalement. Jamais publié.",
+      "consent": "J’accepte que WhaleTale conserve ce signalement et puisse le partager avec des chercheurs.",
+      "privacyLink": "Politique de confidentialité",
+      "fixErrors": "Veuillez vérifier les champs signalés.",
+      "unavailable": "Les signalements en ligne ne sont pas encore activés. Conservez vos notes et photos et réessayez bientôt.",
+      "failed": "Une erreur s’est produite lors de l’envoi. Veuillez réessayer dans un instant.",
+      "submit": "Envoyer le signalement",
+      "sending": "Envoi…",
+      "successTitle": "Merci !",
+      "successText": "Votre signalement a bien été reçu et sera vérifié par notre équipe. Une fois vérifié, il apparaîtra dans les relevés de terrain.",
+      "another": "Faire un autre signalement",
+      "seeReports": "Voir les relevés",
+      "errors": {
+        "required": "Ce champ est obligatoire.",
+        "invalid": "Veuillez vérifier cette valeur.",
+        "tooMany": "Vous pouvez ajouter jusqu’à 3 photos."
+      }
+    }
   },
   "about": {
     "metaTitle": "À propos · {site}",
@@ -343,6 +425,147 @@
     "contactTitle": "Nous contacter",
     "contactText": "Vous avez repéré une erreur, connaissez une ressource qui nous a échappé ou souhaitez travailler avec nous ? Écrivez-nous.",
     "contactButton": "Nous contacter"
+  },
+  "speciesIndex": {
+    "metaTitle": "Espèces · {site}",
+    "tag": "Explorateur d’espèces",
+    "title": "Trouver une",
+    "titleHighlight": "espèce",
+    "intro": "Recherchez et filtrez les {count} baleines, dauphins, marsouins et phoques observés le long de nos côtes et autour des îles.",
+    "identify": "Vous ne savez pas ce que vous avez vu ? Essayez l’aide à l’identification"
+  },
+  "where": {
+    "metaTitle": "Où et quand · {site}",
+    "regionMetaTitle": "{region} · {site}",
+    "tag": "Où et quand",
+    "title": "Où et quand",
+    "titleHighlight": "observer",
+    "intro": "Les eaux portugaises s’étendent de la côte continentale à deux archipels de l’Atlantique. Chacun a ses résidents, ses visiteurs et ses saisons.",
+    "breadcrumb": "Fil d’Ariane",
+    "regionsLabel": "Régions",
+    "regionLink": "Découvrir {count} espèces",
+    "regions": {
+      "mainland": {
+        "title": "Côte continentale",
+        "teaser": "De l’estuaire du Sado aux caps de l’Algarve, une longue côte atlantique façonnée par les remontées d’eau froide.",
+        "intro": "Le Portugal continental borde l’Atlantique sur plus de 900 km. Les remontées d’eau saisonnières (upwelling) enrichissent le plateau en sardines et autres petits poissons, qui attirent les dauphins communs en grand nombre. L’estuaire du Sado abrite une petite communauté résidente de grands dauphins, et les marsouins se trouvent surtout dans le nord et le centre."
+      },
+      "azores": {
+        "title": "Açores",
+        "teaser": "Neuf îles volcaniques au milieu de l’Atlantique Nord, où les eaux profondes sont proches du rivage.",
+        "intro": "Les Açores reposent sur la dorsale médio-atlantique, avec des profondeurs de plus de 1 000 m à quelques kilomètres des côtes. Les cachalots y sont présents toute l’année et, au printemps, les baleines bleues, rorquals communs et rorquals boréaux y passent en remontant vers le nord. Plus de 20 espèces de cétacés y ont été observées, ce qui fait de l’archipel l’un des meilleurs sites d’Europe pour observer les baleines."
+      },
+      "madeira": {
+        "title": "Madère",
+        "teaser": "Un archipel subtropical aux eaux profondes et chaudes, avec l’une des dernières colonies de phoques moines.",
+        "intro": "Les pentes volcaniques abruptes de Madère plongent rapidement dans des eaux profondes et chaudes. Rorquals de Bryde, dauphins tachetés de l’Atlantique et globicéphales tropicaux y sont réguliers, et les îles Desertas abritent l’une des dernières colonies de phoques moines de Méditerranée."
+      }
+    },
+    "hotspotsLabel": "Lieux de cette région",
+    "speciesTitle": "{count} espèces observées",
+    "speciesIntro": "Les plus communes d’abord. Ouvrez une espèce pour savoir quand et où la chercher.",
+    "calendarTitle": "Calendrier des saisons",
+    "calendarIntro": "Mois par mois, la meilleure période pour chercher chaque espèce. La colonne mise en évidence correspond au mois en cours.",
+    "calendarRegionIntro": "Les meilleurs mois pour chercher chaque espèce. Le mois en cours est mis en évidence.",
+    "calendarCaption": "Meilleurs mois pour observer chaque espèce : {region}",
+    "calendarNote": "{count} espèces sont trop rarement observées pour montrer un rythme saisonnier et ne figurent pas dans la liste.",
+    "recentTitle": "Derniers relevés",
+    "noRecent": "Aucun relevé dans cette région pour l’instant.",
+    "allReports": "Tous les relevés de terrain",
+    "watchingTitle": "Observer de façon responsable",
+    "watchingIntro": "Une bonne rencontre, c’est quand les animaux continuent comme si vous n’étiez pas là.",
+    "watching": [
+      "Gardez vos distances et laissez les animaux décider de s’approcher.",
+      "Approchez lentement, par le côté et légèrement par l’arrière — jamais de face, et ne traversez jamais un groupe.",
+      "Gardez une vitesse lente et constante près des animaux et évitez les changements de cap brusques.",
+      "Limitez le temps passé avec chaque groupe et éloignez-vous s’il montre des signes de dérangement.",
+      "Ne nourrissez pas, ne touchez pas et ne nagez pas avec des cétacés ou des phoques sauvages.",
+      "Choisissez des opérateurs agréés qui respectent les règles nationales et régionales d’observation des cétacés."
+    ],
+    "ctaTitle": "Vous partez en mer ?",
+    "ctaText": "Chaque observation partagée aide les chercheurs à suivre ces animaux au fil des saisons."
+  },
+  "newsletter": {
+    "title": "Nouvelles de saison",
+    "text": "Qui est là, les dernières recherches et comment aider — quelques e-mails par an.",
+    "email": "Votre e-mail",
+    "submit": "S’inscrire",
+    "sending": "Envoi…",
+    "consent": "J’accepte de recevoir des e-mails de WhaleTale.",
+    "privacyLink": "Confidentialité",
+    "success": "Merci — vous êtes inscrit.",
+    "unavailable": "Les inscriptions ne sont pas encore activées. Revenez bientôt.",
+    "failed": "Une erreur s’est produite. Veuillez réessayer.",
+    "errors": {
+      "email": "Veuillez saisir une adresse e-mail valide.",
+      "consent": "Veuillez cocher la case pour accepter."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Confidentialité · {site}",
+    "tag": "Confidentialité",
+    "title": "Vos données",
+    "intro": "Ce que nous collectons quand vous envoyez un signalement ou vous inscrivez aux nouvelles, et ce que nous en faisons.",
+    "sections": [
+      {
+        "title": "Ce que nous collectons",
+        "text": [
+          "Quand vous envoyez un signalement : ce que vous avez vu, où et quand, d’éventuelles photos et — si vous le souhaitez — votre nom et votre adresse e-mail.",
+          "Quand vous vous inscrivez aux nouvelles : votre adresse e-mail et la langue dans laquelle vous utilisez le site."
+        ]
+      },
+      {
+        "title": "Pourquoi",
+        "text": [
+          "Les signalements servent à étudier et protéger les mammifères marins. Nous utilisons votre e-mail uniquement pour vous poser une question sur votre signalement ou vous envoyer les nouvelles auxquelles vous êtes inscrit."
+        ]
+      },
+      {
+        "title": "Ce qui est publié",
+        "text": [
+          "Les signalements vérifiés apparaissent sur le site avec l’espèce, le lieu, la date et votre nom, si vous l’avez indiqué. Votre adresse e-mail n’est jamais publiée.",
+          "Les observations vérifiées peuvent être partagées avec des chercheurs et des bases de données ouvertes sur la biodiversité comme le GBIF, sans votre adresse e-mail."
+        ]
+      },
+      {
+        "title": "Où elles sont conservées",
+        "text": [
+          "Les signalements et les inscriptions sont conservés chez Sanity, le service qui gère nos contenus. Seule l’équipe WhaleTale a accès aux données personnelles."
+        ]
+      },
+      {
+        "title": "Vos droits",
+        "text": [
+          "Vous pouvez demander à consulter, corriger ou supprimer vos données personnelles à tout moment, et vous désinscrire quand vous le souhaitez. Vous pouvez aussi adresser une réclamation à l’autorité portugaise de protection des données (CNPD)."
+        ]
+      }
+    ],
+    "contact": "Nous contacter au sujet de vos données"
+  },
+  "identify": {
+    "metaTitle": "Qu’ai-je vu ? · {site}",
+    "tag": "Aide à l’identification",
+    "title": "Qu’ai-je",
+    "titleHighlight": "vu ?",
+    "intro": "Répondez à quelques questions sur votre rencontre et nous vous proposerons les espèces les plus probables, en commençant par celles de saison.",
+    "shapeQuestion": "À quoi cela ressemblait-il ?",
+    "shapes": {
+      "whale": "Une baleine",
+      "dolphin": "Un dauphin ou un marsouin",
+      "seal": "Un phoque"
+    },
+    "sizeQuestion": "Quelle longueur, à peu près ?",
+    "regionQuestion": "Où étiez-vous ?",
+    "monthQuestion": "Quand était-ce ?",
+    "notSure": "Je ne sais pas",
+    "start": "Commencez par nous dire à quoi cela ressemblait.",
+    "resultsTitle": "Espèces les plus probables",
+    "noResults": "Aucune espèce ne correspond à ces réponses. Essayez « Je ne sais pas » pour l’une d’elles.",
+    "resultsHint": "Les espèces de saison d’abord, puis les plus souvent observées.",
+    "inSeason": "De saison",
+    "outOfSeason": "Moins probable ce mois-ci",
+    "nextStep": "Vous l’avez trouvée ?",
+    "reportLink": "Signalez votre observation"
   },
   "notFound": {
     "error": "Erreur : 404",
@@ -443,7 +666,49 @@
     "legalProtection": "Protection légale",
     "classification": "Classification scientifique",
     "ctaTitle": "Vous avez aperçu cette espèce ?",
-    "ctaText": "Chaque signalement aide les chercheurs à suivre les populations le long de notre côte."
+    "ctaText": "Chaque signalement aide les chercheurs à suivre les populations le long de notre côte.",
+    "help": {
+      "title": "Comment aider",
+      "intro": "Des gestes concrets, à la portée de tous, face aux menaces qui pèsent sur cette espèce.",
+      "actions": {
+        "fishing": {
+          "title": "Pêchez de façon responsable",
+          "text": "N’abandonnez jamais de lignes ni de filets et signalez le matériel perdu. Si vous voyez un animal pris dans un cordage ou un filet, n’essayez pas de le libérer vous-même : appelez le 112 pour qu’une équipe formée intervienne."
+        },
+        "noise": {
+          "title": "Faites moins de bruit",
+          "text": "Près des cétacés, ralentissez, gardez votre cap et évitez les changements de vitesse brusques. Moins de bruit de moteur, c’est moins de stress pour des animaux qui vivent par le son."
+        },
+        "boats": {
+          "title": "Laissez-leur de l’espace",
+          "text": "Gardez vos distances, ne poursuivez jamais un groupe et ne lui coupez pas la route, et laissez les animaux choisir de s’approcher. Choisissez des opérateurs d’observation qui respectent les règles."
+        },
+        "plastic": {
+          "title": "Moins de plastique",
+          "text": "Évitez le plastique à usage unique, remportez vos déchets de la plage et participez à un nettoyage local. La pollution plastique et chimique finit dans la chaîne alimentaire."
+        },
+        "climate": {
+          "title": "Choisissez des produits de la mer durables",
+          "text": "Préférez les produits certifiés issus de stocks en bonne santé et réduisez votre empreinte carbone : des pêcheries bien gérées et un climat stable préservent les proies."
+        },
+        "strandings": {
+          "title": "Signalez chaque échouage",
+          "text": "Les animaux morts ou échoués renseignent les scientifiques sur l’état des populations. Un signalement rapide aide à suivre les maladies et autres menaces."
+        },
+        "report": {
+          "title": "Partagez vos observations",
+          "text": "Chaque observation aide les chercheurs à suivre cette espèce le long de nos côtes et autour des îles."
+        }
+      }
+    },
+    "similarTitle": "Espèces semblables",
+    "similarIntro": "Espèces souvent confondues avec celle-ci en mer. Consultez leurs fiches pour les distinguer.",
+    "recentTitle": "Observations récentes",
+    "allReports": "Tous les relevés de terrain",
+    "sourcesTitle": "Sources et relecture",
+    "sourcesText": "Cette fiche est établie à partir de la Liste rouge de l’UICN, du Livre rouge des mammifères du Portugal et de la littérature scientifique validée par les pairs.",
+    "sourcesMethodology": "Notre méthode",
+    "sourcesError": "Vous avez repéré une erreur ?"
   },
   "data": {
     "iucn": {

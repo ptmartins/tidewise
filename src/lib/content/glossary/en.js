@@ -1,0 +1,33 @@
+// Glossary for /learn/glossary (English source). `chapter` links a term to the
+// /learn chapter that explains it in depth. Inline *asterisks* mark italics.
+
+export const en = [
+    { term: 'Baleen', chapter: 'anatomy', definition: 'Plates of keratin — the same material as hair and nails — that hang in rows from the upper jaw of baleen whales. Their frayed inner edges trap krill and small fish while water is pushed out.' },
+    { term: 'Blow', chapter: 'physiology', definition: 'The visible cloud a cetacean produces when it breathes out at the surface: exhaled air, condensation and seawater from around the blowhole. Its height and shape help identify large whales from a distance.' },
+    { term: 'Blowhole', chapter: 'anatomy', definition: 'The nostril on top of a cetacean’s head. Toothed whales have one; baleen whales have two, side by side. It is closed by muscles while the animal is underwater.' },
+    { term: 'Blubber', chapter: 'physiology', definition: 'A thick layer of fat and connective tissue under the skin. It insulates against cold water, stores energy and helps with buoyancy and streamlining.' },
+    { term: 'Bow-riding', chapter: 'behaviour', definition: 'Riding the pressure wave in front of a moving boat’s bow, a common behaviour in many dolphins. It lets them travel with little effort and appears to be done for play.' },
+    { term: 'Breaching', chapter: 'behaviour', definition: 'Leaping wholly or partly out of the water and falling back with a splash. Its purpose is debated: communication, removing parasites and play are all possible.' },
+    { term: 'Bycatch', chapter: 'conservation', definition: 'The accidental capture of animals that a fishery is not targeting. Entanglement in fishing gear is the main human-caused threat to small cetaceans worldwide.' },
+    { term: 'Calf', chapter: 'life-history', definition: 'A young whale, dolphin or porpoise. Young seals are called pups.' },
+    { term: 'Cetacean', chapter: 'who', definition: 'Any member of the Cetacea: whales, dolphins and porpoises. All are fully aquatic mammals descended from land-dwelling even-toed ungulates.' },
+    { term: 'Dorsal fin', chapter: 'anatomy', definition: 'The fin on a cetacean’s back. It has no bones. Its size, shape and position are key identification features, and its nicks and scars let researchers recognise individuals.' },
+    { term: 'Echolocation', chapter: 'bioacoustics', definition: 'Producing clicks and listening to their echoes to build a picture of the surroundings. Toothed whales use it to navigate and find prey; baleen whales are not known to echolocate.' },
+    { term: 'Ecotype', chapter: 'ecology', definition: 'A population within a species with its own habitat, diet, behaviour or appearance — for example the coastal and offshore forms of the bottlenose dolphin.' },
+    { term: 'Fluke', chapter: 'anatomy', definition: 'Either lobe of a cetacean’s tail, which is moved up and down to swim. The pattern on the underside of a humpback whale’s flukes is unique to each animal.' },
+    { term: 'Fluke-up dive', chapter: 'behaviour', definition: 'A dive in which the whale lifts its tail clear of the water, typically at the start of a long, deep dive. Sperm whales and humpbacks often show it.' },
+    { term: 'Haul out', chapter: 'life-history', definition: 'When seals leave the water to rest on land or ice, for example to moult, give birth or nurse their pups.' },
+    { term: 'IUCN Red List', chapter: 'conservation', definition: 'The global assessment of extinction risk run by the International Union for Conservation of Nature. Species are placed in categories from Least Concern to Extinct.' },
+    { term: 'Logging', chapter: 'behaviour', definition: 'Resting motionless at the surface, like a floating log. Sperm whales and pilot whales are often seen logging.' },
+    { term: 'Melon', chapter: 'bioacoustics', definition: 'The rounded, fatty organ in the forehead of toothed whales. It focuses the clicks used in echolocation into a beam.' },
+    { term: 'Moult', chapter: 'life-history', definition: 'The yearly shedding and replacement of hair and outer skin in seals, usually done while hauled out.' },
+    { term: 'Mysticeti', chapter: 'who', definition: 'The baleen whales — filter feeders such as the blue, fin and humpback whales.' },
+    { term: 'Odontoceti', chapter: 'who', definition: 'The toothed whales, including sperm whales, beaked whales, dolphins and porpoises. All echolocate and catch prey one at a time.' },
+    { term: 'Photo-identification', chapter: 'portugal', definition: 'Recognising individual animals from natural markings in photographs, such as dorsal-fin notches or fluke patterns. It lets scientists follow animals over years without tagging them.' },
+    { term: 'Pinniped', chapter: 'who', definition: 'The “fin-footed” marine carnivores: true seals, sea lions and fur seals, and the walrus.' },
+    { term: 'Pod', chapter: 'behaviour', definition: 'A group of cetaceans that travel and socialise together. In some species, like pilot and killer whales, pods are stable family groups.' },
+    { term: 'Rorqual', chapter: 'anatomy', definition: 'A baleen whale of the family Balaenopteridae — blue, fin, sei, Bryde’s, minke and humpback whales. Pleated throat grooves let them expand their mouths to gulp huge volumes of water and prey.' },
+    { term: 'Rostrum', chapter: 'anatomy', definition: 'The beak or snout of a cetacean. Its length and shape help tell dolphin species apart.' },
+    { term: 'Spy-hopping', chapter: 'behaviour', definition: 'Rising vertically with the head held above the surface, apparently to look around.' },
+    { term: 'Stranding', chapter: 'conservation', definition: 'When a marine mammal comes ashore, alive or dead, and cannot return to the sea by itself. A mass stranding involves two or more animals other than a mother and her calf.' },
+];

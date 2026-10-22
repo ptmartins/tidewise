@@ -18,6 +18,17 @@ function NavBar() {
     const closeMenu = () => setMenuOpen(false);
     const home = `/${locale}`;
 
+    const links = [
+        { href: `${home}/species`, label: nav.species },
+        { href: `${home}/learn`, label: nav.learn },
+        { href: `${home}/where`, label: nav.where },
+        { href: `${home}/sightings`, label: nav.fieldReports },
+        { href: `${home}/links`, label: nav.links },
+    ];
+
+    // A section stays highlighted on its sub-pages (/learn/evolution, /species/fin-whale…)
+    const isActive = (href) => path === href || path.startsWith(`${href}/`);
+
     useEffect(() => {
         if (!menuOpen) return;
 
@@ -38,18 +49,11 @@ function NavBar() {
                 </Link>
                 <div id="primary-menu" className={`${styles.menu} ${menuOpen ? styles['menu--open'] : ''}`}>
                     <ul className={styles.navLinks}>
-                        <li className={`${styles.navLink} ${path === home ? styles['navLink--active'] : ''}`}>
-                            <Link href={home} onClick={closeMenu}>{nav.explore}</Link>
-                        </li>
-                        <li className={`${styles.navLink} ${path === `${home}/learn` ? styles['navLink--active'] : ''}`}>
-                            <Link href={`${home}/learn`} onClick={closeMenu}>{nav.learn}</Link>
-                        </li>
-                        <li className={`${styles.navLink} ${path === `${home}/sightings` ? styles['navLink--active'] : ''}`}>
-                            <Link href={`${home}/sightings`} onClick={closeMenu}>{nav.fieldReports}</Link>
-                        </li>
-                        <li className={`${styles.navLink} ${path === `${home}/links` ? styles['navLink--active'] : ''}`}>
-                            <Link href={`${home}/links`} onClick={closeMenu}>{nav.links}</Link>
-                        </li>
+                        {links.map(({ href, label }) => (
+                            <li key={href} className={`${styles.navLink} ${isActive(href) ? styles['navLink--active'] : ''}`}>
+                                <Link href={href} onClick={closeMenu} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className={styles.actions}>

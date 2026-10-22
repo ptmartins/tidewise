@@ -18,7 +18,9 @@
     "signOut": "Terminar sessão",
     "stranding": "Arrojamento?",
     "strandingLabel": "Encontrou um animal arrojado? Peça ajuda agora",
-    "about": "Sobre"
+    "about": "Sobre",
+    "species": "Espécies",
+    "where": "Onde e quando"
   },
   "footer": {
     "tagline": "Um guia de campo para um oceano vivo",
@@ -47,7 +49,10 @@
     "emergencyText": "Mantenha a distância e ligue {number}.",
     "emergencyLink": "O que fazer",
     "supportedBy": "Com o apoio de",
-    "copyright": "© {year} WhaleTale"
+    "copyright": "© {year} WhaleTale",
+    "identify": "O que é que vi?",
+    "where": "Onde e quando",
+    "privacy": "Privacidade"
   },
   "common": {
     "reportSighting": "Registar um avistamento",
@@ -61,7 +66,8 @@
       "title": "Conheça a vida",
       "titleHighlight": "da nossa costa atlântica",
       "subtitle": "Fique a conhecer as espécies que habitam as nossas águas, registe avistamentos e arrojamentos e contribua para a sua conservação.",
-      "cta": "Explorar espécies"
+      "cta": "Explorar espécies",
+      "identify": "O que é que vi?"
     },
     "stats": {
       "label": "O WhaleTale em números",
@@ -90,6 +96,14 @@
     "help": {
       "title": "Seja os olhos do oceano",
       "intro": "Cada observação contribui para o nosso conhecimento comum. Registe o que vê, de uma baleia a saltar a uma foca na praia."
+    },
+    "season": {
+      "tag": "Nesta época",
+      "title": "Quem anda por cá",
+      "titleHighlight": "em {month}",
+      "intro": "As espécies que tem mais hipóteses de encontrar na nossa costa e nas ilhas este mês.",
+      "all": "Ver as {count} espécies",
+      "calendar": "Calendário sazonal"
     }
   },
   "learn": {
@@ -107,7 +121,21 @@
     "sourcesTitle": "Fontes e leituras adicionais",
     "sourcesIntro": "As principais obras de referência e estudos revistos por pares em que esta página se baseia.",
     "ctaTitle": "Viu algo no mar?",
-    "ctaText": "Os seus registos de avistamentos e arrojamentos ajudam os investigadores a compreender e proteger os mamíferos marinhos da nossa costa."
+    "ctaText": "Os seus registos de avistamentos e arrojamentos ajudam os investigadores a compreender e proteger os mamíferos marinhos da nossa costa.",
+    "chaptersLabel": "Capítulos",
+    "chapterMetaTitle": "{chapter} · {site}",
+    "breadcrumb": "Navegação estrutural",
+    "chapterOf": "Capítulo {number} de {total}",
+    "sourcesLink": "Fontes e leituras recomendadas de todos os capítulos",
+    "pagerLabel": "Mais capítulos",
+    "previous": "Anterior",
+    "next": "Seguinte",
+    "navChapters": "Capítulos",
+    "glossaryTitle": "Glossário",
+    "glossaryTeaser": "Espiráculo, barbas, surf na proa: as palavras que vai encontrar nos guias de campo e nos passeios de observação, explicadas.",
+    "glossaryJump": "Ir para uma letra",
+    "identifyTitle": "O que é que vi?",
+    "identifyTeaser": "Responda a algumas perguntas e descubra a espécie."
   },
   "links": {
     "metaTitle": "Recursos · {site}",
@@ -217,7 +245,9 @@
     ],
     "strandingLink": "Encontre a sua rede de arrojamentos",
     "ctaTitle": "Partilhe a sua observação",
-    "ctaText": "Bastam alguns detalhes e uma fotografia. O seu registo ajuda os investigadores a acompanhar estes animais ao longo das estações."
+    "ctaText": "Bastam alguns detalhes e uma fotografia. O seu registo ajuda os investigadores a acompanhar estes animais ao longo das estações.",
+    "mapLabel": "Mapa dos registos de campo",
+    "mapNote": "As posições são aproximadas e só aparecem nos registos que as incluem."
   },
   "stranding": {
     "metaTitle": "Encontrou um animal arrojado? · {site}",
@@ -285,7 +315,59 @@
         "title": "A ciência usa-o",
         "text": "Os registos verificados serão partilhados com investigadores e bases de dados abertas de biodiversidade, como o GBIF."
       }
-    ]
+    ],
+    "form": {
+      "whatTitle": "O que viu?",
+      "type": "Tipo de registo",
+      "strandingFirst": "O animal está na costa neste momento? Peça ajuda primeiro.",
+      "strandingLink": "O que fazer",
+      "species": "Espécie",
+      "speciesHint": "Não tem a certeza? Escolha “Não sei” e descreva-o nas notas.",
+      "unknownSpecies": "Não sei",
+      "count": "Número de animais",
+      "platform": "Visto a partir de",
+      "calves": "Crias no grupo",
+      "condition": "Estado",
+      "whereTitle": "Onde e quando",
+      "date": "Data e hora",
+      "choose": "Escolha…",
+      "location": "Local",
+      "locationHint": "O nome de um local, praia ou ponto de referência.",
+      "locationPlaceholder": "p. ex. 3 milhas ao largo do Cabo Espichel",
+      "position": "Coordenadas (opcional)",
+      "lat": "Latitude",
+      "lng": "Longitude",
+      "useLocation": "Usar a minha localização",
+      "locating": "A localizar…",
+      "locationDenied": "Não foi possível obter a sua localização. Pode escrever as coordenadas.",
+      "positionHint": "Graus decimais, p. ex. 38.4123, -9.2201.",
+      "detailsTitle": "Detalhes",
+      "notes": "Notas",
+      "notesHint": "Comportamento, marcas distintivas, estado do mar… tudo o que ajude.",
+      "photos": "Fotografias",
+      "photosHint": "Até 3 imagens, de 4 MB cada. Barbatanas dorsais e caudas são as mais úteis.",
+      "youTitle": "Sobre si",
+      "name": "O seu nome (opcional)",
+      "nameHint": "Aparece com o seu registo depois de verificado.",
+      "email": "Email (opcional)",
+      "emailHint": "Só é usado se tivermos alguma dúvida sobre o seu registo. Nunca é publicado.",
+      "consent": "Aceito que o WhaleTale guarde este registo e o possa partilhar com investigadores.",
+      "privacyLink": "Aviso de privacidade",
+      "fixErrors": "Verifique os campos assinalados.",
+      "unavailable": "Os registos online ainda não estão ativos. Guarde as suas notas e fotografias e tente de novo em breve.",
+      "failed": "Ocorreu um erro ao enviar o seu registo. Tente de novo daqui a pouco.",
+      "submit": "Enviar registo",
+      "sending": "A enviar…",
+      "successTitle": "Obrigado!",
+      "successText": "Recebemos o seu registo, que vai ser verificado pela nossa equipa. Depois de verificado, aparece nos registos de campo.",
+      "another": "Fazer outro registo",
+      "seeReports": "Ver registos de campo",
+      "errors": {
+        "required": "Este campo é obrigatório.",
+        "invalid": "Verifique este valor.",
+        "tooMany": "Pode juntar até 3 fotografias."
+      }
+    }
   },
   "about": {
     "metaTitle": "Sobre · {site}",
@@ -343,6 +425,147 @@
     "contactTitle": "Fale connosco",
     "contactText": "Encontrou um erro, conhece um recurso que nos escapou ou quer trabalhar connosco? Gostávamos muito de ouvir.",
     "contactButton": "Contacte-nos"
+  },
+  "speciesIndex": {
+    "metaTitle": "Espécies · {site}",
+    "tag": "Explorador de espécies",
+    "title": "Encontre uma",
+    "titleHighlight": "espécie",
+    "intro": "Pesquise e filtre as {count} baleias, golfinhos, botos e focas registados na nossa costa e nas ilhas.",
+    "identify": "Não sabe o que viu? Experimente o assistente de identificação"
+  },
+  "where": {
+    "metaTitle": "Onde e quando · {site}",
+    "regionMetaTitle": "{region} · {site}",
+    "tag": "Onde e quando",
+    "title": "Onde e quando",
+    "titleHighlight": "procurar",
+    "intro": "As águas portuguesas vão da costa continental a dois arquipélagos atlânticos. Cada um tem os seus residentes, visitantes e estações.",
+    "breadcrumb": "Navegação estrutural",
+    "regionsLabel": "Regiões",
+    "regionLink": "Explorar {count} espécies",
+    "regions": {
+      "mainland": {
+        "title": "Costa continental",
+        "teaser": "Do estuário do Sado aos promontórios do Algarve, uma longa costa atlântica marcada pelo afloramento costeiro.",
+        "intro": "Portugal continental tem mais de 900 km de costa atlântica. O afloramento costeiro sazonal torna as águas da plataforma ricas em sardinha e outros peixes pequenos, que atraem golfinhos-comuns em grande número. O estuário do Sado acolhe uma pequena comunidade residente de roazes, e os botos encontram-se sobretudo no norte e no centro."
+      },
+      "azores": {
+        "title": "Açores",
+        "teaser": "Nove ilhas vulcânicas no meio do Atlântico Norte, onde as águas profundas ficam perto da costa.",
+        "intro": "Os Açores assentam na Crista Média-Atlântica, com profundidades de mais de 1000 m a poucos quilómetros da costa. Os cachalotes estão presentes todo o ano e, na primavera, baleias-azuis, baleias-comuns e baleias-sardinheiras passam a caminho do norte. Já foram registadas aqui mais de 20 espécies de cetáceos, o que faz do arquipélago um dos melhores locais da Europa para observar baleias."
+      },
+      "madeira": {
+        "title": "Madeira",
+        "teaser": "Um arquipélago subtropical de águas profundas e quentes, com uma das últimas colónias de lobo-marinho.",
+        "intro": "As encostas vulcânicas da Madeira descem rapidamente para águas profundas e quentes. Baleias-de-bryde, golfinhos-pintados-do-atlântico e baleias-piloto-tropicais são presenças regulares, e as Ilhas Desertas abrigam uma das últimas colónias de lobo-marinho-do-mediterrâneo."
+      }
+    },
+    "hotspotsLabel": "Locais nesta região",
+    "speciesTitle": "{count} espécies registadas",
+    "speciesIntro": "As mais comuns primeiro. Abra uma espécie para saber quando e onde a procurar.",
+    "calendarTitle": "Calendário sazonal",
+    "calendarIntro": "Mês a mês, a melhor altura para procurar cada espécie. A coluna destacada é o mês atual.",
+    "calendarRegionIntro": "Os melhores meses para procurar cada espécie. O mês atual está destacado.",
+    "calendarCaption": "Melhores meses para ver cada espécie: {region}",
+    "calendarNote": "{count} espécies são registadas raramente demais para mostrar um padrão sazonal e não aparecem na lista.",
+    "recentTitle": "Últimos registos",
+    "noRecent": "Ainda não há registos desta região.",
+    "allReports": "Todos os registos de campo",
+    "watchingTitle": "Observe com responsabilidade",
+    "watchingIntro": "Um bom encontro é aquele em que os animais continuam como se não estivesse lá.",
+    "watching": [
+      "Mantenha a distância e deixe os animais decidir a que distância querem ficar.",
+      "Aproxime-se devagar, de lado e ligeiramente por trás — nunca de frente, e nunca atravesse um grupo.",
+      "Mantenha uma velocidade baixa e constante perto dos animais e evite mudanças bruscas de rumo.",
+      "Limite o tempo com cada grupo e afaste-se se mostrarem sinais de perturbação.",
+      "Nunca alimente, toque ou nade com cetáceos ou focas selvagens.",
+      "Escolha operadores licenciados que cumpram as regras nacionais e regionais de observação de cetáceos."
+    ],
+    "ctaTitle": "Vai sair para o mar?",
+    "ctaText": "Cada avistamento que partilha ajuda os investigadores a acompanhar estes animais ao longo das estações."
+  },
+  "newsletter": {
+    "title": "Novidades sazonais",
+    "text": "O que anda por cá, a investigação mais recente e como ajudar — alguns emails por ano.",
+    "email": "O seu email",
+    "submit": "Subscrever",
+    "sending": "A enviar…",
+    "consent": "Aceito receber emails do WhaleTale.",
+    "privacyLink": "Privacidade",
+    "success": "Obrigado — já está na lista.",
+    "unavailable": "As subscrições ainda não estão ativas. Volte em breve.",
+    "failed": "Ocorreu um erro. Tente de novo.",
+    "errors": {
+      "email": "Introduza um endereço de email válido.",
+      "consent": "Assinale a caixa para aceitar."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacidade · {site}",
+    "tag": "Privacidade",
+    "title": "Os seus dados",
+    "intro": "O que recolhemos quando envia um registo ou subscreve as novidades, e o que fazemos com isso.",
+    "sections": [
+      {
+        "title": "O que recolhemos",
+        "text": [
+          "Quando envia um registo: o que viu, onde e quando, eventuais fotografias e — se os quiser indicar — o seu nome e email.",
+          "Quando subscreve as novidades: o seu email e o idioma em que usa o site."
+        ]
+      },
+      {
+        "title": "Porque recolhemos",
+        "text": [
+          "Os registos servem para estudar e proteger os mamíferos marinhos. Só usamos o seu email para lhe perguntar algo sobre o registo ou para enviar as novidades que subscreveu."
+        ]
+      },
+      {
+        "title": "O que é publicado",
+        "text": [
+          "Os registos verificados aparecem no site com a espécie, o local, a data e o seu nome, se o indicou. O seu email nunca é publicado.",
+          "Os registos verificados podem ser partilhados com investigadores e bases de dados abertas de biodiversidade, como o GBIF, sem o seu email."
+        ]
+      },
+      {
+        "title": "Onde são guardados",
+        "text": [
+          "Os registos e as subscrições são guardados no Sanity, o serviço que gere os nossos conteúdos. Só a equipa do WhaleTale tem acesso aos dados pessoais."
+        ]
+      },
+      {
+        "title": "Os seus direitos",
+        "text": [
+          "Pode pedir para consultar, corrigir ou apagar os seus dados pessoais a qualquer momento, e cancelar a subscrição quando quiser. Pode também apresentar queixa à Comissão Nacional de Proteção de Dados (CNPD)."
+        ]
+      }
+    ],
+    "contact": "Contacte-nos sobre os seus dados"
+  },
+  "identify": {
+    "metaTitle": "O que é que vi? · {site}",
+    "tag": "Assistente de identificação",
+    "title": "O que é",
+    "titleHighlight": "que vi?",
+    "intro": "Responda a algumas perguntas sobre o seu encontro e sugerimos as espécies mais prováveis, começando pelas que estão na época.",
+    "shapeQuestion": "Como era?",
+    "shapes": {
+      "whale": "Uma baleia",
+      "dolphin": "Um golfinho ou boto",
+      "seal": "Uma foca"
+    },
+    "sizeQuestion": "Que comprimento, mais ou menos?",
+    "regionQuestion": "Onde estava?",
+    "monthQuestion": "Quando foi?",
+    "notSure": "Não sei",
+    "start": "Comece por nos dizer como era.",
+    "resultsTitle": "Espécies mais prováveis",
+    "noResults": "Nenhuma espécie corresponde a estas respostas. Experimente “Não sei” numa delas.",
+    "resultsHint": "Primeiro as espécies na época, depois as mais vistas.",
+    "inSeason": "Na época",
+    "outOfSeason": "Menos provável este mês",
+    "nextStep": "Encontrou-a?",
+    "reportLink": "Registe o seu avistamento"
   },
   "notFound": {
     "error": "Erro: 404",
@@ -443,7 +666,49 @@
     "legalProtection": "Proteção legal",
     "classification": "Classificação científica",
     "ctaTitle": "Avistou esta espécie?",
-    "ctaText": "Cada registo ajuda os investigadores a acompanhar as populações ao longo da nossa costa."
+    "ctaText": "Cada registo ajuda os investigadores a acompanhar as populações ao longo da nossa costa.",
+    "help": {
+      "title": "Como pode ajudar",
+      "intro": "Gestos práticos, ao alcance de todos, contra as ameaças que esta espécie enfrenta.",
+      "actions": {
+        "fishing": {
+          "title": "Pesque com responsabilidade",
+          "text": "Nunca deixe linhas ou redes para trás e comunique artes de pesca perdidas. Se vir um animal preso em cabos ou redes, não o tente libertar sozinho — ligue 112 para que uma equipa especializada possa ajudar."
+        },
+        "noise": {
+          "title": "Faça menos ruído",
+          "text": "Perto de cetáceos, abrande, mantenha o rumo e evite mudanças bruscas de velocidade. Menos ruído do motor significa menos stress para animais que vivem do som."
+        },
+        "boats": {
+          "title": "Dê-lhes espaço",
+          "text": "Mantenha a distância, nunca persiga nem corte o caminho a um grupo e deixe os animais escolher aproximar-se. Escolha operadores de observação que cumpram as regras."
+        },
+        "plastic": {
+          "title": "Menos plástico",
+          "text": "Evite plásticos descartáveis, leve o seu lixo da praia e participe em limpezas locais. A poluição por plástico e químicos acaba na cadeia alimentar."
+        },
+        "climate": {
+          "title": "Escolha peixe sustentável",
+          "text": "Prefira pescado certificado de stocks saudáveis e reduza a sua pegada de carbono: pescas bem geridas e um clima estável mantêm as presas disponíveis."
+        },
+        "strandings": {
+          "title": "Comunique todos os arrojamentos",
+          "text": "Os animais mortos e arrojados dizem aos cientistas como estão as populações. Um registo rápido ajuda a acompanhar doenças e outras ameaças."
+        },
+        "report": {
+          "title": "Partilhe os seus avistamentos",
+          "text": "Cada registo ajuda os investigadores a acompanhar esta espécie na nossa costa e nas ilhas."
+        }
+      }
+    },
+    "similarTitle": "Espécies semelhantes",
+    "similarIntro": "Espécies muitas vezes confundidas com esta no mar. Consulte as fichas para as distinguir.",
+    "recentTitle": "Avistamentos recentes",
+    "allReports": "Todos os registos de campo",
+    "sourcesTitle": "Fontes e revisão",
+    "sourcesText": "Esta ficha foi compilada a partir da Lista Vermelha da UICN, do Livro Vermelho dos Mamíferos de Portugal e da literatura científica revista por pares.",
+    "sourcesMethodology": "Como trabalhamos",
+    "sourcesError": "Encontrou um erro?"
   },
   "data": {
     "iucn": {

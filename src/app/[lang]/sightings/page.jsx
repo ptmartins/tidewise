@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import ReportFeed from "@/ui/components/report-feed/reportFeed";
+import SightingsMap from "@/ui/components/sightings-map/sightingsMap";
 import { REGIONS } from "@/ui/components/species-explorer/options";
 import { getReports } from "@/lib/mock/reports";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
@@ -93,6 +94,12 @@ export default async function Sightings() {
                 </div>
             </section>
 
+            {/* Map */}
+            <section className="innerWrapper" aria-labelledby="map-title">
+                <h2 id="map-title" className="visually-hidden">{t.mapLabel}</h2>
+                <SightingsMap reports={reports} />
+            </section>
+
             {/* Feed + side panels */}
             <div className={`innerWrapper ${styles.layout}`}>
                 <section className={styles.feed} aria-labelledby="feed-title">
@@ -125,7 +132,7 @@ export default async function Sightings() {
                         <ol className={styles.steps}>
                             {t.strandingSteps.map((step) => <li key={step}>{step}</li>)}
                         </ol>
-                        <Link href={`/${locale}/links#rescue`} className={styles.panel__link}>
+                        <Link href={`/${locale}/stranding`} className={styles.panel__link}>
                             {t.strandingLink}
                             <Icon icon="lucide:arrow-right" width="18" height="18" />
                         </Link>

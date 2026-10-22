@@ -1,14 +1,10 @@
-// Placeholder field reports for the /sightings page. Field names are a first
+// Placeholder field reports for the /sightings page. Positions are approximate. Field names are a first
 // sketch of a future Sanity `report` document so this can later become a GROQ query.
 // Notes are observer-written and stay in the language they were submitted in.
 
 import { getSpeciesBySlug } from './species'
 
-export const REPORT_TYPES = ['sighting', 'stranding']
-
-export const BEHAVIOURS = ['feeding', 'travelling', 'socialising', 'resting', 'breaching', 'bowriding']
-
-export const PLATFORMS = ['boat', 'shore', 'aircraft']
+export { REPORT_TYPES, BEHAVIOURS, PLATFORMS } from '../reportOptions'
 
 const REPORTS = [
     {
@@ -17,6 +13,7 @@ const REPORTS = [
         speciesSlug: 'fin-whale',
         date: '2026-10-19T09:40',
         location: 'Off Cabo Espichel',
+        position: { lat: 38.38, lng: -9.3 },
         region: 'mainland',
         count: 2,
         behaviour: ['feeding', 'travelling'],
@@ -31,6 +28,7 @@ const REPORTS = [
         speciesSlug: 'common-dolphin',
         date: '2026-10-18T16:15',
         location: 'Sesimbra bay',
+        position: { lat: 38.43, lng: -9.1 },
         region: 'mainland',
         count: 60,
         calves: true,
@@ -46,6 +44,7 @@ const REPORTS = [
         speciesSlug: 'harbour-porpoise',
         date: '2026-10-17T07:50',
         location: 'Praia da Aguda, Vila Nova de Gaia',
+        position: { lat: 41.05, lng: -8.655 },
         region: 'mainland',
         count: 1,
         condition: 'dead',
@@ -59,6 +58,7 @@ const REPORTS = [
         speciesSlug: 'sperm-whale',
         date: '2026-10-16T11:05',
         location: 'South of Pico',
+        position: { lat: 38.35, lng: -28.35 },
         region: 'azores',
         count: 5,
         behaviour: ['resting', 'socialising'],
@@ -73,6 +73,7 @@ const REPORTS = [
         speciesSlug: 'bottlenose-dolphin',
         date: '2026-10-15T08:20',
         location: 'Sado estuary, near Tróia',
+        position: { lat: 38.49, lng: -8.89 },
         region: 'mainland',
         count: 14,
         calves: true,
@@ -88,6 +89,7 @@ const REPORTS = [
         speciesSlug: 'rissos-dolphin',
         date: '2026-10-14T14:30',
         location: 'Off Faial channel',
+        position: { lat: 38.52, lng: -28.55 },
         region: 'azores',
         count: 9,
         behaviour: ['resting'],
@@ -102,6 +104,7 @@ const REPORTS = [
         speciesSlug: 'striped-dolphin',
         date: '2026-10-12T18:10',
         location: 'Praia da Falésia, Albufeira',
+        position: { lat: 37.085, lng: -8.17 },
         region: 'mainland',
         count: 1,
         condition: 'alive',
@@ -115,6 +118,7 @@ const REPORTS = [
         speciesSlug: 'atlantic-spotted-dolphin',
         date: '2026-10-11T10:45',
         location: 'East of Ponta de São Lourenço',
+        position: { lat: 32.74, lng: -16.66 },
         region: 'madeira',
         count: 30,
         behaviour: ['bowriding', 'breaching'],
@@ -129,6 +133,7 @@ const REPORTS = [
         speciesSlug: 'humpback-whale',
         date: '2026-10-09T15:55',
         location: 'Off Peniche, near the Berlengas',
+        position: { lat: 39.4, lng: -9.45 },
         region: 'mainland',
         count: 1,
         behaviour: ['breaching'],
@@ -143,6 +148,7 @@ const REPORTS = [
         speciesSlug: 'harbour-porpoise',
         date: '2026-10-07T07:30',
         location: 'Viana do Castelo, north pier',
+        position: { lat: 41.68, lng: -8.84 },
         region: 'mainland',
         count: 3,
         behaviour: ['feeding'],
@@ -157,6 +163,7 @@ const REPORTS = [
         speciesSlug: 'short-finned-pilot-whale',
         date: '2026-10-05T12:10',
         location: 'South-west of Funchal',
+        position: { lat: 32.6, lng: -17 },
         region: 'madeira',
         count: 18,
         calves: true,
@@ -172,6 +179,7 @@ const REPORTS = [
         speciesSlug: 'common-dolphin',
         date: '2026-10-03T17:40',
         location: 'Off Sagres',
+        position: { lat: 36.95, lng: -8.95 },
         region: 'mainland',
         count: 25,
         behaviour: ['travelling', 'bowriding'],
@@ -186,6 +194,7 @@ const REPORTS = [
         speciesSlug: 'cuviers-beaked-whale',
         date: '2026-09-29T09:00',
         location: 'Mosteiros, São Miguel',
+        position: { lat: 37.89, lng: -25.82 },
         region: 'azores',
         count: 1,
         condition: 'dead',
@@ -199,6 +208,7 @@ const REPORTS = [
         speciesSlug: 'bottlenose-dolphin',
         date: '2026-09-27T11:20',
         location: 'Cascais coast',
+        position: { lat: 38.69, lng: -9.42 },
         region: 'mainland',
         count: 6,
         behaviour: ['feeding'],

@@ -18,7 +18,9 @@
     "signOut": "Sign out",
     "stranding": "Stranding?",
     "strandingLabel": "Found a stranded animal? Get help now",
-    "about": "About"
+    "about": "About",
+    "species": "Species",
+    "where": "Where & when"
   },
   "footer": {
     "tagline": "A field guide for a living ocean",
@@ -47,7 +49,10 @@
     "emergencyText": "Keep your distance and call {number}.",
     "emergencyLink": "What to do",
     "supportedBy": "Supported by",
-    "copyright": "© {year} WhaleTale"
+    "copyright": "© {year} WhaleTale",
+    "identify": "What did I see?",
+    "where": "Where & when",
+    "privacy": "Privacy"
   },
   "common": {
     "reportSighting": "Report a sighting",
@@ -61,7 +66,8 @@
       "title": "Meet the life",
       "titleHighlight": "of our Atlantic coast",
       "subtitle": "Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.",
-      "cta": "Explore species"
+      "cta": "Explore species",
+      "identify": "What did I see?"
     },
     "stats": {
       "label": "WhaleTale in numbers",
@@ -90,6 +96,14 @@
     "help": {
       "title": "Be eyes for the ocean",
       "intro": "Every observation adds to our shared understanding. Report what you see, from a breaching whale to a seal on the shore."
+    },
+    "season": {
+      "tag": "In season now",
+      "title": "Who’s around",
+      "titleHighlight": "in {month}",
+      "intro": "The species you’re most likely to meet along our coast and around the islands this month.",
+      "all": "See all {count} species",
+      "calendar": "Seasonal calendar"
     }
   },
   "learn": {
@@ -107,7 +121,21 @@
     "sourcesTitle": "Sources and further reading",
     "sourcesIntro": "Key reference works and peer-reviewed studies behind this page.",
     "ctaTitle": "Seen something at sea?",
-    "ctaText": "Your sightings and stranding reports help researchers understand and protect marine mammals along our coast."
+    "ctaText": "Your sightings and stranding reports help researchers understand and protect marine mammals along our coast.",
+    "chaptersLabel": "Chapters",
+    "chapterMetaTitle": "{chapter} · {site}",
+    "breadcrumb": "Breadcrumb",
+    "chapterOf": "Chapter {number} of {total}",
+    "sourcesLink": "Sources and further reading for all chapters",
+    "pagerLabel": "More chapters",
+    "previous": "Previous",
+    "next": "Next",
+    "navChapters": "Chapters",
+    "glossaryTitle": "Glossary",
+    "glossaryTeaser": "Blowholes, baleen, bow-riding: the words you’ll meet in field guides and on whale-watching trips, explained.",
+    "glossaryJump": "Jump to a letter",
+    "identifyTitle": "What did I see?",
+    "identifyTeaser": "Answer a few questions and narrow down the species."
   },
   "links": {
     "metaTitle": "Resources · {site}",
@@ -217,7 +245,9 @@
     ],
     "strandingLink": "Find your stranding network",
     "ctaTitle": "Add your observation",
-    "ctaText": "A few details and a photo are all it takes. Your report helps researchers follow these animals through the seasons."
+    "ctaText": "A few details and a photo are all it takes. Your report helps researchers follow these animals through the seasons.",
+    "mapLabel": "Map of field reports",
+    "mapNote": "Positions are approximate, and shown only for reports that include one."
   },
   "stranding": {
     "metaTitle": "Found a stranded animal? · {site}",
@@ -285,7 +315,59 @@
         "title": "Science uses it",
         "text": "Verified records will be shared with researchers and open biodiversity databases such as GBIF."
       }
-    ]
+    ],
+    "form": {
+      "whatTitle": "What did you see?",
+      "type": "Report type",
+      "strandingFirst": "Is the animal on the shore right now? Call for help first.",
+      "strandingLink": "What to do",
+      "species": "Species",
+      "speciesHint": "Not sure? Choose “I don’t know” and describe it in the notes.",
+      "unknownSpecies": "I don’t know",
+      "count": "Number of animals",
+      "platform": "Seen from",
+      "calves": "Calves in the group",
+      "condition": "Condition",
+      "whereTitle": "Where and when",
+      "date": "Date and time",
+      "choose": "Choose…",
+      "location": "Location",
+      "locationHint": "A place name, beach or landmark.",
+      "locationPlaceholder": "e.g. 3 nm off Cabo Espichel",
+      "position": "Coordinates (optional)",
+      "lat": "Latitude",
+      "lng": "Longitude",
+      "useLocation": "Use my location",
+      "locating": "Locating…",
+      "locationDenied": "We couldn’t get your location. You can type the coordinates instead.",
+      "positionHint": "Decimal degrees, e.g. 38.4123, -9.2201.",
+      "detailsTitle": "Details",
+      "notes": "Notes",
+      "notesHint": "Behaviour, distinctive marks, sea state… anything that helps.",
+      "photos": "Photos",
+      "photosHint": "Up to 3 images, 4 MB each. Dorsal fins and tails help most.",
+      "youTitle": "About you",
+      "name": "Your name (optional)",
+      "nameHint": "Shown with your report once it’s verified.",
+      "email": "Email (optional)",
+      "emailHint": "Only used if we have a question about your report. Never published.",
+      "consent": "I agree that WhaleTale stores this report and may share it with researchers.",
+      "privacyLink": "Privacy notice",
+      "fixErrors": "Please check the highlighted fields.",
+      "unavailable": "Online reports aren’t switched on yet. Please keep your notes and photos and try again soon.",
+      "failed": "Something went wrong sending your report. Please try again in a moment.",
+      "submit": "Send report",
+      "sending": "Sending…",
+      "successTitle": "Thank you!",
+      "successText": "Your report has been received and will be checked by our team. Once verified, it will appear in the field reports.",
+      "another": "Report another",
+      "seeReports": "See field reports",
+      "errors": {
+        "required": "This field is required.",
+        "invalid": "Please check this value.",
+        "tooMany": "You can add up to 3 photos."
+      }
+    }
   },
   "about": {
     "metaTitle": "About · {site}",
@@ -343,6 +425,147 @@
     "contactTitle": "Get in touch",
     "contactText": "Spotted an error, know a resource we missed, or want to work with us? We’d love to hear from you.",
     "contactButton": "Contact us"
+  },
+  "speciesIndex": {
+    "metaTitle": "Species · {site}",
+    "tag": "Species explorer",
+    "title": "Find a",
+    "titleHighlight": "species",
+    "intro": "Search and filter the {count} whales, dolphins, porpoises and seals recorded along our coast and around the islands.",
+    "identify": "Not sure what you saw? Try the identification helper"
+  },
+  "where": {
+    "metaTitle": "Where & when · {site}",
+    "regionMetaTitle": "{region} · {site}",
+    "tag": "Where & when",
+    "title": "Where and when",
+    "titleHighlight": "to look",
+    "intro": "Portugal’s waters stretch from the mainland coast to two Atlantic archipelagos. Each has its own residents, visitors and seasons.",
+    "breadcrumb": "Breadcrumb",
+    "regionsLabel": "Regions",
+    "regionLink": "Explore {count} species",
+    "regions": {
+      "mainland": {
+        "title": "Mainland coast",
+        "teaser": "From the Sado estuary to the headlands of the Algarve, a long Atlantic coast shaped by upwelling.",
+        "intro": "Mainland Portugal faces the Atlantic for more than 900 km. Seasonal upwelling makes its shelf waters rich in sardine and other small fish, which draw common dolphins in large numbers. The Sado estuary is home to a small resident community of bottlenose dolphins, and harbour porpoises are found mostly in the north and centre."
+      },
+      "azores": {
+        "title": "Azores",
+        "teaser": "Nine volcanic islands in the middle of the North Atlantic, where deep water lies close to shore.",
+        "intro": "The Azores sit on the Mid-Atlantic Ridge, with depths of more than 1,000 m a few kilometres from the coast. Sperm whales are present all year, and in spring blue, fin and sei whales pass through on their way north. More than 20 cetacean species have been recorded here, making the archipelago one of Europe’s best places to watch whales."
+      },
+      "madeira": {
+        "title": "Madeira",
+        "teaser": "A subtropical archipelago with deep, warm water and one of the last monk seal colonies.",
+        "intro": "Madeira’s steep volcanic slopes drop quickly into deep, warm water. Bryde’s whales, Atlantic spotted dolphins and short-finned pilot whales are regulars, and the Desertas Islands shelter one of the last colonies of the Mediterranean monk seal."
+      }
+    },
+    "hotspotsLabel": "Places in this region",
+    "speciesTitle": "{count} species recorded",
+    "speciesIntro": "Commonest first. Open a species for when and where to look for it.",
+    "calendarTitle": "Seasonal calendar",
+    "calendarIntro": "Month by month, the best time to look for each species. Highlighted columns show the current month.",
+    "calendarRegionIntro": "The best months to look for each species. The current month is highlighted.",
+    "calendarCaption": "Best months to see each species: {region}",
+    "calendarNote": "{count} species are too rarely recorded to show a seasonal pattern and aren’t listed.",
+    "recentTitle": "Latest reports",
+    "noRecent": "No reports from this region yet.",
+    "allReports": "All field reports",
+    "watchingTitle": "Watch responsibly",
+    "watchingIntro": "A good encounter is one where the animals carry on as if you weren’t there.",
+    "watching": [
+      "Keep your distance and let the animals decide how close to come.",
+      "Approach slowly from the side and slightly behind — never head-on, and never cut through a group.",
+      "Keep a steady, slow speed near animals and avoid sudden changes of course.",
+      "Limit your time with each group, and leave if they show signs of disturbance.",
+      "Never feed, touch or swim with wild cetaceans or seals.",
+      "Choose licensed operators that follow the national and regional whale-watching rules."
+    ],
+    "ctaTitle": "Out on the water in {region}?",
+    "ctaText": "Every sighting you share helps researchers follow these animals through the seasons."
+  },
+  "newsletter": {
+    "title": "Seasonal updates",
+    "text": "What’s around, the latest research and how to help — a few emails a year.",
+    "email": "Your email",
+    "submit": "Sign up",
+    "sending": "Sending…",
+    "consent": "I agree to receive emails from WhaleTale.",
+    "privacyLink": "Privacy",
+    "success": "Thanks — you’re on the list.",
+    "unavailable": "Sign-ups aren’t switched on yet. Please check back soon.",
+    "failed": "Something went wrong. Please try again.",
+    "errors": {
+      "email": "Please enter a valid email address.",
+      "consent": "Please tick the box to agree."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Privacy · {site}",
+    "tag": "Privacy",
+    "title": "Your data",
+    "intro": "What we collect when you send a report or sign up for updates, and what we do with it.",
+    "sections": [
+      {
+        "title": "What we collect",
+        "text": [
+          "When you send a report: what you saw, where and when, any photos, and — if you choose to give them — your name and email address.",
+          "When you sign up for updates: your email address and the language you use the site in."
+        ]
+      },
+      {
+        "title": "Why we collect it",
+        "text": [
+          "Reports are used to study and protect marine mammals. We use your email only to ask about your report, or to send the updates you signed up for."
+        ]
+      },
+      {
+        "title": "What is published",
+        "text": [
+          "Verified reports appear on the site with the species, place, date and your name, if you gave it. Your email address is never published.",
+          "Verified records may be shared with researchers and open biodiversity databases such as GBIF, without your email address."
+        ]
+      },
+      {
+        "title": "Where it is stored",
+        "text": [
+          "Reports and sign-ups are stored with Sanity, the service that runs our content. Only the WhaleTale team can see personal details."
+        ]
+      },
+      {
+        "title": "Your rights",
+        "text": [
+          "You can ask to see, correct or delete your personal data at any time, and unsubscribe from updates whenever you like. You can also complain to the Portuguese data protection authority (CNPD)."
+        ]
+      }
+    ],
+    "contact": "Contact us about your data"
+  },
+  "identify": {
+    "metaTitle": "What did I see? · {site}",
+    "tag": "Identification helper",
+    "title": "What did",
+    "titleHighlight": "I see?",
+    "intro": "Answer a few questions about your encounter and we’ll suggest the most likely species, starting with those in season.",
+    "shapeQuestion": "What did it look like?",
+    "shapes": {
+      "whale": "A whale",
+      "dolphin": "A dolphin or porpoise",
+      "seal": "A seal"
+    },
+    "sizeQuestion": "Roughly how long?",
+    "regionQuestion": "Where were you?",
+    "monthQuestion": "When was it?",
+    "notSure": "Not sure",
+    "start": "Start by telling us what it looked like.",
+    "resultsTitle": "Most likely species",
+    "noResults": "No species match these answers. Try “Not sure” for one of them.",
+    "resultsHint": "Species in season come first, then the most commonly seen.",
+    "inSeason": "In season",
+    "outOfSeason": "Less likely this month",
+    "nextStep": "Found it?",
+    "reportLink": "Report your sighting"
   },
   "notFound": {
     "error": "Error: 404",
@@ -443,7 +666,49 @@
     "legalProtection": "Legal protection",
     "classification": "Scientific classification",
     "ctaTitle": "Spotted {nameWithArticle}?",
-    "ctaText": "Every record helps researchers track populations along our coast."
+    "ctaText": "Every record helps researchers track populations along our coast.",
+    "help": {
+      "title": "How you can help",
+      "intro": "Practical things anyone can do about the threats this species faces.",
+      "actions": {
+        "fishing": {
+          "title": "Fish responsibly",
+          "text": "Never leave lines or nets behind, and report lost gear. If you see an animal tangled in rope or net, don’t try to free it yourself — call 112 so a trained team can help."
+        },
+        "noise": {
+          "title": "Keep it quiet",
+          "text": "Near cetaceans, slow down, keep a steady course and avoid sudden changes of speed. Less engine noise means less stress for animals that live by sound."
+        },
+        "boats": {
+          "title": "Give them space",
+          "text": "Keep your distance, never chase or cut off a group, and let animals choose to approach. Choose whale-watching operators that follow the rules."
+        },
+        "plastic": {
+          "title": "Cut the plastic",
+          "text": "Avoid single-use plastics, take your rubbish home from the beach and join a local clean-up. Plastic and chemical pollution end up in the food chain."
+        },
+        "climate": {
+          "title": "Choose sustainable seafood",
+          "text": "Pick certified seafood from healthy stocks and cut your carbon footprint: well-managed fisheries and a stable climate keep prey available."
+        },
+        "strandings": {
+          "title": "Report every stranding",
+          "text": "Dead and stranded animals tell scientists how populations are doing. A quick report helps track disease and other threats."
+        },
+        "report": {
+          "title": "Share your sightings",
+          "text": "Every record helps researchers follow this species along our coast and around the islands."
+        }
+      }
+    },
+    "similarTitle": "Similar species",
+    "similarIntro": "Species often confused with this one at sea. Check the profiles to tell them apart.",
+    "recentTitle": "Recent sightings",
+    "allReports": "All field reports",
+    "sourcesTitle": "Sources & review",
+    "sourcesText": "This profile is compiled from the IUCN Red List, the Portuguese Red Book of Mammals and the peer-reviewed literature.",
+    "sourcesMethodology": "How we work",
+    "sourcesError": "Spotted an error?"
   },
   "data": {
     "iucn": {

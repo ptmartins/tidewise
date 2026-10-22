@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './speciesCard.module.css';
 import { Icon } from '@iconify/react';
 import Image from 'next/image';

@@ -148,6 +148,30 @@
     }
 }
 
+.season__grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+}
+
+.season__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-block-start: 2rem;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+}
+
+.btn__ghost {
+    background-color: rgba(255, 255, 255, .85);
+    border-color: transparent;
+}
+
 /* Knowledge Section */
 .knowledge {
     background-color: var(--accent-dark);

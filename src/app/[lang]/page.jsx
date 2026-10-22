@@ -2,16 +2,28 @@ import styles  from "./page.module.css";
 import { Icon } from "@iconify/react";
 import Image from "next/image";
 import Link from "next/link";
-import SpeciesExplorer from "@/ui/components/species-explorer/speciesExplorer";
-import { THREATENED, toCard } from "@/ui/components/species-explorer/options";
+import SpeciesCard from "@/ui/components/species-card/speciesCard";
+import { SIGHTINGS, THREATENED, toCard } from "@/ui/components/species-explorer/options";
 import { getAllSpecies } from "@/lib/mock/species";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import ReportActions from "@/ui/components/report-actions/reportActions";
+import { format } from "@/i18n/format";
+import { getToday, monthNames } from "@/lib/time";
+
+const IN_SEASON = 6;
 
 export default async function Home() {
     const locale = await getLocale();
     const { home, common } = await getDictionary();
     const species = getAllSpecies(locale);
+    const { month } = await getToday();
+    const monthName = monthNames(locale).find((entry) => entry.month === month).name;
+
+    // What's most likely to be around this month, commonest first
+    const inSeason = species
+        .filter(({ bestMonths }) => bestMonths.includes(month))
+        .sort((a, b) => SIGHTINGS.indexOf(a.sightingFrequency) - SIGHTINGS.indexOf(b.sightingFrequency))
+        .slice(0, IN_SEASON);
 
     const stats = [
         { value: species.length, label: home.stats.species },
@@ -39,7 +51,10 @@ export default async function Home() {
                             <span className={styles.tag}>{home.hero.tag}</span>
                             <h1 className={styles.hero__title}>{home.hero.title} <br /> <span>{home.hero.titleHighlight}</span> </h1>
                             <p className={styles.hero__subtitle}>{home.hero.subtitle}</p>
-                            <Link href="#explorer" className={`btn ${styles.btn__hero}`}>{home.hero.cta} <Icon icon="lucide:arrow-right" /> </Link>
+                            <div className={styles.hero__actions}>
+                                <Link href={`/${locale}/species`} className={`btn ${styles.btn__hero}`}>{home.hero.cta} <Icon icon="lucide:arrow-right" /> </Link>
+                                <Link href={`/${locale}/identify`} className={`btn ${styles.btn__ghost}`}><Icon icon="lucide:scan-search" /> {home.hero.identify}</Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -63,15 +78,31 @@ export default async function Home() {
                 </div>
             </section>
 
-            {/* Species explorer section */}
+            {/* In season now */}
             <section id="explorer" className={`section ${styles.explorer}`}>
                 <div className="innerWrapper">
                     <header className={styles.explorer__header}>
-                        <span className={styles.tag}>{home.explorer.tag}</span>
-                        <h2>{home.explorer.title} <span>{home.explorer.titleHighlight}</span></h2>
-                        <p>{home.explorer.intro}</p>
+                        <span className={styles.tag}>{home.season.tag}</span>
+                        <h2>{home.season.title} <span>{format(home.season.titleHighlight, { month: monthName })}</span></h2>
+                        <p>{home.season.intro}</p>
                     </header>
-                    <SpeciesExplorer species={species.map(toCard)} />
+                    {inSeason.length > 0 && (
+                        <ul className={styles.season__grid}>
+                            {inSeason.map((item) => (
+                                <li key={item.slug}><SpeciesCard species={toCard(item)} /></li>
+                            ))}
+                        </ul>
+                    )}
+                    <div className={styles.season__actions}>
+                        <Link href={`/${locale}/species`} className="btn btn--primary">
+                            {format(home.season.all, { count: species.length })}
+                            <Icon icon="lucide:arrow-right" />
+                        </Link>
+                        <Link href={`/${locale}/where/calendar`} className="btn">
+                            <Icon icon="lucide:calendar-days" />
+                            {home.season.calendar}
+                        </Link>
+                    </div>
                 </div>
             </section>
 
@@ -85,22 +116,22 @@ export default async function Home() {
                         <Link href={`/${locale}/learn`} className="btn">{home.knowledge.cta}</Link>
                     </div>
                     <div className={styles.knowledge__cta}>
-                        <div className={styles.knowledge__card}>
+                        <Link href={`/${locale}/learn/evolution`} className={styles.knowledge__card}>
                             <div className={styles.card__number}>01</div>
                             <div className={styles.card__icon}>
                                 <Icon icon="lucide:waves" width="32" height="32" />
                             </div>
                             <h3 className={styles.card__title}>{home.knowledge.returnTitle}</h3>
                             <p className={styles.card__description}>{home.knowledge.returnDescription}</p>
-                        </div>
-                        <div className={styles.knowledge__card}>
+                        </Link>
+                        <Link href={`/${locale}/learn/ecology`} className={styles.knowledge__card}>
                             <div className={styles.card__number}>02</div>
                             <div className={styles.card__icon}>
                                 <Icon icon="lucide:earth" width="32" height="32" />
                             </div>
                             <h3 className={styles.card__title}>{home.knowledge.connectionsTitle}</h3>
                             <p className={styles.card__description}>{home.knowledge.connectionsDescription}</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </section>

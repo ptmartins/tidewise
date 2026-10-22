@@ -11,6 +11,7 @@ import { toothedWhales } from './toothed-whales'
 import { dolphins } from './dolphins'
 import { porpoises, seals } from './porpoises-and-seals'
 import { thumbnails } from './thumbnails'
+import { similarSpecies } from './similar'
 import { pt } from './i18n/pt'
 import { fr } from './i18n/fr'
 
@@ -43,4 +44,9 @@ export function getAllSpeciesSlugs() {
 export function getSpeciesBySlug(slug, locale) {
   const item = species.find((entry) => entry.slug === slug)
   return item ? localize(item, locale) : null
+}
+
+// Species most often confused with this one, as full localized records
+export function getSimilarSpecies(slug, locale) {
+  return (similarSpecies[slug] ?? []).map((other) => getSpeciesBySlug(other, locale)).filter(Boolean)
 }

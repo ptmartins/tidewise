@@ -35,7 +35,7 @@ export const groupFor = (category) => GROUPS.find(({ value }) => value === categ
 
 // Regions are free text in the mock data ("Lisbon coast", "Mainland — North"…),
 // so fold them into the three broad areas used for filtering.
-const toRegion = (region) => {
+export const toRegion = (region) => {
     if (/azores/i.test(region)) return 'azores';
     if (/madeira|desertas/i.test(region)) return 'madeira';
     return 'mainland';

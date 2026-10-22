@@ -29,6 +29,7 @@
     align-items: center;
     color: var(--accent-faded);
     display: flex;
+    flex-wrap: wrap;
     font-size: .85rem;
     gap: .5rem;
     margin-block-start: 1.5rem;
@@ -265,6 +266,129 @@
     text-transform: uppercase;
 }
 
+/* Main column + sticky side column (report form) */
+.split {
+    align-items: start;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) 22rem;
+}
+
+.split__aside {
+    display: grid;
+    gap: 1.25rem;
+    inset-block-start: calc(var(--header-height) + 1.5rem);
+    position: sticky;
+}
+
+@media (max-width: 1000px) {
+    .split {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .split__aside {
+        order: -1;
+        position: static;
+    }
+}
+
+/* Long-form text (privacy notice) */
+.prose {
+    display: grid;
+    gap: 2rem;
+    line-height: 1.7;
+    max-inline-size: 46rem;
+
+    h2 {
+        font-size: 1.4rem;
+        margin-block-end: .5rem;
+    }
+
+    p + p {
+        margin-block-start: .75rem;
+    }
+}
+
+/* Breadcrumb above a page title */
+.breadcrumb {
+    align-items: center;
+    color: var(--accent-faded);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: .85rem;
+    gap: .35rem;
+    margin-block-end: 1.25rem;
+
+    a {
+        color: var(--accent);
+    }
+}
+
+/* Static chip (same look as the jump links) */
+.pill {
+    align-items: center;
+    background-color: var(--white);
+    border: 1px solid var(--accent-muted);
+    border-radius: 999px;
+    color: var(--accent-dark);
+    display: inline-flex;
+    font-size: .85rem;
+    gap: .4rem;
+    padding: .4rem .9rem;
+
+    svg {
+        color: var(--secondary-accent);
+    }
+
+    small {
+        color: var(--accent-faded);
+        font-size: .75rem;
+    }
+}
+
+/* A whole card that is a link */
+.cardLink {
+    color: var(--txt);
+    transition: var(--default-transition);
+}
+
+/* Report cards in a column */
+.reports {
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    max-inline-size: 48rem;
+}
+
+/* "Sources & review" strip */
+.review {
+    align-items: start;
+    border: 1px solid var(--accent-muted);
+    border-radius: var(--border-radius-l);
+    color: var(--accent-faded);
+    display: flex;
+    font-size: 1rem;
+    gap: 1rem;
+    padding: 1.5rem;
+
+    > svg {
+        color: var(--secondary-accent);
+        flex-shrink: 0;
+    }
+}
+
+.review__title {
+    font-size: 1.25rem;
+    margin-block-end: .35rem;
+}
+
+.review__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.5rem;
+    margin-block-start: .75rem;
+}
+
 /* Call to action band */
 .cta {
     background-color: var(--accent-dark);
@@ -286,6 +410,13 @@
     }
 }
 
+.cta__buttons {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
 .cta__inner {
     align-items: center;
     display: flex;
@@ -304,6 +435,10 @@
 
     .link:hover {
         color: var(--accent-dark);
+    }
+
+    .cardLink:hover {
+        border-color: var(--accent);
     }
 
     .networks a:hover {
@@ -343,6 +478,11 @@
 
     .cta {
         padding-block: 3.5rem;
+    }
+
+    .cta__buttons {
+        align-self: stretch;
+        flex-direction: column;
     }
 
     .cta__inner :global(.btn) {
