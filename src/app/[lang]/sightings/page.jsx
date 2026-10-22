@@ -6,6 +6,7 @@ import { REGIONS } from "@/ui/components/species-explorer/options";
 import { getReports } from "@/lib/mock/reports";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
+import ReportActions from "@/ui/components/report-actions/reportActions";
 
 const TOP_SPECIES = 5;
 
@@ -141,16 +142,7 @@ export default async function Sightings() {
                         <p>{t.ctaText}</p>
                     </div>
                     <div className={styles.cta__buttons}>
-                        <button className="btn btn--secondary">
-                            <Icon icon="lucide:binoculars" width="24" height="24" />
-                            {common.reportSighting}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
-                        <button className="btn">
-                            <Icon icon="lucide:shield-alert" width="24" height="24" />
-                            {common.reportStranding}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
+                        <ReportActions />
                     </div>
                 </div>
             </section>

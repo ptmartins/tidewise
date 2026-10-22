@@ -15,11 +15,39 @@
     "language": "Language",
     "account": "Account",
     "mySightings": "My sightings",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "stranding": "Stranding?",
+    "strandingLabel": "Found a stranded animal? Get help now",
+    "about": "About"
   },
   "footer": {
     "tagline": "A field guide for a living ocean",
-    "developedBy": "Developed with ♥ by"
+    "developedBy": "Developed with ♥ by",
+    "columns": {
+      "explore": "Explore",
+      "learn": "Learn",
+      "act": "Take action",
+      "about": "About"
+    },
+    "species": "Species",
+    "fieldReports": "Field reports",
+    "resources": "Resources",
+    "fieldNotes": "Field notes",
+    "evolution": "Evolution",
+    "conservation": "Conservation",
+    "inPortugal": "In Portugal",
+    "reportSighting": "Report a sighting",
+    "stranding": "Found a stranded animal",
+    "howToHelp": "How to help",
+    "aboutUs": "About WhaleTale",
+    "methodology": "How we work",
+    "partners": "Partners & supporters",
+    "contact": "Contact",
+    "emergencyTitle": "Found a stranded animal?",
+    "emergencyText": "Keep your distance and call {number}.",
+    "emergencyLink": "What to do",
+    "supportedBy": "Supported by",
+    "copyright": "© {year} WhaleTale"
   },
   "common": {
     "reportSighting": "Report a sighting",
@@ -190,6 +218,131 @@
     "strandingLink": "Find your stranding network",
     "ctaTitle": "Add your observation",
     "ctaText": "A few details and a photo are all it takes. Your report helps researchers follow these animals through the seasons."
+  },
+  "stranding": {
+    "metaTitle": "Found a stranded animal? · {site}",
+    "tag": "Emergency",
+    "title": "Found a stranded",
+    "titleHighlight": "marine mammal?",
+    "intro": "Stay calm, keep your distance and call for help. Trained responders know what to do — a quick call is the most useful thing you can do.",
+    "callTitle": "Call {number}",
+    "callText": "If the animal is alive, or you’re not sure who to contact, call the European emergency number. They’ll alert the local authorities and the stranding network.",
+    "callButton": "Call {number}",
+    "doTitle": "Do",
+    "do": [
+      "Keep a safe distance, and keep people and dogs away.",
+      "Note the exact location, the time, and the animal’s size and condition.",
+      "Take photos from a distance, if it’s safe to do so.",
+      "Stay nearby until help arrives, if you can."
+    ],
+    "dontTitle": "Don’t",
+    "dont": [
+      "Don’t push or drag it back into the sea — it’s probably sick or exhausted and will often strand again.",
+      "Don’t touch it: marine mammals can pass diseases to people and pets.",
+      "Don’t pull on its flippers or tail, or cover its blowhole.",
+      "Don’t take bones, teeth or other parts — these are protected species."
+    ],
+    "deadTitle": "Is the animal already dead?",
+    "deadText": "Report it anyway. Dead animals tell scientists a great deal about the health, diet and threats facing the population.",
+    "networksTitle": "Stranding networks",
+    "networksIntro": "Trained teams who respond to strandings and study the animals they find.",
+    "noNetworks": "Call {number} or the Polícia Marítima — they will alert the regional team.",
+    "networksLink": "All rescue and stranding networks",
+    "ctaTitle": "Help has been called?",
+    "ctaText": "Add a report on WhaleTale too, so the record isn’t lost."
+  },
+  "report": {
+    "metaTitle": "Report · {site}",
+    "tag": "Report",
+    "title": "Share what",
+    "titleHighlight": "you’ve seen",
+    "intro": "Every record — a passing dolphin, a whale on the horizon, a seal on the beach — helps researchers understand which animals use our waters, where and when.",
+    "notice": "The online report form is coming soon. In the meantime, keep your notes and photos: every record counts.",
+    "sightingTitle": "A sighting at sea or from shore",
+    "sightingText": "What to note, so your record is as useful as possible:",
+    "sightingChecklist": [
+      "Date and time",
+      "Where you were — GPS coordinates if possible",
+      "Species, if you know it, and how many animals",
+      "What they were doing: feeding, travelling, resting…",
+      "Photos, especially of the dorsal fin and tail"
+    ],
+    "sightingLink": "Not sure what you saw? Browse species",
+    "strandingTitle": "An animal on the shore",
+    "strandingText": "If an animal is stranded right now, don’t wait for a form. Call for help first.",
+    "strandingButton": "What to do now",
+    "loopTitle": "Where your report goes",
+    "loop": [
+      {
+        "title": "You send it",
+        "text": "A few details and a photo are all it takes."
+      },
+      {
+        "title": "We review it",
+        "text": "Each record is checked, and the species confirmed from photos where possible."
+      },
+      {
+        "title": "Science uses it",
+        "text": "Verified records will be shared with researchers and open biodiversity databases such as GBIF."
+      }
+    ]
+  },
+  "about": {
+    "metaTitle": "About · {site}",
+    "tag": "About",
+    "title": "A field guide",
+    "titleHighlight": "for a living ocean",
+    "intro": "WhaleTale brings together the science of the whales, dolphins, porpoises and seals of Portuguese waters — from the mainland coast to the Azores and Madeira — and invites everyone to help study them.",
+    "jumpLabel": "Jump to a section",
+    "missionNav": "Mission",
+    "mission": [
+      {
+        "icon": "lucide:book-open",
+        "title": "Learn",
+        "text": "Peer-reviewed science in plain language, in Portuguese, English and French."
+      },
+      {
+        "icon": "lucide:binoculars",
+        "title": "Observe",
+        "text": "Species profiles and field tips to help you recognise what you see, and where and when to look."
+      },
+      {
+        "icon": "lucide:send",
+        "title": "Contribute",
+        "text": "Sightings and stranding reports that add to what we know about these animals."
+      }
+    ],
+    "methodologyNav": "How we work",
+    "methodologyTitle": "How we work",
+    "methodologyIntro": "Trust is everything for a science resource. These are the rules we hold ourselves to.",
+    "methodology": [
+      "Facts come from peer-reviewed research and standard references, such as the IUCN Red List and the Portuguese Red Book of Mammals.",
+      "Where studies disagree, we give ranges or rounded values rather than a single, falsely precise figure.",
+      "Every page lists the sources behind it.",
+      "Field reports are checked before they join the record.",
+      "Spotted a mistake? Tell us and we’ll correct it."
+    ],
+    "partnersNav": "Partners",
+    "partnersTitle": "Partners & supporters",
+    "partnersIntro": "WhaleTale is independent. Partners help us grow, but never decide what we say.",
+    "tiers": {
+      "scientific": "Scientific partners",
+      "funder": "Funders",
+      "supporter": "Supporters"
+    },
+    "policyTitle": "Our sponsorship policy",
+    "policy": [
+      "Partners and sponsors have no say over scientific content.",
+      "Sponsored features are always clearly labelled.",
+      "No sponsorship ever appears in the stranding or reporting pages, or inside the science content.",
+      "We don’t accept support from organisations whose activities conflict with the protection of marine mammals."
+    ],
+    "partnersEmpty": "We’re looking for our first partners: research groups, NGOs and foundations that share our mission.",
+    "partnersButton": "Become a partner",
+    "contactNav": "Contact",
+    "contactTitle": "Get in touch",
+    "contactText": "Spotted an error, know a resource we missed, or want to work with us? We’d love to hear from you.",
+    "contactButton": "Contact us"
   },
   "notFound": {
     "error": "Error: 404",

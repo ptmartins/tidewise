@@ -15,11 +15,39 @@
     "language": "Idioma",
     "account": "Conta",
     "mySightings": "Os meus avistamentos",
-    "signOut": "Terminar sessão"
+    "signOut": "Terminar sessão",
+    "stranding": "Arrojamento?",
+    "strandingLabel": "Encontrou um animal arrojado? Peça ajuda agora",
+    "about": "Sobre"
   },
   "footer": {
     "tagline": "Um guia de campo para um oceano vivo",
-    "developedBy": "Desenvolvido com ♥ por"
+    "developedBy": "Desenvolvido com ♥ por",
+    "columns": {
+      "explore": "Explorar",
+      "learn": "Aprender",
+      "act": "Agir",
+      "about": "Sobre"
+    },
+    "species": "Espécies",
+    "fieldReports": "Registos de campo",
+    "resources": "Recursos",
+    "fieldNotes": "Notas de campo",
+    "evolution": "Evolução",
+    "conservation": "Conservação",
+    "inPortugal": "Em Portugal",
+    "reportSighting": "Registar um avistamento",
+    "stranding": "Encontrei um animal arrojado",
+    "howToHelp": "Como ajudar",
+    "aboutUs": "Sobre o WhaleTale",
+    "methodology": "Como trabalhamos",
+    "partners": "Parceiros e apoios",
+    "contact": "Contacto",
+    "emergencyTitle": "Encontrou um animal arrojado?",
+    "emergencyText": "Mantenha a distância e ligue {number}.",
+    "emergencyLink": "O que fazer",
+    "supportedBy": "Com o apoio de",
+    "copyright": "© {year} WhaleTale"
   },
   "common": {
     "reportSighting": "Registar um avistamento",
@@ -190,6 +218,131 @@
     "strandingLink": "Encontre a sua rede de arrojamentos",
     "ctaTitle": "Partilhe a sua observação",
     "ctaText": "Bastam alguns detalhes e uma fotografia. O seu registo ajuda os investigadores a acompanhar estes animais ao longo das estações."
+  },
+  "stranding": {
+    "metaTitle": "Encontrou um animal arrojado? · {site}",
+    "tag": "Emergência",
+    "title": "Encontrou um",
+    "titleHighlight": "mamífero marinho arrojado?",
+    "intro": "Mantenha a calma, guarde distância e peça ajuda. As equipas especializadas sabem o que fazer — uma chamada rápida é o mais útil que pode fazer.",
+    "callTitle": "Ligue {number}",
+    "callText": "Se o animal estiver vivo, ou se não souber a quem ligar, contacte o número europeu de emergência. Eles alertam as autoridades locais e a rede de arrojamentos.",
+    "callButton": "Ligar {number}",
+    "doTitle": "Faça",
+    "do": [
+      "Mantenha uma distância segura e afaste pessoas e cães.",
+      "Anote o local exato, a hora, o tamanho e o estado do animal.",
+      "Tire fotografias à distância, se for seguro.",
+      "Fique por perto até a ajuda chegar, se puder."
+    ],
+    "dontTitle": "Não faça",
+    "dont": [
+      "Não empurre nem arraste o animal de volta ao mar — provavelmente está doente ou exausto e voltará a arrojar.",
+      "Não lhe toque: os mamíferos marinhos podem transmitir doenças a pessoas e animais de estimação.",
+      "Não puxe as barbatanas nem a cauda, nem tape o espiráculo.",
+      "Não leve ossos, dentes ou outras partes — são espécies protegidas."
+    ],
+    "deadTitle": "O animal já está morto?",
+    "deadText": "Registe-o na mesma. Os animais mortos dizem muito aos cientistas sobre a saúde, a dieta e as ameaças que a população enfrenta.",
+    "networksTitle": "Redes de arrojamentos",
+    "networksIntro": "Equipas especializadas que respondem a arrojamentos e estudam os animais que encontram.",
+    "noNetworks": "Ligue {number} ou para a Polícia Marítima — eles alertam a equipa regional.",
+    "networksLink": "Todas as redes de resgate e arrojamentos",
+    "ctaTitle": "Já pediu ajuda?",
+    "ctaText": "Registe também a ocorrência no WhaleTale, para que o registo não se perca."
+  },
+  "report": {
+    "metaTitle": "Registar · {site}",
+    "tag": "Registar",
+    "title": "Partilhe o que",
+    "titleHighlight": "viu",
+    "intro": "Cada registo — um golfinho de passagem, uma baleia no horizonte, uma foca na praia — ajuda os investigadores a perceber que animais usam as nossas águas, onde e quando.",
+    "notice": "O formulário online estará disponível em breve. Até lá, guarde as suas notas e fotografias: todos os registos contam.",
+    "sightingTitle": "Um avistamento no mar ou da costa",
+    "sightingText": "O que anotar para que o seu registo seja o mais útil possível:",
+    "sightingChecklist": [
+      "Data e hora",
+      "Onde estava — coordenadas GPS, se possível",
+      "A espécie, se souber, e quantos animais",
+      "O que estavam a fazer: a alimentar-se, em deslocação, a descansar…",
+      "Fotografias, sobretudo da barbatana dorsal e da cauda"
+    ],
+    "sightingLink": "Não sabe o que viu? Explore as espécies",
+    "strandingTitle": "Um animal na costa",
+    "strandingText": "Se um animal estiver arrojado neste momento, não espere por um formulário. Peça ajuda primeiro.",
+    "strandingButton": "O que fazer agora",
+    "loopTitle": "Para onde vai o seu registo",
+    "loop": [
+      {
+        "title": "Envia-o",
+        "text": "Bastam alguns detalhes e uma fotografia."
+      },
+      {
+        "title": "Revemo-lo",
+        "text": "Cada registo é verificado e a espécie confirmada por fotografia sempre que possível."
+      },
+      {
+        "title": "A ciência usa-o",
+        "text": "Os registos verificados serão partilhados com investigadores e bases de dados abertas de biodiversidade, como o GBIF."
+      }
+    ]
+  },
+  "about": {
+    "metaTitle": "Sobre · {site}",
+    "tag": "Sobre",
+    "title": "Um guia de campo",
+    "titleHighlight": "para um oceano vivo",
+    "intro": "O WhaleTale reúne a ciência das baleias, golfinhos, botos e focas das águas portuguesas — da costa continental aos Açores e à Madeira — e convida todos a ajudar a estudá-los.",
+    "jumpLabel": "Ir para uma secção",
+    "missionNav": "Missão",
+    "mission": [
+      {
+        "icon": "lucide:book-open",
+        "title": "Aprender",
+        "text": "Ciência revista por pares em linguagem simples, em português, inglês e francês."
+      },
+      {
+        "icon": "lucide:binoculars",
+        "title": "Observar",
+        "text": "Fichas de espécies e dicas de campo para reconhecer o que vê, e saber onde e quando procurar."
+      },
+      {
+        "icon": "lucide:send",
+        "title": "Contribuir",
+        "text": "Registos de avistamentos e arrojamentos que aumentam o que sabemos sobre estes animais."
+      }
+    ],
+    "methodologyNav": "Como trabalhamos",
+    "methodologyTitle": "Como trabalhamos",
+    "methodologyIntro": "Para um recurso de ciência, a confiança é tudo. Estas são as regras que seguimos.",
+    "methodology": [
+      "Os factos vêm de investigação revista por pares e de referências como a Lista Vermelha da UICN e o Livro Vermelho dos Mamíferos de Portugal.",
+      "Quando os estudos divergem, apresentamos intervalos ou valores arredondados em vez de um número falsamente preciso.",
+      "Cada página indica as fontes em que se baseia.",
+      "Os registos de campo são verificados antes de entrarem no arquivo.",
+      "Encontrou um erro? Diga-nos e corrigimos."
+    ],
+    "partnersNav": "Parceiros",
+    "partnersTitle": "Parceiros e apoios",
+    "partnersIntro": "O WhaleTale é independente. Os parceiros ajudam-nos a crescer, mas nunca decidem o que dizemos.",
+    "tiers": {
+      "scientific": "Parceiros científicos",
+      "funder": "Financiadores",
+      "supporter": "Apoios"
+    },
+    "policyTitle": "A nossa política de patrocínios",
+    "policy": [
+      "Parceiros e patrocinadores não têm qualquer influência no conteúdo científico.",
+      "Os conteúdos patrocinados estão sempre claramente identificados.",
+      "Nunca há patrocínios nas páginas de arrojamentos ou de registo, nem dentro dos conteúdos científicos.",
+      "Não aceitamos apoios de organizações cujas atividades entrem em conflito com a proteção dos mamíferos marinhos."
+    ],
+    "partnersEmpty": "Procuramos os nossos primeiros parceiros: grupos de investigação, ONG e fundações que partilhem a nossa missão.",
+    "partnersButton": "Seja parceiro",
+    "contactNav": "Contacto",
+    "contactTitle": "Fale connosco",
+    "contactText": "Encontrou um erro, conhece um recurso que nos escapou ou quer trabalhar connosco? Gostávamos muito de ouvir.",
+    "contactButton": "Contacte-nos"
   },
   "notFound": {
     "error": "Erro: 404",

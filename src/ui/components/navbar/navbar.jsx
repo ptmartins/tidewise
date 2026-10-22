@@ -53,7 +53,18 @@ function NavBar() {
                     </ul>
                 </div>
                 <div className={styles.actions}>
-                    <button type="button" className={`btn ${styles.reportButton}`}>{nav.reportShort}</button>
+                    {/* Emergency shortcut: stays visible at every width, one tap from any page */}
+                    <Link
+                        href={`${home}/stranding`}
+                        className={`${styles.stranding} ${path === `${home}/stranding` ? styles['stranding--active'] : ''}`}
+                        aria-label={nav.strandingLabel}
+                        title={nav.strandingLabel}
+                        onClick={closeMenu}
+                    >
+                        <Icon icon="lucide:siren" width="20" height="20" />
+                        <span>{nav.stranding}</span>
+                    </Link>
+                    <Link href={`${home}/report`} className={`btn ${styles.reportButton}`} onClick={closeMenu}>{nav.reportShort}</Link>
                     {/* No auth yet, so everyone is a guest. Pass `user` here once login exists. */}
                     <AccountMenu onOpen={closeMenu} />
                     <button
@@ -68,9 +79,9 @@ function NavBar() {
                     </button>
                 </div>
             </div>
-            <button type="button" className={styles.reportFab} aria-label={nav.reportSighting}>
+            <Link href={`${home}/report`} className={styles.reportFab} aria-label={nav.reportSighting} onClick={closeMenu}>
                 <Icon icon="lucide:plus" width="26" height="26" />
-            </button>
+            </Link>
         </nav>
     )
 }

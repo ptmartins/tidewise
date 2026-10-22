@@ -6,6 +6,7 @@ import SpeciesExplorer from "@/ui/components/species-explorer/speciesExplorer";
 import { THREATENED, toCard } from "@/ui/components/species-explorer/options";
 import { getAllSpecies } from "@/lib/mock/species";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
+import ReportActions from "@/ui/components/report-actions/reportActions";
 
 export default async function Home() {
     const locale = await getLocale();
@@ -81,7 +82,7 @@ export default async function Home() {
                         <span className={styles.tag}>{home.knowledge.tag}</span>
                         <h1> {home.knowledge.title} <span>{home.knowledge.titleHighlight}</span> </h1>
                         <p>{home.knowledge.intro}</p>
-                        <button className="btn">{home.knowledge.cta}</button>
+                        <Link href={`/${locale}/learn`} className="btn">{home.knowledge.cta}</Link>
                     </div>
                     <div className={styles.knowledge__cta}>
                         <div className={styles.knowledge__card}>
@@ -113,16 +114,7 @@ export default async function Home() {
                         <p>{home.help.intro}</p>
                     </div>
                     <div className={styles.help__cta}>
-                        <button className="btn btn--secondary">
-                            <Icon icon="lucide:binoculars" width="24" height="24" />
-                            {common.reportSighting}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
-                        <button className="btn">
-                            <Icon icon="lucide:shield-alert" width="24" height="24" />
-                            {common.reportStranding}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
+                        <ReportActions />
                     </div>
                 </div>
             </section>

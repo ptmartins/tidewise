@@ -8,6 +8,7 @@ import { getAllSpeciesSlugs, getSpeciesBySlug } from "@/lib/mock/species";
 import { LOCALE_DETAILS } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format, formatNumber, label } from "@/i18n/format";
+import ReportActions from "@/ui/components/report-actions/reportActions";
 
 const IUCN_SCALE = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
 
@@ -317,16 +318,7 @@ export default async function SpeciesPage({ params }) {
                         <p>{t.ctaText}</p>
                     </div>
                     <div className={styles.cta__buttons}>
-                        <button className="btn btn--secondary">
-                            <Icon icon="lucide:binoculars" width="24" height="24" />
-                            {common.reportSighting}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
-                        <button className="btn">
-                            <Icon icon="lucide:shield-alert" width="24" height="24" />
-                            {common.reportStranding}
-                            <Icon icon="lucide:chevron-right" width="24" height="24" />
-                        </button>
+                        <ReportActions />
                     </div>
                 </div>
             </section>

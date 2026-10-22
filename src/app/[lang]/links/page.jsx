@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { LINK_CATEGORIES } from "@/lib/mock/links";
-import { getDictionary } from "@/i18n/getDictionary";
+import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
 export async function generateMetadata() {
@@ -15,6 +15,7 @@ export async function generateMetadata() {
 }
 
 export default async function Links() {
+    const locale = await getLocale();
     const { links, common } = await getDictionary();
     const total = LINK_CATEGORIES.reduce((sum, { links }) => sum + links.length, 0);
 
@@ -88,11 +89,11 @@ export default async function Links() {
                         <h2>{links.ctaTitle}</h2>
                         <p>{links.ctaText}</p>
                     </div>
-                    <button className="btn btn--secondary">
+                    <Link href={`/${locale}/about#contact`} className="btn btn--secondary">
                         <Icon icon="lucide:link" width="24" height="24" />
                         {links.ctaButton}
                         <Icon icon="lucide:chevron-right" width="24" height="24" />
-                    </button>
+                    </Link>
                 </div>
             </section>
         </>

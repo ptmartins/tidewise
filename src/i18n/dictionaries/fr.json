@@ -15,11 +15,39 @@
     "language": "Langue",
     "account": "Compte",
     "mySightings": "Mes observations",
-    "signOut": "Se déconnecter"
+    "signOut": "Se déconnecter",
+    "stranding": "Échouage ?",
+    "strandingLabel": "Vous avez trouvé un animal échoué ? Obtenez de l’aide",
+    "about": "À propos"
   },
   "footer": {
     "tagline": "Un guide de terrain pour un océan vivant",
-    "developedBy": "Développé avec ♥ par"
+    "developedBy": "Développé avec ♥ par",
+    "columns": {
+      "explore": "Explorer",
+      "learn": "Apprendre",
+      "act": "Agir",
+      "about": "À propos"
+    },
+    "species": "Espèces",
+    "fieldReports": "Relevés de terrain",
+    "resources": "Ressources",
+    "fieldNotes": "Notes de terrain",
+    "evolution": "Évolution",
+    "conservation": "Conservation",
+    "inPortugal": "Au Portugal",
+    "reportSighting": "Signaler une observation",
+    "stranding": "J’ai trouvé un animal échoué",
+    "howToHelp": "Comment aider",
+    "aboutUs": "À propos de WhaleTale",
+    "methodology": "Notre méthode",
+    "partners": "Partenaires et soutiens",
+    "contact": "Contact",
+    "emergencyTitle": "Vous avez trouvé un animal échoué ?",
+    "emergencyText": "Gardez vos distances et appelez le {number}.",
+    "emergencyLink": "Que faire",
+    "supportedBy": "Avec le soutien de",
+    "copyright": "© {year} WhaleTale"
   },
   "common": {
     "reportSighting": "Signaler une observation",
@@ -190,6 +218,131 @@
     "strandingLink": "Trouver votre réseau d’échouage",
     "ctaTitle": "Partagez votre observation",
     "ctaText": "Quelques détails et une photo suffisent. Votre signalement aide les chercheurs à suivre ces animaux au fil des saisons."
+  },
+  "stranding": {
+    "metaTitle": "Animal échoué ? · {site}",
+    "tag": "Urgence",
+    "title": "Vous avez trouvé un",
+    "titleHighlight": "mammifère marin échoué ?",
+    "intro": "Restez calme, gardez vos distances et appelez à l’aide. Les équipes formées savent quoi faire — un appel rapide est ce que vous pouvez faire de plus utile.",
+    "callTitle": "Appelez le {number}",
+    "callText": "Si l’animal est vivant, ou si vous ne savez pas qui contacter, appelez le numéro d’urgence européen. Ils alerteront les autorités locales et le réseau échouages.",
+    "callButton": "Appeler le {number}",
+    "doTitle": "À faire",
+    "do": [
+      "Gardez une distance de sécurité et éloignez les personnes et les chiens.",
+      "Notez le lieu exact, l’heure, la taille et l’état de l’animal.",
+      "Prenez des photos à distance, si vous pouvez le faire sans danger.",
+      "Restez à proximité jusqu’à l’arrivée des secours, si possible."
+    ],
+    "dontTitle": "À ne pas faire",
+    "dont": [
+      "Ne le poussez pas et ne le traînez pas vers la mer — il est sans doute malade ou épuisé et s’échouera souvent à nouveau.",
+      "Ne le touchez pas : les mammifères marins peuvent transmettre des maladies aux personnes et aux animaux domestiques.",
+      "Ne tirez pas sur ses nageoires ou sa queue, et ne couvrez pas son évent.",
+      "N’emportez ni os, ni dents, ni autres parties — ce sont des espèces protégées."
+    ],
+    "deadTitle": "L’animal est déjà mort ?",
+    "deadText": "Signalez-le quand même. Les animaux morts en apprennent beaucoup aux scientifiques sur la santé, le régime alimentaire et les menaces qui pèsent sur la population.",
+    "networksTitle": "Réseaux échouages",
+    "networksIntro": "Des équipes formées qui interviennent lors des échouages et étudient les animaux retrouvés.",
+    "noNetworks": "Appelez le {number} ou la Polícia Marítima — ils alerteront l’équipe régionale.",
+    "networksLink": "Tous les réseaux de secours et d’échouages",
+    "ctaTitle": "Les secours sont prévenus ?",
+    "ctaText": "Signalez-le aussi sur WhaleTale, pour que l’observation ne soit pas perdue."
+  },
+  "report": {
+    "metaTitle": "Signaler · {site}",
+    "tag": "Signaler",
+    "title": "Partagez ce que",
+    "titleHighlight": "vous avez vu",
+    "intro": "Chaque observation — un dauphin de passage, une baleine à l’horizon, un phoque sur la plage — aide les chercheurs à comprendre quels animaux fréquentent nos eaux, où et quand.",
+    "notice": "Le formulaire en ligne arrive bientôt. En attendant, conservez vos notes et vos photos : chaque observation compte.",
+    "sightingTitle": "Une observation en mer ou depuis la côte",
+    "sightingText": "Ce qu’il faut noter pour que votre observation soit la plus utile possible :",
+    "sightingChecklist": [
+      "La date et l’heure",
+      "Où vous étiez — coordonnées GPS si possible",
+      "L’espèce, si vous la connaissez, et le nombre d’animaux",
+      "Ce qu’ils faisaient : alimentation, déplacement, repos…",
+      "Des photos, surtout de la nageoire dorsale et de la queue"
+    ],
+    "sightingLink": "Vous ne savez pas ce que vous avez vu ? Parcourez les espèces",
+    "strandingTitle": "Un animal sur le rivage",
+    "strandingText": "Si un animal est échoué en ce moment, n’attendez pas un formulaire. Appelez d’abord à l’aide.",
+    "strandingButton": "Que faire maintenant",
+    "loopTitle": "Ce que devient votre signalement",
+    "loop": [
+      {
+        "title": "Vous l’envoyez",
+        "text": "Quelques détails et une photo suffisent."
+      },
+      {
+        "title": "Nous le vérifions",
+        "text": "Chaque observation est contrôlée, et l’espèce confirmée par photo dès que possible."
+      },
+      {
+        "title": "La science l’utilise",
+        "text": "Les observations vérifiées seront partagées avec les chercheurs et des bases de données ouvertes sur la biodiversité comme le GBIF."
+      }
+    ]
+  },
+  "about": {
+    "metaTitle": "À propos · {site}",
+    "tag": "À propos",
+    "title": "Un guide de terrain",
+    "titleHighlight": "pour un océan vivant",
+    "intro": "WhaleTale rassemble la science des baleines, dauphins, marsouins et phoques des eaux portugaises — de la côte continentale aux Açores et à Madère — et invite chacun à contribuer à leur étude.",
+    "jumpLabel": "Aller à une section",
+    "missionNav": "Mission",
+    "mission": [
+      {
+        "icon": "lucide:book-open",
+        "title": "Apprendre",
+        "text": "Une science validée par les pairs, en langage simple, en portugais, anglais et français."
+      },
+      {
+        "icon": "lucide:binoculars",
+        "title": "Observer",
+        "text": "Des fiches espèces et des conseils de terrain pour reconnaître ce que vous voyez, et savoir où et quand chercher."
+      },
+      {
+        "icon": "lucide:send",
+        "title": "Contribuer",
+        "text": "Des signalements d’observations et d’échouages qui enrichissent nos connaissances sur ces animaux."
+      }
+    ],
+    "methodologyNav": "Notre méthode",
+    "methodologyTitle": "Notre méthode",
+    "methodologyIntro": "Pour une ressource scientifique, la confiance est essentielle. Voici les règles que nous suivons.",
+    "methodology": [
+      "Les faits proviennent de recherches validées par les pairs et d’ouvrages de référence, comme la Liste rouge de l’UICN et le Livre rouge des mammifères du Portugal.",
+      "Lorsque les études divergent, nous donnons des fourchettes ou des valeurs arrondies plutôt qu’un chiffre faussement précis.",
+      "Chaque page indique ses sources.",
+      "Les relevés de terrain sont vérifiés avant d’intégrer les données.",
+      "Vous avez repéré une erreur ? Dites-le-nous et nous la corrigerons."
+    ],
+    "partnersNav": "Partenaires",
+    "partnersTitle": "Partenaires et soutiens",
+    "partnersIntro": "WhaleTale est indépendant. Nos partenaires nous aident à grandir, mais ne décident jamais de ce que nous disons.",
+    "tiers": {
+      "scientific": "Partenaires scientifiques",
+      "funder": "Financeurs",
+      "supporter": "Soutiens"
+    },
+    "policyTitle": "Notre politique de parrainage",
+    "policy": [
+      "Les partenaires et sponsors n’ont aucune influence sur le contenu scientifique.",
+      "Les contenus parrainés sont toujours clairement signalés.",
+      "Aucun parrainage n’apparaît sur les pages d’échouage ou de signalement, ni au sein des contenus scientifiques.",
+      "Nous n’acceptons pas le soutien d’organisations dont les activités vont à l’encontre de la protection des mammifères marins."
+    ],
+    "partnersEmpty": "Nous recherchons nos premiers partenaires : groupes de recherche, ONG et fondations qui partagent notre mission.",
+    "partnersButton": "Devenir partenaire",
+    "contactNav": "Contact",
+    "contactTitle": "Nous contacter",
+    "contactText": "Vous avez repéré une erreur, connaissez une ressource qui nous a échappé ou souhaitez travailler avec nous ? Écrivez-nous.",
+    "contactButton": "Nous contacter"
   },
   "notFound": {
     "error": "Erreur : 404",
