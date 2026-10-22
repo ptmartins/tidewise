@@ -63,7 +63,7 @@
 
 /* Category */
 .category {
-    padding-block: 2.5rem;
+    padding-block: 4.5rem;
     scroll-margin-block-start: var(--header-height);
 }
 
@@ -132,7 +132,7 @@
 .category--highlight {
     background-color: var(--accent-dark);
     color: var(--white);
-    padding-block: 3.5rem;
+    padding-block: 6rem;
 
     h2 {
         color: var(--white);
@@ -165,7 +165,7 @@
 .cta {
     background-color: var(--accent-dark);
     color: var(--white);
-    margin-block-start: 2rem;
+    padding-block: 7.5rem;
 
     h2 {
         color: var(--white);
