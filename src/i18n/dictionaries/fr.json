@@ -9,9 +9,13 @@
     "fieldReports": "Relevés de terrain",
     "links": "Ressources",
     "reportSighting": "Signaler une observation",
+    "reportShort": "Signaler",
     "openMenu": "Ouvrir le menu",
     "closeMenu": "Fermer le menu",
-    "language": "Langue"
+    "language": "Langue",
+    "account": "Compte",
+    "mySightings": "Mes observations",
+    "signOut": "Se déconnecter"
   },
   "footer": {
     "tagline": "Un guide de terrain pour un océan vivant",

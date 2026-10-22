@@ -1,35 +1,33 @@
-.switcher {
+.account {
     flex-shrink: 0;
-    margin-inline-end: .75rem;
     position: relative;
 }
 
+/* Same circle for guests (globe) and signed-in users (initials), so the slot never jumps */
 .trigger {
     align-items: center;
     background: none;
+    block-size: 2.5rem;
     border: 1px solid var(--accent-muted);
-    border-radius: var(--border-radius-m);
+    border-radius: 50%;
     color: var(--accent-dark);
     cursor: pointer;
     display: inline-flex;
     font: inherit;
     font-size: .85rem;
-    font-weight: 600;
-    gap: .3rem;
-    padding: .45rem .5rem;
+    font-weight: 700;
+    inline-size: 2.5rem;
+    justify-content: center;
     transition: var(--default-transition);
 
     &[aria-expanded='true'] {
         background-color: var(--accent-muted);
-
-        .chevron {
-            transform: rotate(180deg);
-        }
     }
 }
 
-.chevron {
-    transition: transform .2s ease-in;
+.trigger--user {
+    background-color: var(--accent-muted);
+    border-color: transparent;
 }
 
 .menu {
@@ -39,18 +37,50 @@
     box-shadow: 0 20px 30px -20px rgba(10, 43, 43, .35);
     inset-block-start: calc(100% + .5rem);
     inset-inline-end: 0;
-    min-inline-size: 11rem;
+    min-inline-size: 13rem;
     padding: .35rem;
     position: absolute;
     z-index: 10;
 }
 
+.user {
+    font-size: .95rem;
+    font-weight: 600;
+    padding: .55rem .6rem .25rem;
+}
+
+.heading {
+    color: var(--accent-faded);
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: .55rem .6rem .25rem;
+    text-transform: uppercase;
+}
+
+.section + .heading,
+.section + .section {
+    border-block-start: 1px solid var(--accent-muted);
+    margin-block-start: .35rem;
+    padding-block-start: .6rem;
+}
+
+.section + .section {
+    padding-block-start: .35rem;
+}
+
 .option {
     align-items: center;
+    background: none;
+    border: 0;
     border-radius: var(--border-radius-s);
     color: var(--txt);
+    cursor: pointer;
     display: flex;
+    font: inherit;
+    font-size: 1rem;
     gap: .6rem;
+    inline-size: 100%;
     padding: .55rem .6rem;
 
     &[aria-current='true'] {
@@ -70,18 +100,10 @@
     margin-inline-start: auto;
 }
 
-/* Small phones: the globe and code are enough */
 @media (max-width: 420px) {
-    .switcher {
-        margin-inline-end: .5rem;
-    }
-
     .trigger {
-        padding: .4rem;
-    }
-
-    .chevron {
-        display: none;
+        block-size: 2.25rem;
+        inline-size: 2.25rem;
     }
 }
 

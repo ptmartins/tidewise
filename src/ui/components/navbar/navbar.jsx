@@ -7,7 +7,7 @@ import { Icon } from "@iconify/react";
 import styles from "./navbar.module.css";
 import { usePathname } from 'next/navigation';
 import { useDictionary, useLocale } from "@/i18n/I18nProvider";
-import LanguageSwitcher from "../language-switcher/languageSwitcher";
+import AccountMenu from "../account-menu/accountMenu";
 
 function NavBar() {
 
@@ -51,21 +51,26 @@ function NavBar() {
                             <Link href={`${home}/links`} onClick={closeMenu}>{nav.links}</Link>
                         </li>
                     </ul>
-                    <button className={`btn ${styles.reportButton}`}>{nav.reportSighting}</button>
                 </div>
-                <LanguageSwitcher onOpen={closeMenu} />
-                <span className={styles.avatar}>PM</span>
-                <button
-                    type="button"
-                    className={styles.menuToggle}
-                    aria-controls="primary-menu"
-                    aria-expanded={menuOpen}
-                    aria-label={menuOpen ? nav.closeMenu : nav.openMenu}
-                    onClick={() => setMenuOpen(!menuOpen)}
-                >
-                    <Icon icon={menuOpen ? 'lucide:x' : 'lucide:menu'} width="24" height="24" />
-                </button>
+                <div className={styles.actions}>
+                    <button type="button" className={`btn ${styles.reportButton}`}>{nav.reportShort}</button>
+                    {/* No auth yet, so everyone is a guest. Pass `user` here once login exists. */}
+                    <AccountMenu onOpen={closeMenu} />
+                    <button
+                        type="button"
+                        className={styles.menuToggle}
+                        aria-controls="primary-menu"
+                        aria-expanded={menuOpen}
+                        aria-label={menuOpen ? nav.closeMenu : nav.openMenu}
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        <Icon icon={menuOpen ? 'lucide:x' : 'lucide:menu'} width="24" height="24" />
+                    </button>
+                </div>
             </div>
+            <button type="button" className={styles.reportFab} aria-label={nav.reportSighting}>
+                <Icon icon="lucide:plus" width="26" height="26" />
+            </button>
         </nav>
     )
 }

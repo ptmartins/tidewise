@@ -9,9 +9,13 @@
     "fieldReports": "Field reports",
     "links": "Resources",
     "reportSighting": "Report a sighting",
+    "reportShort": "Report sighting",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
-    "language": "Language"
+    "language": "Language",
+    "account": "Account",
+    "mySightings": "My sightings",
+    "signOut": "Sign out"
   },
   "footer": {
     "tagline": "A field guide for a living ocean",

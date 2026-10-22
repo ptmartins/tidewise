@@ -23,6 +23,36 @@
     inline-size: auto;
 }
 
+.footer__languages {
+    display: flex;
+    gap: .25rem;
+
+    a {
+        border-radius: var(--border-radius-s);
+        color: var(--accent-faded);
+        font-weight: 600;
+        padding: .25rem .4rem;
+
+        &[aria-current='true'] {
+            background-color: var(--accent-muted);
+            color: var(--accent-dark);
+        }
+    }
+}
+
+@media (hover: hover) {
+    .footer__languages a:hover {
+        color: var(--accent-dark);
+    }
+}
+
+/* Leave room for the floating "Report a sighting" button */
+@media (max-width: 1024px) {
+    .footer {
+        padding-block-end: 5.5rem;
+    }
+}
+
 .footer__copyright {
 
     span {

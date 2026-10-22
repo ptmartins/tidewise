@@ -9,9 +9,13 @@
     "fieldReports": "Registos de campo",
     "links": "Recursos",
     "reportSighting": "Registar avistamento",
+    "reportShort": "Registar",
     "openMenu": "Abrir menu",
     "closeMenu": "Fechar menu",
-    "language": "Idioma"
+    "language": "Idioma",
+    "account": "Conta",
+    "mySightings": "Os meus avistamentos",
+    "signOut": "Terminar sessão"
   },
   "footer": {
     "tagline": "Um guia de campo para um oceano vivo",

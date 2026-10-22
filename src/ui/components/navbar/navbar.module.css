@@ -1,25 +1,16 @@
+/* Row reads as three groups: brand + navigation on the left, actions on the right */
 .navbar {
     .innerWrapper {
         align-items: center;
         display: flex;
-        justify-content: end;
     }
-}
-
-.avatar {
-    flex-shrink: 0;
-    background-color: var(--accent-muted);
-    border-radius: 50%;
-    color: var(--accent-dark);
-    font-size: .9rem;
-    font-weight: 700;
-    padding: .5rem;
 }
 
 .logo {
     align-items: center;
     block-size: 60px;
     display: flex;
+    flex-shrink: 0;
     gap: 0.75rem;
     margin-inline-end: auto;
 
@@ -62,9 +53,9 @@
 .navLinks {
     color: var(--accent-faded);
     display: flex;
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: 400;
-    gap: 1.5rem;
+    gap: 1.75rem;
     white-space: nowrap;
 }
 
@@ -74,7 +65,7 @@
     position: relative;
 
     &::before {
-        background-color: red;
+        background-color: var(--accent);
         block-size: 3px;
         content: '';
         inline-size: 100%;
@@ -86,17 +77,24 @@
 }
 
 .navLink--active {
+    color: var(--accent-dark);
 
     &::before {
         opacity: 1;
     }
 }
 
+.actions {
+    align-items: center;
+    display: flex;
+    gap: .75rem;
+    margin-inline-start: 2.5rem;
+}
+
 .reportButton {
     flex-shrink: 0;
+    margin-inline-end: .75rem;
     white-space: nowrap;
-    margin-inline-end: 1.5rem;
-    margin-inline-start: 3rem;
 }
 
 .menuToggle {
@@ -109,8 +107,41 @@
     display: none;
     flex-shrink: 0;
     justify-content: center;
-    margin-inline-start: .75rem;
     padding: .5rem;
+}
+
+/* Mobile-only floating "Report a sighting" button, kept within thumb reach */
+.reportFab {
+    align-items: center;
+    background-color: var(--accent);
+    block-size: 3.5rem;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 10px 25px -8px rgba(10, 43, 43, .55);
+    color: var(--white);
+    cursor: pointer;
+    display: none;
+    inline-size: 3.5rem;
+    inset-block-end: calc(1rem + env(safe-area-inset-bottom));
+    inset-inline-end: calc(1rem + env(safe-area-inset-right));
+    justify-content: center;
+    position: fixed;
+    transition: var(--default-transition);
+}
+
+/* The wordmark carries the brand; the subtitle is the first thing to go when space tightens */
+@media (max-width: 1200px) {
+    .logo h6 {
+        display: none;
+    }
+
+    .actions {
+        margin-inline-start: 2rem;
+    }
+
+    .navLinks {
+        gap: 1.5rem;
+    }
 }
 
 /* Collapse into the dropdown before the longer PT/FR labels run into the logo */
@@ -120,6 +151,18 @@
     }
 
     .menuToggle {
+        display: inline-flex;
+    }
+
+    .actions {
+        margin-inline-start: .75rem;
+    }
+
+    .reportButton {
+        display: none;
+    }
+
+    .reportFab {
         display: inline-flex;
     }
 
@@ -144,6 +187,7 @@
     .navLinks {
         align-self: stretch;
         flex-direction: column;
+        font-size: 1.125rem;
         gap: 0;
     }
 
@@ -163,12 +207,6 @@
             inset-inline-start: -1rem;
         }
     }
-
-    .reportButton {
-        align-self: stretch;
-        justify-content: center;
-        margin: 1.25rem 0 0;
-    }
 }
 
 @media (max-width: 900px) {
@@ -177,7 +215,7 @@
     }
 }
 
-/* Small phones: keep logo, language, avatar and toggle on one row */
+/* Small phones: keep logo, account and toggle on one row */
 @media (max-width: 420px) {
     .logo {
         min-inline-size: 0;
@@ -187,13 +225,21 @@
         }
     }
 
-    .avatar {
-        font-size: .8rem;
-        padding: .4rem;
+    .actions {
+        gap: .5rem;
     }
 
     .menuToggle {
-        margin-inline-start: .5rem;
         padding: .4rem;
+    }
+}
+
+@media (hover: hover) {
+    .navLink a:hover {
+        color: var(--accent-dark);
+    }
+
+    .reportFab:hover {
+        background-color: var(--accent-dark);
     }
 }
