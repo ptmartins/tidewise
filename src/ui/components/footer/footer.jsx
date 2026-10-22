@@ -1,7 +1,6 @@
 import styles from "./footer.module.css";
 import Image from "next/image";
 import { getDictionary } from "@/i18n/getDictionary";
-import FooterLanguages from "./footerLanguages";
 
 async function Footer() {
     const { footer } = await getDictionary();
@@ -13,7 +12,6 @@ async function Footer() {
                     <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="115px" className={styles.footer__logo} />
                     <p>{footer.tagline}</p>
                 </div>
-                <FooterLanguages />
                 <p className={styles.footer__copyright}>
                     {footer.developedBy}{" "}
                     <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>
