@@ -53,7 +53,6 @@ export default async function Home() {
                             <p className={styles.hero__subtitle}>{home.hero.subtitle}</p>
                             <div className={styles.hero__actions}>
                                 <Link href={`/${locale}/species`} className={`btn ${styles.btn__hero}`}>{home.hero.cta} <Icon icon="lucide:arrow-right" /> </Link>
-                                <Link href={`/${locale}/identify`} className={`btn ${styles.btn__ghost}`}><Icon icon="lucide:scan-search" /> {home.hero.identify}</Link>
                             </div>
                         </div>
                     </div>
