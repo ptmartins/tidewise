@@ -12,6 +12,8 @@ const nextConfig = {
   },
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Species images and partner logos are served by Sanity's CDN
+    remotePatterns: [new URL('https://cdn.sanity.io/images/**')],
   },
 };
 

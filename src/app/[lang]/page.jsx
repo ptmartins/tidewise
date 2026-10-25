@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import SpeciesCard from "@/ui/components/species-card/speciesCard";
 import { SIGHTINGS, THREATENED, toCard } from "@/ui/components/species-explorer/options";
-import { getAllSpecies } from "@/lib/mock/species";
+import { getAllSpecies } from "@/lib/data/species";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import ReportActions from "@/ui/components/report-actions/reportActions";
 import { format } from "@/i18n/format";
@@ -15,7 +15,7 @@ const IN_SEASON = 6;
 export default async function Home() {
     const locale = await getLocale();
     const { home, common } = await getDictionary();
-    const species = getAllSpecies(locale);
+    const species = await getAllSpecies(locale);
     const { month } = await getToday();
     const monthName = monthNames(locale).find((entry) => entry.month === month).name;
 

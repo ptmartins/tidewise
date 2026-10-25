@@ -8,7 +8,7 @@ import SeasonCalendar from "@/ui/components/season-calendar/seasonCalendar";
 import ReportActions from "@/ui/components/report-actions/reportActions";
 import { REGIONS, toCard } from "@/ui/components/species-explorer/options";
 import { getHotspots, getRegionSpecies, isRegion } from "@/lib/where";
-import { getReports } from "@/lib/mock/reports";
+import { getReports } from "@/lib/data/reports";
 import { getToday } from "@/lib/time";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format, label } from "@/i18n/format";
@@ -38,9 +38,9 @@ export default async function Region({ params }) {
     const locale = await getLocale();
     const { where: t, data, common } = await getDictionary();
     const { month } = await getToday();
-    const species = getRegionSpecies(region, locale);
+    const species = await getRegionSpecies(region, locale);
     const hotspots = getHotspots(species, region);
-    const reports = getReports(locale).filter((report) => report.region === region).slice(0, RECENT_REPORTS);
+    const reports = (await getReports(locale)).filter((report) => report.region === region).slice(0, RECENT_REPORTS);
     const copy = t.regions[region];
 
     return (

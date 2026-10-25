@@ -1,8 +1,9 @@
 'use server'
 
+import { randomUUID } from 'node:crypto'
 import { writeClient } from '../../../../sanity/lib/writeClient'
 import { BEHAVIOURS, PLATFORMS, REPORT_TYPES } from '@/lib/reportOptions'
-import { getAllSpeciesSlugs } from '@/lib/mock/species'
+import { getAllSpeciesSlugs } from '@/lib/data/species'
 import { REGIONS } from '@/ui/components/species-explorer/options'
 import { hasLocale } from '@/i18n/config'
 
@@ -33,7 +34,7 @@ export async function submitReport(_previous, formData) {
   const photos = formData.getAll('photos').filter((file) => typeof file === 'object' && file.size > 0)
 
   if (!REPORT_TYPES.includes(type)) errors.type = 'required'
-  if (speciesSlug !== 'unknown' && !getAllSpeciesSlugs().some(({ slug }) => slug === speciesSlug)) errors.species = 'invalid'
+  if (speciesSlug !== 'unknown' && !(await getAllSpeciesSlugs()).some(({ slug }) => slug === speciesSlug)) errors.species = 'invalid'
   // Allow a day of slack for time zones, but nothing further in the future
   if (Number.isNaN(date.getTime()) || date.getTime() > Date.now() + 86_400_000) errors.date = 'invalid'
   if (location.length < 2) errors.location = 'required'
@@ -63,9 +64,12 @@ export async function submitReport(_previous, formData) {
     const condition = text(formData, 'condition', 10)
 
     await writeClient.create({
+      // A dotted ID keeps the document private: the dataset is public, and reports hold emails
+      _id: `report.${randomUUID()}`,
       _type: 'report',
       type,
       speciesSlug,
+      ...(speciesSlug !== 'unknown' && { species: { _type: 'reference', _ref: `species-${speciesSlug}` } }),
       date: date.toISOString(),
       location,
       region,

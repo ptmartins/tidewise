@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import SpeciesExplorer from "@/ui/components/species-explorer/speciesExplorer";
 import { toCard } from "@/ui/components/species-explorer/options";
-import { getAllSpecies } from "@/lib/mock/species";
+import { getAllSpecies } from "@/lib/data/species";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -19,7 +19,7 @@ export async function generateMetadata() {
 export default async function SpeciesIndex() {
     const locale = await getLocale();
     const { speciesIndex: t } = await getDictionary();
-    const species = getAllSpecies(locale);
+    const species = await getAllSpecies(locale);
 
     return (
         <>

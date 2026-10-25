@@ -2,7 +2,7 @@ import styles from "@/ui/styles/contentPage.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import ReportForm from "@/ui/components/report-form/reportForm";
-import { getAllSpecies } from "@/lib/mock/species";
+import { getAllSpecies } from "@/lib/data/species";
 import { LOCALE_DETAILS } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
@@ -23,7 +23,7 @@ export default async function Report() {
     const locale = await getLocale();
     const { report: t } = await getDictionary();
     const collator = new Intl.Collator(LOCALE_DETAILS[locale].htmlLang);
-    const species = getAllSpecies(locale)
+    const species = (await getAllSpecies(locale))
         .map(({ slug, commonName }) => ({ slug, commonName }))
         .sort((a, b) => collator.compare(a.commonName, b.commonName));
 

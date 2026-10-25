@@ -2,21 +2,21 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Icon } from "@iconify/react";
-import { Block, rich, readingMinutes } from "../blocks";
+import { ChapterBody, rich, readingMinutes } from "../blocks";
 import ChapterNav from "@/ui/components/learn-nav/chapterNav";
 import ReportActions from "@/ui/components/report-actions/reportActions";
-import { getLearnContent } from "@/lib/content/learn";
+import { getLearnContent } from "@/lib/data/learn";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
-export function generateStaticParams() {
-    return getLearnContent('en').sections.map(({ id }) => ({ chapter: id }));
+export async function generateStaticParams() {
+    return (await getLearnContent('en')).sections.map(({ id }) => ({ chapter: id }));
 }
 
 const findChapter = async (params) => {
     const { chapter } = await params;
     const locale = await getLocale();
-    const content = getLearnContent(locale);
+    const content = await getLearnContent(locale);
     const index = content.sections.findIndex(({ id }) => id === chapter);
     return { locale, content, index, section: content.sections[index] };
 };
@@ -71,7 +71,7 @@ export default async function Chapter({ params }) {
                             <p className={styles.chapter__lede}>{rich(section.lede)}</p>
 
                             <div className={styles.prose}>
-                                {section.blocks.map((block, i) => <Block key={i} block={block} />)}
+                                <ChapterBody value={section.body} />
                             </div>
                         </div>
 

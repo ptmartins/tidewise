@@ -144,7 +144,6 @@
     "titleHighlight": "ocean watchers",
     "intro": "A curated collection of networks, research, field guides and organisations working for marine mammals along our coast.",
     "jumpLabel": "Jump to a category",
-    "notice": "{count} placeholder resources — real links coming soon.",
     "categories": {
       "rescue": {
         "title": "Rescue & stranding networks",
@@ -177,7 +176,7 @@
     "title": "Latest from",
     "titleHighlight": "the water",
     "intro": "Sightings and strandings shared by people along our coast and around the islands. Every report is checked before it joins the record.",
-    "notice": "Sample reports for preview — live submissions coming soon.",
+    "notice": "Only verified reports are shown. New reports appear here once our team has checked them.",
     "stats": {
       "label": "Field reports in numbers",
       "reports": "Reports submitted",
@@ -247,7 +246,11 @@
     "ctaTitle": "Add your observation",
     "ctaText": "A few details and a photo are all it takes. Your report helps researchers follow these animals through the seasons.",
     "mapLabel": "Map of field reports",
-    "mapNote": "Positions are approximate, and shown only for reports that include one."
+    "mapNote": "Positions are approximate, and shown only for reports that include one.",
+    "noReports": {
+      "emptyTitle": "No reports yet",
+      "emptyText": "Be the first: report what you see, and it will appear here once verified."
+    }
   },
   "stranding": {
     "metaTitle": "Found a stranded animal? · {site}",

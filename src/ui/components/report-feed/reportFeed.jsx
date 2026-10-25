@@ -2,6 +2,7 @@
 
 import styles from './reportFeed.module.css';
 import { useState } from 'react';
+import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import ReportCard from '../report-card/reportCard';
 import { REGIONS } from '../species-explorer/options';
@@ -19,7 +20,7 @@ const TYPES = [
 
 function ReportFeed({ reports }) {
     const locale = useLocale();
-    const { reports: t, explorer } = useDictionary();
+    const { reports: t, explorer, common } = useDictionary();
     const collator = new Intl.Collator(LOCALE_DETAILS[locale].htmlLang);
 
     const [type, setType] = useState('');
@@ -53,6 +54,18 @@ function ReportFeed({ reports }) {
         .sort((a, b) => (sort === 'newest' ? b.date.localeCompare(a.date) : a.date.localeCompare(b.date)));
 
     const countFor = (value) => (value ? reports.filter((report) => report.type === value).length : reports.length);
+
+    // Nothing verified yet: invite the first report instead of showing empty filters
+    if (reports.length === 0) {
+        return (
+            <div className={styles.empty}>
+                <Icon icon="lucide:binoculars" width="32" height="32" />
+                <h3>{t.noReports.emptyTitle}</h3>
+                <p>{t.noReports.emptyText}</p>
+                <Link href={`/${locale}/report`} className="btn btn--secondary">{common.reportSighting}</Link>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.feed}>

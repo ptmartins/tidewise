@@ -1,7 +1,8 @@
 import styles from "@/ui/styles/contentPage.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { EMERGENCY_NUMBER, STRANDING_REGIONS } from "@/lib/mock/stranding";
+import { EMERGENCY_NUMBER } from "@/lib/emergency";
+import { getStrandingRegions } from "@/lib/data/resources";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -21,6 +22,7 @@ export default async function Stranding() {
     const locale = await getLocale();
     const { stranding: t, explorer, common } = await getDictionary();
     const number = { number: EMERGENCY_NUMBER };
+    const regions = await getStrandingRegions();
 
     return (
         <>
@@ -86,7 +88,7 @@ export default async function Stranding() {
                         <p>{t.networksIntro}</p>
                     </header>
                     <div className={styles.grid}>
-                        {STRANDING_REGIONS.map(({ id, networks }) => (
+                        {regions.map(({ id, networks }) => (
                             <div key={id} className={styles.card}>
                                 <h3>{explorer.regions[id]}</h3>
                                 {networks.length > 0 ? (

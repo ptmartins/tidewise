@@ -8,8 +8,8 @@ import Accordion from "@/ui/components/accordion/accordion";
 import SpeciesCard from "@/ui/components/species-card/speciesCard";
 import ReportCard from "@/ui/components/report-card/reportCard";
 import { toCard } from "@/ui/components/species-explorer/options";
-import { getAllSpeciesSlugs, getSimilarSpecies, getSpeciesBySlug } from "@/lib/mock/species";
-import { getReports } from "@/lib/mock/reports";
+import { getAllSpeciesSlugs, getSimilarSpecies, getSpeciesBySlug } from "@/lib/data/species";
+import { getReports } from "@/lib/data/reports";
 import { HELP_ICONS, helpActionsFor } from "@/lib/help";
 import { monthNames } from "@/lib/time";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
@@ -36,13 +36,13 @@ const withArticle = (noun) => `${/^[aeiou]/i.test(noun) ? 'an' : 'a'} ${noun}`;
 
 const firstSentence = (paragraphs) => paragraphs[0].split(/(?<=\.)\s/)[0];
 
-export function generateStaticParams() {
-    return getAllSpeciesSlugs();
+export async function generateStaticParams() {
+    return await getAllSpeciesSlugs();
 }
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
-    const species = getSpeciesBySlug(slug, await getLocale());
+    const species = await getSpeciesBySlug(slug, await getLocale());
 
     if (!species) return {};
 
@@ -57,13 +57,13 @@ export async function generateMetadata({ params }) {
 export default async function SpeciesPage({ params }) {
     const { slug } = await params;
     const locale = await getLocale();
-    const species = getSpeciesBySlug(slug, locale);
+    const species = await getSpeciesBySlug(slug, locale);
 
     if (!species) notFound();
 
     const { species: t, common, data, nav } = await getDictionary();
-    const similar = getSimilarSpecies(species.slug, locale);
-    const recentReports = getReports(locale).filter((report) => report.species.slug === species.slug).slice(0, RECENT_REPORTS);
+    const similar = await getSimilarSpecies(species.slug, locale);
+    const recentReports = (await getReports(locale)).filter((report) => report.species.slug === species.slug).slice(0, RECENT_REPORTS);
     const helpActions = helpActionsFor(species.threats);
 
     const quickFacts = [

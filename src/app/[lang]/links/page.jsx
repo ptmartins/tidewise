@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { LINK_CATEGORIES } from "@/lib/mock/links";
+import { getLinkCategories } from "@/lib/data/resources";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -17,7 +17,7 @@ export async function generateMetadata() {
 export default async function Links() {
     const locale = await getLocale();
     const { links, common } = await getDictionary();
-    const total = LINK_CATEGORIES.reduce((sum, { links }) => sum + links.length, 0);
+    const categories = await getLinkCategories();
 
     return (
         <>
@@ -30,7 +30,7 @@ export default async function Links() {
 
                     <nav className={styles.jump} aria-label={links.jumpLabel}>
                         <ul>
-                            {LINK_CATEGORIES.map(({ id, icon }) => (
+                            {categories.map(({ id, icon }) => (
                                 <li key={id}>
                                     <a href={`#${id}`}>
                                         <Icon icon={icon} width="16" height="16" />
@@ -41,15 +41,11 @@ export default async function Links() {
                         </ul>
                     </nav>
 
-                    <p className={styles.notice}>
-                        <Icon icon="lucide:info" width="18" height="18" />
-                        {format(links.notice, { count: total })}
-                    </p>
                 </div>
             </section>
 
             {/* Categories */}
-            {LINK_CATEGORIES.map(({ id, icon, highlight, links: items }) => (
+            {categories.map(({ id, icon, highlight, links: items }) => (
                 <section
                     key={id}
                     id={id}

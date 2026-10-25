@@ -21,6 +21,7 @@ export default async function Where() {
     const locale = await getLocale();
     const { where: t } = await getDictionary();
     const base = `/${locale}/where`;
+    const counts = Object.fromEntries(await Promise.all(REGIONS.map(async (region) => [region, (await getRegionSpecies(region, locale)).length])));
 
     return (
         <>
@@ -43,7 +44,7 @@ export default async function Where() {
                             <h2>{t.regions[region].title}</h2>
                             <p>{t.regions[region].teaser}</p>
                             <Link href={`${base}/${region}`} className={styles.link}>
-                                {format(t.regionLink, { count: getRegionSpecies(region, locale).length })}
+                                {format(t.regionLink, { count: counts[region] })}
                                 <Icon icon="lucide:arrow-right" width="18" height="18" />
                             </Link>
                         </li>

@@ -1,7 +1,7 @@
 import styles from "@/ui/styles/contentPage.module.css";
 import Identify from "@/ui/components/identify/identify";
 import { toCard } from "@/ui/components/species-explorer/options";
-import { getAllSpecies } from "@/lib/mock/species";
+import { getAllSpecies } from "@/lib/data/species";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -18,7 +18,7 @@ export async function generateMetadata() {
 export default async function IdentifyPage() {
     const locale = await getLocale();
     const { identify: t } = await getDictionary();
-    const species = getAllSpecies(locale).map((item) => ({ ...toCard(item), bestMonths: item.bestMonths }));
+    const species = (await getAllSpecies(locale)).map((item) => ({ ...toCard(item), bestMonths: item.bestMonths }));
 
     return (
         <>

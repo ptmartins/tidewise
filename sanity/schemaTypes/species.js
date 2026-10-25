@@ -39,12 +39,33 @@ const rangeField = ({ name, title, unit, group, description }) =>
       }),
   })
 
+// Long-form section shown on the species page: one text field per paragraph
+const paragraphsField = ({ name, title, description }) =>
+  defineField({
+    name,
+    title,
+    type: 'array',
+    group: 'profile',
+    description,
+    of: [defineArrayMember({ type: 'text', rows: 4 })],
+  })
+
+// Translated overrides; anything left empty falls back to the English field
+const translationFields = [
+  defineField({ name: 'commonName', title: 'Common name', type: 'string' }),
+  defineField({ name: 'summary', title: 'Summary', type: 'text', rows: 3 }),
+]
+
+const tags = { layout: 'tags' }
+
 export const species = defineType({
   name: 'species',
   title: 'Species',
   type: 'document',
   groups: [
     { name: 'overview', title: 'Overview', default: true },
+    { name: 'profile', title: 'Profile text' },
+    { name: 'translations', title: 'Translations' },
     { name: 'taxonomy', title: 'Taxonomy' },
     { name: 'physical', title: 'Physical traits' },
     { name: 'ecology', title: 'Ecology' },
@@ -88,28 +109,14 @@ export const species = defineType({
       validation: (rule) => rule.max(280),
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'array',
-      group: 'overview',
-      of: [
-        defineArrayMember({
-          type: 'block',
-          styles: [
-            { title: 'Normal', value: 'normal' },
-            { title: 'Heading 2', value: 'h2' },
-            { title: 'Heading 3', value: 'h3' },
-            { title: 'Quote', value: 'blockquote' },
-          ],
-        }),
-        defineArrayMember({
-          type: 'image',
-          options: { hotspot: true },
-          fields: [
-            defineField({ name: 'alt', title: 'Alternative text', type: 'string' }),
-            defineField({ name: 'caption', title: 'Caption', type: 'string' }),
-          ],
-        }),
+      name: 'translations',
+      title: 'Translations',
+      type: 'object',
+      group: 'translations',
+      description: 'Portuguese and French versions of the name and summary. Other text falls back to English.',
+      fields: [
+        defineField({ name: 'pt', title: 'Português', type: 'object', options: { collapsible: true }, fields: translationFields }),
+        defineField({ name: 'fr', title: 'Français', type: 'object', options: { collapsible: true }, fields: translationFields }),
       ],
     }),
     defineField({
@@ -130,18 +137,24 @@ export const species = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'authority',
+      title: 'Authority',
+      type: 'string',
+      group: 'taxonomy',
+      description: 'Who described the species, and when, e.g. "Linnaeus, 1758".',
+    }),
+    defineField({
       name: 'category',
       title: 'Category',
       type: 'string',
       group: 'taxonomy',
       options: {
         list: [
-          { title: 'Baleen whale', value: 'baleen-whale' },
-          { title: 'Toothed whale', value: 'toothed-whale' },
-          { title: 'Dolphin', value: 'dolphin' },
-          { title: 'Porpoise', value: 'porpoise' },
-          { title: 'Seal', value: 'seal' },
-          { title: 'Other', value: 'other' },
+          'Baleen whale',
+          'Toothed whale',
+          'Dolphin',
+          'Porpoise',
+          'Seal',
         ],
       },
       validation: (rule) => rule.required(),
@@ -165,6 +178,25 @@ export const species = defineType({
       type: 'string',
       group: 'taxonomy',
       description: 'e.g. Delphinidae, Balaenopteridae, Physeteridae',
+    }),
+    defineField({
+      name: 'classification',
+      title: 'Scientific classification',
+      type: 'array',
+      group: 'taxonomy',
+      description: 'From kingdom down to species, as shown on the page.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'rank',
+          fields: [
+            defineField({ name: 'rank', title: 'Rank', type: 'string', validation: (rule) => rule.required() }),
+            defineField({ name: 'name', title: 'Name', type: 'string', validation: (rule) => rule.required() }),
+            defineField({ name: 'italic', title: 'Italic (genus and species)', type: 'boolean' }),
+          ],
+          preview: { select: { title: 'name', subtitle: 'rank' } },
+        }),
+      ],
     }),
 
     // ---------- Physical traits ----------
@@ -252,16 +284,14 @@ export const species = defineType({
       group: 'ecology',
       validation: (rule) => rule.min(0),
     }),
-    defineField({
-      name: 'behaviour',
-      title: 'Behaviour',
-      type: 'text',
-      rows: 4,
-      group: 'ecology',
-      description: 'Notable behaviour: breaching, bow-riding, migration, vocalisations…',
-    }),
-
     // ---------- Distribution ----------
+    defineField({
+      name: 'distributionShort',
+      title: 'Distribution (short)',
+      type: 'string',
+      group: 'distribution',
+      description: 'One line for the quick facts, e.g. "Temperate & tropical seas worldwide".',
+    }),
     defineField({
       name: 'globalDistribution',
       title: 'Global distribution',
@@ -274,18 +304,9 @@ export const species = defineType({
       title: 'Regions in Portugal',
       type: 'array',
       group: 'distribution',
+      description: 'Places where it is seen, e.g. "Sado estuary", "Azores". Names mentioning Azores or Madeira/Desertas count towards those regions; everything else counts as the mainland.',
       of: [defineArrayMember({ type: 'string' })],
-      options: {
-        list: [
-          { title: 'Mainland — North', value: 'mainland-north' },
-          { title: 'Mainland — Centre', value: 'mainland-centre' },
-          { title: 'Mainland — Lisbon / Setúbal', value: 'mainland-lisbon' },
-          { title: 'Mainland — Alentejo', value: 'mainland-alentejo' },
-          { title: 'Mainland — Algarve', value: 'mainland-algarve' },
-          { title: 'Azores', value: 'azores' },
-          { title: 'Madeira', value: 'madeira' },
-        ],
-      },
+      options: tags,
     }),
     defineField({
       name: 'distributionInPortugal',
@@ -301,10 +322,10 @@ export const species = defineType({
       group: 'distribution',
       options: {
         list: [
-          { title: 'Resident (year-round)', value: 'resident' },
-          { title: 'Seasonal / migratory', value: 'migratory' },
-          { title: 'Occasional visitor', value: 'occasional' },
-          { title: 'Rare / vagrant', value: 'rare' },
+          'Resident (year-round)',
+          'Seasonal / migratory',
+          'Occasional visitor',
+          'Rare / vagrant',
         ],
         layout: 'radio',
       },
@@ -324,10 +345,10 @@ export const species = defineType({
       group: 'distribution',
       options: {
         list: [
-          { title: 'Very common', value: 'very-common' },
-          { title: 'Common', value: 'common' },
-          { title: 'Uncommon', value: 'uncommon' },
-          { title: 'Rare', value: 'rare' },
+          'Very common',
+          'Common',
+          'Uncommon',
+          'Rare',
         ],
         layout: 'radio',
       },
@@ -373,6 +394,13 @@ export const species = defineType({
       options: { list: IUCN_STATUS },
     }),
     defineField({
+      name: 'nationalStatusNote',
+      title: 'National status note',
+      type: 'string',
+      group: 'conservation',
+      description: 'When the national status applies to one population, e.g. "Sado estuary resident population".',
+    }),
+    defineField({
       name: 'populationTrend',
       title: 'Population trend',
       type: 'string',
@@ -394,16 +422,33 @@ export const species = defineType({
       group: 'conservation',
       of: [defineArrayMember({ type: 'string' })],
       options: { layout: 'tags' },
-      description: 'e.g. bycatch, ship strikes, noise pollution, plastic, prey depletion.',
+      description: 'Use the standard labels so translations and "How you can help" pick them up: Bycatch, Entanglement, Underwater noise, Military sonar, Ship strikes, Boat disturbance, Human disturbance, Pollution, Plastic ingestion, Climate change, Prey depletion, Habitat loss, Disease, Mass strandings, Small population, Hunting, Whaling.',
+    }),
+    defineField({
+      name: 'protectedUnder',
+      title: 'Protected under (short)',
+      type: 'array',
+      group: 'conservation',
+      description: 'Short labels for the status card, e.g. "EU Habitats Directive", "CITES II".',
+      of: [defineArrayMember({ type: 'string' })],
+      options: tags,
     }),
     defineField({
       name: 'legalProtection',
-      title: 'Legal protection',
-      type: 'text',
-      rows: 2,
+      title: 'Legal protection (detail)',
+      type: 'array',
       group: 'conservation',
-      description: 'Relevant legislation, e.g. EU Habitats Directive Annex IV, CITES Appendix.',
+      description: 'Full entries, e.g. "EU Habitats Directive — Annex IV".',
+      of: [defineArrayMember({ type: 'string' })],
     }),
+
+    // ---------- Profile text ----------
+    paragraphsField({ name: 'about', title: 'About the species' }),
+    paragraphsField({ name: 'populationStatus', title: 'Population status' }),
+    paragraphsField({ name: 'appearance', title: 'Appearance' }),
+    paragraphsField({ name: 'behaviourAndDiet', title: 'Behaviour & diet' }),
+    paragraphsField({ name: 'lifespanAndReproduction', title: 'Lifespan & reproduction' }),
+    paragraphsField({ name: 'threatsDetail', title: 'Threats', description: 'The detail behind the threat tags above.' }),
 
     // ---------- Media ----------
     defineField({

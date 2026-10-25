@@ -4,7 +4,7 @@ import { Icon } from "@iconify/react";
 import ReportFeed from "@/ui/components/report-feed/reportFeed";
 import SightingsMap from "@/ui/components/sightings-map/sightingsMap";
 import { REGIONS } from "@/ui/components/species-explorer/options";
-import { getReports } from "@/lib/mock/reports";
+import { getReports } from "@/lib/data/reports";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 import ReportActions from "@/ui/components/report-actions/reportActions";
@@ -13,7 +13,7 @@ const TOP_SPECIES = 5;
 
 // Single-series bar list: the bar carries magnitude, the value is printed beside it
 function BarList({ items, label }) {
-    const max = Math.max(...items.map(({ value }) => value));
+    const max = Math.max(1, ...items.map(({ value }) => value));
 
     return (
         <ul className={styles.bars} aria-label={label}>
@@ -44,7 +44,7 @@ export async function generateMetadata() {
 export default async function Sightings() {
     const locale = await getLocale();
     const { reports: t, explorer, common } = await getDictionary();
-    const reports = getReports(locale);
+    const reports = await getReports(locale);
 
     const stats = [
         { value: reports.length, label: t.stats.reports },

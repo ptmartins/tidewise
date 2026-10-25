@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import SeasonCalendar from "@/ui/components/season-calendar/seasonCalendar";
 import { REGIONS } from "@/ui/components/species-explorer/options";
-import { getAllSpecies } from "@/lib/mock/species";
+import { getAllSpecies } from "@/lib/data/species";
 import { getToday } from "@/lib/time";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
@@ -21,7 +21,7 @@ export default async function Calendar() {
     const locale = await getLocale();
     const { where: t, data } = await getDictionary();
     const { month } = await getToday();
-    const species = getAllSpecies(locale);
+    const species = await getAllSpecies(locale);
     const seasonal = species.filter(({ bestMonths }) => bestMonths.length > 0);
 
     return (

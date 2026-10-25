@@ -2,7 +2,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { rich, readingMinutes } from "./blocks";
-import { getLearnContent } from "@/lib/content/learn";
+import { getLearnContent } from "@/lib/data/learn";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 import ReportActions from "@/ui/components/report-actions/reportActions";
@@ -20,7 +20,7 @@ export async function generateMetadata() {
 export default async function Learn() {
     const locale = await getLocale();
     const { learn, common } = await getDictionary();
-    const { sections, references, locale: contentLocale } = getLearnContent(locale);
+    const { sections, references, locale: contentLocale } = await getLearnContent(locale);
     const contentLang = contentLocale !== locale ? contentLocale : undefined;
 
     return (

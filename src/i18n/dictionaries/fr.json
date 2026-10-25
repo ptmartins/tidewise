@@ -144,7 +144,6 @@
     "titleHighlight": "les observateurs de l’océan",
     "intro": "Une sélection de réseaux, de recherches, de guides de terrain et d’organisations œuvrant pour les mammifères marins de nos côtes.",
     "jumpLabel": "Aller à une catégorie",
-    "notice": "{count} ressources provisoires — liens réels à venir.",
     "categories": {
       "rescue": {
         "title": "Réseaux de secours et d’échouages",
@@ -177,7 +176,7 @@
     "title": "Les dernières nouvelles",
     "titleHighlight": "du large",
     "intro": "Observations et échouages partagés par celles et ceux qui fréquentent notre côte et les îles. Chaque signalement est vérifié avant d’être ajouté aux données.",
-    "notice": "Signalements d’exemple pour l’aperçu — les vraies contributions arrivent bientôt.",
+    "notice": "Seuls les relevés vérifiés sont affichés. Les nouveaux relevés apparaissent ici une fois contrôlés par notre équipe.",
     "stats": {
       "label": "Les observations en chiffres",
       "reports": "Signalements envoyés",
@@ -247,7 +246,11 @@
     "ctaTitle": "Partagez votre observation",
     "ctaText": "Quelques détails et une photo suffisent. Votre signalement aide les chercheurs à suivre ces animaux au fil des saisons.",
     "mapLabel": "Carte des relevés de terrain",
-    "mapNote": "Les positions sont approximatives et n’apparaissent que pour les relevés qui en comportent une."
+    "mapNote": "Les positions sont approximatives et n’apparaissent que pour les relevés qui en comportent une.",
+    "noReports": {
+      "emptyTitle": "Aucun relevé pour l’instant",
+      "emptyText": "Soyez le premier : signalez ce que vous voyez, et votre relevé apparaîtra ici une fois vérifié."
+    }
   },
   "stranding": {
     "metaTitle": "Animal échoué ? · {site}",

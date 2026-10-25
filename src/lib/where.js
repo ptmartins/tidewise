@@ -1,13 +1,13 @@
 // Region-level views of the species data for the /where pages.
 
-import { getAllSpecies } from '@/lib/mock/species';
+import { getAllSpecies } from '@/lib/data/species';
 import { REGIONS, SIGHTINGS, toCard, toRegion } from '@/ui/components/species-explorer/options';
 
 export const isRegion = (id) => REGIONS.includes(id);
 
 // Species recorded in a region, commonest first
-export function getRegionSpecies(region, locale) {
-    return getAllSpecies(locale)
+export async function getRegionSpecies(region, locale) {
+    return (await getAllSpecies(locale))
         .filter((species) => toCard(species).regions.includes(region))
         .sort((a, b) => SIGHTINGS.indexOf(a.sightingFrequency) - SIGHTINGS.indexOf(b.sightingFrequency));
 }

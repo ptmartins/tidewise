@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
-import { EMERGENCY_NUMBER } from "@/lib/mock/stranding";
-import { PARTNERS } from "@/lib/mock/partners";
+import { EMERGENCY_NUMBER } from "@/lib/emergency";
+import { getPartners } from "@/lib/data/partners";
 import { getToday } from "@/lib/time";
 import NewsletterForm from "../newsletter-form/newsletterForm";
 
@@ -13,6 +13,7 @@ async function Footer() {
     const locale = await getLocale();
     const { footer } = await getDictionary();
     const { year } = await getToday();
+    const partners = await getPartners('footer');
     const home = `/${locale}`;
 
     const columns = [
@@ -93,11 +94,11 @@ async function Footer() {
             </div>
 
             {/* Partner strip: hidden until there's someone to thank */}
-            {PARTNERS.length > 0 && (
+            {partners.length > 0 && (
                 <div className={`innerWrapper ${styles.partners}`}>
                     <Link href={`${home}/about#partners`} className={styles.partners__label}>{footer.supportedBy}</Link>
                     <ul>
-                        {PARTNERS.map(({ id, name, href, logo }) => (
+                        {partners.map(({ id, name, href, logo }) => (
                             <li key={id}>
                                 <a href={href} target="_blank" rel="noopener noreferrer">
                                     <Image src={logo.src} alt={name} width={logo.width} height={logo.height} sizes="120px" />

@@ -11,9 +11,13 @@ export const structure = (S) =>
       S.documentTypeListItem('report').title('All field reports'),
       S.divider(),
       S.documentTypeListItem('species'),
+      S.listItem()
+        .title('Learn chapters')
+        .child(S.documentList().title('Learn chapters').filter('_type == "chapter"').defaultOrdering([{ field: 'locale', direction: 'asc' }, { field: 'order', direction: 'asc' }])),
+      S.documentTypeListItem('learnSources').title('Learn sources'),
+      S.documentTypeListItem('glossaryTerm').title('Glossary'),
       S.documentTypeListItem('article').title('Stories'),
       S.documentTypeListItem('region'),
-      S.documentTypeListItem('glossaryTerm').title('Glossary'),
       S.documentTypeListItem('resource').title('Resources'),
       S.divider(),
       S.documentTypeListItem('partner').title('Partners & sponsors'),

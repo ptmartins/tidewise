@@ -1,4 +1,4 @@
-// Option lists for field reports, shared by the mock data, the report form
+// Option lists for field reports, shared by the Sanity schema values, the report form
 // (client) and the Server Action that validates submissions.
 
 export const REPORT_TYPES = ['sighting', 'stranding']

@@ -2,8 +2,7 @@ import styles from "../page.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { rich } from "../blocks";
-import { getGlossary } from "@/lib/content/glossary";
-import { getLearnContent } from "@/lib/content/learn";
+import { getGlossary, getLearnContent } from "@/lib/data/learn";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -21,8 +20,8 @@ export async function generateMetadata() {
 export default async function Glossary() {
     const locale = await getLocale();
     const { learn } = await getDictionary();
-    const { terms, locale: contentLocale } = getGlossary(locale);
-    const { sections } = getLearnContent(locale);
+    const { terms, locale: contentLocale } = await getGlossary(locale);
+    const { sections } = await getLearnContent(locale);
     const contentLang = contentLocale !== locale ? contentLocale : undefined;
     const chapterName = Object.fromEntries(sections.map(({ id, nav }) => [id, nav]));
 

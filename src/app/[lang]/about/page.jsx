@@ -1,7 +1,7 @@
 import styles from "@/ui/styles/contentPage.module.css";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-import { PARTNERS, PARTNER_TIERS } from "@/lib/mock/partners";
+import { getPartners, PARTNER_TIERS } from "@/lib/data/partners";
 import { getDictionary } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
@@ -27,8 +27,9 @@ export default async function About() {
         { id: 'contact', label: t.contactNav },
     ];
 
+    const partners = await getPartners('about');
     const tiers = PARTNER_TIERS
-        .map((tier) => ({ tier, partners: PARTNERS.filter((partner) => partner.tier === tier) }))
+        .map((tier) => ({ tier, partners: partners.filter((partner) => partner.tier === tier) }))
         .filter(({ partners }) => partners.length > 0);
 
     return (
