@@ -7,7 +7,6 @@ import { format } from "@/i18n/format";
 import { getHotline, hotlineLabel } from "@/lib/emergency";
 import { getPartners } from "@/lib/data/partners";
 import { getToday } from "@/lib/time";
-import NewsletterForm from "../newsletter-form/newsletterForm";
 
 async function Footer() {
     const locale = await getLocale();
@@ -61,7 +60,6 @@ async function Footer() {
                 <div className={styles.brand}>
                     <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="115px" className={styles.footer__logo} />
                     <p>{footer.tagline}</p>
-                    <NewsletterForm />
                 </div>
 
                 <nav className={styles.columns}>
