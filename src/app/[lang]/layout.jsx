@@ -10,6 +10,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { enGB } from "@clerk/localizations/en-GB";
 import { ptPT } from "@clerk/localizations/pt-PT";
 import { frFR } from "@clerk/localizations/fr-FR";
+import { clerkAppearance } from "@/lib/clerkAppearance";
 
 // Clerk's sign-in, sign-up and account screens follow the site language
 const CLERK_LOCALIZATIONS = { en: enGB, pt: ptPT, fr: frFR };
@@ -36,6 +37,7 @@ export default async function RootLayout({ children }) {
       <body>
         <ClerkProvider
           localization={CLERK_LOCALIZATIONS[locale]}
+          appearance={clerkAppearance}
           signInUrl={`/${locale}/sign-in`}
           signUpUrl={`/${locale}/sign-up`}
           afterSignOutUrl={`/${locale}`}

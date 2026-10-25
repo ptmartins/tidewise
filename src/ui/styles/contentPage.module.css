@@ -337,6 +337,8 @@
 .auth {
     display: flex;
     justify-content: center;
+    /* Extra room below so the card sits balanced between the hero and the footer */
+    padding-block-end: clamp(2rem, 1rem + 5vw, 5rem);
 }
 
 /* Sign-in prompt in place of the report form */
