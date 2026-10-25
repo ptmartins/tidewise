@@ -7,9 +7,8 @@ import { Icon } from "@iconify/react";
 import styles from "./navbar.module.css";
 import { usePathname } from 'next/navigation';
 import { useDictionary, useLocale } from "@/i18n/I18nProvider";
-import AccountMenu from "../account-menu/accountMenu";
 
-function NavBar() {
+function NavBar({ condensed }) {
 
     let path = usePathname();
     const locale = useLocale();
@@ -26,6 +25,11 @@ function NavBar() {
         { href: `${home}/links`, label: nav.links },
     ];
 
+    // Dropdown only: the stranding page, since the top-bar hotline scrolls away
+    const secondaryLinks = [
+        { href: `${home}/stranding`, label: nav.strandingLabel },
+    ];
+
     // A section stays highlighted on its sub-pages (/learn/evolution, /species/fin-whale…)
     const isActive = (href) => path === href || path.startsWith(`${href}/`);
 
@@ -38,7 +42,7 @@ function NavBar() {
     }, [menuOpen]);
 
     return (
-        <nav className={styles.navbar}>
+        <nav className={`${styles.navbar} ${condensed ? styles['navbar--condensed'] : ''}`}>
             <div className={`innerWrapper ${styles.innerWrapper}`}>
                 <Link href={home} className={styles.logo} onClick={closeMenu}>
                     <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="191px" priority />
@@ -55,22 +59,18 @@ function NavBar() {
                             </li>
                         ))}
                     </ul>
+                    <ul className={styles.secondaryLinks}>
+                        {secondaryLinks.map(({ href, label }) => (
+                            <li key={href}>
+                                <Link href={href} onClick={closeMenu} aria-current={isActive(href) ? 'page' : undefined}>{label}</Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <div className={styles.actions}>
-                    {/* Emergency shortcut: stays visible at every width, one tap from any page */}
-                    <Link
-                        href={`${home}/stranding`}
-                        className={`${styles.stranding} ${path === `${home}/stranding` ? styles['stranding--active'] : ''}`}
-                        aria-label={nav.strandingLabel}
-                        title={nav.strandingLabel}
-                        onClick={closeMenu}
-                    >
-                        <Icon icon="lucide:siren" width="20" height="20" />
-                        <span>{nav.stranding}</span>
-                    </Link>
+                    {/* The stranding hotline lives in the top bar, the dropdown and the footer */}
                     <Link href={`${home}/report`} className={`btn ${styles.reportButton}`} onClick={closeMenu}>{nav.reportShort}</Link>
-                    {/* No auth yet, so everyone is a guest. Pass `user` here once login exists. */}
-                    <AccountMenu onOpen={closeMenu} />
+                    {/* Language lives in the top bar. Once login exists, render <AccountMenu user={user} /> here. */}
                     <button
                         type="button"
                         className={styles.menuToggle}

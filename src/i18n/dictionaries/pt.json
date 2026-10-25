@@ -18,6 +18,9 @@
     "signOut": "Terminar sessão",
     "stranding": "Arrojamento?",
     "strandingLabel": "Encontrou um animal arrojado? Peça ajuda agora",
+    "hotline": "Encontrou um animal arrojado?",
+    "call": "Ligue {number}",
+    "whatToDo": "O que fazer",
     "about": "Sobre",
     "species": "Espécies",
     "where": "Onde e quando"
@@ -259,8 +262,14 @@
     "titleHighlight": "mamífero marinho arrojado?",
     "intro": "Mantenha a calma, guarde distância e peça ajuda. As equipas especializadas sabem o que fazer — uma chamada rápida é o mais útil que pode fazer.",
     "callTitle": "Ligue {number}",
-    "callText": "Se o animal estiver vivo, ou se não souber a quem ligar, contacte o número europeu de emergência. Eles alertam as autoridades locais e a rede de arrojamentos.",
+    "callText": "Se o animal estiver vivo, ou se não souber a quem ligar, contacte a linha de arrojamentos. A equipa especializada indica-lhe o que fazer a seguir.",
     "callButton": "Ligar {number}",
+    "otherHotlines": "Noutro país?",
+    "countries": {
+      "pt": "Portugal",
+      "uk": "Reino Unido",
+      "fr": "França"
+    },
     "doTitle": "Faça",
     "do": [
       "Mantenha uma distância segura e afaste pessoas e cães.",
@@ -676,7 +685,7 @@
       "actions": {
         "fishing": {
           "title": "Pesque com responsabilidade",
-          "text": "Nunca deixe linhas ou redes para trás e comunique artes de pesca perdidas. Se vir um animal preso em cabos ou redes, não o tente libertar sozinho — ligue 112 para que uma equipa especializada possa ajudar."
+          "text": "Nunca deixe linhas ou redes para trás e comunique artes de pesca perdidas. Se vir um animal preso em cabos ou redes, não o tente libertar sozinho — ligue para a linha de arrojamentos para que uma equipa especializada possa ajudar."
         },
         "noise": {
           "title": "Faça menos ruído",

@@ -1,7 +1,7 @@
 import styles from "@/ui/styles/contentPage.module.css";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
-import { EMERGENCY_NUMBER } from "@/lib/emergency";
+import { HOTLINES, getHotline, hotlineLabel } from "@/lib/emergency";
 import { getStrandingRegions } from "@/lib/data/resources";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
@@ -21,7 +21,11 @@ export async function generateMetadata() {
 export default async function Stranding() {
     const locale = await getLocale();
     const { stranding: t, explorer, common } = await getDictionary();
-    const number = { number: EMERGENCY_NUMBER };
+    const hotline = getHotline(locale);
+    const otherHotlines = HOTLINES.filter(({ country }) => country !== hotline.country);
+    const number = { number: hotlineLabel(hotline) };
+    // The regions below are all Portuguese, so their fallback is always the Portuguese line
+    const ptNumber = { number: hotlineLabel(getHotline('pt')) };
     const regions = await getStrandingRegions();
 
     return (
@@ -43,10 +47,21 @@ export default async function Stranding() {
                             <h2 id="call-title">{format(t.callTitle, number)}</h2>
                             <p>{t.callText}</p>
                         </div>
-                        <a href={`tel:${EMERGENCY_NUMBER}`} className="btn btn--secondary">
+                        <a href={`tel:${hotline.tel}`} className="btn btn--secondary">
                             <Icon icon="lucide:phone" width="24" height="24" />
                             {format(t.callButton, number)}
                         </a>
+                    </div>
+                    <div className={styles.hotlines}>
+                        <p>{t.otherHotlines}</p>
+                        <ul>
+                            {otherHotlines.map((other) => (
+                                <li key={other.country}>
+                                    {t.countries[other.country]}{" "}
+                                    <a href={`tel:${other.tel}`}>{hotlineLabel(other)}</a>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </section>
@@ -103,7 +118,7 @@ export default async function Stranding() {
                                         ))}
                                     </ul>
                                 ) : (
-                                    <p>{format(t.noNetworks, number)}</p>
+                                    <p>{format(t.noNetworks, ptNumber)}</p>
                                 )}
                             </div>
                         ))}

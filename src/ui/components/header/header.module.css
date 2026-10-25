@@ -4,5 +4,19 @@
     inset-block-start: 0;
     inset-inline: 0;
     position: fixed;
+    transition: inset-block-start .25s ease, box-shadow .25s ease;
     z-index: 1000;
+}
+
+/* Slide the top bar out; the main bar ends up flush with the top of the viewport.
+   Moved with `top`, not `transform`: a transform would re-anchor the fixed report button inside. */
+.header--condensed {
+    box-shadow: 0 10px 25px -20px rgba(10, 43, 43, .45);
+    inset-block-start: calc(-1 * var(--topbar-height));
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .header {
+        transition: none;
+    }
 }

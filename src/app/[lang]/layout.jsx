@@ -31,7 +31,7 @@ export default async function RootLayout({ children }) {
           <Suspense>
             <Header />
           </Suspense>
-          <main className="main" style={{ marginBlockStart: "var(--header-height)" }}>
+          <main className="main" style={{ marginBlockStart: "var(--header-full-height)" }}>
             {children}
           </main>
           <Footer />

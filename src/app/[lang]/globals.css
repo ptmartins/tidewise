@@ -25,7 +25,13 @@
   --default-transition: all .2s ease-in;
   --max-width: 1200px;
 
-  --header-height: 90px;
+  /* Two-row header. --header-height is whatever is on screen right now:
+     both rows at the top of the page, only the main bar once scrolled (set by Header). */
+  --topbar-height: 36px;
+  --navbar-height: 80px;
+  --navbar-condensed-height: 60px;
+  --header-full-height: calc(var(--topbar-height) + var(--navbar-height));
+  --header-height: var(--header-full-height);
 
   --font: var(--font-inter), system-ui, sans-serif;
 }
@@ -188,9 +194,15 @@ ul {
   color: var(--white);
 }
 
+:root[data-header-condensed] {
+  --header-height: var(--navbar-condensed-height);
+}
+
 @media (max-width: 900px) {
   :root {
-    --header-height: 72px;
+    --topbar-height: 32px;
+    --navbar-height: 68px;
+    --navbar-condensed-height: 56px;
   }
 }
 

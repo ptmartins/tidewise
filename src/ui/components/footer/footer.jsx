@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
-import { EMERGENCY_NUMBER } from "@/lib/emergency";
+import { getHotline, hotlineLabel } from "@/lib/emergency";
 import { getPartners } from "@/lib/data/partners";
 import { getToday } from "@/lib/time";
 import NewsletterForm from "../newsletter-form/newsletterForm";
@@ -63,7 +63,7 @@ async function Footer() {
                     <Icon icon="lucide:siren" width="22" height="22" />
                     <p>
                         <strong>{footer.emergencyTitle}</strong>{" "}
-                        {format(footer.emergencyText, { number: EMERGENCY_NUMBER })}
+                        {format(footer.emergencyText, { number: hotlineLabel(getHotline(locale)) })}
                     </p>
                     <Link href={`${home}/stranding`} className={styles.emergency__link}>
                         {footer.emergencyLink}

@@ -1,0 +1,114 @@
+/* Quiet utility strip: shares the header background and steps back in size and colour,
+   so the main bar keeps the visual weight. Only the hotline number carries colour. */
+.topBar {
+    block-size: var(--topbar-height);
+    border-block-end: 1px solid rgba(190, 210, 205, .55);
+    color: var(--accent-faded);
+    font-size: .8rem;
+    font-weight: 400;
+    transition: opacity .25s ease, visibility 0s linear 0s;
+
+    .innerWrapper {
+        align-items: center;
+        block-size: 100%;
+        display: flex;
+        gap: 1.5rem;
+        justify-content: space-between;
+    }
+
+    a {
+        transition: var(--default-transition);
+    }
+}
+
+/* Header slides the whole bar out of view; this just keeps it from flashing or taking focus */
+.topBar--hidden {
+    opacity: 0;
+    transition: opacity .25s ease, visibility 0s linear .25s;
+    visibility: hidden;
+}
+
+.hotline {
+    align-items: center;
+    display: flex;
+    gap: .5rem;
+    min-inline-size: 0;
+    white-space: nowrap;
+
+    > svg {
+        color: var(--secondary-accent);
+        flex-shrink: 0;
+    }
+}
+
+.hotline__label {
+    color: var(--accent-dark);
+    font-weight: 500;
+}
+
+.hotline__short {
+    display: none;
+}
+
+.hotline__call {
+    align-items: center;
+    color: var(--secondary-accent-dark);
+    display: inline-flex;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    gap: .3rem;
+}
+
+.hotline__more {
+    align-items: center;
+    border-inline-start: 1px solid var(--accent-muted);
+    display: inline-flex;
+    gap: .25rem;
+    margin-inline-start: .25rem;
+    padding-inline-start: .75rem;
+}
+
+.languages {
+    display: flex;
+    gap: .75rem;
+
+    a {
+        display: block;
+        font-weight: 500;
+        letter-spacing: .04em;
+
+        &[aria-current='true'] {
+            color: var(--accent-dark);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-offset: 5px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .hotline__more {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .hotline__long {
+        display: none;
+    }
+
+    .hotline__short {
+        display: inline;
+    }
+}
+
+@media (hover: hover) {
+    .topBar a:hover {
+        color: var(--accent-dark);
+    }
+
+    .topBar .hotline__call:hover {
+        color: var(--secondary-accent);
+    }
+}

@@ -193,7 +193,7 @@
     transition: var(--default-transition);
 }
 
-/* Big "call 112" box */
+/* Big "call the hotline" box */
 .call {
     align-items: center;
     background-color: var(--accent-dark);
@@ -218,6 +218,30 @@
         flex-shrink: 0;
         font-size: 1.15rem;
         font-weight: 600;
+    }
+}
+
+/* The other countries' hotlines, under the call box */
+.hotlines {
+    align-items: baseline;
+    color: var(--accent-faded);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1rem;
+    gap: .5rem 1.5rem;
+    padding: 1rem .5rem 0;
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem 1.5rem;
+    }
+
+    a {
+        color: var(--secondary-accent-dark);
+        font-variant-numeric: tabular-nums;
+        font-weight: 500;
+        white-space: nowrap;
     }
 }
 

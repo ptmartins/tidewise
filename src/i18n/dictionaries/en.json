@@ -18,6 +18,9 @@
     "signOut": "Sign out",
     "stranding": "Stranding?",
     "strandingLabel": "Found a stranded animal? Get help now",
+    "hotline": "Found a stranded animal?",
+    "call": "Call {number}",
+    "whatToDo": "What to do",
     "about": "About",
     "species": "Species",
     "where": "Where & when"
@@ -259,8 +262,14 @@
     "titleHighlight": "marine mammal?",
     "intro": "Stay calm, keep your distance and call for help. Trained responders know what to do — a quick call is the most useful thing you can do.",
     "callTitle": "Call {number}",
-    "callText": "If the animal is alive, or you’re not sure who to contact, call the European emergency number. They’ll alert the local authorities and the stranding network.",
+    "callText": "If the animal is alive, or you’re not sure who to contact, call the stranding hotline. Trained responders will tell you what to do next.",
     "callButton": "Call {number}",
+    "otherHotlines": "In another country?",
+    "countries": {
+      "pt": "Portugal",
+      "uk": "United Kingdom",
+      "fr": "France"
+    },
     "doTitle": "Do",
     "do": [
       "Keep a safe distance, and keep people and dogs away.",
@@ -676,7 +685,7 @@
       "actions": {
         "fishing": {
           "title": "Fish responsibly",
-          "text": "Never leave lines or nets behind, and report lost gear. If you see an animal tangled in rope or net, don’t try to free it yourself — call 112 so a trained team can help."
+          "text": "Never leave lines or nets behind, and report lost gear. If you see an animal tangled in rope or net, don’t try to free it yourself — call the stranding hotline so a trained team can help."
         },
         "noise": {
           "title": "Keep it quiet",

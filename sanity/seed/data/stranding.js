@@ -1,9 +1,7 @@
 // Who to call when you find a stranded marine mammal, by region.
 // Network titles aren't translated — they're the organisation's own name.
 // TODO: confirm each network's direct phone line before publishing; until then
-// visitors are pointed to 112, which alerts the authorities and the networks.
-
-export const EMERGENCY_NUMBER = '112';
+// visitors are pointed to the national stranding hotlines in src/lib/emergency.js.
 
 export const STRANDING_REGIONS = [
     {

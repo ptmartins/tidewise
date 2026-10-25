@@ -18,6 +18,9 @@
     "signOut": "Se déconnecter",
     "stranding": "Échouage ?",
     "strandingLabel": "Vous avez trouvé un animal échoué ? Obtenez de l’aide",
+    "hotline": "Vous avez trouvé un animal échoué ?",
+    "call": "Appelez le {number}",
+    "whatToDo": "Que faire",
     "about": "À propos",
     "species": "Espèces",
     "where": "Où et quand"
@@ -259,8 +262,14 @@
     "titleHighlight": "mammifère marin échoué ?",
     "intro": "Restez calme, gardez vos distances et appelez à l’aide. Les équipes formées savent quoi faire — un appel rapide est ce que vous pouvez faire de plus utile.",
     "callTitle": "Appelez le {number}",
-    "callText": "Si l’animal est vivant, ou si vous ne savez pas qui contacter, appelez le numéro d’urgence européen. Ils alerteront les autorités locales et le réseau échouages.",
+    "callText": "Si l’animal est vivant, ou si vous ne savez pas qui contacter, appelez la ligne échouages. Des intervenants formés vous diront quoi faire ensuite.",
     "callButton": "Appeler le {number}",
+    "otherHotlines": "Dans un autre pays ?",
+    "countries": {
+      "pt": "Portugal",
+      "uk": "Royaume-Uni",
+      "fr": "France"
+    },
     "doTitle": "À faire",
     "do": [
       "Gardez une distance de sécurité et éloignez les personnes et les chiens.",
@@ -676,7 +685,7 @@
       "actions": {
         "fishing": {
           "title": "Pêchez de façon responsable",
-          "text": "N’abandonnez jamais de lignes ni de filets et signalez le matériel perdu. Si vous voyez un animal pris dans un cordage ou un filet, n’essayez pas de le libérer vous-même : appelez le 112 pour qu’une équipe formée intervienne."
+          "text": "N’abandonnez jamais de lignes ni de filets et signalez le matériel perdu. Si vous voyez un animal pris dans un cordage ou un filet, n’essayez pas de le libérer vous-même : appelez la ligne échouages pour qu’une équipe formée intervienne."
         },
         "noise": {
           "title": "Faites moins de bruit",

@@ -401,7 +401,7 @@ export const en = {
                     items: [
                         'Keep a safe distance and keep people and dogs away. Marine mammals can bite and carry diseases that can pass to humans and pets.',
                         'Do not push the animal back into the sea: it may be sick or injured, and will often strand again.',
-                        'Call your local stranding network or the maritime authorities as soon as possible (in Portugal, the Maritime Police, or the emergency number 112). Note the location, species if known, size and condition.',
+                        'Call your local stranding network or the maritime authorities as soon as possible (in Portugal, the stranding hotline +351 968 849 101 or the Maritime Police). Note the location, species if known, size and condition.',
                         'Take photos from a distance, as these help experts to assess the situation.',
                         'Seal pups resting alone on a beach are often not abandoned: the mother may be feeding nearby. Leave them undisturbed and report them.',
                     ],
