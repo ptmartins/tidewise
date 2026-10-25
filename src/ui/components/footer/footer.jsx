@@ -57,21 +57,6 @@ async function Footer() {
 
     return(
         <footer className={styles.footer}>
-            {/* Emergency band */}
-            <div className={styles.emergency}>
-                <div className={`innerWrapper ${styles.emergency__inner}`}>
-                    <Icon icon="lucide:siren" width="22" height="22" />
-                    <p>
-                        <strong>{footer.emergencyTitle}</strong>{" "}
-                        {format(footer.emergencyText, { number: hotlineLabel(getHotline(locale)) })}
-                    </p>
-                    <Link href={`${home}/stranding`} className={styles.emergency__link}>
-                        {footer.emergencyLink}
-                        <Icon icon="lucide:arrow-right" width="18" height="18" />
-                    </Link>
-                </div>
-            </div>
-
             <div className={`innerWrapper ${styles.main}`}>
                 <div className={styles.brand}>
                     <Image src="/logo.png" alt="WhaleTale" width={1935} height={812} sizes="115px" className={styles.footer__logo} />
