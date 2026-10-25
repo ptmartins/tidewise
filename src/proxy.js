@@ -4,9 +4,6 @@ import { DEFAULT_LOCALE, LOCALES, LOCALE_COOKIE, hasLocale } from './i18n/config
 
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
-// Vercel previews also run with NODE_ENV=production, so prefer its own environment name
-const IS_PRODUCTION = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === 'production' : process.env.NODE_ENV === 'production';
-
 // Best match from Accept-Language, e.g. "pt-BR,pt;q=0.9,en;q=0.8" -> "pt"
 const fromAcceptLanguage = (header) =>
     (header ?? '')
@@ -45,9 +42,6 @@ const getLocale = (request) => {
 // Clerk reads the session cookie here, so auth() works in pages and Server Actions.
 // Pages and actions check the session themselves; the proxy only handles locales.
 export const proxy = clerkMiddleware((_auth, request) => {
-    // Without SITE_URL, Clerk would accept session tokens issued for any origin: refuse to serve instead
-    if (IS_PRODUCTION && !process.env.SITE_URL) throw new Error('SITE_URL must be set in production');
-
     const { pathname } = request.nextUrl;
     const locale = LOCALES.find((code) => pathname === `/${code}` || pathname.startsWith(`/${code}/`));
 
@@ -62,11 +56,11 @@ export const proxy = clerkMiddleware((_auth, request) => {
 
     request.nextUrl.pathname = `/${getLocale(request)}${pathname === '/' ? '' : pathname}`;
     return NextResponse.redirect(request.nextUrl);
-}, {
-    // In production, only accept session tokens issued for this site (e.g. SITE_URL=https://whaletale.pt).
-    // Unset locally and on previews, where any origin is fine
-    authorizedParties: process.env.SITE_URL ? [process.env.SITE_URL] : undefined,
-});
+}, (request) => ({
+    // Only accept session tokens issued for this site. SITE_URL (e.g. https://whaletale.pt) pins the
+    // public origin; without it, the origin the request came in on is used (localhost, previews)
+    authorizedParties: [process.env.SITE_URL?.replace(/\/$/, '') || request.nextUrl.origin],
+}));
 
 export const config = {
     // Skip Next internals, the Sanity Studio, API routes and static files
