@@ -16,7 +16,8 @@ const PLATFORM_ICONS = { boat: 'lucide:sailboat', shore: 'lucide:mountain', airc
 
 const initials = (name) => name.split(' ').map((part) => part[0]).slice(0, 2).join('');
 
-// Dates are stored as wall-clock time, so format in UTC to render the same on server and client
+// Dates are stored as wall-clock time, so format in UTC to render the same on server and client.
+// Sanity returns them with a trailing "Z"; only add one when it's missing
 const formatDate = (locale, date) =>
     new Intl.DateTimeFormat(LOCALE_DETAILS[locale].htmlLang, {
         day: 'numeric',
@@ -24,7 +25,7 @@ const formatDate = (locale, date) =>
         hour: '2-digit',
         minute: '2-digit',
         timeZone: 'UTC',
-    }).format(new Date(`${date}Z`));
+    }).format(new Date(/(Z|[+-]\d{2}:\d{2})$/.test(date) ? date : `${date}Z`));
 
 // Notes are clamped to three lines; the toggle only appears when the text actually overflows
 function ReportNotes({ notes, lang, labels }) {

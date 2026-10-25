@@ -6,6 +6,13 @@ import Footer from "@/ui/components/footer/footer";
 import { LOCALES, LOCALE_DETAILS } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { I18nProvider } from "@/i18n/I18nProvider";
+import { ClerkProvider } from "@clerk/nextjs";
+import { enGB } from "@clerk/localizations/en-GB";
+import { ptPT } from "@clerk/localizations/pt-PT";
+import { frFR } from "@clerk/localizations/fr-FR";
+
+// Clerk's sign-in, sign-up and account screens follow the site language
+const CLERK_LOCALIZATIONS = { en: enGB, pt: ptPT, fr: frFR };
 
 export function generateStaticParams() {
   return LOCALES.map((lang) => ({ lang }));
@@ -27,15 +34,22 @@ export default async function RootLayout({ children }) {
   return (
     <html lang={LOCALE_DETAILS[locale].htmlLang} className={`${inter.variable} ${playfair.variable}`}>
       <body>
-        <I18nProvider locale={locale} dict={dict}>
-          <Suspense>
-            <Header />
-          </Suspense>
-          <main className="main" style={{ marginBlockStart: "var(--header-full-height)" }}>
-            {children}
-          </main>
-          <Footer />
-        </I18nProvider>
+        <ClerkProvider
+          localization={CLERK_LOCALIZATIONS[locale]}
+          signInUrl={`/${locale}/sign-in`}
+          signUpUrl={`/${locale}/sign-up`}
+          afterSignOutUrl={`/${locale}`}
+        >
+          <I18nProvider locale={locale} dict={dict}>
+            <Suspense>
+              <Header />
+            </Suspense>
+            <main className="main" style={{ marginBlockStart: "var(--header-full-height)" }}>
+              {children}
+            </main>
+            <Footer />
+          </I18nProvider>
+        </ClerkProvider>
       </body>
     </html>
   );

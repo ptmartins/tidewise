@@ -79,6 +79,12 @@
     font-size: .8rem;
 }
 
+/* The signed-in account's email, in place of an input */
+.account {
+    overflow-wrap: anywhere;
+    padding-block: .35rem;
+}
+
 .field__error {
     color: var(--secondary-accent-dark);
     font-size: .8rem;

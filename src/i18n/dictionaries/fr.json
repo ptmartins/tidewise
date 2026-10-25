@@ -23,7 +23,9 @@
     "whatToDo": "Que faire",
     "about": "À propos",
     "species": "Espèces",
-    "where": "Où et quand"
+    "where": "Où et quand",
+    "signIn": "Se connecter",
+    "signUp": "Créer un compte"
   },
   "footer": {
     "tagline": "Un guide de terrain pour un océan vivant",
@@ -361,8 +363,8 @@
       "youTitle": "À propos de vous",
       "name": "Votre nom (facultatif)",
       "nameHint": "Affiché avec votre signalement une fois vérifié.",
-      "email": "E-mail (facultatif)",
-      "emailHint": "Utilisé uniquement si nous avons une question sur votre signalement. Jamais publié.",
+      "email": "E-mail de contact",
+      "emailHint": "Celui de votre compte. Utilisé uniquement si nous avons une question sur votre signalement. Jamais publié.",
       "consent": "J’accepte que WhaleTale conserve ce signalement et puisse le partager avec des chercheurs.",
       "privacyLink": "Politique de confidentialité",
       "fixErrors": "Veuillez vérifier les champs signalés.",
@@ -378,8 +380,25 @@
         "required": "Ce champ est obligatoire.",
         "invalid": "Veuillez vérifier cette valeur.",
         "tooMany": "Vous pouvez ajouter jusqu’à 3 photos."
-      }
+      },
+      "rateLimited": "Vous avez envoyé beaucoup de signalements aujourd’hui. Réessayez demain, ou contactez-nous si vous avez d’autres observations à partager.",
+      "signedOut": "Votre session a expiré.",
+      "signInAgain": "Se reconnecter"
+    },
+    "gate": {
+      "title": "Connectez-vous pour envoyer un signalement",
+      "text": "Les signalements proviennent d’observateurs inscrits, pour que notre équipe puisse assurer le suivi et garantir la fiabilité des données. Cela ne prend qu’une minute.",
+      "signIn": "Se connecter",
+      "signUp": "Créer un compte"
     }
+  },
+  "auth": {
+    "tag": "Compte",
+    "signInTitle": "Bon retour",
+    "signUpTitle": "Rejoindre WhaleTale",
+    "signInMetaTitle": "Connexion · {site}",
+    "signUpMetaTitle": "Créer un compte · {site}",
+    "intro": "Un compte vous permet d’envoyer des observations et des échouages, pour que chaque relevé corresponde à un véritable observateur."
   },
   "about": {
     "metaTitle": "À propos · {site}",
@@ -522,7 +541,8 @@
       {
         "title": "Ce que nous collectons",
         "text": [
-          "Quand vous envoyez un signalement : ce que vous avez vu, où et quand, d’éventuelles photos et — si vous le souhaitez — votre nom et votre adresse e-mail.",
+          "Quand vous envoyez un signalement : ce que vous avez vu, où et quand, d’éventuelles photos, votre nom si vous le souhaitez et l’adresse e-mail de votre compte.",
+          "Lorsque vous créez un compte : votre nom, votre adresse e-mail et vos identifiants de connexion.",
           "Quand vous vous inscrivez aux nouvelles : votre adresse e-mail et la langue dans laquelle vous utilisez le site."
         ]
       },
@@ -542,7 +562,7 @@
       {
         "title": "Où elles sont conservées",
         "text": [
-          "Les signalements et les inscriptions sont conservés chez Sanity, le service qui gère nos contenus. Seule l’équipe WhaleTale a accès aux données personnelles."
+          "Les comptes sont gérés par Clerk, notre service d’authentification. Les signalements et les inscriptions sont stockés chez Sanity, le service qui gère nos contenus. Seule l’équipe WhaleTale peut voir les données personnelles."
         ]
       },
       {

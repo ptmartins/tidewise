@@ -68,7 +68,8 @@ export const report = defineType({
     }),
 
     defineField({ name: 'observer', title: 'Observer name', type: 'string', group: 'observer' }),
-    defineField({ name: 'email', title: 'Email (private)', type: 'string', group: 'observer', description: 'Only used to follow up on this report. Never published.' }),
+    defineField({ name: 'email', title: 'Email (private)', type: 'string', group: 'observer', readOnly: true, description: 'The account’s verified email, only used to follow up on this report. Never published.' }),
+    defineField({ name: 'userId', title: 'Account ID', type: 'string', group: 'observer', readOnly: true, description: 'Clerk user who sent the report. Look them up in the Clerk dashboard.' }),
     defineField({ name: 'consentAt', title: 'Consent given at', type: 'datetime', group: 'observer', readOnly: true }),
     defineField({ name: 'locale', title: 'Site language', type: 'string', group: 'observer', readOnly: true }),
 

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { clerkMiddleware } from '@clerk/nextjs/server';
 import { DEFAULT_LOCALE, LOCALES, LOCALE_COOKIE, hasLocale } from './i18n/config';
 
 const ONE_YEAR = 60 * 60 * 24 * 365;
@@ -38,7 +39,9 @@ const getLocale = (request) => {
     return fromAcceptLanguage(request.headers.get('accept-language')) ?? fromCountry(request.headers) ?? DEFAULT_LOCALE;
 };
 
-export function proxy(request) {
+// Clerk reads the session cookie here, so auth() works in pages and Server Actions.
+// Pages and actions check the session themselves; the proxy only handles locales.
+export const proxy = clerkMiddleware((_auth, request) => {
     const { pathname } = request.nextUrl;
     const locale = LOCALES.find((code) => pathname === `/${code}` || pathname.startsWith(`/${code}/`));
 
@@ -53,7 +56,11 @@ export function proxy(request) {
 
     request.nextUrl.pathname = `/${getLocale(request)}${pathname === '/' ? '' : pathname}`;
     return NextResponse.redirect(request.nextUrl);
-}
+}, {
+    // In production, only accept session tokens issued for this site (e.g. SITE_URL=https://whaletale.pt).
+    // Unset locally and on previews, where any origin is fine
+    authorizedParties: process.env.SITE_URL ? [process.env.SITE_URL] : undefined,
+});
 
 export const config = {
     // Skip Next internals, the Sanity Studio, API routes and static files

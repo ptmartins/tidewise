@@ -5,17 +5,30 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Icon } from '@iconify/react';
+import { useClerk, useUser } from '@clerk/nextjs';
 import { LOCALES, LOCALE_DETAILS, localizePath } from '@/i18n/config';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 
-// Guests (no `user`) get a globe trigger and only the language section.
-// Once auth exists, pass `user` ({ name, initials }) to show the account sections.
-function AccountMenu({ user = null, onOpen }) {
+const initialsOf = ({ firstName, lastName, fullName, primaryEmailAddress }) =>
+    (firstName && lastName ? `${firstName[0]}${lastName[0]}` : (fullName || primaryEmailAddress?.emailAddress || '?').slice(0, 2)).toUpperCase();
+
+// Guests get a user-icon trigger with sign-in links; signed-in users get their
+// initials and the account sections. Both keep the language section.
+function AccountMenu({ onOpen }) {
     const path = usePathname();
     const locale = useLocale();
     const { nav } = useDictionary();
+    // Until Clerk has loaded, show neither guest nor account sections
+    const { isLoaded, user: account } = useUser();
+    const { signOut } = useClerk();
     const [open, setOpen] = useState(false);
     const ref = useRef(null);
+    const user = account && {
+        name: account.fullName || account.primaryEmailAddress?.emailAddress,
+        initials: initialsOf(account),
+    };
+    // After signing in, come back to the page the menu was opened on
+    const back = encodeURIComponent(path);
 
     useEffect(() => {
         if (!open) return;
@@ -35,9 +48,7 @@ function AccountMenu({ user = null, onOpen }) {
         setOpen(!open);
     };
 
-    const label = user
-        ? `${nav.account}: ${user.name}`
-        : `${nav.language}: ${LOCALE_DETAILS[locale].name}`;
+    const label = user ? `${nav.account}: ${user.name}` : nav.account;
 
     return (
         <div ref={ref} className={styles.account}>
@@ -49,11 +60,28 @@ function AccountMenu({ user = null, onOpen }) {
                 aria-label={label}
                 onClick={toggle}
             >
-                {user ? user.initials : <Icon icon="lucide:globe" width="18" height="18" />}
+                {user ? user.initials : <Icon icon="lucide:user-round" width="18" height="18" />}
             </button>
 
             {open && (
                 <div id="account-menu" className={styles.menu}>
+                    {isLoaded && !user && (
+                        <ul className={styles.section}>
+                            <li>
+                                <Link href={`/${locale}/sign-in?redirect_url=${back}`} className={styles.option} onClick={() => setOpen(false)}>
+                                    <Icon icon="lucide:log-in" width="16" height="16" />
+                                    {nav.signIn}
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href={`/${locale}/sign-up?redirect_url=${back}`} className={styles.option} onClick={() => setOpen(false)}>
+                                    <Icon icon="lucide:user-round-plus" width="16" height="16" />
+                                    {nav.signUp}
+                                </Link>
+                            </li>
+                        </ul>
+                    )}
+
                     {user && (
                         <>
                             <p className={styles.user}>{user.name}</p>
@@ -91,7 +119,7 @@ function AccountMenu({ user = null, onOpen }) {
                     {user && (
                         <ul className={styles.section}>
                             <li>
-                                <button type="button" className={styles.option}>
+                                <button type="button" className={styles.option} onClick={() => signOut({ redirectUrl: `/${locale}` })}>
                                     <Icon icon="lucide:log-out" width="16" height="16" />
                                     {nav.signOut}
                                 </button>

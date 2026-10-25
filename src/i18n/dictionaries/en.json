@@ -23,7 +23,9 @@
     "whatToDo": "What to do",
     "about": "About",
     "species": "Species",
-    "where": "Where & when"
+    "where": "Where & when",
+    "signIn": "Sign in",
+    "signUp": "Create account"
   },
   "footer": {
     "tagline": "A field guide for a living ocean",
@@ -361,8 +363,8 @@
       "youTitle": "About you",
       "name": "Your name (optional)",
       "nameHint": "Shown with your report once it’s verified.",
-      "email": "Email (optional)",
-      "emailHint": "Only used if we have a question about your report. Never published.",
+      "email": "Contact email",
+      "emailHint": "From your account. Only used if we have a question about your report. Never published.",
       "consent": "I agree that WhaleTale stores this report and may share it with researchers.",
       "privacyLink": "Privacy notice",
       "fixErrors": "Please check the highlighted fields.",
@@ -378,8 +380,25 @@
         "required": "This field is required.",
         "invalid": "Please check this value.",
         "tooMany": "You can add up to 3 photos."
-      }
+      },
+      "rateLimited": "You’ve sent a lot of reports today. Please try again tomorrow, or contact us if you have more to share.",
+      "signedOut": "Your session has ended.",
+      "signInAgain": "Sign in again"
+    },
+    "gate": {
+      "title": "Sign in to send a report",
+      "text": "Reports come from registered observers, so our team can follow up and keep the records trustworthy. It only takes a minute.",
+      "signIn": "Sign in",
+      "signUp": "Create account"
     }
+  },
+  "auth": {
+    "tag": "Account",
+    "signInTitle": "Welcome back",
+    "signUpTitle": "Join WhaleTale",
+    "signInMetaTitle": "Sign in · {site}",
+    "signUpMetaTitle": "Create account · {site}",
+    "intro": "An account lets you send sightings and strandings, so every record can be traced back to a real observer."
   },
   "about": {
     "metaTitle": "About · {site}",
@@ -522,7 +541,8 @@
       {
         "title": "What we collect",
         "text": [
-          "When you send a report: what you saw, where and when, any photos, and — if you choose to give them — your name and email address.",
+          "When you send a report: what you saw, where and when, any photos, your name if you choose to give it, and your account’s email address.",
+          "When you create an account: your name, email address and sign-in details.",
           "When you sign up for updates: your email address and the language you use the site in."
         ]
       },
@@ -542,7 +562,7 @@
       {
         "title": "Where it is stored",
         "text": [
-          "Reports and sign-ups are stored with Sanity, the service that runs our content. Only the WhaleTale team can see personal details."
+          "Accounts are managed by Clerk, our sign-in provider. Reports and sign-ups are stored with Sanity, the service that runs our content. Only the WhaleTale team can see personal details."
         ]
       },
       {

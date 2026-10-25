@@ -333,6 +333,24 @@
     }
 }
 
+/* Clerk sign-in / sign-up widget */
+.auth {
+    display: flex;
+    justify-content: center;
+}
+
+/* Sign-in prompt in place of the report form */
+.gate {
+    align-content: start;
+
+    > div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-block-start: .5rem;
+    }
+}
+
 /* Breadcrumb above a page title */
 .breadcrumb {
     align-items: center;

@@ -1,5 +1,7 @@
 import styles from "@/ui/styles/contentPage.module.css";
+import { Suspense } from "react";
 import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
 import { Icon } from "@iconify/react";
 import ReportForm from "@/ui/components/report-form/reportForm";
 import { getAllSpecies } from "@/lib/data/species";
@@ -9,6 +11,34 @@ import { format } from "@/i18n/format";
 
 // Landing for every "Report" button: the form, plus what to note and where
 // the record goes. Submissions are handled by ./actions.js.
+
+// Only signed-in observers get the form; ./actions.js checks the session again.
+// auth() verifies the session token locally, so page views don't call Clerk's API
+async function ReportGate({ species }) {
+    const locale = await getLocale();
+    const { report: { gate: t } } = await getDictionary();
+    const { userId } = await auth();
+
+    if (!userId) {
+        const back = encodeURIComponent(`/${locale}/report`);
+
+        return (
+            <div className={`${styles.card} ${styles.gate}`}>
+                <span className={styles.card__icon}>
+                    <Icon icon="lucide:user-round-check" width="22" height="22" />
+                </span>
+                <h2>{t.title}</h2>
+                <p>{t.text}</p>
+                <div>
+                    <Link href={`/${locale}/sign-in?redirect_url=${back}`} className="btn btn--secondary">{t.signIn}</Link>
+                    <Link href={`/${locale}/sign-up?redirect_url=${back}`} className="btn">{t.signUp}</Link>
+                </div>
+            </div>
+        );
+    }
+
+    return <ReportForm species={species} />;
+}
 
 export async function generateMetadata() {
     const { report, meta } = await getDictionary();
@@ -41,7 +71,10 @@ export default async function Report() {
             {/* Form + help */}
             <section className={styles.block}>
                 <div className={`innerWrapper ${styles.split}`}>
-                    <ReportForm species={species} />
+                    {/* The session is request data, so only this slot waits for it */}
+                    <Suspense fallback={<div aria-busy="true" />}>
+                        <ReportGate species={species} />
+                    </Suspense>
 
                     <aside className={styles.split__aside}>
                         <div className={`${styles.card} ${styles['card--alert']}`}>

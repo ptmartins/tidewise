@@ -23,7 +23,9 @@
     "whatToDo": "O que fazer",
     "about": "Sobre",
     "species": "Espécies",
-    "where": "Onde e quando"
+    "where": "Onde e quando",
+    "signIn": "Iniciar sessão",
+    "signUp": "Criar conta"
   },
   "footer": {
     "tagline": "Um guia de campo para um oceano vivo",
@@ -361,8 +363,8 @@
       "youTitle": "Sobre si",
       "name": "O seu nome (opcional)",
       "nameHint": "Aparece com o seu registo depois de verificado.",
-      "email": "Email (opcional)",
-      "emailHint": "Só é usado se tivermos alguma dúvida sobre o seu registo. Nunca é publicado.",
+      "email": "Email de contacto",
+      "emailHint": "Da sua conta. Só é usado se tivermos alguma dúvida sobre o seu registo. Nunca é publicado.",
       "consent": "Aceito que o WhaleTale guarde este registo e o possa partilhar com investigadores.",
       "privacyLink": "Aviso de privacidade",
       "fixErrors": "Verifique os campos assinalados.",
@@ -378,8 +380,25 @@
         "required": "Este campo é obrigatório.",
         "invalid": "Verifique este valor.",
         "tooMany": "Pode juntar até 3 fotografias."
-      }
+      },
+      "rateLimited": "Já enviou muitos registos hoje. Tente de novo amanhã, ou contacte-nos se tiver mais para partilhar.",
+      "signedOut": "A sua sessão terminou.",
+      "signInAgain": "Iniciar sessão de novo"
+    },
+    "gate": {
+      "title": "Inicie sessão para enviar um registo",
+      "text": "Os registos vêm de observadores registados, para que a nossa equipa possa dar seguimento e manter os dados fiáveis. Demora só um minuto.",
+      "signIn": "Iniciar sessão",
+      "signUp": "Criar conta"
     }
+  },
+  "auth": {
+    "tag": "Conta",
+    "signInTitle": "Bem-vindo de volta",
+    "signUpTitle": "Junte-se ao WhaleTale",
+    "signInMetaTitle": "Iniciar sessão · {site}",
+    "signUpMetaTitle": "Criar conta · {site}",
+    "intro": "Com uma conta pode enviar avistamentos e arrojamentos, para que cada registo corresponda a um observador real."
   },
   "about": {
     "metaTitle": "Sobre · {site}",
@@ -522,7 +541,8 @@
       {
         "title": "O que recolhemos",
         "text": [
-          "Quando envia um registo: o que viu, onde e quando, eventuais fotografias e — se os quiser indicar — o seu nome e email.",
+          "Quando envia um registo: o que viu, onde e quando, eventuais fotografias, o seu nome se o quiser indicar e o email da sua conta.",
+          "Quando cria uma conta: o seu nome, endereço de email e dados de acesso.",
           "Quando subscreve as novidades: o seu email e o idioma em que usa o site."
         ]
       },
@@ -542,7 +562,7 @@
       {
         "title": "Onde são guardados",
         "text": [
-          "Os registos e as subscrições são guardados no Sanity, o serviço que gere os nossos conteúdos. Só a equipa do WhaleTale tem acesso aos dados pessoais."
+          "As contas são geridas pela Clerk, o nosso serviço de autenticação. Os registos e as inscrições são guardados na Sanity, o serviço que gere os nossos conteúdos. Só a equipa do WhaleTale vê os dados pessoais."
         ]
       },
       {

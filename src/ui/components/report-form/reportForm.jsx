@@ -4,6 +4,7 @@ import styles from './reportForm.module.css';
 import Link from 'next/link';
 import { startTransition, useActionState, useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
+import { useUser } from '@clerk/nextjs';
 import { submitReport } from '@/app/[lang]/report/actions';
 import { BEHAVIOURS, PLATFORMS } from '@/lib/reportOptions';
 import { REGIONS } from '../species-explorer/options';
@@ -26,8 +27,10 @@ function Field({ label, hint, error, children, wide }) {
     );
 }
 
+// The page only renders the form for a signed-in account
 function ReportForm({ species }) {
     const locale = useLocale();
+    const { user } = useUser();
     const { report: { form: t }, reports, explorer } = useDictionary();
     const [state, action, pending] = useActionState(submitReport, { status: 'idle' });
     const [type, setType] = useState('sighting');
@@ -221,7 +224,8 @@ function ReportForm({ species }) {
                     </Field>
 
                     <Field label={t.photos} hint={t.photosHint} error={errorText('photos')} wide>
-                        <input type="file" name="photos" accept="image/*" multiple />
+                        {/* Only formats the server accepts; iPhones convert HEIC photos to JPEG for this */}
+                        <input type="file" name="photos" accept="image/jpeg,image/png,image/webp" multiple />
                     </Field>
                 </div>
             </fieldset>
@@ -231,11 +235,15 @@ function ReportForm({ species }) {
                 <legend>{t.youTitle}</legend>
                 <div className={styles.grid}>
                     <Field label={t.name} hint={t.nameHint}>
-                        <input type="text" name="name" maxLength="100" autoComplete="name" />
+                        {/* Keyed on the account so the prefill lands once Clerk has loaded it */}
+                        <input key={user?.id} type="text" name="name" maxLength="100" autoComplete="name" defaultValue={user?.fullName ?? ''} />
                     </Field>
-                    <Field label={t.email} hint={t.emailHint} error={errorText('email')}>
-                        <input type="email" name="email" maxLength="200" autoComplete="email" />
-                    </Field>
+                    {/* Read from the account on the server, so it's shown rather than typed */}
+                    <div className={styles.field}>
+                        <span className={styles.field__label}>{t.email}</span>
+                        <p className={styles.account}>{user?.primaryEmailAddress?.emailAddress ?? '…'}</p>
+                        <span className={styles.field__hint}>{t.emailHint}</span>
+                    </div>
 
                     <label className={`${styles.check} ${styles['field--wide']}`}>
                         <input type="checkbox" name="consent" required />
@@ -251,6 +259,16 @@ function ReportForm({ species }) {
             {state.status === 'error' && <p className={styles.alert} role="alert"><Icon icon="lucide:circle-alert" width="20" height="20" />{t.fixErrors}</p>}
             {state.status === 'unavailable' && <p className={styles.alert} role="alert"><Icon icon="lucide:plug-zap" width="20" height="20" />{t.unavailable}</p>}
             {state.status === 'failed' && <p className={styles.alert} role="alert"><Icon icon="lucide:circle-alert" width="20" height="20" />{t.failed}</p>}
+            {state.status === 'rateLimited' && <p className={styles.alert} role="alert"><Icon icon="lucide:timer" width="20" height="20" />{t.rateLimited}</p>}
+            {state.status === 'unauthorized' && (
+                <p className={styles.alert} role="alert">
+                    <Icon icon="lucide:log-in" width="20" height="20" />
+                    <span>
+                        {t.signedOut}{' '}
+                        <Link href={`/${locale}/sign-in?redirect_url=${encodeURIComponent(`/${locale}/report`)}`}>{t.signInAgain}</Link>
+                    </span>
+                </p>
+            )}
 
             <button type="submit" className={`btn btn--secondary ${styles.submit}`} disabled={pending}>
                 <Icon icon={pending ? 'lucide:loader-circle' : 'lucide:send'} width="20" height="20" className={pending ? styles.spin : undefined} />

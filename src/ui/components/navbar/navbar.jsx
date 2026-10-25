@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import styles from "./navbar.module.css";
+import AccountMenu from "../account-menu/accountMenu";
 import { usePathname } from 'next/navigation';
 import { useDictionary, useLocale } from "@/i18n/I18nProvider";
 
@@ -70,7 +71,7 @@ function NavBar({ condensed }) {
                 <div className={styles.actions}>
                     {/* The stranding hotline lives in the top bar, the dropdown and the footer */}
                     <Link href={`${home}/report`} className={`btn ${styles.reportButton}`} onClick={closeMenu}>{nav.reportShort}</Link>
-                    {/* Language lives in the top bar. Once login exists, render <AccountMenu user={user} /> here. */}
+                    <AccountMenu onOpen={closeMenu} />
                     <button
                         type="button"
                         className={styles.menuToggle}
