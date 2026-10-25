@@ -8,7 +8,10 @@ import { parseBody } from 'next-sanity/webhook';
 // pages that show it the next time they're visited.
 export async function POST(request) {
     const secret = process.env.SANITY_REVALIDATE_SECRET;
-    if (!secret) return NextResponse.json({ message: 'SANITY_REVALIDATE_SECRET is not set' }, { status: 500 });
+    if (!secret) {
+        console.error('SANITY_REVALIDATE_SECRET is not set');
+        return NextResponse.json({ message: 'Revalidation is not configured' }, { status: 500 });
+    }
 
     try {
         // The third argument waits a moment so the query API already sees the change

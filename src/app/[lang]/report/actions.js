@@ -1,6 +1,7 @@
 'use server'
 
 import { randomUUID } from 'node:crypto'
+import sharp from 'sharp'
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { writeClient } from '../../../../sanity/lib/writeClient'
 import { BEHAVIOURS, PLATFORMS, REPORT_TYPES } from '@/lib/reportOptions'
@@ -10,8 +11,10 @@ import { hasLocale } from '@/i18n/config'
 
 const MAX_PHOTOS = 3
 const MAX_PHOTO_BYTES = 4 * 1024 * 1024
-// Per account, over a rolling day: generous for a busy boat trip, useless for spam
+// Per account and UTC day: generous for a busy boat trip, useless for spam
 const MAX_REPORTS_PER_DAY = 10
+// Longest side kept after re-encoding; plenty for identifying an animal
+const MAX_PHOTO_SIDE = 4096
 // "2026-10-22T14:05", as sent by <input type="datetime-local">
 const WALL_CLOCK = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2})?$/
 const EARLIEST = Date.UTC(1900, 0, 1)
@@ -21,10 +24,25 @@ const text = (formData, name, max) => String(formData.get(name) ?? '').trim().sl
 // The browser-supplied MIME type is just a claim; the first bytes say what the file really is.
 // SVG and anything else that can carry script is refused.
 const imageType = (bytes) => {
-  if (bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return { contentType: 'image/jpeg', extension: 'jpg' }
-  if (bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return { contentType: 'image/png', extension: 'png' }
-  if (bytes.toString('latin1', 0, 4) === 'RIFF' && bytes.toString('latin1', 8, 12) === 'WEBP') return { contentType: 'image/webp', extension: 'webp' }
+  if (bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) return { format: 'jpeg', contentType: 'image/jpeg', extension: 'jpg' }
+  if (bytes.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]))) return { format: 'png', contentType: 'image/png', extension: 'png' }
+  if (bytes.toString('latin1', 0, 4) === 'RIFF' && bytes.toString('latin1', 8, 12) === 'WEBP') return { format: 'webp', contentType: 'image/webp', extension: 'webp' }
   return null
+}
+
+// Uploaded files are served publicly as-is, so they're rebuilt from their pixels first: that
+// drops EXIF/XMP (GPS position, camera serial, time) and anything hidden after the image data.
+// Returns null for files that only look like images.
+const reencode = async (bytes, { format }) => {
+  try {
+    return await sharp(bytes, { limitInputPixels: 50_000_000 })
+      .rotate()
+      .resize({ width: MAX_PHOTO_SIDE, height: MAX_PHOTO_SIDE, fit: 'inside', withoutEnlargement: true })
+      .toFormat(format)
+      .toBuffer()
+  } catch {
+    return null
+  }
 }
 
 // Server Actions are public endpoints: the session and every field are re-checked here.
@@ -67,10 +85,11 @@ export async function submitReport(_previous, formData) {
   else if (photos.some((file) => file.size > MAX_PHOTO_BYTES)) errors.photos = 'invalid'
 
   const images = errors.photos ? [] : await Promise.all(photos.map(async (file) => {
-    const bytes = Buffer.from(await file.arrayBuffer())
-    return { bytes, type: imageType(bytes) }
+    const original = Buffer.from(await file.arrayBuffer())
+    const kind = imageType(original)
+    return { bytes: kind && await reencode(original, kind), type: kind }
   }))
-  if (images.some(({ type: kind }) => !kind)) errors.photos = 'invalid'
+  if (images.some(({ bytes }) => !bytes)) errors.photos = 'invalid'
 
   if (Object.keys(errors).length) return { status: 'error', errors }
 
@@ -79,9 +98,12 @@ export async function submitReport(_previous, formData) {
 
   const uploaded = []
   try {
-    const since = new Date(Date.now() - 86_400_000).toISOString()
-    const recent = await writeClient.fetch('count(*[_type == "report" && userId == $userId && _createdAt > $since])', { userId, since })
-    if (recent >= MAX_REPORTS_PER_DAY) return { status: 'rateLimited' }
+    // One private counter per account and day. Sanity applies `inc` atomically, so parallel
+    // submissions each get their own number and can't all slip under the limit together
+    const counterId = `rateLimit.report.${userId}.${new Date().toISOString().slice(0, 10)}`
+    await writeClient.createIfNotExists({ _id: counterId, _type: 'rateLimit', count: 0 })
+    const { count: sent } = await writeClient.patch(counterId).inc({ count: 1 }).commit()
+    if (sent > MAX_REPORTS_PER_DAY) return { status: 'rateLimited' }
 
     // Contact details come from the account, and only once Clerk has verified them
     const user = await currentUser()

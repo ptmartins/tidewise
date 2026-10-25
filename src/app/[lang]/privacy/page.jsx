@@ -3,7 +3,7 @@ import Link from "next/link";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
 
-// Plain-language privacy notice for the report form and newsletter.
+// Plain-language privacy notice for accounts and the report form.
 // TODO: have it reviewed for GDPR compliance and add the data controller's details.
 
 export async function generateMetadata() {
