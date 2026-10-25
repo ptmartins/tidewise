@@ -166,6 +166,20 @@
     .columns {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    /* Once stacked, center everything so the footer reads as one block */
+    .main {
+        text-align: center;
+    }
+
+    .brand {
+        justify-items: center;
+    }
+
+    .partners,
+    .partners ul {
+        justify-content: center;
+    }
 }
 
 /* Leave room for the floating "Report a sighting" button */
@@ -190,7 +204,9 @@
     }
 
     .bottom {
+        align-items: center;
         flex-direction: column;
+        text-align: center;
     }
 }
 
