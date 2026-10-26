@@ -41,6 +41,7 @@ const SPECIES_QUERY = defineQuery(`*[_type == "species" && defined(slug.current)
   "classification": coalesce(classification[]{ rank, name, italic }, []),
   "mainImage": mainImage${IMAGE},
   "thumbnail": thumbnail${IMAGE},
+  "sound": sound{ description, credit, license, sourceUrl, "src": asset->url, "mimeType": asset->mimeType },
   "similar": coalesce(similarSpecies[].species->slug.current, [])
 }`);
 
@@ -67,6 +68,7 @@ const localize = ({ translations, ...item }, locale) => ({
     // Images without an uploaded asset count as missing
     mainImage: item.mainImage?.src ? item.mainImage : null,
     thumbnail: item.thumbnail?.src ? item.thumbnail : null,
+    sound: item.sound?.src ? item.sound : null,
 });
 
 export async function getAllSpecies(locale) {

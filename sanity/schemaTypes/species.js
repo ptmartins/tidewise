@@ -529,8 +529,9 @@ export const species = defineType({
       options: { accept: 'audio/*' },
       fields: [
         defineField({ name: 'description', title: 'What you can hear', type: 'string' }),
-        defineField({ name: 'credit', title: 'Recording credit', type: 'string' }),
+        defineField({ name: 'credit', title: 'Recording credit', type: 'text', rows: 2, description: 'Full citation as the source asks for it, e.g. NOAA’s "Agency. Group. Year. File title. URL".' }),
         defineField({ name: 'license', title: 'Licence', type: 'string' }),
+        defineField({ name: 'sourceUrl', title: 'Source URL', type: 'url' }),
       ],
     }),
     defineField({

@@ -18,6 +18,7 @@ import { dolphins } from './data/species/dolphins.js'
 import { porpoises, seals } from './data/species/porpoises-and-seals.js'
 import { thumbnails } from './data/species/thumbnails.js'
 import { similarSpecies } from './data/species/similar.js'
+import { sounds } from './data/species/sounds.js'
 import { pt } from './data/species/i18n/pt.js'
 import { fr } from './data/species/i18n/fr.js'
 import { en as learn } from './data/learn/en.js'
@@ -53,11 +54,22 @@ const image = (src, fields) => {
   return { _type: 'image', _sanityAsset: `image@${pathToFileURL(file).href}`, ...fields }
 }
 
+// "/sounds/fin-whale.mp3" -> a file the import uploads from /public
+const audio = (src, fields) => {
+  const file = join(root, 'public', src)
+  if (!existsSync(file)) {
+    console.warn(`  missing sound ${src}, skipped`)
+    return undefined
+  }
+  return { _type: 'file', _sanityAsset: `file@${pathToFileURL(file).href}`, ...fields }
+}
+
 // ---------- Species ----------
 
 const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, ...seals].map((item) => {
   const id = `species-${item.slug}`
   const thumb = thumbnails[item.slug]
+  const sound = sounds[item.slug]
   const translations = Object.fromEntries(
     Object.entries({ pt, fr })
       .filter(([, table]) => table[item.slug])
@@ -100,6 +112,7 @@ const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, .
     classification: keyed(item.classification ?? [], `${id}:rank`, 'rank'),
     mainImage: item.mainImage && image(item.mainImage.src, { alt: item.mainImage.alt, credit: item.mainImage.credit }),
     thumbnail: thumb && image(thumb.src, { alt: thumb.alt, credit: thumb.credit, license: thumb.license, sourceUrl: thumb.sourceUrl }),
+    sound: sound && audio(sound.src, { description: sound.description, credit: sound.credit, license: sound.license, sourceUrl: sound.sourceUrl }),
     similarSpecies: keyed(
       (similarSpecies[item.slug] ?? []).map((other) => ({ species: { _type: 'reference', _ref: `species-${other}` } })),
       `${id}:similar`,

@@ -267,6 +267,26 @@ export default async function SpeciesPage({ params }) {
                                 ))}
                             </ol>
                         </div>
+
+                        {species.sound && (
+                            <figure className={styles.listen}>
+                                <h3 className={styles.spotting__title}>
+                                    <Icon icon="lucide:audio-waveform" width="20" height="20" /> {t.listenTitle}
+                                </h3>
+                                <audio controls preload="none" className={styles.listen__player}>
+                                    <source src={species.sound.src} type={species.sound.mimeType} />
+                                    {t.listenUnsupported}
+                                </audio>
+                                <figcaption>
+                                    <p>{species.sound.description}</p>
+                                    <small>
+                                        {t.listenCredit}:{' '}
+                                        <a href={species.sound.sourceUrl} target="_blank" rel="noopener noreferrer">{species.sound.credit}</a>
+                                        {species.sound.license && ` · ${species.sound.license}`}
+                                    </small>
+                                </figcaption>
+                            </figure>
+                        )}
                     </aside>
 
                     <div className={styles.accordions}>

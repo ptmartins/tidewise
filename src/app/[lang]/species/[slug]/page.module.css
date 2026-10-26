@@ -130,6 +130,36 @@
     }
 }
 
+.listen {
+    background-color: var(--off-white);
+    border: 1px solid var(--accent-muted);
+    border-radius: var(--border-radius-l);
+    margin-block-start: 1rem;
+    padding: 1.5rem;
+
+    figcaption {
+        color: var(--accent-faded);
+        font-size: .85rem;
+    }
+
+    small {
+        display: block;
+        font-size: .7rem;
+        margin-block-start: .5rem;
+        overflow-wrap: anywhere;
+    }
+
+    a {
+        text-decoration: underline;
+    }
+}
+
+.listen__player {
+    display: block;
+    inline-size: 100%;
+    margin-block: .75rem;
+}
+
 .hero__media {
     isolation: isolate;
     position: relative;
