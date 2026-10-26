@@ -57,7 +57,8 @@
     "copyright": "© {year} WhaleTale",
     "identify": "What did I see?",
     "where": "Where & when",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "cookies": "Cookies"
   },
   "common": {
     "reportSighting": "Report a sighting",
@@ -572,7 +573,63 @@
         ]
       }
     ],
-    "contact": "Contact us about your data"
+    "contact": "Contact us about your data",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "We only use the cookies the site needs to work: to remember your language and to keep you signed in. There are no advertising or analytics cookies.",
+    "cookiesLink": "Read the cookie policy"
+  },
+  "cookies": {
+    "open": "Cookies",
+    "title": "Cookie policy",
+    "close": "Close",
+    "summary": "We only use essential cookies. No advertising, analytics or tracking.",
+    "intro": "Cookies are small files a website saves in your browser. Ours are all needed for the site to work, so no consent is required and there’s nothing to switch off.",
+    "essentialTitle": "Strictly necessary cookies",
+    "essentialText": "These remember your language and keep you signed in.",
+    "showCookies": "See the cookies we use ({count})",
+    "list": [
+      {
+        "name": "NEXT_LOCALE",
+        "provider": "WhaleTale",
+        "purpose": "Remembers your language.",
+        "duration": "1 year"
+      },
+      {
+        "name": "__session, __client_uat",
+        "provider": "Clerk (sign-in)",
+        "purpose": "Keep you signed in.",
+        "duration": "Until sign-out"
+      },
+      {
+        "name": "__client",
+        "provider": "Clerk (sign-in)",
+        "purpose": "Secures your sign-in session.",
+        "duration": "Until sign-out"
+      },
+      {
+        "name": "__cf_bm",
+        "provider": "Cloudflare, for Clerk",
+        "purpose": "Blocks bots at sign-in.",
+        "duration": "30 minutes"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Other services",
+        "text": [
+          "The map loads tiles from OpenStreetMap, which sees your IP address but sets no cookies. Google and other sign-in options may set their own cookies on their own sites."
+        ]
+      },
+      {
+        "title": "Managing cookies",
+        "text": [
+          "You can delete or block cookies in your browser settings, but you won’t be able to sign in or send reports. If we ever add optional cookies, we’ll ask first."
+        ]
+      }
+    ],
+    "updated": "Last updated: 26 October 2026",
+    "privacyLink": "Privacy notice",
+    "done": "Got it"
   },
   "identify": {
     "metaTitle": "What did I see? · {site}",

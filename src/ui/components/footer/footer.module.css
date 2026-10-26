@@ -93,10 +93,16 @@
     text-transform: uppercase;
 }
 
-.bottom__link {
+/* The cookie policy opens a dialog, so it's a button dressed as a column link */
+.column__button {
+    background: none;
+    border: none;
     color: var(--accent-faded);
-    margin-inline-start: 1.5rem;
-    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+    padding: 0;
+    text-align: inherit;
+    transition: var(--default-transition);
 }
 
 /* Partner strip */
@@ -144,7 +150,8 @@
 }
 
 @media (hover: hover) {
-    .columns a:hover {
+    .columns a:hover,
+    .column__button:hover {
         color: var(--accent-dark);
     }
 
@@ -212,6 +219,7 @@
 
 @media (prefers-reduced-motion: reduce) {
     .columns a,
+    .column__button,
     .emergency__link,
     .partners img {
         transition: none;

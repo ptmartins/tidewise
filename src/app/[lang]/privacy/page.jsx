@@ -37,6 +37,12 @@ export default async function Privacy() {
                             {text.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                         </section>
                     ))}
+                    <section>
+                        <h2>{t.cookiesTitle}</h2>
+                        <p>{t.cookiesText}</p>
+                        {/* Plain anchor so the hash change opens the cookie policy dialog in the footer */}
+                        <p><a href="#cookies" className={styles.link}>{t.cookiesLink}</a></p>
+                    </section>
                     <p>
                         <Link href={`/${locale}/about#contact`} className={styles.link}>{t.contact}</Link>
                     </p>

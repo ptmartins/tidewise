@@ -57,7 +57,8 @@
     "copyright": "© {year} WhaleTale",
     "identify": "Qu’ai-je vu ?",
     "where": "Où et quand",
-    "privacy": "Confidentialité"
+    "privacy": "Confidentialité",
+    "cookies": "Cookies"
   },
   "common": {
     "reportSighting": "Signaler une observation",
@@ -572,7 +573,63 @@
         ]
       }
     ],
-    "contact": "Nous contacter au sujet de vos données"
+    "contact": "Nous contacter au sujet de vos données",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "Nous n’utilisons que les cookies nécessaires au fonctionnement du site : pour mémoriser votre langue et vous garder connecté. Aucun cookie publicitaire ni de mesure d’audience.",
+    "cookiesLink": "Lire la politique de cookies"
+  },
+  "cookies": {
+    "open": "Cookies",
+    "title": "Politique de cookies",
+    "close": "Fermer",
+    "summary": "Nous n’utilisons que des cookies essentiels. Aucune publicité, mesure d’audience ni suivi.",
+    "intro": "Les cookies sont de petits fichiers qu’un site enregistre dans votre navigateur. Les nôtres sont tous nécessaires au fonctionnement du site : aucun consentement n’est requis et il n’y a rien à désactiver.",
+    "essentialTitle": "Cookies strictement nécessaires",
+    "essentialText": "Ils mémorisent votre langue et vous gardent connecté.",
+    "showCookies": "Voir les cookies utilisés ({count})",
+    "list": [
+      {
+        "name": "NEXT_LOCALE",
+        "provider": "WhaleTale",
+        "purpose": "Mémorise votre langue.",
+        "duration": "1 an"
+      },
+      {
+        "name": "__session, __client_uat",
+        "provider": "Clerk (connexion)",
+        "purpose": "Vous gardent connecté.",
+        "duration": "Jusqu’à la déconnexion"
+      },
+      {
+        "name": "__client",
+        "provider": "Clerk (connexion)",
+        "purpose": "Sécurise votre session.",
+        "duration": "Jusqu’à la déconnexion"
+      },
+      {
+        "name": "__cf_bm",
+        "provider": "Cloudflare, pour Clerk",
+        "purpose": "Bloque les robots à la connexion.",
+        "duration": "30 minutes"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Autres services",
+        "text": [
+          "La carte charge ses tuiles depuis OpenStreetMap, qui voit votre adresse IP mais ne dépose pas de cookies. Google et les autres options de connexion peuvent déposer leurs propres cookies sur leurs sites."
+        ]
+      },
+      {
+        "title": "Gérer les cookies",
+        "text": [
+          "Vous pouvez supprimer ou bloquer les cookies dans votre navigateur, mais vous ne pourrez plus vous connecter ni envoyer de signalements. Si nous ajoutons un jour des cookies optionnels, nous vous demanderons d’abord."
+        ]
+      }
+    ],
+    "updated": "Dernière mise à jour : 26 octobre 2026",
+    "privacyLink": "Politique de confidentialité",
+    "done": "Compris"
   },
   "identify": {
     "metaTitle": "Qu’ai-je vu ? · {site}",

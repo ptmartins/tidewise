@@ -57,7 +57,8 @@
     "copyright": "© {year} WhaleTale",
     "identify": "O que é que vi?",
     "where": "Onde e quando",
-    "privacy": "Privacidade"
+    "privacy": "Privacidade",
+    "cookies": "Cookies"
   },
   "common": {
     "reportSighting": "Registar um avistamento",
@@ -572,7 +573,63 @@
         ]
       }
     ],
-    "contact": "Contacte-nos sobre os seus dados"
+    "contact": "Contacte-nos sobre os seus dados",
+    "cookiesTitle": "Cookies",
+    "cookiesText": "Usamos apenas os cookies de que o site precisa para funcionar: para lembrar o seu idioma e manter a sua sessão iniciada. Não há cookies de publicidade nem de estatística.",
+    "cookiesLink": "Ler a política de cookies"
+  },
+  "cookies": {
+    "open": "Cookies",
+    "title": "Política de cookies",
+    "close": "Fechar",
+    "summary": "Usamos apenas cookies essenciais. Sem publicidade, estatísticas ou rastreio.",
+    "intro": "Os cookies são pequenos ficheiros que um site guarda no seu navegador. Os nossos são todos necessários ao funcionamento do site, por isso não é preciso consentimento e não há nada para desativar.",
+    "essentialTitle": "Cookies estritamente necessários",
+    "essentialText": "Lembram o seu idioma e mantêm a sua sessão iniciada.",
+    "showCookies": "Ver os cookies que usamos ({count})",
+    "list": [
+      {
+        "name": "NEXT_LOCALE",
+        "provider": "WhaleTale",
+        "purpose": "Lembra o seu idioma.",
+        "duration": "1 ano"
+      },
+      {
+        "name": "__session, __client_uat",
+        "provider": "Clerk (autenticação)",
+        "purpose": "Mantêm a sua sessão iniciada.",
+        "duration": "Até terminar sessão"
+      },
+      {
+        "name": "__client",
+        "provider": "Clerk (autenticação)",
+        "purpose": "Protege a sua sessão.",
+        "duration": "Até terminar sessão"
+      },
+      {
+        "name": "__cf_bm",
+        "provider": "Cloudflare, para a Clerk",
+        "purpose": "Bloqueia bots no início de sessão.",
+        "duration": "30 minutos"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Outros serviços",
+        "text": [
+          "O mapa carrega mosaicos do OpenStreetMap, que vê o seu endereço IP mas não define cookies. A Google e outras opções de início de sessão podem definir os seus próprios cookies nos seus sites."
+        ]
+      },
+      {
+        "title": "Gerir cookies",
+        "text": [
+          "Pode apagar ou bloquear cookies nas definições do navegador, mas deixará de poder iniciar sessão ou enviar relatos. Se algum dia adicionarmos cookies opcionais, pediremos primeiro."
+        ]
+      }
+    ],
+    "updated": "Última atualização: 26 de outubro de 2026",
+    "privacyLink": "Aviso de privacidade",
+    "done": "Entendido"
   },
   "identify": {
     "metaTitle": "O que é que vi? · {site}",

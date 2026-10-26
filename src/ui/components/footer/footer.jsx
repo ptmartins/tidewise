@@ -7,6 +7,7 @@ import { format } from "@/i18n/format";
 import { getHotline, hotlineLabel } from "@/lib/emergency";
 import { getPartners } from "@/lib/data/partners";
 import { getToday } from "@/lib/time";
+import CookiePolicy from "../cookie-policy/cookiePolicy";
 
 async function Footer() {
     const locale = await getLocale();
@@ -50,6 +51,7 @@ async function Footer() {
                 { href: `${home}/about#methodology`, label: footer.methodology },
                 { href: `${home}/about#partners`, label: footer.partners },
                 { href: `${home}/about#contact`, label: footer.contact },
+                { href: `${home}/privacy`, label: footer.privacy },
             ],
         },
     ];
@@ -70,6 +72,7 @@ async function Footer() {
                                 {links.map(({ href, label }) => (
                                     <li key={href}><Link href={href}>{label}</Link></li>
                                 ))}
+                                {id === 'about' && <li><CookiePolicy className={styles.column__button} /></li>}
                             </ul>
                         </div>
                     ))}
@@ -93,10 +96,7 @@ async function Footer() {
             )}
 
             <div className={`innerWrapper ${styles.bottom}`}>
-                <p>
-                    {format(footer.copyright, { year })}
-                    <Link href={`${home}/privacy`} className={styles.bottom__link}>{footer.privacy}</Link>
-                </p>
+                <p>{format(footer.copyright, { year })}</p>
                 <p>
                     {footer.developedBy}{" "}
                     <a href="https://pedromartin.com.pt" target="_blank" rel="noopener noreferrer">Pedro Martins</a>
