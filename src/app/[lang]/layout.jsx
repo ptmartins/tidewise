@@ -3,6 +3,7 @@ import { playfair, inter } from "@/ui/fonts/fonts";
 import "./globals.css";
 import Header from "@/ui/components/header/header";
 import Footer from "@/ui/components/footer/footer";
+import ServiceWorker from "@/ui/components/service-worker/serviceWorker";
 import { LOCALES, LOCALE_DETAILS } from "@/i18n/config";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { I18nProvider } from "@/i18n/I18nProvider";
@@ -25,8 +26,15 @@ export async function generateMetadata() {
   return {
     title: meta.title,
     description: meta.description,
+    applicationName: meta.title,
+    // Home-screen web app on iOS (the manifest covers other platforms)
+    appleWebApp: { capable: true, title: meta.title, statusBarStyle: "default" },
   };
 }
+
+export const viewport = {
+  themeColor: "#246663",
+};
 
 export default async function RootLayout({ children }) {
   const locale = await getLocale();
@@ -50,6 +58,7 @@ export default async function RootLayout({ children }) {
               {children}
             </main>
             <Footer />
+            <ServiceWorker />
           </I18nProvider>
         </ClerkProvider>
       </body>

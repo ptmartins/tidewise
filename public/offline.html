@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#246663">
+    <title>Offline · WhaleTale</title>
+    <style>
+        :root {
+            --accent: #246663;
+            --accent-dark: #195451;
+            --accent-faded: #78908b;
+            --background: #f6f8f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        body {
+            align-items: center;
+            background-color: var(--background);
+            color: var(--accent-dark);
+            display: flex;
+            font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+            justify-content: center;
+            line-height: 1.6;
+            min-block-size: 100dvh;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+
+        main {
+            display: grid;
+            gap: 1rem;
+            justify-items: center;
+            max-inline-size: 26rem;
+        }
+
+        img {
+            block-size: auto;
+            inline-size: 96px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--accent-faded);
+        }
+
+        button {
+            background-color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            margin-block-start: .5rem;
+            padding: .75rem 1.25rem;
+        }
+
+        button:hover {
+            background-color: var(--accent-dark);
+        }
+
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <img src="/icons/icon-192.png" alt="" width="192" height="192">
+        <h1 data-text="title">You’re offline</h1>
+        <p data-text="text">This page isn’t saved on your device yet. Pages you’ve already visited still work without a connection.</p>
+        <button type="button" data-text="retry" onclick="location.reload()">Try again</button>
+    </main>
+
+    <script>
+        // Served in place of whatever page was requested, so the URL still carries the language
+        const TEXT = {
+            pt: {
+                title: 'Está offline',
+                text: 'Esta página ainda não está guardada no seu dispositivo. As páginas que já visitou continuam a funcionar sem ligação.',
+                retry: 'Tentar novamente',
+            },
+            fr: {
+                title: 'Vous êtes hors ligne',
+                text: 'Cette page n’est pas encore enregistrée sur votre appareil. Les pages déjà consultées restent disponibles sans connexion.',
+                retry: 'Réessayer',
+            },
+        };
+        const lang = location.pathname.split('/')[1];
+        if (TEXT[lang]) {
+            document.documentElement.lang = lang === 'pt' ? 'pt-PT' : lang;
+            document.querySelectorAll('[data-text]').forEach((el) => { el.textContent = TEXT[lang][el.dataset.text]; });
+        }
+        // Back online: load the page that was asked for
+        window.addEventListener('online', () => location.reload());
+    </script>
+</body>
+</html>

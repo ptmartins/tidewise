@@ -55,6 +55,13 @@ const nextConfig = {
         // The report form asks for location; nothing uses the camera or microphone
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)' },
       ],
+    }, {
+      // Browsers must always fetch the latest service worker, or a fix could take a day to reach visitors
+      source: '/sw.js',
+      headers: [
+        { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+        { key: 'Content-Type', value: 'application/javascript; charset=utf-8' },
+      ],
     }];
   },
   images: {
