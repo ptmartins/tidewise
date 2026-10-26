@@ -407,6 +407,7 @@
 /* "Sources & review" strip */
 .review {
     align-items: start;
+    background-color: var(--white);
     border: 1px solid var(--accent-muted);
     border-radius: var(--border-radius-l);
     color: var(--accent-faded);
