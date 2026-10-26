@@ -5,17 +5,24 @@ import Link from 'next/link';
 import { useState, useSyncExternalStore } from 'react';
 import { Icon } from '@iconify/react';
 import SpeciesCard from '../species-card/speciesCard';
-import { REGIONS, SIGHTINGS, SIZES } from '../species-explorer/options';
+import { OCEANS, REGIONS, SIZES, bySightings } from '../species-explorer/options';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 import { MONTHS, monthNames } from '@/lib/months';
+import { format } from '@/i18n/format';
 
 // What people describe, mapped onto the data. Pilot and killer whales are
 // dolphins to a biologist but "whales" to most observers, so size decides.
 const SHAPES = [
     { value: 'whale', icon: 'fluent-emoji-high-contrast:spouting-whale', test: ({ category, length }) => ['Baleen whale', 'Toothed whale'].includes(category) || (category === 'Dolphin' && length >= 5) },
-    { value: 'dolphin', icon: 'fluent-emoji-high-contrast:dolphin', test: ({ category, length }) => ['Dolphin', 'Porpoise'].includes(category) || (category === 'Toothed whale' && length < 4) },
-    { value: 'seal', icon: 'fluent-emoji-high-contrast:seal', test: ({ category }) => category === 'Seal' },
+    { value: 'dolphin', icon: 'fluent-emoji-high-contrast:dolphin', test: ({ category, length }) => ['Dolphin', 'River dolphin', 'Porpoise'].includes(category) || (category === 'Toothed whale' && length < 4) },
+    { value: 'seal', icon: 'fluent-emoji-high-contrast:seal', test: ({ category }) => ['Seal', 'Sea lion & fur seal', 'Walrus'].includes(category) },
+    { value: 'seacow', icon: 'lucide:leaf', test: ({ category }) => category === 'Sirenian' },
+    { value: 'otter', icon: 'fluent-emoji-high-contrast:otter', test: ({ category }) => category === 'Otter' },
+    { value: 'bear', icon: 'fluent-emoji-high-contrast:polar-bear', test: ({ category }) => category === 'Polar bear' },
 ];
+
+// Only whales and dolphins vary enough in size for the length question to help
+const SIZED = ['whale', 'dolphin'];
 
 const noop = () => () => {};
 
@@ -52,11 +59,14 @@ function Identify({ species }) {
     const shapeTest = SHAPES.find(({ value }) => value === shape)?.test;
     const sizeTest = SIZES.find(({ value }) => value === size)?.test;
 
+    // Seasons are only known for the featured region, so the month only counts there
+    const featured = REGIONS.includes(region);
+
     const results = shape ? species
-        .filter((item) => shapeTest(item) && (!sizeTest || shape === 'seal' || sizeTest(item.length)) && (!region || item.regions.includes(region)))
-        .map((item) => ({ ...item, inSeason: !month || item.bestMonths.length === 0 || item.bestMonths.includes(month) }))
+        .filter((item) => shapeTest(item) && (!sizeTest || !SIZED.includes(shape) || sizeTest(item.length)) && (!region || (featured ? item.regions : item.oceans).includes(region)))
+        .map((item) => ({ ...item, inSeason: !featured || !month || item.bestMonths.length === 0 || item.bestMonths.includes(month) }))
         // In season first, then the commonest
-        .sort((a, b) => Number(b.inSeason) - Number(a.inSeason) || SIGHTINGS.indexOf(a.sightingFrequency) - SIGHTINGS.indexOf(b.sightingFrequency))
+        .sort((a, b) => Number(b.inSeason) - Number(a.inSeason) || bySightings(a, b))
         : [];
 
     const any = { value: '', label: t.notSure };
@@ -71,7 +81,7 @@ function Identify({ species }) {
                     onChange={setShape}
                     options={SHAPES.map(({ value, icon }) => ({ value, icon, label: t.shapes[value] }))}
                 />
-                {shape && shape !== 'seal' && (
+                {SIZED.includes(shape) && (
                     <Choice
                         name="size"
                         legend={t.sizeQuestion}
@@ -87,15 +97,21 @@ function Identify({ species }) {
                             legend={t.regionQuestion}
                             value={region}
                             onChange={setRegion}
-                            options={[...REGIONS.map((value) => ({ value, label: explorer.regions[value] })), any]}
+                            options={[
+                                ...OCEANS.map((value) => ({ value, label: explorer.regions[value] })),
+                                ...REGIONS.map((value) => ({ value, label: format(t.featuredRegion, { region: explorer.regions[value] }) })),
+                                any,
+                            ]}
                         />
-                        <label className={styles.question}>
-                            <span className={styles.question__label}>{t.monthQuestion}</span>
-                            <select value={month} onChange={(event) => setMonth(event.target.value)} className={styles.select}>
-                                <option value="">{t.notSure}</option>
-                                {monthNames(locale).map(({ month: value, name }) => <option key={value} value={value}>{name}</option>)}
-                            </select>
-                        </label>
+                        {featured && (
+                            <label className={styles.question}>
+                                <span className={styles.question__label}>{t.monthQuestion}</span>
+                                <select value={month} onChange={(event) => setMonth(event.target.value)} className={styles.select}>
+                                    <option value="">{t.notSure}</option>
+                                    {monthNames(locale).map(({ month: value, name }) => <option key={value} value={value}>{name}</option>)}
+                                </select>
+                            </label>
+                        )}
                     </>
                 )}
             </form>
@@ -117,12 +133,14 @@ function Identify({ species }) {
                                 <li key={item.slug} className={styles.result}>
                                     <SpeciesCard species={item} />
                                     <p className={styles.result__meta}>
-                                        {item.inSeason && month ? (
-                                            <span className={styles.badge}><Icon icon="lucide:calendar-check" width="14" height="14" />{t.inSeason}</span>
-                                        ) : month ? (
-                                            <span className={`${styles.badge} ${styles['badge--muted']}`}>{t.outOfSeason}</span>
+                                        {featured && month ? (
+                                            item.inSeason ? (
+                                                <span className={styles.badge}><Icon icon="lucide:calendar-check" width="14" height="14" />{t.inSeason}</span>
+                                            ) : (
+                                                <span className={`${styles.badge} ${styles['badge--muted']}`}>{t.outOfSeason}</span>
+                                            )
                                         ) : null}
-                                        <span>{data.sightings?.[item.sightingFrequency] ?? item.sightingFrequency}</span>
+                                        {featured && <span>{data.sightings?.[item.sightingFrequency] ?? item.sightingFrequency}</span>}
                                     </p>
                                 </li>
                             ))}

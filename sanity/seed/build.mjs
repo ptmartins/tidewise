@@ -16,6 +16,9 @@ import { baleenWhales } from './data/species/baleen-whales.js'
 import { toothedWhales } from './data/species/toothed-whales.js'
 import { dolphins } from './data/species/dolphins.js'
 import { porpoises, seals } from './data/species/porpoises-and-seals.js'
+import { riverDolphins } from './data/species/river-dolphins.js'
+import { earedSeals } from './data/species/eared-seals-and-walrus.js'
+import { sirenians, fissipeds } from './data/species/sea-cows-otters-and-polar-bear.js'
 import { thumbnails } from './data/species/thumbnails.js'
 import { similarSpecies } from './data/species/similar.js'
 import { sounds } from './data/species/sounds.js'
@@ -66,7 +69,12 @@ const audio = (src, fields) => {
 
 // ---------- Species ----------
 
-const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, ...seals].map((item) => {
+const allSpecies = [...baleenWhales, ...toothedWhales, ...dolphins, ...riverDolphins, ...porpoises, ...seals, ...earedSeals, ...sirenians, ...fissipeds]
+
+const duplicates = allSpecies.map(({ slug }) => slug).filter((slug, index, slugs) => slugs.indexOf(slug) !== index)
+if (duplicates.length) throw new Error(`Duplicate species slugs: ${duplicates.join(', ')}`)
+
+const species = allSpecies.map((item) => {
   const id = `species-${item.slug}`
   const thumb = thumbnails[item.slug]
   const sound = sounds[item.slug]
@@ -93,6 +101,8 @@ const species = [...baleenWhales, ...toothedWhales, ...dolphins, ...porpoises, .
     lifespan: item.lifespan,
     threats: item.threats,
     distributionShort: item.distributionShort,
+    oceans: item.oceans,
+    distributionInPortugal: item.distributionInPortugal,
     iucnStatus: item.iucnStatus,
     nationalStatus: item.nationalStatus,
     nationalStatusNote: item.nationalStatusNote,

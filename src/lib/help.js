@@ -12,6 +12,7 @@ const THREAT_ACTIONS = {
     'Pollution': 'plastic',
     'Plastic ingestion': 'plastic',
     'Climate change': 'climate',
+    'Sea ice loss': 'climate',
     'Prey depletion': 'climate',
     'Habitat loss': 'climate',
     'Disease': 'strandings',

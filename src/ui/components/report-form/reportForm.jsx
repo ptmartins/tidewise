@@ -7,7 +7,7 @@ import { Icon } from '@iconify/react';
 import { useUser } from '@clerk/nextjs';
 import { submitReport } from '@/app/[lang]/report/actions';
 import { BEHAVIOURS, PLATFORMS } from '@/lib/reportOptions';
-import { REGIONS } from '../species-explorer/options';
+import { OCEANS, REGIONS } from '../species-explorer/options';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 
 // "2026-10-22T14:05" in the visitor's own time zone, for <input type="datetime-local">
@@ -188,7 +188,12 @@ function ReportForm({ species }) {
                     <Field label={explorer.regionLabel} error={errorText('region')}>
                         <select name="region" defaultValue="" required>
                             <option value="" disabled>{t.choose}</option>
-                            {REGIONS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            <optgroup label={explorer.oceansLabel}>
+                                {OCEANS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            </optgroup>
+                            <optgroup label={explorer.featuredLabel}>
+                                {REGIONS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            </optgroup>
                         </select>
                     </Field>
 

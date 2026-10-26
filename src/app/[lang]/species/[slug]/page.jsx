@@ -20,6 +20,9 @@ const RECENT_REPORTS = 3;
 
 const IUCN_SCALE = ['LC', 'NT', 'VU', 'EN', 'CR', 'EW', 'EX'];
 
+// Drawn resting on land or ice, so the "swimming" float animation would look odd
+const HAULED_OUT = ['Seal', 'Sea lion & fur seal', 'Walrus', 'Otter', 'Polar bear'];
+
 const TREND_ICONS = {
     increasing: 'lucide:trending-up',
     stable: 'lucide:move-right',
@@ -61,13 +64,13 @@ export default async function SpeciesPage({ params }) {
 
     if (!species) notFound();
 
-    const { species: t, common, data, nav } = await getDictionary();
+    const { species: t, common, data, nav, explorer } = await getDictionary();
     const similar = await getSimilarSpecies(species.slug, locale);
     const recentReports = (await getReports(locale)).filter((report) => report.species.slug === species.slug).slice(0, RECENT_REPORTS);
     const helpActions = helpActionsFor(species.threats);
 
     const quickFacts = [
-        { icon: 'lucide:weight', label: t.weight, value: formatWeight(locale, species.weight) },
+        { icon: 'lucide:weight', label: t.weight, value: species.weight ? formatWeight(locale, species.weight) : t.unknown },
         { icon: 'lucide:ruler', label: t.length, value: formatRange(locale, species.length, 'm') },
         { icon: 'lucide:hourglass', label: t.lifespan, value: species.lifespan ? format(t.lifespanValue, { max: species.lifespan.max }) : t.unknown },
         { icon: 'lucide:globe', label: t.distribution, value: label(data.distribution, species.distributionShort) },
@@ -119,7 +122,7 @@ export default async function SpeciesPage({ params }) {
                                     width={species.mainImage.width}
                                     height={species.mainImage.height}
                                     sizes="(max-width: 900px) 100vw, 55vw"
-                                    className={`${styles.hero__image} ${species.category === 'Seal' ? styles['hero__image--static'] : ''}`}
+                                    className={`${styles.hero__image} ${HAULED_OUT.includes(species.category) ? styles['hero__image--static'] : ''}`}
                                     preload
                                     fetchPriority="high"
                                 />
@@ -182,17 +185,19 @@ export default async function SpeciesPage({ params }) {
                             </div>
                         </dl>
 
-                        <div className={styles.status__protection}>
-                            <span className={styles.label}>{t.protectedUnder}</span>
-                            <ul className={styles.chips}>
-                                {species.protectedUnder.map((item) => (
-                                    <li key={item}>
-                                        <Icon icon="lucide:shield-check" width="14" height="14" />
-                                        {label(data.protection, item)}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        {species.protectedUnder.length > 0 && (
+                            <div className={styles.status__protection}>
+                                <span className={styles.label}>{t.protectedUnder}</span>
+                                <ul className={styles.chips}>
+                                    {species.protectedUnder.map((item) => (
+                                        <li key={item}>
+                                            <Icon icon="lucide:shield-check" width="14" height="14" />
+                                            {label(data.protection, item)}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
 
                     <div className={styles.facts}>
@@ -231,14 +236,31 @@ export default async function SpeciesPage({ params }) {
 
                         <div className={styles.spotting}>
                             <h3 className={styles.spotting__title}>
+                                <Icon icon="lucide:globe" width="20" height="20" /> {t.whereInWorld}
+                            </h3>
+                            <ul className={styles.chips}>
+                                {species.oceans.map((ocean) => (
+                                    <li key={ocean}>{explorer.regions[ocean]}</li>
+                                ))}
+                            </ul>
+                            <p className={styles.spotting__text}>{label(data.distribution, species.distributionShort)}</p>
+                        </div>
+
+                        {/* Featured region: only for species recorded in Portugal */}
+                        {species.regionsInPortugal.length > 0 && (
+                        <div className={styles.spotting}>
+                            <h3 className={styles.spotting__title}>
                                 <Icon icon="lucide:binoculars" width="20" height="20" /> {t.whereToSpot}
                             </h3>
+                            <span className={styles.spotting__featured}>{t.featuredRegion}</span>
 
                             <ul className={styles.chips}>
                                 {species.regionsInPortugal.map((region) => (
                                     <li key={region}>{label(data.regions, region)}</li>
                                 ))}
                             </ul>
+
+                            {species.distributionInPortugal && <p className={styles.spotting__text}>{species.distributionInPortugal}</p>}
 
                             <dl className={styles.spotting__meta}>
                                 <div>
@@ -267,6 +289,7 @@ export default async function SpeciesPage({ params }) {
                                 ))}
                             </ol>
                         </div>
+                        )}
 
                         {species.sound && (
                             <figure className={styles.listen}>
@@ -300,7 +323,7 @@ export default async function SpeciesPage({ params }) {
                             >
                                 {body.map((paragraph, i) => <p key={i}>{paragraph}</p>)}
 
-                                {id === 'threats' && (
+                                {id === 'threats' && species.legalProtection.length > 0 && (
                                     <div className={styles.protection}>
                                         <span className={styles.label}>{t.legalProtection}</span>
                                         <ul>

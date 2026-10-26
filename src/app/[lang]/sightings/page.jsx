@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Icon } from "@iconify/react";
 import ReportFeed from "@/ui/components/report-feed/reportFeed";
 import SightingsMap from "@/ui/components/sightings-map/sightingsMap";
-import { REGIONS } from "@/ui/components/species-explorer/options";
+import { REPORT_REGIONS } from "@/ui/components/species-explorer/options";
 import { getReports } from "@/lib/data/reports";
 import { getDictionary, getLocale } from "@/i18n/getDictionary";
 import { format } from "@/i18n/format";
@@ -63,11 +63,14 @@ export default async function Sightings() {
         .sort((a, b) => b.value - a.value || a.name.localeCompare(b.name))
         .slice(0, TOP_SPECIES);
 
-    const regionCounts = REGIONS.map((region) => ({
+    // Only regions with reports, busiest first: with every ocean listed, most would be empty
+    const regionCounts = REPORT_REGIONS.map((region) => ({
         key: region,
         name: explorer.regions[region],
         value: reports.filter((report) => report.region === region).length,
-    }));
+    }))
+        .filter(({ value }) => value > 0)
+        .sort((a, b) => b.value - a.value);
 
     return (
         <>

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { Icon } from '@iconify/react';
 import ReportCard from '../report-card/reportCard';
-import { REGIONS } from '../species-explorer/options';
+import { OCEANS, REGIONS } from '../species-explorer/options';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 import { LOCALE_DETAILS } from '@/i18n/config';
 import { format, formatRich } from '@/i18n/format';
@@ -93,7 +93,12 @@ function ReportFeed({ reports }) {
                         <Icon icon="lucide:map-pin" width="18" height="18" />
                         <select value={region} onChange={(event) => update(setRegion)(event.target.value)}>
                             <option value="">{explorer.allRegions}</option>
-                            {REGIONS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            <optgroup label={explorer.oceansLabel}>
+                                {OCEANS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            </optgroup>
+                            <optgroup label={explorer.featuredLabel}>
+                                {REGIONS.map((value) => <option key={value} value={value}>{explorer.regions[value]}</option>)}
+                            </optgroup>
                         </select>
                         <Icon icon="lucide:chevron-down" width="16" height="16" className={styles.select__chevron} />
                     </label>

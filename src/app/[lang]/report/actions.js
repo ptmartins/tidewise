@@ -6,7 +6,7 @@ import { auth, currentUser } from '@clerk/nextjs/server'
 import { writeClient } from '../../../../sanity/lib/writeClient'
 import { BEHAVIOURS, PLATFORMS, REPORT_TYPES } from '@/lib/reportOptions'
 import { getAllSpeciesSlugs } from '@/lib/data/species'
-import { REGIONS } from '@/ui/components/species-explorer/options'
+import { REPORT_REGIONS } from '@/ui/components/species-explorer/options'
 import { hasLocale } from '@/i18n/config'
 
 const MAX_PHOTOS = 3
@@ -74,7 +74,7 @@ export async function submitReport(_previous, formData) {
   // Allow a day of slack for time zones, but nothing further in the future
   if (Number.isNaN(date.getTime()) || date.getTime() < EARLIEST || date.getTime() > Date.now() + 86_400_000) errors.date = 'invalid'
   if (location.length < 2) errors.location = 'required'
-  if (!REGIONS.includes(region)) errors.region = 'required'
+  if (!REPORT_REGIONS.includes(region)) errors.region = 'required'
   if (!Number.isInteger(count) || count < 1 || count > 10_000) errors.count = 'invalid'
   if (formData.get('consent') !== 'on') errors.consent = 'required'
 

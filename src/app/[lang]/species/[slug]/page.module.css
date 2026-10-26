@@ -426,6 +426,26 @@
     border: 1px solid var(--accent-muted);
     border-radius: var(--border-radius-l);
     padding: 1.5rem;
+
+    & + & {
+        margin-block-start: 1rem;
+    }
+}
+
+.spotting__featured {
+    color: var(--secondary-accent);
+    display: block;
+    font-size: .7rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    margin-block: -.75rem .75rem;
+    text-transform: uppercase;
+}
+
+.spotting__text {
+    color: var(--accent-faded);
+    font-size: .9rem;
+    margin-block-start: .75rem;
 }
 
 .spotting__title {

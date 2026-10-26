@@ -22,6 +22,8 @@ const SPECIES_QUERY = defineQuery(`*[_type == "species" && defined(slug.current)
   lifespan,
   "threats": coalesce(threats, []),
   distributionShort,
+  "oceans": coalesce(oceans, []),
+  distributionInPortugal,
   iucnStatus,
   nationalStatus,
   nationalStatusNote,

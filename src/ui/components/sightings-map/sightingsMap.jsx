@@ -7,9 +7,9 @@ import { Icon } from '@iconify/react';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 import { LOCALE_DETAILS } from '@/i18n/config';
 
-// Rough bounds of each area, for the zoom buttons
+// Rough bounds of each area, for the zoom buttons: the whole world, then the featured region
 const VIEWS = {
-    all: [[32.2, -31.5], [42.3, -6]],
+    all: [[-60, -170], [75, 170]],
     mainland: [[36.8, -10], [42.2, -6.1]],
     azores: [[36.8, -31.5], [39.8, -24.8]],
     madeira: [[32.3, -17.4], [33.2, -16.2]],

@@ -34,6 +34,27 @@ export const cetaceanClassification = ({ parvorder, family, genus, species }) =>
   { rank: 'Species', name: species, italic: true },
 ]
 
+export const sirenianClassification = ({ family, genus, species }) => [
+  { rank: 'Kingdom', name: 'Animalia' },
+  { rank: 'Phylum', name: 'Chordata' },
+  { rank: 'Class', name: 'Mammalia' },
+  { rank: 'Order', name: 'Sirenia' },
+  { rank: 'Family', name: family },
+  { rank: 'Genus', name: genus, italic: true },
+  { rank: 'Species', name: species, italic: true },
+]
+
+// Otters and the polar bear: carnivorans outside the pinnipeds
+export const carnivoranClassification = ({ family, genus, species }) => [
+  { rank: 'Kingdom', name: 'Animalia' },
+  { rank: 'Phylum', name: 'Chordata' },
+  { rank: 'Class', name: 'Mammalia' },
+  { rank: 'Order', name: 'Carnivora' },
+  { rank: 'Family', name: family },
+  { rank: 'Genus', name: genus, italic: true },
+  { rank: 'Species', name: species, italic: true },
+]
+
 export const pinnipedClassification = ({ family, genus, species }) => [
   { rank: 'Kingdom', name: 'Animalia' },
   { rank: 'Phylum', name: 'Chordata' },

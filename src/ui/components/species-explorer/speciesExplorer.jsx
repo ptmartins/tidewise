@@ -4,7 +4,7 @@ import styles from './speciesExplorer.module.css';
 import { useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import SpeciesCard from '../species-card/speciesCard';
-import { GROUPS, REGIONS, IUCN_ORDER, PRESENCE, SIGHTINGS, SIZES, TRENDS, SORTS } from './options';
+import { GROUPS, OCEANS, REGIONS, IUCN_ORDER, PRESENCE, SIGHTINGS, SIZES, TRENDS, SORTS, bySightings } from './options';
 import { useDictionary, useLocale } from '@/i18n/I18nProvider';
 import { LOCALE_DETAILS } from '@/i18n/config';
 import { format, formatRich } from '@/i18n/format';
@@ -29,7 +29,7 @@ const matchScore = (species, query) => {
 
 const makeSorters = (byName) => ({
     // Easiest to spot first, so the default view leads with what people are likely to see
-    relevant: (a, b) => a.score - b.score || SIGHTINGS.indexOf(a.sightingFrequency) - SIGHTINGS.indexOf(b.sightingFrequency) || byName(a, b),
+    relevant: (a, b) => a.score - b.score || bySightings(a, b) || byName(a, b),
     'name-asc': byName,
     'name-desc': (a, b) => byName(b, a),
     'size-desc': (a, b) => b.length - a.length || byName(a, b),
@@ -115,7 +115,7 @@ function SpeciesExplorer({ species }) {
         .filter((item) =>
             item.score !== null &&
             (!group || item.category === group) &&
-            (!region || item.regions.includes(region)) &&
+            (!region || (REGIONS.includes(region) ? item.regions : item.oceans).includes(region)) &&
             FILTER_GROUPS.every(({ key, test }) => filters[key].length === 0 || test(item, filters[key]))
         )
         .sort(SORTERS[sort]);
@@ -170,7 +170,12 @@ function SpeciesExplorer({ species }) {
                     <Icon icon="lucide:map-pin" width="18" height="18" />
                     <select value={region} onChange={(event) => update(setRegion)(event.target.value)}>
                         <option value="">{t.allRegions}</option>
-                        {REGIONS.map((value) => <option key={value} value={value}>{t.regions[value]}</option>)}
+                        <optgroup label={t.oceansLabel}>
+                            {OCEANS.map((value) => <option key={value} value={value}>{t.regions[value]}</option>)}
+                        </optgroup>
+                        <optgroup label={t.featuredLabel}>
+                            {REGIONS.map((value) => <option key={value} value={value}>{t.regions[value]}</option>)}
+                        </optgroup>
                     </select>
                     <Icon icon="lucide:chevron-down" width="16" height="16" className={styles.select__chevron} />
                 </label>
