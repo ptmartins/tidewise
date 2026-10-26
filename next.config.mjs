@@ -22,6 +22,8 @@ const SITE_CSP = [
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: https://cdn.sanity.io https://img.clerk.com https://tile.openstreetmap.org`,
   "font-src 'self'",
+  // Species sound recordings are served from Sanity's asset CDN
+  "media-src 'self' https://cdn.sanity.io",
   // clerk-telemetry.com: Clerk's development instances send usage telemetry
   `connect-src 'self' ${clerk} https://clerk-telemetry.com ${iconify}`,
   "frame-src https://challenges.cloudflare.com",

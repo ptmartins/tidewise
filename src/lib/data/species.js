@@ -41,7 +41,7 @@ const SPECIES_QUERY = defineQuery(`*[_type == "species" && defined(slug.current)
   "classification": coalesce(classification[]{ rank, name, italic }, []),
   "mainImage": mainImage${IMAGE},
   "thumbnail": thumbnail${IMAGE},
-  "sound": sound{ description, credit, license, sourceUrl, "src": asset->url, "mimeType": asset->mimeType },
+  "sound": sound{ description, credit, license, sourceUrl, "src": asset->url },
   "similar": coalesce(similarSpecies[].species->slug.current, [])
 }`);
 
