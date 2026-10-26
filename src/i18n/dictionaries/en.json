@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "WhaleTale",
-    "description": "A simple app to grow your knowledge of marine mammal species in Portuguese waters, report sightings and strandings."
+    "description": "A field guide to all the world’s marine mammals: learn about every species, report sightings and strandings, and help protect them."
   },
   "nav": {
     "explore": "Explore",
@@ -70,23 +70,23 @@
       "imageAlt": "A whale breaching the ocean surface",
       "tag": "Explore the ocean",
       "title": "Meet the life",
-      "titleHighlight": "of our Atlantic coast",
-      "subtitle": "Learn about the species that inhabit our waters, report sightings and strandings, and contribute to conservation efforts.",
+      "titleHighlight": "of the world’s oceans",
+      "subtitle": "Discover every marine mammal on Earth — whales, dolphins, seals, sea lions, sea cows, otters and the polar bear — report what you see and help protect them.",
       "cta": "Explore species",
       "identify": "What did I see?"
     },
     "stats": {
       "label": "WhaleTale in numbers",
-      "species": "Marine mammal species recorded in Portugal",
+      "species": "Living marine mammal species",
       "threatened": "Globally threatened on the IUCN Red List",
-      "resident": "Live in our waters year-round",
+      "resident": "Recorded in Portugal, our featured region",
       "remark": "Built from peer-reviewed research and field observations"
     },
     "explorer": {
       "tag": "Species explorer",
       "title": "Find a",
       "titleHighlight": "species",
-      "intro": "Search the whales, dolphins, porpoises and seals recorded along our coast and around the islands."
+      "intro": "Search the whales, dolphins, porpoises, seals, sea lions, sea cows and otters of the world’s oceans and rivers."
     },
     "knowledge": {
       "tag": "Go deeper",
@@ -104,10 +104,10 @@
       "intro": "Every observation adds to our shared understanding. Report what you see, from a breaching whale to a seal on the shore."
     },
     "season": {
-      "tag": "In season now",
+      "tag": "Featured region: Portugal",
       "title": "Who’s around",
       "titleHighlight": "in {month}",
-      "intro": "The species you’re most likely to meet along our coast and around the islands this month.",
+      "intro": "The species you’re most likely to meet in Portuguese waters this month.",
       "all": "See all {count} species",
       "calendar": "Seasonal calendar"
     }
@@ -127,7 +127,7 @@
     "sourcesTitle": "Sources and further reading",
     "sourcesIntro": "Key reference works and peer-reviewed studies behind this page.",
     "ctaTitle": "Seen something at sea?",
-    "ctaText": "Your sightings and stranding reports help researchers understand and protect marine mammals along our coast.",
+    "ctaText": "Your sightings and stranding reports help researchers understand and protect marine mammals around the world.",
     "chaptersLabel": "Chapters",
     "chapterMetaTitle": "{chapter} · {site}",
     "breadcrumb": "Breadcrumb",
@@ -148,7 +148,7 @@
     "tag": "Resources",
     "title": "Useful links for",
     "titleHighlight": "ocean watchers",
-    "intro": "A curated collection of networks, research, field guides and organisations working for marine mammals along our coast.",
+    "intro": "A curated collection of networks, research, field guides and organisations working for marine mammals.",
     "jumpLabel": "Jump to a category",
     "categories": {
       "rescue": {
@@ -181,7 +181,7 @@
     "tag": "Field reports",
     "title": "Latest from",
     "titleHighlight": "the water",
-    "intro": "Sightings and strandings shared by people along our coast and around the islands. Every report is checked before it joins the record.",
+    "intro": "Sightings and strandings shared by people around the world. Every report is checked before it joins the record.",
     "notice": "Only verified reports are shown. New reports appear here once our team has checked them.",
     "stats": {
       "label": "Field reports in numbers",
@@ -290,18 +290,20 @@
     "deadTitle": "Is the animal already dead?",
     "deadText": "Report it anyway. Dead animals tell scientists a great deal about the health, diet and threats facing the population.",
     "networksTitle": "Stranding networks",
-    "networksIntro": "Trained teams who respond to strandings and study the animals they find.",
+    "networksIntro": "Trained teams who respond to strandings and study the animals they find. Wherever you are, the international networks below can point you to local responders.",
     "noNetworks": "Call {number} or the Polícia Marítima — they will alert the regional team.",
     "networksLink": "All rescue and stranding networks",
     "ctaTitle": "Help has been called?",
-    "ctaText": "Add a report on WhaleTale too, so the record isn’t lost."
+    "ctaText": "Add a report on WhaleTale too, so the record isn’t lost.",
+    "international": "Worldwide",
+    "inPortugal": "Portugal — {region}"
   },
   "report": {
     "metaTitle": "Report · {site}",
     "tag": "Report",
     "title": "Share what",
     "titleHighlight": "you’ve seen",
-    "intro": "Every record — a passing dolphin, a whale on the horizon, a seal on the beach — helps researchers understand which animals use our waters, where and when.",
+    "intro": "Every record — a passing dolphin, a whale on the horizon, a seal on the beach — helps researchers understand which animals use which waters, where and when.",
     "notice": "The online report form is coming soon. In the meantime, keep your notes and photos: every record counts.",
     "sightingTitle": "A sighting at sea or from shore",
     "sightingText": "What to note, so your record is as useful as possible:",
@@ -348,7 +350,7 @@
       "choose": "Choose…",
       "location": "Location",
       "locationHint": "A place name, beach or landmark.",
-      "locationPlaceholder": "e.g. 3 nm off Cabo Espichel",
+      "locationPlaceholder": "e.g. 3 nm off the harbour entrance",
       "position": "Coordinates (optional)",
       "lat": "Latitude",
       "lng": "Longitude",
@@ -406,7 +408,7 @@
     "tag": "About",
     "title": "A field guide",
     "titleHighlight": "for a living ocean",
-    "intro": "WhaleTale brings together the science of the whales, dolphins, porpoises and seals of Portuguese waters — from the mainland coast to the Azores and Madeira — and invites everyone to help study them.",
+    "intro": "WhaleTale brings together the science of all the world’s marine mammals — whales, dolphins, porpoises, seals, sea lions, the walrus, sea cows, otters and the polar bear — and invites everyone to help study them. Portugal, where the project began, is our featured region.",
     "jumpLabel": "Jump to a section",
     "missionNav": "Mission",
     "mission": [
@@ -418,7 +420,7 @@
       {
         "icon": "lucide:binoculars",
         "title": "Observe",
-        "text": "Species profiles and field tips to help you recognise what you see, and where and when to look."
+        "text": "Profiles of every living marine mammal species, with field tips to help you recognise what you see."
       },
       {
         "icon": "lucide:send",
@@ -430,7 +432,7 @@
     "methodologyTitle": "How we work",
     "methodologyIntro": "Trust is everything for a science resource. These are the rules we hold ourselves to.",
     "methodology": [
-      "Facts come from peer-reviewed research and standard references, such as the IUCN Red List and the Portuguese Red Book of Mammals.",
+      "Facts come from peer-reviewed research and standard references, such as the IUCN Red List and the Society for Marine Mammalogy’s list of species.",
       "Where studies disagree, we give ranges or rounded values rather than a single, falsely precise figure.",
       "Every page lists the sources behind it.",
       "Field reports are checked before they join the record.",
@@ -463,16 +465,16 @@
     "tag": "Species explorer",
     "title": "Find a",
     "titleHighlight": "species",
-    "intro": "Search and filter the {count} whales, dolphins, porpoises and seals recorded along our coast and around the islands.",
+    "intro": "Search and filter all {count} living marine mammal species, from the great whales to the tiny marine otter.",
     "identify": "Not sure what you saw? Try the identification helper"
   },
   "where": {
     "metaTitle": "Where & when · {site}",
     "regionMetaTitle": "{region} · {site}",
-    "tag": "Where & when",
+    "tag": "Featured region",
     "title": "Where and when",
     "titleHighlight": "to look",
-    "intro": "Portugal’s waters stretch from the mainland coast to two Atlantic archipelagos. Each has its own residents, visitors and seasons.",
+    "intro": "Our featured region is Portugal, where WhaleTale began. Its waters stretch from the mainland coast to two Atlantic archipelagos, each with its own residents, visitors and seasons.",
     "breadcrumb": "Breadcrumb",
     "regionsLabel": "Regions",
     "regionLink": "Explore {count} species",
@@ -636,12 +638,15 @@
     "tag": "Identification helper",
     "title": "What did",
     "titleHighlight": "I see?",
-    "intro": "Answer a few questions about your encounter and we’ll suggest the most likely species, starting with those in season.",
+    "intro": "Answer a few questions about your encounter and we’ll suggest the most likely species.",
     "shapeQuestion": "What did it look like?",
     "shapes": {
       "whale": "A whale",
       "dolphin": "A dolphin or porpoise",
-      "seal": "A seal"
+      "seal": "A seal, sea lion or walrus",
+      "seacow": "A manatee or dugong",
+      "otter": "An otter",
+      "bear": "A polar bear"
     },
     "sizeQuestion": "Roughly how long?",
     "regionQuestion": "Where were you?",
@@ -650,11 +655,12 @@
     "start": "Start by telling us what it looked like.",
     "resultsTitle": "Most likely species",
     "noResults": "No species match these answers. Try “Not sure” for one of them.",
-    "resultsHint": "Species in season come first, then the most commonly seen.",
+    "resultsHint": "The most commonly seen species come first. In Portugal, species in season are listed first.",
     "inSeason": "In season",
     "outOfSeason": "Less likely this month",
     "nextStep": "Found it?",
-    "reportLink": "Report your sighting"
+    "reportLink": "Report your sighting",
+    "featuredRegion": "Portugal — {region}"
   },
   "notFound": {
     "error": "Error: 404",
@@ -687,15 +693,24 @@
     "filters": {
       "status": "Conservation status",
       "statusHint": "IUCN Red List, global",
-      "presence": "Presence in Portuguese waters",
-      "sightings": "How often it’s seen",
+      "presence": "Presence in Portugal",
+      "sightings": "How often it’s seen in Portugal",
       "size": "Adult size",
       "trend": "Population trend"
     },
     "regions": {
       "mainland": "Mainland coast",
       "azores": "Azores",
-      "madeira": "Madeira"
+      "madeira": "Madeira",
+      "north-atlantic": "North Atlantic",
+      "south-atlantic": "South Atlantic",
+      "mediterranean": "Mediterranean & Black Sea",
+      "north-pacific": "North Pacific",
+      "south-pacific": "South Pacific",
+      "indian": "Indian Ocean",
+      "arctic": "Arctic",
+      "southern": "Southern Ocean",
+      "freshwater": "Rivers & lakes"
     },
     "presence": {
       "Resident (year-round)": "Resident",
@@ -715,7 +730,9 @@
       "size-desc": "Size, largest first",
       "size-asc": "Size, smallest first",
       "threat": "Most threatened"
-    }
+    },
+    "oceansLabel": "Oceans & rivers",
+    "featuredLabel": "Featured region: Portugal"
   },
   "species": {
     "metaTitle": "{name} ({scientificName}) · WhaleTale",
@@ -742,7 +759,7 @@
     "guideTitle": "Get to know",
     "guideHighlight": "the {shortName}",
     "guideIntro": "Everything you need to recognise, understand and help protect this species.",
-    "whereToSpot": "Where to spot it",
+    "whereToSpot": "In Portugal",
     "presence": "Presence",
     "sightings": "Sightings",
     "bestMonths": "Best months",
@@ -758,7 +775,7 @@
     "legalProtection": "Legal protection",
     "classification": "Scientific classification",
     "ctaTitle": "Spotted {nameWithArticle}?",
-    "ctaText": "Every record helps researchers track populations along our coast.",
+    "ctaText": "Every record helps researchers track populations around the world.",
     "help": {
       "title": "How you can help",
       "intro": "Practical things anyone can do about the threats this species faces.",
@@ -789,7 +806,7 @@
         },
         "report": {
           "title": "Share your sightings",
-          "text": "Every record helps researchers follow this species along our coast and around the islands."
+          "text": "Every record helps researchers follow this species wherever it lives."
         }
       }
     },
@@ -798,9 +815,11 @@
     "recentTitle": "Recent sightings",
     "allReports": "All field reports",
     "sourcesTitle": "Sources & review",
-    "sourcesText": "This profile is compiled from the IUCN Red List, the Portuguese Red Book of Mammals and the peer-reviewed literature.",
+    "sourcesText": "This profile is compiled from the IUCN Red List, the Society for Marine Mammalogy’s list of species and the peer-reviewed literature.",
     "sourcesMethodology": "How we work",
-    "sourcesError": "Spotted an error?"
+    "sourcesError": "Spotted an error?",
+    "whereInWorld": "Where in the world",
+    "featuredRegion": "Featured region"
   },
   "data": {
     "iucn": {
@@ -819,14 +838,26 @@
       "Toothed whale": "Toothed whale",
       "Dolphin": "Dolphin",
       "Porpoise": "Porpoise",
-      "Seal": "Seal"
+      "Seal": "Seal",
+      "River dolphin": "River dolphin",
+      "Sea lion & fur seal": "Sea lion or fur seal",
+      "Walrus": "Walrus",
+      "Sirenian": "Sea cow",
+      "Otter": "Otter",
+      "Polar bear": "Polar bear"
     },
     "groupsPlural": {
       "Baleen whale": "Baleen whales",
       "Toothed whale": "Toothed whales",
       "Dolphin": "Dolphins",
       "Porpoise": "Porpoises",
-      "Seal": "Seals"
+      "Seal": "Seals",
+      "River dolphin": "River dolphins",
+      "Sea lion & fur seal": "Sea lions & fur seals",
+      "Walrus": "Walrus",
+      "Sirenian": "Manatees & dugong",
+      "Otter": "Otters",
+      "Polar bear": "Polar bear"
     },
     "trends": {
       "increasing": "Increasing",

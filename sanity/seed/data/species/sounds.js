@@ -47,6 +47,7 @@ export const sounds = {
   'sperm-whale': nefsc('sperm-whale', 'Phma_clicks_NOAA_PAGroup_01', 'Sperm whale echolocation clicks, the loudest sounds made by any animal.'),
   'cuviers-beaked-whale': nefsc('cuviers-beaked-whale', 'Zica_clicks_NOAA_PAGroup_01', 'Echolocation clicks of a Cuvier’s beaked whale hunting at depth. Slowed to 0.3× speed and filtered, as the clicks are mostly too high for human ears.'),
   'trues-beaked-whale': nefsc('trues-beaked-whale', 'Memi_Multisound_NOAA_PAGroup_01', 'Sounds of a True’s beaked whale, one of the least-known whales. Slowed to 0.25× speed so that they can be heard.'),
+  beluga: nefsc('beluga', 'Dele_multisound_NOAA_Castellote_01', 'The whistles, chirps and clicks that earned the beluga its nickname, the “sea canary”.'),
 
   // Dolphins
   'bottlenose-dolphin': nefsc('bottlenose-dolphin', 'Tutr_multisound_NOAA_PAGroup_03', 'A mix of bottlenose dolphin whistles and clicks.'),
@@ -54,6 +55,9 @@ export const sounds = {
   'striped-dolphin': nefsc('striped-dolphin', 'Stco_Multisound_NOAA_PAGroup_01', 'A mix of striped dolphin sounds.'),
   'atlantic-spotted-dolphin': nefsc('atlantic-spotted-dolphin', 'Stfr_Multisound_NOAA_PAGroup_01', 'A mix of Atlantic spotted dolphin sounds.'),
   'rissos-dolphin': nefsc('rissos-dolphin', 'Grgr_clicks_NOAA_PAGroup_08', 'Echolocation clicks of Risso’s dolphins.'),
+  'atlantic-white-sided-dolphin': nefsc('atlantic-white-sided-dolphin', 'Laac_whistles_NOAA_PAGroup_01', 'Whistles of Atlantic white-sided dolphins.'),
+  'white-beaked-dolphin': nefsc('white-beaked-dolphin', 'Laal_multisound_NOAA_PAGroup_01', 'A mix of white-beaked dolphin sounds.'),
+  'indo-pacific-humpback-dolphin': nefsc('indo-pacific-humpback-dolphin', 'Soch_clicks_NOAA_PAGroup_01', 'Echolocation clicks of humpback dolphins (genus Sousa).'),
   'long-finned-pilot-whale': PILOT_WHALE,
   'short-finned-pilot-whale': PILOT_WHALE,
 

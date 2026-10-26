@@ -105,7 +105,7 @@ export default async function Stranding() {
                     <div className={styles.grid}>
                         {regions.map(({ id, networks }) => (
                             <div key={id} className={styles.card}>
-                                <h3>{explorer.regions[id]}</h3>
+                                <h3>{id === 'international' ? t.international : format(t.inPortugal, { region: explorer.regions[id] })}</h3>
                                 {networks.length > 0 ? (
                                     <ul className={styles.networks}>
                                         {networks.map(({ id: networkId, title, href }) => (

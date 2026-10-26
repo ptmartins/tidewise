@@ -32,10 +32,11 @@ export async function getLinkCategories() {
         .filter(({ links }) => links.length > 0);
 }
 
-// Rescue networks per region, for /stranding (resources with category "rescue" and a region)
+// Rescue networks per region, for /stranding (resources with category "rescue" and a region):
+// international networks first, then the featured region's areas
 export async function getStrandingRegions() {
     const resources = await fetchResources();
-    return REGIONS.map((id) => ({
+    return ['international', ...REGIONS].map((id) => ({
         id,
         networks: resources.filter((resource) => resource.category === 'rescue' && resource.region === id),
     }));

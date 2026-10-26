@@ -299,14 +299,12 @@ export const en = {
                 'Coastal peoples around the world have hunted marine mammals for thousands of years. Commercial whaling began in earnest with the Basques, who hunted right whales in the Bay of Biscay from at least the 11th century and later crossed the Atlantic to Labrador. From the 18th century, American whalers pursued sperm whales across the world for the fine oil used in lamps, candles and lubricants.',
                 'The scale changed with industrialisation. Steam-powered catcher boats, the explosive harpoon cannon developed in the 1860s, and from the 1920s factory ships able to process whales at sea opened the remote Southern Ocean to whalers. Around 2.9 million large whales were killed in the 20th century alone — probably the largest hunt of any animal, by biomass, in human history. Antarctic blue whales fell to a few hundred individuals, well under 1% of their original numbers.',
                 'The International Whaling Commission (IWC), created in 1946, finally adopted a moratorium on commercial whaling in 1982, which came into effect from the 1985/86 season. Limited whaling continues under objections or reservations (Norway and Iceland), under scientific permits (historically), outside the IWC (Japan since 2019), and for aboriginal subsistence.',
-                { type: 'h3', text: 'Whaling in Portugal' },
-                'Open-boat whaling was introduced to the Azores in the 19th century by American whaling ships, many of which recruited Azorean crews. Islanders went on to hunt sperm whales from the shore in small, fast boats with hand-thrown harpoons, guided by lookouts (*vigias*) on the cliffs. The last whale was killed in the Azores in 1987. In Madeira, a whaling station at Caniçal operated until 1981 and is now remembered in the Whale Museum (*Museu da Baleia*). Today, many of the old *vigias* serve the whale-watching industry instead.',
                 { type: 'h3', text: 'Sealing and extinctions' },
                 'Fur seals, elephant seals and sea otters were hunted for their fur and oil, in many cases to the edge of extinction. Some species were lost forever. Steller\'s sea cow, a giant sirenian up to 8 m long, was described by Western science in 1741 and hunted to extinction by around 1768. The Caribbean monk seal was last reliably seen in 1952, and the Japanese sea lion disappeared in the second half of the 20th century. The baiji, or Yangtze River dolphin, was declared functionally extinct after a survey in 2006 — the first cetacean lost to human activity in modern times.',
                 {
                     type: 'callout',
-                    title: 'A town named after seals',
-                    text: 'When Portuguese navigators reached Madeira in the early 15th century, they found a bay full of Mediterranean monk seals — known in Portuguese as *lobos-marinhos*, or "sea wolves". The town of Câmara de Lobos still bears their name. The seals were hunted almost to extinction there, but a small colony has survived on the nearby Desertas Islands.',
+                    title: 'The first wildlife treaty',
+                    text: 'By 1910, commercial sealing had reduced the northern fur seals of the Pribilof Islands from millions to a few hundred thousand. In 1911, the United States, Britain (for Canada), Japan and Russia signed the North Pacific Fur Seal Convention to stop the slaughter — the first international treaty to protect wildlife.',
                 },
             ],
         },
@@ -335,7 +333,7 @@ export const en = {
                         {
                             icon: 'lucide:scale',
                             title: 'Legal protection',
-                            text: 'International agreements include CITES (trade), the Convention on Migratory Species and its regional agreements ASCOBANS and ACCOBAMS, and the Bern Convention. In the EU, every cetacean species is strictly protected under the Habitats Directive.',
+                            text: 'International agreements include CITES (trade), the Convention on Migratory Species and its regional agreements ASCOBANS and ACCOBAMS, and the Bern Convention. In the EU, every cetacean species is strictly protected under the Habitats Directive, and in the United States all marine mammals are protected by the Marine Mammal Protection Act of 1972.',
                         },
                         {
                             icon: 'lucide:map',
@@ -359,9 +357,9 @@ export const en = {
         {
             id: 'portugal',
             icon: 'lucide:map-pin',
-            nav: 'In Portugal',
-            title: 'Marine mammals of Portugal',
-            lede: 'Portugal\'s Exclusive Economic Zone covers around 1.7 million km² of the North Atlantic — one of the largest in Europe — and includes some of the best places in the world to see whales and dolphins.',
+            nav: 'Featured region: Portugal',
+            title: 'Featured region: Portugal',
+            lede: 'WhaleTale began in Portugal, our featured region. Its Exclusive Economic Zone covers around 1.7 million km² of the North Atlantic — one of the largest in Europe — and includes some of the best places in the world to see whales and dolphins.',
             blocks: [
                 'More than two dozen cetacean species have been recorded in Portuguese waters, from the deep, oceanic waters around the Azores and Madeira to the productive continental shelf of the mainland, with its upwelling of cold, nutrient-rich water. Several seal species also turn up occasionally.',
                 {
@@ -386,6 +384,13 @@ export const en = {
                 },
                 'Since 2020, killer whales from the small Iberian subpopulation, which is listed as Critically Endangered on the IUCN Red List and specialises in hunting bluefin tuna, have been interacting with the rudders of sailing boats along the Iberian coast, including off Portugal. The cause of this new behaviour is not yet understood; scientists consider it unlikely to be aggressive in intent and stress that these animals need protection.',
                 'In mainland Portugal, whale and dolphin watching is regulated by Decree-Law no. 9/2006, which sets out how boats must approach and behave around cetaceans, while the Azores and Madeira have their own regional rules.',
+                { type: 'h3', text: 'Whaling in Portugal' },
+                'Open-boat whaling was introduced to the Azores in the 19th century by American whaling ships, many of which recruited Azorean crews. Islanders went on to hunt sperm whales from the shore in small, fast boats with hand-thrown harpoons, guided by lookouts (*vigias*) on the cliffs. The last whale was killed in the Azores in 1987. In Madeira, a whaling station at Caniçal operated until 1981 and is now remembered in the Whale Museum (*Museu da Baleia*). Today, many of the old *vigias* serve the whale-watching industry instead.',
+                {
+                    type: 'callout',
+                    title: 'A town named after seals',
+                    text: 'When Portuguese navigators reached Madeira in the early 15th century, they found a bay full of Mediterranean monk seals — known in Portuguese as *lobos-marinhos*, or "sea wolves". The town of Câmara de Lobos still bears their name. The seals were hunted almost to extinction there, but a small colony has survived on the nearby Desertas Islands.',
+                },
             ],
         },
         {
@@ -401,7 +406,7 @@ export const en = {
                     items: [
                         'Keep a safe distance and keep people and dogs away. Marine mammals can bite and carry diseases that can pass to humans and pets.',
                         'Do not push the animal back into the sea: it may be sick or injured, and will often strand again.',
-                        'Call your local stranding network or the maritime authorities as soon as possible (in Portugal, the stranding hotline +351 968 849 101 or the Maritime Police). Note the location, species if known, size and condition.',
+                        'Call your local stranding network, coastguard or maritime authorities as soon as possible — our stranding page lists networks around the world. Note the location, species if known, size and condition.',
                         'Take photos from a distance, as these help experts to assess the situation.',
                         'Seal pups resting alone on a beach are often not abandoned: the mother may be feeding nearby. Leave them undisturbed and report them.',
                     ],

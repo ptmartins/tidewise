@@ -28,7 +28,7 @@ export default async function Home() {
     const stats = [
         { value: species.length, label: home.stats.species },
         { value: species.filter(({ iucnStatus }) => THREATENED.includes(iucnStatus)).length, label: home.stats.threatened },
-        { value: species.filter(({ residency }) => residency === 'Resident (year-round)').length, label: home.stats.resident },
+        { value: species.filter(({ regionsInPortugal }) => regionsInPortugal.length > 0).length, label: home.stats.resident },
     ];
 
     return (

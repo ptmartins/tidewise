@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "WhaleTale",
-    "description": "Uma aplicação simples para conhecer melhor as espécies de mamíferos marinhos das águas portuguesas e registar avistamentos e arrojamentos."
+    "description": "Um guia de campo de todos os mamíferos marinhos do mundo: conheça cada espécie, registe avistamentos e arrojamentos e ajude a protegê-los."
   },
   "nav": {
     "explore": "Explorar",
@@ -70,23 +70,23 @@
       "imageAlt": "Uma baleia a saltar à superfície do oceano",
       "tag": "Explore o oceano",
       "title": "Conheça a vida",
-      "titleHighlight": "da nossa costa atlântica",
-      "subtitle": "Fique a conhecer as espécies que habitam as nossas águas, registe avistamentos e arrojamentos e contribua para a sua conservação.",
+      "titleHighlight": "dos oceanos do mundo",
+      "subtitle": "Descubra todos os mamíferos marinhos da Terra — baleias, golfinhos, focas, leões-marinhos, sirénios, lontras e o urso-polar — registe o que vê e ajude a protegê-los.",
       "cta": "Explorar espécies",
       "identify": "O que é que vi?"
     },
     "stats": {
       "label": "O WhaleTale em números",
-      "species": "Espécies de mamíferos marinhos registadas em Portugal",
+      "species": "Espécies vivas de mamíferos marinhos",
       "threatened": "Ameaçadas a nível global na Lista Vermelha da UICN",
-      "resident": "Vivem nas nossas águas durante todo o ano",
+      "resident": "Registadas em Portugal, a nossa região em destaque",
       "remark": "Baseado em investigação científica revista por pares e em observações de campo"
     },
     "explorer": {
       "tag": "Explorador de espécies",
       "title": "Encontre uma",
       "titleHighlight": "espécie",
-      "intro": "Pesquise as baleias, golfinhos, botos e focas registados ao longo da nossa costa e em redor das ilhas."
+      "intro": "Pesquise as baleias, golfinhos, botos, focas, leões-marinhos, sirénios e lontras dos oceanos e rios do mundo."
     },
     "knowledge": {
       "tag": "Saiba mais",
@@ -104,10 +104,10 @@
       "intro": "Cada observação contribui para o nosso conhecimento comum. Registe o que vê, de uma baleia a saltar a uma foca na praia."
     },
     "season": {
-      "tag": "Nesta época",
+      "tag": "Região em destaque: Portugal",
       "title": "Quem anda por cá",
       "titleHighlight": "em {month}",
-      "intro": "As espécies que tem mais hipóteses de encontrar na nossa costa e nas ilhas este mês.",
+      "intro": "As espécies que tem mais probabilidade de encontrar em águas portuguesas este mês.",
       "all": "Ver as {count} espécies",
       "calendar": "Calendário sazonal"
     }
@@ -127,7 +127,7 @@
     "sourcesTitle": "Fontes e leituras adicionais",
     "sourcesIntro": "As principais obras de referência e estudos revistos por pares em que esta página se baseia.",
     "ctaTitle": "Viu algo no mar?",
-    "ctaText": "Os seus registos de avistamentos e arrojamentos ajudam os investigadores a compreender e proteger os mamíferos marinhos da nossa costa.",
+    "ctaText": "Os seus registos de avistamentos e arrojamentos ajudam os investigadores a compreender e proteger os mamíferos marinhos em todo o mundo.",
     "chaptersLabel": "Capítulos",
     "chapterMetaTitle": "{chapter} · {site}",
     "breadcrumb": "Navegação estrutural",
@@ -148,7 +148,7 @@
     "tag": "Recursos",
     "title": "Links úteis para",
     "titleHighlight": "observadores do oceano",
-    "intro": "Uma seleção de redes, investigação, guias de campo e organizações que trabalham pelos mamíferos marinhos da nossa costa.",
+    "intro": "Uma seleção de redes, investigação, guias de campo e organizações que trabalham pelos mamíferos marinhos.",
     "jumpLabel": "Ir para uma categoria",
     "categories": {
       "rescue": {
@@ -181,7 +181,7 @@
     "tag": "Registos de campo",
     "title": "O mais recente",
     "titleHighlight": "do mar",
-    "intro": "Avistamentos e arrojamentos partilhados por quem está na nossa costa e nas ilhas. Cada registo é verificado antes de entrar na base de dados.",
+    "intro": "Avistamentos e arrojamentos partilhados por pessoas de todo o mundo. Cada registo é verificado antes de entrar no arquivo.",
     "notice": "Só são mostrados registos verificados. Os novos registos aparecem aqui depois de verificados pela nossa equipa.",
     "stats": {
       "label": "Registos de campo em números",
@@ -290,18 +290,20 @@
     "deadTitle": "O animal já está morto?",
     "deadText": "Registe-o na mesma. Os animais mortos dizem muito aos cientistas sobre a saúde, a dieta e as ameaças que a população enfrenta.",
     "networksTitle": "Redes de arrojamentos",
-    "networksIntro": "Equipas especializadas que respondem a arrojamentos e estudam os animais que encontram.",
+    "networksIntro": "Equipas treinadas que respondem a arrojamentos e estudam os animais que encontram. Onde quer que esteja, as redes internacionais abaixo podem indicar-lhe quem responde na sua zona.",
     "noNetworks": "Ligue {number} ou para a Polícia Marítima — eles alertam a equipa regional.",
     "networksLink": "Todas as redes de resgate e arrojamentos",
     "ctaTitle": "Já pediu ajuda?",
-    "ctaText": "Registe também a ocorrência no WhaleTale, para que o registo não se perca."
+    "ctaText": "Registe também a ocorrência no WhaleTale, para que o registo não se perca.",
+    "international": "Em todo o mundo",
+    "inPortugal": "Portugal — {region}"
   },
   "report": {
     "metaTitle": "Registar · {site}",
     "tag": "Registar",
     "title": "Partilhe o que",
     "titleHighlight": "viu",
-    "intro": "Cada registo — um golfinho de passagem, uma baleia no horizonte, uma foca na praia — ajuda os investigadores a perceber que animais usam as nossas águas, onde e quando.",
+    "intro": "Cada registo — um golfinho de passagem, uma baleia no horizonte, uma foca na praia — ajuda os investigadores a perceber que animais usam que águas, onde e quando.",
     "notice": "O formulário online estará disponível em breve. Até lá, guarde as suas notas e fotografias: todos os registos contam.",
     "sightingTitle": "Um avistamento no mar ou da costa",
     "sightingText": "O que anotar para que o seu registo seja o mais útil possível:",
@@ -348,7 +350,7 @@
       "choose": "Escolha…",
       "location": "Local",
       "locationHint": "O nome de um local, praia ou ponto de referência.",
-      "locationPlaceholder": "p. ex. 3 milhas ao largo do Cabo Espichel",
+      "locationPlaceholder": "ex.: 3 milhas à saída do porto",
       "position": "Coordenadas (opcional)",
       "lat": "Latitude",
       "lng": "Longitude",
@@ -406,7 +408,7 @@
     "tag": "Sobre",
     "title": "Um guia de campo",
     "titleHighlight": "para um oceano vivo",
-    "intro": "O WhaleTale reúne a ciência das baleias, golfinhos, botos e focas das águas portuguesas — da costa continental aos Açores e à Madeira — e convida todos a ajudar a estudá-los.",
+    "intro": "O WhaleTale reúne a ciência de todos os mamíferos marinhos do mundo — baleias, golfinhos, botos, focas, leões-marinhos, a morsa, os sirénios, as lontras e o urso-polar — e convida todos a ajudar a estudá-los. Portugal, onde o projeto nasceu, é a nossa região em destaque.",
     "jumpLabel": "Ir para uma secção",
     "missionNav": "Missão",
     "mission": [
@@ -418,7 +420,7 @@
       {
         "icon": "lucide:binoculars",
         "title": "Observar",
-        "text": "Fichas de espécies e dicas de campo para reconhecer o que vê, e saber onde e quando procurar."
+        "text": "Fichas de todas as espécies vivas de mamíferos marinhos, com dicas de campo para reconhecer o que vê."
       },
       {
         "icon": "lucide:send",
@@ -430,7 +432,7 @@
     "methodologyTitle": "Como trabalhamos",
     "methodologyIntro": "Para um recurso de ciência, a confiança é tudo. Estas são as regras que seguimos.",
     "methodology": [
-      "Os factos vêm de investigação revista por pares e de referências como a Lista Vermelha da UICN e o Livro Vermelho dos Mamíferos de Portugal.",
+      "Os factos vêm de investigação revista por pares e de obras de referência, como a Lista Vermelha da UICN e a lista de espécies da Society for Marine Mammalogy.",
       "Quando os estudos divergem, apresentamos intervalos ou valores arredondados em vez de um número falsamente preciso.",
       "Cada página indica as fontes em que se baseia.",
       "Os registos de campo são verificados antes de entrarem no arquivo.",
@@ -463,16 +465,16 @@
     "tag": "Explorador de espécies",
     "title": "Encontre uma",
     "titleHighlight": "espécie",
-    "intro": "Pesquise e filtre as {count} baleias, golfinhos, botos e focas registados na nossa costa e nas ilhas.",
+    "intro": "Pesquise e filtre as {count} espécies vivas de mamíferos marinhos, das grandes baleias ao minúsculo chungungo.",
     "identify": "Não sabe o que viu? Experimente o assistente de identificação"
   },
   "where": {
     "metaTitle": "Onde e quando · {site}",
     "regionMetaTitle": "{region} · {site}",
-    "tag": "Onde e quando",
+    "tag": "Região em destaque",
     "title": "Onde e quando",
     "titleHighlight": "procurar",
-    "intro": "As águas portuguesas vão da costa continental a dois arquipélagos atlânticos. Cada um tem os seus residentes, visitantes e estações.",
+    "intro": "A nossa região em destaque é Portugal, onde o WhaleTale nasceu. As suas águas estendem-se da costa continental a dois arquipélagos atlânticos, cada um com os seus residentes, visitantes e estações.",
     "breadcrumb": "Navegação estrutural",
     "regionsLabel": "Regiões",
     "regionLink": "Explorar {count} espécies",
@@ -636,12 +638,15 @@
     "tag": "Assistente de identificação",
     "title": "O que é",
     "titleHighlight": "que vi?",
-    "intro": "Responda a algumas perguntas sobre o seu encontro e sugerimos as espécies mais prováveis, começando pelas que estão na época.",
+    "intro": "Responda a algumas perguntas sobre o seu encontro e sugerimos as espécies mais prováveis.",
     "shapeQuestion": "Como era?",
     "shapes": {
       "whale": "Uma baleia",
       "dolphin": "Um golfinho ou boto",
-      "seal": "Uma foca"
+      "seal": "Uma foca, leão-marinho ou morsa",
+      "seacow": "Um manatim ou dugongo",
+      "otter": "Uma lontra",
+      "bear": "Um urso-polar"
     },
     "sizeQuestion": "Que comprimento, mais ou menos?",
     "regionQuestion": "Onde estava?",
@@ -650,11 +655,12 @@
     "start": "Comece por nos dizer como era.",
     "resultsTitle": "Espécies mais prováveis",
     "noResults": "Nenhuma espécie corresponde a estas respostas. Experimente “Não sei” numa delas.",
-    "resultsHint": "Primeiro as espécies na época, depois as mais vistas.",
+    "resultsHint": "As espécies mais avistadas aparecem primeiro. Em Portugal, as espécies da época aparecem primeiro.",
     "inSeason": "Na época",
     "outOfSeason": "Menos provável este mês",
     "nextStep": "Encontrou-a?",
-    "reportLink": "Registe o seu avistamento"
+    "reportLink": "Registe o seu avistamento",
+    "featuredRegion": "Portugal — {region}"
   },
   "notFound": {
     "error": "Erro: 404",
@@ -687,15 +693,24 @@
     "filters": {
       "status": "Estado de conservação",
       "statusHint": "Lista Vermelha da UICN, global",
-      "presence": "Presença em águas portuguesas",
-      "sightings": "Frequência de avistamento",
+      "presence": "Presença em Portugal",
+      "sightings": "Frequência de avistamento em Portugal",
       "size": "Tamanho em adulto",
       "trend": "Tendência populacional"
     },
     "regions": {
       "mainland": "Costa continental",
       "azores": "Açores",
-      "madeira": "Madeira"
+      "madeira": "Madeira",
+      "north-atlantic": "Atlântico Norte",
+      "south-atlantic": "Atlântico Sul",
+      "mediterranean": "Mediterrâneo e mar Negro",
+      "north-pacific": "Pacífico Norte",
+      "south-pacific": "Pacífico Sul",
+      "indian": "Oceano Índico",
+      "arctic": "Ártico",
+      "southern": "Oceano Antártico",
+      "freshwater": "Rios e lagos"
     },
     "presence": {
       "Resident (year-round)": "Residente",
@@ -715,7 +730,9 @@
       "size-desc": "Tamanho, maior primeiro",
       "size-asc": "Tamanho, menor primeiro",
       "threat": "Mais ameaçadas"
-    }
+    },
+    "oceansLabel": "Oceanos e rios",
+    "featuredLabel": "Região em destaque: Portugal"
   },
   "species": {
     "metaTitle": "{name} ({scientificName}) · WhaleTale",
@@ -742,7 +759,7 @@
     "guideTitle": "Conheça",
     "guideHighlight": "esta espécie",
     "guideIntro": "Tudo o que precisa para reconhecer, compreender e ajudar a proteger esta espécie.",
-    "whereToSpot": "Onde a avistar",
+    "whereToSpot": "Em Portugal",
     "presence": "Presença",
     "sightings": "Avistamentos",
     "bestMonths": "Melhores meses",
@@ -758,7 +775,7 @@
     "legalProtection": "Proteção legal",
     "classification": "Classificação científica",
     "ctaTitle": "Avistou esta espécie?",
-    "ctaText": "Cada registo ajuda os investigadores a acompanhar as populações ao longo da nossa costa.",
+    "ctaText": "Cada registo ajuda os investigadores a acompanhar as populações em todo o mundo.",
     "help": {
       "title": "Como pode ajudar",
       "intro": "Gestos práticos, ao alcance de todos, contra as ameaças que esta espécie enfrenta.",
@@ -789,7 +806,7 @@
         },
         "report": {
           "title": "Partilhe os seus avistamentos",
-          "text": "Cada registo ajuda os investigadores a acompanhar esta espécie na nossa costa e nas ilhas."
+          "text": "Cada registo ajuda os investigadores a acompanhar esta espécie onde quer que viva."
         }
       }
     },
@@ -798,9 +815,11 @@
     "recentTitle": "Avistamentos recentes",
     "allReports": "Todos os registos de campo",
     "sourcesTitle": "Fontes e revisão",
-    "sourcesText": "Esta ficha foi compilada a partir da Lista Vermelha da UICN, do Livro Vermelho dos Mamíferos de Portugal e da literatura científica revista por pares.",
+    "sourcesText": "Esta ficha foi compilada a partir da Lista Vermelha da UICN, da lista de espécies da Society for Marine Mammalogy e da literatura científica revista por pares.",
     "sourcesMethodology": "Como trabalhamos",
-    "sourcesError": "Encontrou um erro?"
+    "sourcesError": "Encontrou um erro?",
+    "whereInWorld": "Onde vive no mundo",
+    "featuredRegion": "Região em destaque"
   },
   "data": {
     "iucn": {
@@ -819,14 +838,26 @@
       "Toothed whale": "Baleia com dentes",
       "Dolphin": "Golfinho",
       "Porpoise": "Boto",
-      "Seal": "Foca"
+      "Seal": "Foca",
+      "River dolphin": "Golfinho de rio",
+      "Sea lion & fur seal": "Leão-marinho ou urso-marinho",
+      "Walrus": "Morsa",
+      "Sirenian": "Sirénio",
+      "Otter": "Lontra",
+      "Polar bear": "Urso-polar"
     },
     "groupsPlural": {
       "Baleen whale": "Baleias de barbas",
       "Toothed whale": "Baleias com dentes",
       "Dolphin": "Golfinhos",
       "Porpoise": "Botos",
-      "Seal": "Focas"
+      "Seal": "Focas",
+      "River dolphin": "Golfinhos de rio",
+      "Sea lion & fur seal": "Leões-marinhos e ursos-marinhos",
+      "Walrus": "Morsa",
+      "Sirenian": "Manatins e dugongo",
+      "Otter": "Lontras",
+      "Polar bear": "Urso-polar"
     },
     "trends": {
       "increasing": "Em aumento",
@@ -863,7 +894,8 @@
       "Habitat loss": "Perda de habitat",
       "Human disturbance": "Perturbação humana",
       "Small population": "População reduzida",
-      "Hunting": "Caça"
+      "Hunting": "Caça",
+      "Sea ice loss": "Perda de gelo marinho"
     },
     "regions": {
       "Azores": "Açores",
@@ -895,7 +927,28 @@
       "Bern Convention — Appendix III": "Convenção de Berna — Anexo III",
       "IWC commercial whaling moratorium": "Moratória da CBI à caça comercial da baleia",
       "ASCOBANS": "ASCOBANS",
-      "Desertas Islands Nature Reserve": "Reserva Natural das Ilhas Desertas"
+      "Desertas Islands Nature Reserve": "Reserva Natural das Ilhas Desertas",
+      "US Endangered Species Act": "Lei das Espécies Ameaçadas dos EUA",
+      "US Endangered Species Act — Endangered": "Lei das Espécies Ameaçadas dos EUA — Em perigo",
+      "US Endangered Species Act — Endangered (western population)": "Lei das Espécies Ameaçadas dos EUA — Em perigo (população ocidental)",
+      "US Endangered Species Act — Endangered (Cook Inlet population)": "Lei das Espécies Ameaçadas dos EUA — Em perigo (população de Cook Inlet)",
+      "US Endangered Species Act — Endangered (Taiwanese subspecies)": "Lei das Espécies Ameaçadas dos EUA — Em perigo (subespécie de Taiwan)",
+      "US Endangered Species Act — Endangered (Saimaa and Ladoga populations)": "Lei das Espécies Ameaçadas dos EUA — Em perigo (populações de Saimaa e Ladoga)",
+      "US Endangered Species Act — Threatened": "Lei das Espécies Ameaçadas dos EUA — Ameaçada",
+      "US Endangered Species Act — Threatened (Beringia and Okhotsk populations)": "Lei das Espécies Ameaçadas dos EUA — Ameaçada (populações da Beríngia e de Okhotsk)",
+      "US Endangered Species Act — Threatened (Arctic population)": "Lei das Espécies Ameaçadas dos EUA — Ameaçada (população do Ártico)",
+      "US Endangered Species Act — Threatened (southern population)": "Lei das Espécies Ameaçadas dos EUA — Ameaçada (população do sul)",
+      "US Endangered Species Act — Threatened (southern and south-west Alaska populations)": "Lei das Espécies Ameaçadas dos EUA — Ameaçada (populações do sul e do sudoeste do Alasca)",
+      "US Marine Mammal Protection Act": "Lei de Proteção dos Mamíferos Marinhos dos EUA",
+      "New Zealand Marine Mammals Protection Act": "Lei de Proteção dos Mamíferos Marinhos da Nova Zelândia",
+      "EU Habitats Directive — Annex II & IV (Saimaa population)": "Diretiva Habitats da UE — Anexos II e IV (população de Saimaa)",
+      "EU Habitats Directive — Annex V": "Diretiva Habitats da UE — Anexo V",
+      "Antarctic Treaty System": "Sistema do Tratado da Antártida",
+      "Convention for the Conservation of Antarctic Seals": "Convenção para a Conservação das Focas Antárticas",
+      "Galápagos Marine Reserve": "Reserva Marinha das Galápagos",
+      "Australian Environment Protection and Biodiversity Conservation Act — Endangered": "Lei australiana de Proteção do Ambiente e Conservação da Biodiversidade — Em perigo",
+      "CITES — Appendix II (southern sea otter: Appendix I)": "CITES — Apêndice II (lontra-marinha-do-sul: Apêndice I)",
+      "Agreement on the Conservation of Polar Bears": "Acordo para a Conservação dos Ursos-Polares"
     },
     "distribution": {
       "Western North Atlantic": "Atlântico Norte ocidental",
@@ -921,7 +974,86 @@
       "Coastal North Atlantic & North Pacific": "Costas do Atlântico Norte e do Pacífico Norte",
       "Madeira, NW Africa & E Mediterranean": "Madeira, noroeste de África e Mediterrâneo oriental",
       "Temperate North Atlantic coasts": "Costas temperadas do Atlântico Norte",
-      "Arctic & sub-Arctic North Atlantic": "Atlântico Norte ártico e subártico"
+      "Arctic & sub-Arctic North Atlantic": "Atlântico Norte ártico e subártico",
+      "Arctic & sub-Arctic seas": "Mares árticos e subárticos",
+      "Temperate & sub-Antarctic Southern Hemisphere": "Hemisfério Sul, de temperado a subantártico",
+      "North Pacific": "Pacífico Norte",
+      "Temperate Southern Hemisphere": "Hemisfério Sul temperado",
+      "North Pacific coasts": "Costas do Pacífico Norte",
+      "Southern Hemisphere, mainly Antarctic": "Hemisfério Sul, sobretudo na Antártida",
+      "Gulf of Mexico": "Golfo do México",
+      "Tropical Indo-Pacific & Atlantic": "Indo-Pacífico e Atlântico tropicais",
+      "Temperate North Atlantic": "Atlântico Norte temperado",
+      "Arctic & sub-Arctic coasts": "Costas árticas e subárticas",
+      "High Arctic": "Alto Ártico",
+      "Deep, cold North Pacific": "Águas profundas e frias do Pacífico Norte",
+      "Southern Ocean & cool Southern Hemisphere": "Oceano Antártico e Hemisfério Sul frio",
+      "Tropical Indo-Pacific": "Indo-Pacífico tropical",
+      "Temperate North Pacific": "Pacífico Norte temperado",
+      "Cool Southern Hemisphere": "Hemisfério Sul frio",
+      "Eastern North Pacific": "Pacífico Norte oriental",
+      "Tropical eastern Pacific": "Pacífico oriental tropical",
+      "Cold North Pacific": "Pacífico Norte frio",
+      "South Pacific": "Pacífico Sul",
+      "Tropical seas worldwide": "Mares tropicais de todo o mundo",
+      "Tropical & warm Atlantic": "Atlântico tropical e quente",
+      "Coastal Indian Ocean & western Pacific": "Costas do Índico e do Pacífico ocidental",
+      "Cold temperate North Atlantic": "Atlântico Norte temperado frio",
+      "Cold North Atlantic": "Atlântico Norte frio",
+      "Cool temperate North Pacific": "Pacífico Norte temperado frio",
+      "Cool coastal Southern Hemisphere": "Costas frias do Hemisfério Sul",
+      "Coasts of southern South America": "Costas do sul da América do Sul",
+      "Southern Ocean": "Oceano Antártico",
+      "Southern South America & Kerguelen": "Sul da América do Sul e Kerguelen",
+      "Coastal Chile": "Costa do Chile",
+      "Benguela coast of south-western Africa": "Costa de Benguela, no sudoeste de África",
+      "Coastal New Zealand": "Costas da Nova Zelândia",
+      "Coastal South-East Asia & rivers": "Costas e rios do Sudeste Asiático",
+      "Northern Australia & New Guinea": "Norte da Austrália e Nova Guiné",
+      "Amazon basin": "Bacia amazónica",
+      "Coastal Atlantic, Central & South America": "Costas atlânticas da América Central e do Sul",
+      "Coastal eastern Indian Ocean & western Pacific": "Costas do Índico oriental e do Pacífico ocidental",
+      "Coastal western Indian Ocean": "Costas do Índico ocidental",
+      "Coastal West Africa": "Costas da África Ocidental",
+      "Amazon & Orinoco basins": "Bacias do Amazonas e do Orinoco",
+      "Yangtze River (possibly extinct)": "Rio Yangtze (possivelmente extinto)",
+      "Ganges, Brahmaputra & Karnaphuli rivers": "Rios Ganges, Bramaputra e Karnaphuli",
+      "Indus River": "Rio Indo",
+      "Coastal Brazil, Uruguay & Argentina": "Costas do Brasil, Uruguai e Argentina",
+      "Northern Gulf of California": "Norte do golfo da Califórnia",
+      "Coastal South America": "Costas da América do Sul",
+      "Sub-Antarctic Southern Ocean": "Oceano Antártico subantártico",
+      "Coastal East Asia & Yangtze River": "Costas da Ásia Oriental e rio Yangtze",
+      "Coastal Indian Ocean & South-East Asia": "Costas do Índico e do Sudeste Asiático",
+      "Arctic seas & some northern lakes": "Mares árticos e alguns lagos do norte",
+      "North Pacific & Bering Sea ice": "Pacífico Norte e gelo do mar de Bering",
+      "Bering & Okhotsk seas": "Mares de Bering e de Okhotsk",
+      "North Atlantic & Arctic ice": "Atlântico Norte e gelo do Ártico",
+      "Antarctic pack ice": "Gelo flutuante antártico",
+      "Antarctic coasts & fast ice": "Costas e gelo costeiro da Antártida",
+      "Dense Antarctic pack ice": "Gelo antártico compacto",
+      "Sub-Antarctic islands & Southern Ocean": "Ilhas subantárticas e oceano Antártico",
+      "Hawaiian Islands": "Ilhas do Havai",
+      "Caspian Sea": "Mar Cáspio",
+      "Lake Baikal": "Lago Baikal",
+      "Mexico & California": "México e Califórnia",
+      "Sub-Antarctic islands": "Ilhas subantárticas",
+      "Sub-Antarctic islands of the Atlantic & Indian oceans": "Ilhas subantárticas do Atlântico e do Índico",
+      "Coasts of South America": "Costas da América do Sul",
+      "New Zealand & southern Australia": "Nova Zelândia e sul da Austrália",
+      "Galápagos Islands": "Ilhas Galápagos",
+      "Juan Fernández & Desventuradas Islands": "Ilhas Juan Fernández e Desventuradas",
+      "Southern Africa & south-eastern Australia": "África Austral e sudeste da Austrália",
+      "North Pacific rim": "Orla do Pacífico Norte",
+      "Pacific coast of North America": "Costa do Pacífico da América do Norte",
+      "Southern & western Australia": "Sul e oeste da Austrália",
+      "New Zealand & sub-Antarctic islands": "Nova Zelândia e ilhas subantárticas",
+      "Arctic seas": "Mares árticos",
+      "Coastal Indo-Pacific": "Costas do Indo-Pacífico",
+      "Caribbean & Atlantic coasts of the Americas": "Caraíbas e costas atlânticas das Américas",
+      "West & Central African coasts and rivers": "Costas e rios da África Ocidental e Central",
+      "Pacific coast of Peru & Chile": "Costa do Pacífico do Peru e do Chile",
+      "Arctic sea ice": "Gelo marinho do Ártico"
     },
     "nationalNotes": {
       "Sado estuary resident population": "População residente do estuário do Sado",
