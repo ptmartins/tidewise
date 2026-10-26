@@ -194,6 +194,18 @@ ul {
   color: var(--white);
 }
 
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: .55;
+  pointer-events: none;
+}
+
 :root[data-header-condensed] {
   --header-height: var(--navbar-condensed-height);
 }
@@ -222,13 +234,36 @@ ul {
     color: var(--accent);
   }
 
+  /* Filled buttons keep white text; the generic .btn:hover above would turn it accent-on-accent */
   .btn--primary:hover {
     background-color: var(--accent-dark);
     border-color: var(--accent-dark);
+    box-shadow: 0 4px 12px rgba(25, 84, 81, .25);
+    color: var(--white);
+    transform: translateY(-1px);
   }
 
   .btn--secondary:hover {
     background-color: var(--secondary-accent-dark);
     border-color: var(--secondary-accent-dark);
+    box-shadow: 0 4px 12px rgba(197, 95, 63, .25);
+    color: var(--white);
+    transform: translateY(-1px);
+  }
+
+  /* Pressed: drop back down (after the hover rules so it wins) */
+  .btn:active {
+    box-shadow: none;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+
+  .btn:hover {
+    transform: none;
   }
 }
