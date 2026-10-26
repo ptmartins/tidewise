@@ -20,10 +20,8 @@
     "strandingLabel": "Found a stranded animal? Get help now",
     "hotline": "Found a stranded animal?",
     "call": "Call {number}",
-    "whatToDo": "What to do",
     "about": "About",
     "species": "Species",
-    "where": "Where & when",
     "signIn": "Sign in",
     "signUp": "Create account"
   },
@@ -56,7 +54,6 @@
     "supportedBy": "Supported by",
     "copyright": "© {year} WhaleTale",
     "identify": "What did I see?",
-    "where": "Where & when",
     "privacy": "Privacy",
     "cookies": "Cookies"
   },
@@ -108,8 +105,7 @@
       "title": "Who’s around",
       "titleHighlight": "in {month}",
       "intro": "The species you’re most likely to meet in Portuguese waters this month.",
-      "all": "See all {count} species",
-      "calendar": "Seasonal calendar"
+      "all": "See all {count} species"
     }
   },
   "learn": {
@@ -467,57 +463,6 @@
     "titleHighlight": "species",
     "intro": "Search and filter all {count} living marine mammal species, from the great whales to the tiny marine otter.",
     "identify": "Not sure what you saw? Try the identification helper"
-  },
-  "where": {
-    "metaTitle": "Where & when · {site}",
-    "regionMetaTitle": "{region} · {site}",
-    "tag": "Featured region",
-    "title": "Where and when",
-    "titleHighlight": "to look",
-    "intro": "Our featured region is Portugal, where WhaleTale began. Its waters stretch from the mainland coast to two Atlantic archipelagos, each with its own residents, visitors and seasons.",
-    "breadcrumb": "Breadcrumb",
-    "regionsLabel": "Regions",
-    "regionLink": "Explore {count} species",
-    "regions": {
-      "mainland": {
-        "title": "Mainland coast",
-        "teaser": "From the Sado estuary to the headlands of the Algarve, a long Atlantic coast shaped by upwelling.",
-        "intro": "Mainland Portugal faces the Atlantic for more than 900 km. Seasonal upwelling makes its shelf waters rich in sardine and other small fish, which draw common dolphins in large numbers. The Sado estuary is home to a small resident community of bottlenose dolphins, and harbour porpoises are found mostly in the north and centre."
-      },
-      "azores": {
-        "title": "Azores",
-        "teaser": "Nine volcanic islands in the middle of the North Atlantic, where deep water lies close to shore.",
-        "intro": "The Azores sit on the Mid-Atlantic Ridge, with depths of more than 1,000 m a few kilometres from the coast. Sperm whales are present all year, and in spring blue, fin and sei whales pass through on their way north. More than 20 cetacean species have been recorded here, making the archipelago one of Europe’s best places to watch whales."
-      },
-      "madeira": {
-        "title": "Madeira",
-        "teaser": "A subtropical archipelago with deep, warm water and one of the last monk seal colonies.",
-        "intro": "Madeira’s steep volcanic slopes drop quickly into deep, warm water. Bryde’s whales, Atlantic spotted dolphins and short-finned pilot whales are regulars, and the Desertas Islands shelter one of the last colonies of the Mediterranean monk seal."
-      }
-    },
-    "hotspotsLabel": "Places in this region",
-    "speciesTitle": "{count} species recorded",
-    "speciesIntro": "Commonest first. Open a species for when and where to look for it.",
-    "calendarTitle": "Seasonal calendar",
-    "calendarIntro": "Month by month, the best time to look for each species. Highlighted columns show the current month.",
-    "calendarRegionIntro": "The best months to look for each species. The current month is highlighted.",
-    "calendarCaption": "Best months to see each species: {region}",
-    "calendarNote": "{count} species are too rarely recorded to show a seasonal pattern and aren’t listed.",
-    "recentTitle": "Latest reports",
-    "noRecent": "No reports from this region yet.",
-    "allReports": "All field reports",
-    "watchingTitle": "Watch responsibly",
-    "watchingIntro": "A good encounter is one where the animals carry on as if you weren’t there.",
-    "watching": [
-      "Keep your distance and let the animals decide how close to come.",
-      "Approach slowly from the side and slightly behind — never head-on, and never cut through a group.",
-      "Keep a steady, slow speed near animals and avoid sudden changes of course.",
-      "Limit your time with each group, and leave if they show signs of disturbance.",
-      "Never feed, touch or swim with wild cetaceans or seals.",
-      "Choose licensed operators that follow the national and regional whale-watching rules."
-    ],
-    "ctaTitle": "Out on the water in {region}?",
-    "ctaText": "Every sighting you share helps researchers follow these animals through the seasons."
   },
   "newsletter": {
     "title": "Seasonal updates",

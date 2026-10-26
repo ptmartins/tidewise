@@ -97,10 +97,6 @@ export default async function Home() {
                             {format(home.season.all, { count: species.length })}
                             <Icon icon="lucide:arrow-right" />
                         </Link>
-                        <Link href={`/${locale}/where/calendar`} className="btn">
-                            <Icon icon="lucide:calendar-days" />
-                            {home.season.calendar}
-                        </Link>
                     </div>
                 </div>
             </section>

@@ -21,7 +21,6 @@ function NavBar({ condensed }) {
     const links = [
         { href: `${home}/species`, label: nav.species },
         { href: `${home}/learn`, label: nav.learn },
-        { href: `${home}/where`, label: nav.where },
         { href: `${home}/sightings`, label: nav.fieldReports },
         { href: `${home}/links`, label: nav.links },
     ];

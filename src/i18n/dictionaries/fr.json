@@ -20,10 +20,8 @@
     "strandingLabel": "Vous avez trouvé un animal échoué ? Obtenez de l’aide",
     "hotline": "Vous avez trouvé un animal échoué ?",
     "call": "Appelez le {number}",
-    "whatToDo": "Que faire",
     "about": "À propos",
     "species": "Espèces",
-    "where": "Où et quand",
     "signIn": "Se connecter",
     "signUp": "Créer un compte"
   },
@@ -56,7 +54,6 @@
     "supportedBy": "Avec le soutien de",
     "copyright": "© {year} WhaleTale",
     "identify": "Qu’ai-je vu ?",
-    "where": "Où et quand",
     "privacy": "Confidentialité",
     "cookies": "Cookies"
   },
@@ -108,8 +105,7 @@
       "title": "Qui est là",
       "titleHighlight": "en {month}",
       "intro": "Les espèces que vous avez le plus de chances de rencontrer dans les eaux portugaises ce mois-ci.",
-      "all": "Voir les {count} espèces",
-      "calendar": "Calendrier des saisons"
+      "all": "Voir les {count} espèces"
     }
   },
   "learn": {
@@ -467,57 +463,6 @@
     "titleHighlight": "espèce",
     "intro": "Recherchez et filtrez les {count} espèces vivantes de mammifères marins, des grandes baleines à la minuscule loutre de mer du Chili.",
     "identify": "Vous ne savez pas ce que vous avez vu ? Essayez l’aide à l’identification"
-  },
-  "where": {
-    "metaTitle": "Où et quand · {site}",
-    "regionMetaTitle": "{region} · {site}",
-    "tag": "Région à la une",
-    "title": "Où et quand",
-    "titleHighlight": "observer",
-    "intro": "Notre région à la une est le Portugal, où WhaleTale est né. Ses eaux s’étendent de la côte continentale à deux archipels de l’Atlantique, chacun avec ses résidents, ses visiteurs et ses saisons.",
-    "breadcrumb": "Fil d’Ariane",
-    "regionsLabel": "Régions",
-    "regionLink": "Découvrir {count} espèces",
-    "regions": {
-      "mainland": {
-        "title": "Côte continentale",
-        "teaser": "De l’estuaire du Sado aux caps de l’Algarve, une longue côte atlantique façonnée par les remontées d’eau froide.",
-        "intro": "Le Portugal continental borde l’Atlantique sur plus de 900 km. Les remontées d’eau saisonnières (upwelling) enrichissent le plateau en sardines et autres petits poissons, qui attirent les dauphins communs en grand nombre. L’estuaire du Sado abrite une petite communauté résidente de grands dauphins, et les marsouins se trouvent surtout dans le nord et le centre."
-      },
-      "azores": {
-        "title": "Açores",
-        "teaser": "Neuf îles volcaniques au milieu de l’Atlantique Nord, où les eaux profondes sont proches du rivage.",
-        "intro": "Les Açores reposent sur la dorsale médio-atlantique, avec des profondeurs de plus de 1 000 m à quelques kilomètres des côtes. Les cachalots y sont présents toute l’année et, au printemps, les baleines bleues, rorquals communs et rorquals boréaux y passent en remontant vers le nord. Plus de 20 espèces de cétacés y ont été observées, ce qui fait de l’archipel l’un des meilleurs sites d’Europe pour observer les baleines."
-      },
-      "madeira": {
-        "title": "Madère",
-        "teaser": "Un archipel subtropical aux eaux profondes et chaudes, avec l’une des dernières colonies de phoques moines.",
-        "intro": "Les pentes volcaniques abruptes de Madère plongent rapidement dans des eaux profondes et chaudes. Rorquals de Bryde, dauphins tachetés de l’Atlantique et globicéphales tropicaux y sont réguliers, et les îles Desertas abritent l’une des dernières colonies de phoques moines de Méditerranée."
-      }
-    },
-    "hotspotsLabel": "Lieux de cette région",
-    "speciesTitle": "{count} espèces observées",
-    "speciesIntro": "Les plus communes d’abord. Ouvrez une espèce pour savoir quand et où la chercher.",
-    "calendarTitle": "Calendrier des saisons",
-    "calendarIntro": "Mois par mois, la meilleure période pour chercher chaque espèce. La colonne mise en évidence correspond au mois en cours.",
-    "calendarRegionIntro": "Les meilleurs mois pour chercher chaque espèce. Le mois en cours est mis en évidence.",
-    "calendarCaption": "Meilleurs mois pour observer chaque espèce : {region}",
-    "calendarNote": "{count} espèces sont trop rarement observées pour montrer un rythme saisonnier et ne figurent pas dans la liste.",
-    "recentTitle": "Derniers relevés",
-    "noRecent": "Aucun relevé dans cette région pour l’instant.",
-    "allReports": "Tous les relevés de terrain",
-    "watchingTitle": "Observer de façon responsable",
-    "watchingIntro": "Une bonne rencontre, c’est quand les animaux continuent comme si vous n’étiez pas là.",
-    "watching": [
-      "Gardez vos distances et laissez les animaux décider de s’approcher.",
-      "Approchez lentement, par le côté et légèrement par l’arrière — jamais de face, et ne traversez jamais un groupe.",
-      "Gardez une vitesse lente et constante près des animaux et évitez les changements de cap brusques.",
-      "Limitez le temps passé avec chaque groupe et éloignez-vous s’il montre des signes de dérangement.",
-      "Ne nourrissez pas, ne touchez pas et ne nagez pas avec des cétacés ou des phoques sauvages.",
-      "Choisissez des opérateurs agréés qui respectent les règles nationales et régionales d’observation des cétacés."
-    ],
-    "ctaTitle": "Vous partez en mer ?",
-    "ctaText": "Chaque observation partagée aide les chercheurs à suivre ces animaux au fil des saisons."
   },
   "newsletter": {
     "title": "Nouvelles de saison",

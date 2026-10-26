@@ -31,10 +31,6 @@ function TopBar({ hidden }) {
                         <Icon icon="lucide:phone" width="13" height="13" />
                         {format(nav.call, { number: hotlineLabel(hotline) })}
                     </a>
-                    <Link href={`${home}/stranding`} className={styles.hotline__more}>
-                        {nav.whatToDo}
-                        <Icon icon="lucide:arrow-right" width="14" height="14" />
-                    </Link>
                 </p>
 
                 <ul className={styles.languages} aria-label={nav.language}>

@@ -22,7 +22,6 @@ async function Footer() {
             links: [
                 { href: `${home}/species`, label: footer.species },
                 { href: `${home}/identify`, label: footer.identify },
-                { href: `${home}/where`, label: footer.where },
                 { href: `${home}/sightings`, label: footer.fieldReports },
                 { href: `${home}/links`, label: footer.resources },
             ],
