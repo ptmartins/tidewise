@@ -58,7 +58,9 @@ const nextConfig = {
         { key: 'X-Content-Type-Options', value: 'nosniff' },
         { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
         { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
-        { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
+        // HTTPS only, for 2 years, on every subdomain. `preload` allows the domain onto browsers' built-in
+        // HTTPS-only list (hstspreload.org). Removal takes months, so every subdomain must serve HTTPS first.
+        { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
         // The report form asks for location; nothing uses the camera or microphone
         { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(self)' },
       ],
