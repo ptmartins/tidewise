@@ -607,10 +607,10 @@
         "duration": "Until sign-out"
       },
       {
-        "name": "__cf_bm",
+        "name": "__cf_bm, _cfuvid",
         "provider": "Cloudflare, for Clerk",
-        "purpose": "Blocks bots at sign-in.",
-        "duration": "30 minutes"
+        "purpose": "Protect our sign-in service from bots and abuse.",
+        "duration": "30 minutes or less"
       }
     ],
     "sections": [

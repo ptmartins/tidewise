@@ -607,10 +607,10 @@
         "duration": "Jusqu’à la déconnexion"
       },
       {
-        "name": "__cf_bm",
+        "name": "__cf_bm, _cfuvid",
         "provider": "Cloudflare, pour Clerk",
-        "purpose": "Bloque les robots à la connexion.",
-        "duration": "30 minutes"
+        "purpose": "Protègent notre service de connexion contre les robots et les abus.",
+        "duration": "30 minutes ou moins"
       }
     ],
     "sections": [

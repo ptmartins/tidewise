@@ -607,10 +607,10 @@
         "duration": "Até terminar sessão"
       },
       {
-        "name": "__cf_bm",
+        "name": "__cf_bm, _cfuvid",
         "provider": "Cloudflare, para a Clerk",
-        "purpose": "Bloqueia bots no início de sessão.",
-        "duration": "30 minutos"
+        "purpose": "Protegem o nosso serviço de autenticação contra bots e abusos.",
+        "duration": "30 minutos ou menos"
       }
     ],
     "sections": [

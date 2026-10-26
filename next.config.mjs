@@ -7,19 +7,21 @@ const clerk = ['https://*.clerk.accounts.dev', clerkHost && `https://${clerkHost
 const iconify = 'https://api.iconify.design https://api.simplesvg.com https://api.unisvg.com';
 const dev = process.env.NODE_ENV === 'development';
 
-// Enforced everywhere: blocks plugins, <base> hijacking and framing by other sites, and can't break any page
+// The Studio's policy: blocks plugins, <base> hijacking and framing by other sites. The Studio loads
+// scripts and data from many Sanity hosts, so it doesn't get the full allowlist below.
 const BASE_CSP = "base-uri 'self'; object-src 'none'; frame-ancestors 'self'";
 
-// Full allowlist for the site (not the Studio), reported only for now: check the browser console
-// for violations, then move it to the enforced header. Scripts keep 'unsafe-inline' because
-// prerendered pages can't carry per-request nonces.
+// Full allowlist for the site (everything but the Studio). Scripts keep 'unsafe-inline' because
+// prerendered pages can't carry per-request nonces. Adding a third-party service? Allow its hosts
+// here first, or the browser will block it (the console shows a CSP violation).
 const SITE_CSP = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ''} ${clerk} https://challenges.cloudflare.com`,
   "style-src 'self' 'unsafe-inline'",
   `img-src 'self' data: blob: https://cdn.sanity.io https://img.clerk.com https://tile.openstreetmap.org`,
   "font-src 'self'",
-  `connect-src 'self' ${clerk} ${iconify}`,
+  // clerk-telemetry.com: Clerk's development instances send usage telemetry
+  `connect-src 'self' ${clerk} https://clerk-telemetry.com ${iconify}`,
   "frame-src https://challenges.cloudflare.com",
   "worker-src 'self' blob:",
   "form-action 'self'",
@@ -39,15 +41,20 @@ const nextConfig = {
       bodySizeLimit: '13mb',
     },
   },
-  // Baseline hardening for every response, plus the report-only CSP for everything but the Studio
+  // Baseline hardening for every response, plus a CSP: the full allowlist for the site, the base one for the Studio.
+  // Each path gets exactly one CSP rule, since a later rule setting the same header would override an earlier one.
   async headers() {
     return [{
       source: '/((?!studio).*)',
-      headers: [{ key: 'Content-Security-Policy-Report-Only', value: SITE_CSP }],
+      headers: [{ key: 'Content-Security-Policy', value: SITE_CSP }],
+    }, {
+      source: '/studio/:path*',
+      headers: [{ key: 'Content-Security-Policy', value: BASE_CSP }],
     }, {
       source: '/:path*',
       headers: [
-        { key: 'Content-Security-Policy', value: BASE_CSP },
+        // Isolates the window from cross-origin pages it opens or is opened by; popups (e.g. OAuth) still work
+        { key: 'Cross-Origin-Opener-Policy', value: 'same-origin-allow-popups' },
         { key: 'X-Content-Type-Options', value: 'nosniff' },
         { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
         { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
