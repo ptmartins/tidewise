@@ -3,7 +3,9 @@ const clerkHost = (() => {
   const encoded = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY?.split('_')[2];
   return encoded ? Buffer.from(encoded, 'base64').toString().replace(/\$$/, '') : '';
 })();
-const clerk = ['https://*.clerk.accounts.dev', clerkHost && `https://${clerkHost}`].filter(Boolean).join(' ');
+// *.protect.clerk.com: Clerk's bot protection, which loads a script from there and probes it on several
+// non-standard ports, hence :* (a host without a port only allows 443)
+const clerk = ['https://*.clerk.accounts.dev', clerkHost && `https://${clerkHost}`, 'https://*.protect.clerk.com:*'].filter(Boolean).join(' ');
 const iconify = 'https://api.iconify.design https://api.simplesvg.com https://api.unisvg.com';
 const dev = process.env.NODE_ENV === 'development';
 
